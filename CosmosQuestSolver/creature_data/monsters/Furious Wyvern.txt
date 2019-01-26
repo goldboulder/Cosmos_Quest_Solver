@@ -1,0 +1,6 @@
+element Fire
+att 244
+hp 352
+tier 19
+followers 25170000
+skill Nothing

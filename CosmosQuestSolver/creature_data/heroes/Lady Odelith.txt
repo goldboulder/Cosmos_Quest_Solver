@@ -1,0 +1,10 @@
+id 54
+rarity Rare
+element Water
+baseAtt 36
+baseHP 36
+skill StatAura 0 4 Water
+tier1HP 19
+tier2Att 17
+tier4Stats 29
+tier5Skill StatAura 0 8 Water

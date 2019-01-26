@@ -1,0 +1,10 @@
+id 4
+rarity Common
+element Earth
+baseAtt 8
+baseHP 30
+skill StatAura 0 1 Earth
+tier1HP 40
+tier2Att 7
+tier4Stats 5
+tier5Skill StatAura 0 2 Earth

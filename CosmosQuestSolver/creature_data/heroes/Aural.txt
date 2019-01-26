@@ -1,0 +1,10 @@
+id 31
+rarity Rare
+element Water
+baseAtt 50
+baseHP 18
+skill Berserk 1.2
+tier1HP 33
+tier2Att 31
+tier4Stats 28
+tier5Skill Berserk 1.32

@@ -1,0 +1,4 @@
+M,F,30,0
+H,Ignitor,1000,0
+H,Undine,1000,0
+H,Neptunius,1000,0

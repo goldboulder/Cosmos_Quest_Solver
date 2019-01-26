@@ -1,0 +1,10 @@
+id 55
+rarity Legendary
+element Air
+baseAtt 54
+baseHP 34
+skill ScaleableStatAura 0 1 Air 9.0
+tier1HP 23
+tier2Att 68
+tier4Stats 71
+tier5Skill ScaleableStatAura 0 1 Air 8.2

@@ -1,0 +1,6 @@
+element Air
+att 8
+hp 20
+tier 1
+followers 1000
+skill Nothing

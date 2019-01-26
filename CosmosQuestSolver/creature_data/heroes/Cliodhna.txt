@@ -1,0 +1,10 @@
+id 129
+rarity Legendary
+element Air
+baseAtt 60
+baseHP 150
+skill Revenge 1.0
+tier1HP 193
+tier2Att 240
+tier4Stats 78
+tier5Skill Revenge 1.1

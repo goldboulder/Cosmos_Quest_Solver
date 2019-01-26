@@ -1,0 +1,10 @@
+id 142
+rarity Legendary
+element Earth
+baseAtt 54
+baseHP 48
+skill UnitBuff 15 15
+tier1HP 57
+tier2Att 178
+tier4Stats 53
+tier5Skill UnitBuff 30 30

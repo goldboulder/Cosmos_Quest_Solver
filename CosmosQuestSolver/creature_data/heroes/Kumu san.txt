@@ -1,0 +1,10 @@
+id 103
+rarity Legendary
+element Fire
+baseAtt 38
+baseHP 70
+skill Reflect 0.2
+tier1HP 134
+tier2Att 132
+tier4Stats 135
+tier5Skill Reflect 0.22

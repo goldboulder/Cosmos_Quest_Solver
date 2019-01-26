@@ -1,0 +1,10 @@
+id 118
+rarity Ascended
+element Air
+baseAtt 135
+baseHP 85
+skill ScaleableStatAura 0 1 Air 5.5
+tier1HP 148
+tier2Att 113
+tier4Stats 217
+tier5Skill ScaleableStatAura 0 1 Air 5.0

@@ -1,0 +1,10 @@
+id 143
+rarity Ascended
+element Earth
+baseAtt 131
+baseHP 117
+skill UnitBuff 35 35
+tier1HP 90
+tier2Att 117
+tier4Stats 124
+tier5Skill UnitBuff 70 70

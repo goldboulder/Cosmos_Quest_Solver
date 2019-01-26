@@ -1,0 +1,10 @@
+id 47
+rarity Legendary
+element Fire
+baseAtt 32
+baseHP 76
+skill Purity 2.0
+tier1HP 85
+tier2Att 28
+tier4Stats 48
+tier5Skill Purity 2.2

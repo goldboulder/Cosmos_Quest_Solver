@@ -1,0 +1,10 @@
+id 80
+rarity Ascended
+element Water
+baseAtt 110
+baseHP 300
+skill ScaleableAntiAOE 0.005
+tier1HP 291
+tier2Att 20
+tier4Stats 58
+tier5Skill ScaleableAntiAOE 0.0055

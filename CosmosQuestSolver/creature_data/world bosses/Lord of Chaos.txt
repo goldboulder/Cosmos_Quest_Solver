@@ -1,0 +1,4 @@
+id 72
+element Fire
+baseAtt 113
+skill AOE 50

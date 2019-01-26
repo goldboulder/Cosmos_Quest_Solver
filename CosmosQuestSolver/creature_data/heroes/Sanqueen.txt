@@ -1,0 +1,10 @@
+id 128
+rarity Rare
+element Water
+baseAtt 22
+baseHP 88
+skill Vampyrism 0.8
+tier1HP 71
+tier2Att 8
+tier4Stats 16
+tier5Skill Vampyrism 0.88

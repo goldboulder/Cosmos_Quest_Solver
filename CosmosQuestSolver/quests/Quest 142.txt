@@ -1,0 +1,4 @@
+M,A,30
+M,W,29
+M,E,29
+H,Lady Odelith,1000,0

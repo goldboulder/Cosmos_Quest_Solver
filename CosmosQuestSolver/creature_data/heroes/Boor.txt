@@ -1,0 +1,10 @@
+id 94
+rarity Rare
+element Fire
+baseAtt 36
+baseHP 36
+skill Train 3
+tier1HP 19
+tier2Att 49
+tier4Stats 20
+tier5Skill Train 6

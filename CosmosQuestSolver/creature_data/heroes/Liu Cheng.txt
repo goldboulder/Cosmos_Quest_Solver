@@ -1,0 +1,10 @@
+id 104
+rarity Legendary
+element Water
+baseAtt 42
+baseHP 78
+skill Reflect 0.25
+tier1HP 113
+tier2Att 147
+tier4Stats 80
+tier5Skill Reflect 0.275

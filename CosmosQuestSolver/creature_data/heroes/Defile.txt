@@ -1,0 +1,10 @@
+id 112
+rarity Legendary
+element Fire
+baseAtt 48
+baseHP 52
+skill BloodBomb 50
+tier1HP 60
+tier2Att 138
+tier4Stats 72
+tier5Skill BloodBomb 100

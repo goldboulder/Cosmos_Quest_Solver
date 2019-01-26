@@ -1,0 +1,140 @@
+Hunter,false,false
+Shaman,false,false
+Alpha,false,false
+Carl,false,false
+Nimue,false,false
+Athos,false,false
+Jet,false,false
+Geron,false,false
+Rei,false,false
+Ailen,false,false
+Faefyr,false,false
+Auri,false,false
+K41RY,false,false
+T4URUS,false,false
+TR0N1X,false,false
+Aquortis,false,false
+Aeris,false,false
+Geum,false,false
+Rudean,false,false
+Aural,false,false
+Geror,false,false
+Ourea,false,false
+Erebus,false,false
+Pontus,false,false
+Oymos,false,false
+Xarth,false,false
+Atzar,false,false
+Hama,false,false
+Hallinskidi,false,false
+Rigr,false,false
+Toth,false,false
+Ganah,false,false
+Dagda,false,false
+Bylar,false,false
+Boor,false,false
+Bavah,false,false
+Taint,false,false
+Putrid,false,false
+Defile,true,false
+Raze,false,false
+Ruin,false,false
+Seethe,false,false
+Ascended Alpha,false,false
+Ascended Athos,true,false
+Ascended Rei,false,false
+Ascended Auri,false,false
+Ascended TR0N1X,true,false
+Ascended Geum,true,false
+Ascended Geror,false,false
+Ascended Pontus,true,false
+Ascended Atzar,false,false
+Ascended Rigr,true,false
+Ascended Dagda,false,false
+Ascended Bavah,false,false
+Ascended Defile,false,false
+Ascended Seethe,false,false
+Valor,false,false
+Rokka,false,false
+Pyromancer,false,false
+Bewat,false,false
+Nicte,false,false
+Forest Druid,false,false
+Ignitor,false,false
+Undine,false,false
+Chroma,false,false
+Petry,false,false
+Zaytus,false,false
+Lady Odelith,false,false
+Shygu,false,false
+Thert,false,false
+Lord Kirk,false,false
+Neptunius,false,false
+Hosokawa,false,false
+Takeda,false,false
+Hirate,true,false
+Hattori,false,false
+Mahatma,false,false
+Jade,false,false
+Edana,false,false
+Dybbuk,false,false
+Ascended Shygu,true,false
+Ascended Thert,true,false
+Ascended Lord Kirk,true,false
+Ascended Neptunius,true,false
+Ascended Hosokawa,false,false
+Ascended Takeda,false,false
+Ascended Hirate,false,false
+Ascended Hattori,false,false
+Veildur,false,false
+Brynhildr,false,false
+Groth,false,false
+Zeth,false,false
+Koth,false,false
+Gurth,false,false
+Sigrun,false,false
+Koldis,false,false
+Alvitr,false,false
+Arshen,true,false
+Rua,true,false
+Dorth,true,false
+Kumu san,false,false
+Liu Cheng,false,false
+Hidoka,false,false
+Master Lee,true,false
+Buccaneer Beatrice,false,false
+Corsair Charles,false,false
+Marauder Magnus,true,false
+Raider Rose,false,false
+Werewolf,false,false
+Jack'o Knight,false,false
+Dullahan,false,false
+Billy,false,false
+Sanqueen,false,false
+Cliodhna,false,false
+Christmas Elf,false,false
+Reindeer,false,false
+Santa Claus,false,false
+Sexy Santa,true,false
+Fir,false,false
+5-12-6,false,false
+Kedari,false,false
+Frosty,false,false
+Leprechaun,true,false
+Sparks,false,false
+Leaf,false,false
+Flynn,false,false
+Lady of Twilight,false,false
+Tiny,false,false
+Nebra,false,false
+Bubbles,false,false
+James,false,false
+Dr Hawking,true,false
+Neil,true,false
+Guy,true,false
+Dicemaster,false,false
+Luxurius Maximus,false,false
+Pokerface,true,false
+Spyke,false,false
+Aoyuki,false,false
+GaiaByte,false,false

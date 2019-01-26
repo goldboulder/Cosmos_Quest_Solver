@@ -1,0 +1,10 @@
+id 76
+rarity Rare
+element Earth
+baseAtt 44
+baseHP 44
+skill Ricochet 0.66 5
+tier1HP 27
+tier2Att 41
+tier4Stats 40
+tier5Skill Ricochet 0.71 5

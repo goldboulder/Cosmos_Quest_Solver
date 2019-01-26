@@ -1,0 +1,10 @@
+id 105
+rarity Legendary
+element Earth
+baseAtt 44
+baseHP 86
+skill Reflect 0.3
+tier1HP 144
+tier2Att 172
+tier4Stats 45
+tier5Skill Reflect 0.33

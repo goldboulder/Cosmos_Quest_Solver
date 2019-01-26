@@ -1,0 +1,10 @@
+id 121
+rarity Ascended
+element Water
+baseAtt 175
+baseHP 75
+skill ScaleableStatAura 0 1 Water 5.5
+tier1HP 335
+tier2Att 201
+tier4Stats 241
+tier5Skill ScaleableStatAura 0 1 Water 5.0

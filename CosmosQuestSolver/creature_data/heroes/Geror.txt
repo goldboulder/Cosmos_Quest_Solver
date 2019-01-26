@@ -1,0 +1,10 @@
+id 32
+rarity Legendary
+element Air
+baseAtt 46
+baseHP 46
+skill MonsterBuff 1.2
+tier1HP 95
+tier2Att 125
+tier4Stats 36
+tier5Skill MonsterBuff 1.32

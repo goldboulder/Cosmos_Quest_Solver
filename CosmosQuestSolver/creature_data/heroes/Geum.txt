@@ -1,0 +1,10 @@
+id 26
+rarity Legendary
+element Earth
+baseAtt 2
+baseHP 75
+skill Berserk 2.0
+tier1HP 213
+tier2Att 8
+tier4Stats 22
+tier5Skill Berserk 2.2

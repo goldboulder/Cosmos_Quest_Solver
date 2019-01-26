@@ -1,0 +1,10 @@
+id 48
+rarity Legendary
+element Water
+baseAtt 42
+baseHP 70
+skill WrathPercentAtt 0.1
+tier1HP 127
+tier2Att 16
+tier4Stats 24
+tier5Skill WrathPercentAtt 0.15

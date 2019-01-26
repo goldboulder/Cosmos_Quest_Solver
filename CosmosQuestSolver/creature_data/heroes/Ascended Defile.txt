@@ -1,0 +1,10 @@
+id 131
+rarity Ascended
+element Fire
+baseAtt 114
+baseHP 126
+skill BloodBomb 150
+tier1HP 126
+tier2Att 102
+tier4Stats 114
+tier5Skill BloodBomb 300

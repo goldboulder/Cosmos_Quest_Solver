@@ -1,0 +1,10 @@
+id 141
+rarity Rare
+element Air
+baseAtt 48
+baseHP 44
+skill WrathPercentAtt 0.1
+tier1HP 23
+tier2Att 61
+tier4Stats 23
+tier5Skill WrathPercentAtt 0.15

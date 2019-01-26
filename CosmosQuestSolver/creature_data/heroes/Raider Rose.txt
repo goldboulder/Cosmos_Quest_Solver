@@ -1,0 +1,10 @@
+id 132
+rarity Ascended
+element Earth
+baseAtt 62
+baseHP 186
+skill Execute 0.6
+tier1HP 353
+tier2Att 32
+tier4Stats 476
+tier5Skill Execute 0.65

@@ -1,0 +1,10 @@
+id 62
+rarity Common
+element Water
+baseAtt 18
+baseHP 30
+skill StatAura 4 0 Water
+tier1HP 21
+tier2Att 10
+tier4Stats 7
+tier5Skill StatAura 8 0 Water

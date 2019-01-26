@@ -1,0 +1,10 @@
+id 90
+rarity Legendary
+element Fire
+baseAtt 56
+baseHP 38
+skill ScaleableStatAura 1 0 Fire 9.0
+tier1HP 53
+tier2Att 133
+tier4Stats 44
+tier5Skill ScaleableStatAura 1 0 Fire 8.2

@@ -1,0 +1,10 @@
+id 96
+rarity Legendary
+element Earth
+baseAtt 25
+baseHP 75
+skill EvenField 0
+tier1HP 59
+tier2Att 13
+tier4Stats 13
+tier5Skill EvenField 1

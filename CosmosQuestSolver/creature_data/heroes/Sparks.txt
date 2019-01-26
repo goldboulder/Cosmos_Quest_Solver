@@ -1,0 +1,10 @@
+id 97
+rarity Common
+element Fire
+baseAtt 30
+baseHP 30
+skill StatLevelBoost 2.0
+tier1HP 69
+tier2Att 1
+tier4Stats 9
+tier5Skill StatLevelBoost 2.2

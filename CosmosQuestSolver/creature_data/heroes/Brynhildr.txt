@@ -1,0 +1,10 @@
+id 34
+rarity Legendary
+element Air
+baseAtt 48
+baseHP 72
+skill StatAura 4 4 All
+tier1HP 84
+tier2Att 23
+tier4Stats 59
+tier5Skill StatAura 8 8 All

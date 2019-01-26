@@ -1,0 +1,5 @@
+M,E,30
+M,W,30
+H,Chroma,1000,0
+H,Nicte,1000,0
+H,Forest Druid,1000,0

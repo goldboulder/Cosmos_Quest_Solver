@@ -1,0 +1,6 @@
+element Earth
+att 36
+hp 66
+tier 7
+followers 115000
+skill Nothing

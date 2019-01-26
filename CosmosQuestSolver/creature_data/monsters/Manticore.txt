@@ -1,0 +1,6 @@
+element Air
+att 34
+hp 62
+tier 6
+followers 96000
+skill Nothing

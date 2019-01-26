@@ -1,0 +1,10 @@
+id 30
+rarity Common
+element Fire
+baseAtt 12
+baseHP 38
+skill StatAura 3 0 Fire
+tier1HP 19
+tier2Att 7
+tier4Stats 5
+tier5Skill StatAura 6 0 Fire

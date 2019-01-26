@@ -1,0 +1,10 @@
+id 12
+rarity Legendary
+element Earth
+baseAtt 26
+baseHP 70
+skill StatAura 0 2 All
+tier1HP 70
+tier2Att 32
+tier4Stats 96
+tier5Skill StatAura 0 8 All

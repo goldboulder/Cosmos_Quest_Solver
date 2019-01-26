@@ -1,0 +1,10 @@
+id 82
+rarity Ascended
+element Fire
+baseAtt 81
+baseHP 162
+skill Purity 3.0
+tier1HP 333
+tier2Att 27
+tier4Stats 86
+tier5Skill Purity 3.3

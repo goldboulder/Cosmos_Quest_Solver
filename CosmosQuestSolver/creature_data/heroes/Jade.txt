@@ -1,0 +1,10 @@
+id 115
+rarity Legendary
+element Earth
+baseAtt 30
+baseHP 76
+skill ElementDamageBoost 0.75
+tier1HP 45
+tier2Att 37
+tier4Stats 25
+tier5Skill ElementDamageBoost 0.83

@@ -1,0 +1,10 @@
+id 134
+rarity Legendary
+element Air
+baseAtt 32
+baseHP 100
+skill Execute 0.35
+tier1HP 87
+tier2Att 21
+tier4Stats 64
+tier5Skill Execute 0.4

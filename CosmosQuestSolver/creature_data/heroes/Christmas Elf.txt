@@ -1,0 +1,10 @@
+id 73
+rarity Common
+element Water
+baseAtt 24
+baseHP 38
+skill ScaleableHeal 1 9.0
+tier1HP 28
+tier2Att 34
+tier4Stats 22
+tier5Skill ScaleableHeal 1 8.2

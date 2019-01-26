@@ -1,0 +1,6 @@
+M,E,30
+M,E,30
+H,Ignitor,1000,0
+H,Zaytus,1000,0
+H,Nicte,1000,0
+H,Undine,1000,0

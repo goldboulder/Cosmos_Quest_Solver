@@ -1,0 +1,10 @@
+id 27
+rarity Rare
+element Earth
+baseAtt 16
+baseHP 46
+skill StatAura 4 0 Earth
+tier1HP 38
+tier2Att 6
+tier4Stats 7
+tier5Skill StatAura 8 0 Earth

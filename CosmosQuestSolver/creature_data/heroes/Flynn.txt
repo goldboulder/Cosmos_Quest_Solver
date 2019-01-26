@@ -1,0 +1,10 @@
+id 99
+rarity Legendary
+element Air
+baseAtt 48
+baseHP 70
+skill StatLevelBoost 2.0
+tier1HP 46
+tier2Att 93
+tier4Stats 69
+tier5Skill StatLevelBoost 2.2

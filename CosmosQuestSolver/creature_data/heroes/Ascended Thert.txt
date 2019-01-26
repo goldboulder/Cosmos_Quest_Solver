@@ -1,0 +1,10 @@
+id 119
+rarity Ascended
+element Earth
+baseAtt 70
+baseHP 180
+skill ScaleableStatAura 0 1 Earth 5.5
+tier1HP 346
+tier2Att 47
+tier4Stats 46
+tier5Skill ScaleableStatAura 0 1 Earth 5.0

@@ -1,0 +1,10 @@
+id 23
+rarity Legendary
+element Fire
+baseAtt 20
+baseHP 100
+skill AOE 3
+tier1HP 107
+tier2Att 19
+tier4Stats 35
+tier5Skill AOE 6
