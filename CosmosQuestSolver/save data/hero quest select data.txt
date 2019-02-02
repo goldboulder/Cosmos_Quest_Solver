@@ -138,3 +138,7 @@ Pokerface,true,false
 Spyke,false,false
 Aoyuki,false,false
 GaiaByte,false,false
+Aurora,false,false
+Bronze Hero,false,false
+Flint,false,false
+Orin,false,false

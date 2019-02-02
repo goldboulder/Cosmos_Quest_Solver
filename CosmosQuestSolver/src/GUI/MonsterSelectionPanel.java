@@ -6,6 +6,7 @@ package GUI;
 import Formations.Creature;
 import Formations.CreatureFactory;
 import Formations.Elements.Element;
+import static GUI.AssetPanel.TEXTBOX_HEIGHT;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -38,6 +39,7 @@ public class MonsterSelectionPanel extends JPanel implements ActionListener, Doc
     
     private ElementSelectorPanel elementSelectorPanel;
     
+    private PlaceholderTextField searchTextField;
     private JLabel questLabel;
     private JTextField questTextField;
     private JButton questButton;
@@ -47,7 +49,7 @@ public class MonsterSelectionPanel extends JPanel implements ActionListener, Doc
     public static final int SCROLL_AMOUNT = 33;
     
 
-    public MonsterSelectionPanel(EnemySelectFrame frame, EnemyFormationMakerPanel enemyFormationMakerPanel, boolean facingRight, boolean includeQuests) {
+    public MonsterSelectionPanel(EnemySelectFrame frame, EnemyFormationMakerPanel enemyFormationMakerPanel, boolean facingRight, boolean includeQuests, boolean includeSearch) {
         this.frame = frame;
         this.enemyFormationMakerPanel = enemyFormationMakerPanel;
         
@@ -63,6 +65,7 @@ public class MonsterSelectionPanel extends JPanel implements ActionListener, Doc
         
         elementSelectorPanel = new ElementSelectorPanel(frame, this);
         
+        searchTextField = new PlaceholderTextField("Search Hero");
         questLabel = new JLabel("Quest");
         questTextField = new JTextField();
         questButton = new JButton("Set");
@@ -91,6 +94,7 @@ public class MonsterSelectionPanel extends JPanel implements ActionListener, Doc
         earthMonsterSelectionScrollPane.getHorizontalScrollBar().setUnitIncrement(SCROLL_AMOUNT);
         fireMonsterSelectionScrollPane.getHorizontalScrollBar().setUnitIncrement(SCROLL_AMOUNT);
         
+        searchTextField.getDocument().addDocumentListener(this);
         questButton.addActionListener(this);
         questButton.setActionCommand("quest");
         
@@ -105,8 +109,12 @@ public class MonsterSelectionPanel extends JPanel implements ActionListener, Doc
             add(questTextField);
             add(questButton);
         }
+        if (includeSearch){
+            add(searchTextField);
+        }
         
-        
+        searchTextField.setMaximumSize(new Dimension(80,TEXTBOX_HEIGHT));
+        searchTextField.setColumns(16);
         questTextField.setColumns(3);
         questTextField.setPreferredSize(new Dimension(30,20));
         questTextField.setMaximumSize(new Dimension(30,20));
@@ -155,17 +163,26 @@ public class MonsterSelectionPanel extends JPanel implements ActionListener, Doc
 
     @Override
     public void insertUpdate(DocumentEvent e) {
-        setTextFieldColor();
+        documentUpdate(e);
     }
 
     @Override
     public void removeUpdate(DocumentEvent e) {
-        setTextFieldColor();
+        documentUpdate(e);
     }
 
     @Override
     public void changedUpdate(DocumentEvent e) {
-        setTextFieldColor();
+        documentUpdate(e);
+    }
+    
+    public void documentUpdate(DocumentEvent e){
+        if (e.getDocument() == questTextField.getDocument()){
+            setTextFieldColor();
+        }
+        else if (e.getDocument() == searchTextField.getDocument()){
+            frame.filterHeroes(searchTextField.getText());
+        }
     }
     
     private void setTextFieldColor(){
@@ -182,6 +199,8 @@ public class MonsterSelectionPanel extends JPanel implements ActionListener, Doc
             questTextField.setForeground(Color.RED);
         }
     }
+    
+    
     
     
     

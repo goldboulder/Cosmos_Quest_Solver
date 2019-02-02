@@ -7,4 +7,4 @@ skill Wrath 100
 tier1HP 43
 tier2Att 30
 tier4Stats 24
-tier5Skill Wrath 200
+tier5Skill Wrath 125

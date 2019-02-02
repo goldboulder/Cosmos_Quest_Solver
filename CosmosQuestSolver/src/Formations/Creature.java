@@ -57,6 +57,10 @@ public abstract class Creature implements Comparable<Creature>{
         return CreatureFactory.getCreatureName(getID());
     }
     
+    public String getNickName() {
+        return CreatureFactory.getCreatureNickName(getID());
+    }
+    
     public int getID(){
         return ID;
     }
@@ -274,6 +278,10 @@ public abstract class Creature implements Comparable<Creature>{
     
     public boolean isSameCreature(Creature c){
         return (c.getClass() == getClass() && c.getID() == getID());
+    }
+    
+    public String getFormationText(){
+        return getNickName();
     }
     
     @Override

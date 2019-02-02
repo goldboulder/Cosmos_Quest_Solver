@@ -46,6 +46,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
     private JPanel assetTitlePanel;// for making the two hero panels start at the same y
     private JLabel assetLabel;
     private JPanel optionsPanel;
+    private PlaceholderTextField searchTextField;
     private JButton disableAllButton;
     private JButton deprioritizeAllButton;
     private JButton setLevelButton;
@@ -70,7 +71,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
     
     
     
-    public AssetPanel(ISolverFrame frame,boolean includePrioritize){
+    public AssetPanel(ISolverFrame frame,boolean includePrioritize, boolean includeSearch){
         this.frame = frame;
         
         
@@ -83,13 +84,14 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         assetTitlePanel = new JPanel();
         assetLabel = new JLabel("Your assets");
         optionsPanel = new JPanel();
+        searchTextField = new PlaceholderTextField("Search Hero");
         disableAllButton = new JButton("Disable All");
         deprioritizeAllButton = new JButton("De-prioritize All");
         setLevelButton = new JButton("Set Level All");
         setPromoteLevelButton = new JButton("Promote All");
         saveButton = new JButton("Save");
         loadButton = new JButton("Load");
-        
+        searchTextField.getDocument().addDocumentListener(this);
         disableAllButton.addActionListener(this);
         deprioritizeAllButton.addActionListener(this);
         setLevelButton.addActionListener(this);
@@ -115,6 +117,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         maxCreaturesPanel.add(maxCreaturesLabel);
         maxCreaturesPanel.add(maxCreaturesTextField);
         assetTitlePanel.add(assetLabel);
+        
         optionsPanel.add(disableAllButton);
         if (includePrioritize){
             optionsPanel.add(deprioritizeAllButton);
@@ -123,7 +126,9 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         optionsPanel.add(setPromoteLevelButton);
         optionsPanel.add(saveButton);
         optionsPanel.add(loadButton);
-        
+        if (includeSearch){
+            optionsPanel.add(searchTextField);
+        }
         //add(solutionLabel);
         //add(solutionFormationPanel);
         add(assetTitlePanel);
@@ -137,7 +142,9 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         //solutionFormationPanel.setMinimumSize(new Dimension(CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,CREATURE_PICTURE_SIZE));
         followersTextField.setMaximumSize(new Dimension(100,TEXTBOX_HEIGHT));
         maxCreaturesTextField.setMaximumSize(new Dimension(15,TEXTBOX_HEIGHT));
-        //maxCreaturesTextField.setColumns(1);
+        searchTextField.setMaximumSize(new Dimension(70,TEXTBOX_HEIGHT));
+        searchTextField.setColumns(10);
+        
         heroesCustomizationScrollPane.setPreferredSize(new Dimension(HERO_SELECTION_PANEL_WIDTH + 200,HERO_SELECTION_PANEL_HEIGHT));
         heroesCustomizationScrollPane.setMaximumSize(new Dimension(HERO_SELECTION_PANEL_WIDTH + 200,HERO_SELECTION_PANEL_HEIGHT));
         heroesCustomizationScrollPane.getVerticalScrollBar().setUnitIncrement(SCROLL_BAR_SPEED);
@@ -150,6 +157,8 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         //solutionFormationPanel.setBackground(Color.CYAN);
         //heroesCustomizationPanel.setBackground(Color.MAGENTA);
         heroesCustomizationScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        heroesCustomizationScrollPane.setOpaque(false);
+        //heroesCustomizationScrollPane.getViewport().setOpaque(false);
         
         //followersPanel.setBackground(Color.red);
         //maxCreaturesPanel.setBackground(Color.ORANGE);
@@ -228,8 +237,11 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         else if (e.getDocument() == maxCreaturesTextField.getDocument()){
             maxCreaturesTextFieldChanged();
         }
+        else if (e.getDocument() == searchTextField.getDocument()){
+            frame.filterHeroes(searchTextField.getText());
+        }
         else{
-            System.out.println("Unknown Document in assetPanel!");
+            System.out.println("Unknown document in assetPanel!");
         }
         
     }
@@ -292,6 +304,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
             case 'k': case 'K': return 1000;
             case 'm': case 'M': return 1000000;
             case 'b': case 'B': return 1000000000;
+            case 't': case 'T': return 1000000000000L;
         }
         throw new Exception();
     }
@@ -480,6 +493,10 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
 
     public void writeSelectString(PrintWriter heroSelectFile) {
         heroesCustomizationPanel.writeSelectString(heroSelectFile);
+    }
+
+    public void filterHeroes(String text) {
+        heroesCustomizationPanel.filterHeroes(text);
     }
 
     

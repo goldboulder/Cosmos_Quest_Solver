@@ -29,6 +29,7 @@ public class CosmosQuestSolver {
         //testFactory();
         //testFormation();
         //testSameMonsters();
+        
     }
     
     public static void monsterFile(){

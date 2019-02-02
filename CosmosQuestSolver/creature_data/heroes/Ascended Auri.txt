@@ -6,5 +6,5 @@ baseHP 148
 skill ScaleableHeal 1 6.58
 tier1HP 81
 tier2Att 221
-tier4Stats 29
+tier4Stats 59
 tier5Skill ScaleableHeal 1 5.98

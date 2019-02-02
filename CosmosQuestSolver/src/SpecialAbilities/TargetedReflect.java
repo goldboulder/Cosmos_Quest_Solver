@@ -8,7 +8,7 @@ import Formations.Formation;
 import cosmosquestsolver.OtherThings;
 
 //reflects a percentage of the direct damage back at creature with most HP.
-//used by season Guy
+//used by Guy
 public class TargetedReflect extends SpecialAbility{
     
     private double multiplier;
@@ -35,7 +35,7 @@ public class TargetedReflect extends SpecialAbility{
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
         if (thisFormation.getFrontCreature() == owner){//can only reflect direct damage while in front
-            enemyFormation.getCreature(mostHPPosition(enemyFormation)).changeHP(-damageTakenThisRound*multiplier,enemyFormation);//elemental damage boost and defence not considered.
+            enemyFormation.getCreature(mostHPPosition(enemyFormation)).changeHP(-damageTakenThisRound*multiplier,enemyFormation);
         }
     }
     
@@ -44,7 +44,7 @@ public class TargetedReflect extends SpecialAbility{
         return new TargetedReflect(newOwner,multiplier);
     }
     
-    private int mostHPPosition(Formation enemyFormation){
+    private int mostHPPosition(Formation enemyFormation){//empty line?
         int mostHPIndex = 0;
         long greatestHP = 0;
         

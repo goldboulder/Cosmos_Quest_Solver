@@ -3,29 +3,30 @@
  */
 package GUI;
 
-import AI.AISolver;
 import Formations.CreatureFactory;
 import Formations.Hero;
+import static GUI.AssetPanel.CREATURE_PICTURE_SIZE;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.LinkedList;
-import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 
 public class HeroesCustomizationPanel extends JPanel{
     
     private ISolverFrame frame;
     
-    
+    private final int NUM_COLUMNS;
     private HeroCustomizationPanel[] heroPanelArray;
     private HashMap<String,HeroCustomizationPanel> map;//for finding the right hero panel when loading
 
     public HeroesCustomizationPanel(ISolverFrame frame, int numColumns, boolean facingRight, boolean includePrioritize) {//reference solver, not frame?***
         this.frame = frame;
-        
+        this.NUM_COLUMNS = numColumns;
         map = new HashMap<>();
         
         setLayout(new GridLayout(0,numColumns));
@@ -35,15 +36,21 @@ public class HeroesCustomizationPanel extends JPanel{
         for (int i = 0; i < heroPanelArray.length; i++){
             heroes[i].setFacingRight(facingRight);
             heroPanelArray[i] = new HeroCustomizationPanel(frame,heroes[i],includePrioritize);
+            //heroPanelArray[i].setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE+HeroCustomizationPanel.CHANGE_PANEL_SIZE-8));
             add(heroPanelArray[i]);
             map.put(heroes[i].getName(),heroPanelArray[i]);
         }
         
-        int height = (AssetPanel.CREATURE_PICTURE_SIZE + HeroCustomizationPanel.CHANGE_PANEL_SIZE) * (int)(Math.ceil((heroPanelArray.length - 1) / numColumns));
+        int height = desiredHeight(heroPanelArray.length);
         setPreferredSize(new Dimension(AssetPanel.HERO_SELECTION_PANEL_WIDTH,height));
         setMaximumSize(new Dimension(AssetPanel.HERO_SELECTION_PANEL_WIDTH,height));
-        //setOpaque(false);
+        setOpaque(false);
         
+    }
+    
+    public int desiredHeight(int units){
+        //int height = (AssetPanel.CREATURE_PICTURE_SIZE) * (int)((Math.ceil((heroPanelArray.length - 1) / numColumns)+1));
+        return (AssetPanel.CREATURE_PICTURE_SIZE + HeroCustomizationPanel.CHANGE_PANEL_SIZE) * (int)((Math.ceil((units - 1) / NUM_COLUMNS)+1));
     }
 
     public void disableAll() {
@@ -185,6 +192,40 @@ public class HeroesCustomizationPanel extends JPanel{
             }
         }
         return heroes;
+    }
+
+    public void filterHeroes(String text) {
+        String lowText = text.toLowerCase();
+        removeAll();
+        
+        int numAdded = 0;
+        for (HeroCustomizationPanel p : heroPanelArray){
+            if (p.getHero().getName().toLowerCase().contains(lowText)){
+                add(p);
+                numAdded ++;
+            }
+        }
+        if (numAdded == 0){
+            JLabel noHeroes = new JLabel("No heroes found");
+            add(noHeroes);
+            revalidate();
+            repaint();
+            return;
+        }
+        
+        //fix demensions
+        int width = AssetPanel.HERO_SELECTION_PANEL_WIDTH;
+        if (numAdded < NUM_COLUMNS){
+            width = CREATURE_PICTURE_SIZE * numAdded;
+        }
+        
+        
+        int height = desiredHeight(numAdded);
+        setPreferredSize(new Dimension(width,height));
+        setMaximumSize(new Dimension(width,height));
+        
+        revalidate();
+        repaint();
     }
 
     

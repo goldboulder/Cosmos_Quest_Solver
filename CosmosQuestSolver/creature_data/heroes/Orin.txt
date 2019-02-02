@@ -1,0 +1,10 @@
+id 146
+rarity Legendary
+element Air
+baseAtt 58
+baseHP 58
+skill PartingGift 0.12
+tier1HP 101
+tier2Att 101
+tier4Stats 156
+tier5Skill PartingGift 0.12

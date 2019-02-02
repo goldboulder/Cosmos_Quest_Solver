@@ -5,6 +5,6 @@ baseAtt 46
 baseHP 76
 skill WrathPercentAtt 0.15
 tier1HP 99
-tier2Att 19
+tier2Att 39
 tier4Stats 70
 tier5Skill WrathPercentAtt 0.2

@@ -174,7 +174,7 @@ public class WorldBossOptimizer extends AISolver{
         return baseViability;
     }
     
-    @Override
+    @Override//don't need
     protected int followerMinderViability(Creature c, long averageFollowers){
         int baseViability = super.followerMinderViability(c, averageFollowers);
         if (Elements.elementDamageMultiplier(c,bossFormation.getFrontCreature().getElement()) > 1){

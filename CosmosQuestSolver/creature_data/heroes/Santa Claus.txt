@@ -6,5 +6,5 @@ baseHP 72
 skill ScaleableLifeSteal 1 9.0
 tier1HP 107
 tier2Att 96
-tier4Stats 48
-tier5Skill ScaleableLifeSteal 1 8.2
+tier4Stats 78
+tier5Skill ScaleableLifeSteal 1 6.6

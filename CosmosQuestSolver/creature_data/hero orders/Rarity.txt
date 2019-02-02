@@ -98,6 +98,9 @@ Hidoka
 Buccaneer Beatrice
 Corsair Charles
 Marauder Magnus
+Blossom
+Flint
+Orin
 Dullahan
 Cliodhna
 Santa Claus
@@ -136,5 +139,6 @@ Ascended Hirate
 Ascended Hattori
 Master Lee
 Raider Rose
+Aurora
 Bubbles
 Guy

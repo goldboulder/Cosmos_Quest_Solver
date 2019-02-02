@@ -6,12 +6,14 @@ package GUI;
 import Formations.CreatureFactory;
 import Formations.Hero;
 import Formations.WorldBoss;
+import static GUI.AssetPanel.CREATURE_PICTURE_SIZE;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.File;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class EnemyHeroesCustomizationPanel extends JPanel{
@@ -21,12 +23,14 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
     
     private EnemyHeroCustomizationPanel[] heroPanelArray;
     private EnemyBossCustomizationPanel[] bossPanelArray;
+    private final int NUM_COLUMNS;
     
     private HashMap<String,EnemyHeroCustomizationPanel> map;//for finding the right hero panel when loading
 
     public EnemyHeroesCustomizationPanel(EnemySelectFrame frame, EnemyFormationMakerPanel parent, int numColumns, boolean facingRight, boolean includeBosses, boolean load) {//include boolean for world bosses?
         this.frame = frame;
         this.parent = parent;
+        this.NUM_COLUMNS = numColumns;
         
         setLayout(new GridLayout(0,numColumns));
         
@@ -51,15 +55,21 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
             }
         }
         
-        int height = (AssetPanel.CREATURE_PICTURE_SIZE + HeroCustomizationPanel.CHANGE_PANEL_SIZE) * (int)(Math.ceil((heroPanelArray.length - 1) / numColumns));
+        int height = desiredHeight(heroPanelArray.length);
         setPreferredSize(new Dimension(AssetPanel.HERO_SELECTION_PANEL_WIDTH,height));
         setMaximumSize(new Dimension(AssetPanel.HERO_SELECTION_PANEL_WIDTH,height));
-        //setOpaque(false);
+        setOpaque(false);
         
         if (load){
             load();
         }
         
+        
+    }
+    
+    public int desiredHeight(int units){
+        //int height = (AssetPanel.CREATURE_PICTURE_SIZE) * (int)((Math.ceil((heroPanelArray.length - 1) / numColumns)+1));
+        return (AssetPanel.CREATURE_PICTURE_SIZE + HeroCustomizationPanel.CHANGE_PANEL_SIZE) * (int)((Math.ceil((units - 1) / NUM_COLUMNS)+1));
     }
     
     private void load(){
@@ -116,6 +126,48 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
                 panel.setPromoteLevel(0);
             }
         }
+    }
+
+    public void filterHeroes(String text) {
+        String lowText = text.toLowerCase();
+        removeAll();
+        
+        int numAdded = 0;
+        for (EnemyHeroCustomizationPanel p : heroPanelArray){
+            if (p.getHero().getName().toLowerCase().contains(lowText)){
+                add(p);
+                numAdded ++;
+            }
+        }
+        if (bossPanelArray != null){
+            for (EnemyBossCustomizationPanel p : bossPanelArray){
+                if (p.getBoss().getName().toLowerCase().contains(lowText)){
+                    add(p);
+                    numAdded ++;
+                }
+            }
+        }
+        if (numAdded == 0){
+            JLabel noHeroes = new JLabel("No heroes found");
+            add(noHeroes);
+            revalidate();
+            repaint();
+            return;
+        }
+        
+        //fix demensions
+        int width = AssetPanel.HERO_SELECTION_PANEL_WIDTH;
+        if (numAdded < NUM_COLUMNS){
+            width = CREATURE_PICTURE_SIZE * numAdded;
+        }
+        
+        
+        int height = desiredHeight(numAdded);
+        setPreferredSize(new Dimension(width,height));
+        setMaximumSize(new Dimension(width,height));
+        
+        revalidate();
+        repaint();
     }
     
     

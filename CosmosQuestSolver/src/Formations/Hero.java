@@ -257,6 +257,25 @@ public class Hero extends Creature{
     }
     
     @Override
+    public String getFormationText(){
+        StringBuilder sb = new StringBuilder(getNickName());
+        if (level == MAX_NORMAL_LEVEL && promoteLevel != 0){
+            sb.append(".").append(promoteLevel);
+        }
+        else{
+            if (level == 1000){
+                sb.append(":").append("1k");
+            }
+            else{
+                sb.append(":").append(level);
+            }
+            
+        }
+        
+        return sb.toString();
+    }
+    
+    @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append(getName()).append(":\tAtt: ");

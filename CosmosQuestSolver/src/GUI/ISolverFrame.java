@@ -27,6 +27,7 @@ public interface ISolverFrame {
     void recieveMessageString(String text);
     void recieveCreatureList(LinkedList<Creature> list);
     String getSelectSource();
+    void filterHeroes(String text);
     
     void setVisible(Boolean b);
     void repaint();

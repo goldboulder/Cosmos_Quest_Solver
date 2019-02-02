@@ -16,11 +16,6 @@ public class BloodBomb extends SpecialAbility{
         super(owner);
         this.damage = damage;
     }
-
-    @Override
-    public double extraDamage(Formation thisFormation, Formation enemyFormation) {
-        return 0;
-    }
     
     @Override
     public void attack(Formation thisFormation, Formation enemyFormation) {

@@ -39,7 +39,7 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
     
     public static final int MONSTER_SCROLL_VIEW_AMOUNT = 5;
     
-    public EnemyFormationMakerPanel(EnemySelectFrame frame, String title, boolean facingRight, boolean loadHeroes, boolean loadQuest, boolean includeBosses, boolean includeQuests){
+    public EnemyFormationMakerPanel(EnemySelectFrame frame, String title, boolean facingRight, boolean loadHeroes, boolean loadQuest, boolean includeBosses, boolean includeQuests, boolean includeSearch){
         this.frame = frame;
         this.facingRight = facingRight;
         
@@ -47,7 +47,7 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
         enemyFormationAndButtonPanel = new JPanel();
         clearFormationButton = new JButton("Clear");
         enemyFormationPanel = new EnemyFormationPanel(frame,this,facingRight);
-        monsterSelectionPanel = new MonsterSelectionPanel(frame,this,facingRight,includeQuests);
+        monsterSelectionPanel = new MonsterSelectionPanel(frame,this,facingRight,includeQuests,includeSearch);
         enemyHeroesCustomizationPanel = new EnemyHeroesCustomizationPanel(frame,this,AssetPanel.HERO_SELECTION_COLUMNS,facingRight,includeBosses,loadHeroes);
         enemyHeroesCustomizationScrollPane = new JScrollPane(enemyHeroesCustomizationPanel);
         
@@ -70,7 +70,7 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
         monsterSelectionPanel.setMaximumSize(new Dimension(QuestSolverFrame.ENEMY_FORMATION_MAKER_PANEL_WIDTH - 40,AssetPanel.CREATURE_PICTURE_SIZE + (Integer)UIManager.get("ScrollBar.width")));
         monsterSelectionPanel.setMinimumSize(new Dimension(QuestSolverFrame.ENEMY_FORMATION_MAKER_PANEL_WIDTH - 40,AssetPanel.CREATURE_PICTURE_SIZE + (Integer)UIManager.get("ScrollBar.width")));
         enemyHeroesCustomizationScrollPane.setPreferredSize(new Dimension(AssetPanel.HERO_SELECTION_PANEL_WIDTH + 200,AssetPanel.HERO_SELECTION_PANEL_HEIGHT));
-        enemyHeroesCustomizationScrollPane.setMaximumSize(new Dimension(AssetPanel.HERO_SELECTION_PANEL_WIDTH + 200,AssetPanel.HERO_SELECTION_PANEL_HEIGHT));
+        enemyHeroesCustomizationScrollPane.setMaximumSize(new Dimension(AssetPanel.HERO_SELECTION_PANEL_WIDTH + 200,AssetPanel.HERO_SELECTION_PANEL_HEIGHT));//why +200?
         enemyHeroesCustomizationScrollPane.getVerticalScrollBar().setUnitIncrement(AssetPanel.SCROLL_BAR_SPEED);
         enemyHeroesCustomizationScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         
@@ -81,6 +81,8 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
         clearFormationButton.addActionListener(this);
         clearFormationButton.setActionCommand("clear formation");
         setOpaque(false);
+        enemyHeroesCustomizationScrollPane.setOpaque(false);
+        //enemyHeroesCustomizationScrollPane.getViewport().setOpaque(false);
         enemyFormationAndButtonPanel.setOpaque(false);
         if (loadQuest){
             enemyFormationPanel.load();
@@ -163,6 +165,10 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
 
     public void setDefaultLevels() {
         enemyHeroesCustomizationPanel.setDefaultLevels();
+    }
+
+    public void filterHeroes(String text) {
+        enemyHeroesCustomizationPanel.filterHeroes(text);
     }
 
     

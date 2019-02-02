@@ -39,7 +39,7 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
         };
         
         topPanel = new JPanel();
-        assetPanel = new AssetPanel(this,true);
+        assetPanel = new AssetPanel(this,true,true);
         worldBossSelectionPanel = new WorldBossSelectionPanel(this);
         calculationPanel = new CalculationPanel(this);
         
@@ -84,10 +84,12 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
     
     @Override
     public void recieveSolution(Formation f){
-        worldBossSelectionPanel.recieveSolution(f);
-        LinkedList<Creature> bossList = new LinkedList<>();
-        bossList.add(getBoss());
-        calculationPanel.updateSolutionDetails(f,new Formation(bossList));
+        if (calculationPanel.isSearching() || f.isEmpty()){
+            worldBossSelectionPanel.recieveSolution(f);
+            LinkedList<Creature> bossList = new LinkedList<>();
+            bossList.add(getBoss());
+            calculationPanel.updateSolutionDetails(f,new Formation(bossList));
+        }
     }
 
     @Override
@@ -119,7 +121,7 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
 
     @Override
     public void recieveDone() {
-        calculationPanel.recieveProgressString("Done");
+        calculationPanel.recieveDone();
     }
 
     @Override
@@ -154,7 +156,9 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
     
     @Override
     public void recieveDamageOfBattle(long damage) {
-        worldBossSelectionPanel.setDamage(damage);
+        if (calculationPanel.isSearching() || damage == 0){
+            worldBossSelectionPanel.setDamage(damage);
+        }
     }
     
     @Override
@@ -199,6 +203,11 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
     @Override
     public String getSelectSource() {
         return "save data/hero boss select data.txt";
+    }
+    
+    @Override
+    public void filterHeroes(String text) {
+        assetPanel.filterHeroes(text);
     }
     
 }

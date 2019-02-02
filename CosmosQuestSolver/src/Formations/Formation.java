@@ -143,6 +143,38 @@ public class Formation implements Iterable<Creature>{
         Collections.sort(members, (Creature c1, Creature c2) -> map.get(c2)-map.get(c1));
         
     }
+    
+    //returns a short-hand representation of the units in the formation
+    //in the format used by the chat
+    public String shortHandText(){
+        
+        if (members.isEmpty()){
+            return "Nothing";
+        }
+        
+        StringBuilder sb = new StringBuilder("");
+        /*
+        for (int i = 0; i < members.size(); i++){
+            sb.append(members.get(i).getFormationText());
+            if (i != members.size()-1){
+                sb.append(",");
+            }
+        }
+        */
+        //reverse order
+        for (int i = members.size()-1; i >=0; i--){
+            sb.append(members.get(i).getFormationText());
+            if (i != 0){
+                sb.append(", ");
+            }
+        }
+        
+        return sb.toString();
+    }
+
+    public boolean isBossFormation() {
+        return members.size() == 1 && members.getFirst() instanceof WorldBoss;
+    }
 
     
     

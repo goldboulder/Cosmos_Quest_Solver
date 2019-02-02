@@ -54,6 +54,10 @@ public class EnemyBossCustomizationPanel extends JPanel{
         setOpaque(false);
         
     }
+    
+    public WorldBoss getBoss(){
+        return boss;
+    }
 
     
     

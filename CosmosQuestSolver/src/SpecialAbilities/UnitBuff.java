@@ -9,11 +9,11 @@ import Formations.Monster;
 import cosmosquestsolver.OtherThings;
 
 //increases attack and strength by specified amounts for each unit behind
-//owner. Used by Seeth and Ascended Seethe
+//owner. Used by Seethe
 public class UnitBuff extends SpecialAbility{
     
-    private int attBoost;
-    private int HPBoost;
+    protected int attBoost;
+    protected int HPBoost;
 
     public UnitBuff(Creature owner, int attBoost, int HPBoost) {
         super(owner);
@@ -29,7 +29,7 @@ public class UnitBuff extends SpecialAbility{
         owner.setMaxHP(owner.getCurrentHP());
     }
     
-    private int unitsBehind(Formation f){
+    protected int unitsBehind(Formation f){
         int numBehind = 0;
         boolean foundOwner = false;
         for (Creature creature : f){

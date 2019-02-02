@@ -138,3 +138,7 @@ Raze
 Ruin
 Seethe
 Ascended Seethe
+Blossom
+Flint
+Orin
+Aurora

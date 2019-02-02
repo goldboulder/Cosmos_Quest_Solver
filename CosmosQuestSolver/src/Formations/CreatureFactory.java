@@ -32,6 +32,7 @@ public class CreatureFactory {
     private static ArrayList<String> heroNames;
     private static ArrayList<String> worldBossNames;
     private static HashMap<Integer,String> IDToNameMap;
+    private static HashMap<String,String> nickNameMap;
     
 
     public static final int MAX_QUESTS = 160;
@@ -42,13 +43,37 @@ public class CreatureFactory {
         initiateMonsters();
         initiateHeroes();
         initiateWorldBosses();
+        loadNickNames();
+    }
+    
+    private static void loadNickNames(){
+        nickNameMap = new HashMap<>();
+        
+        //set default nicknames(same as normal name)
+        for (String name : IDToNameMap.values()){
+            nickNameMap.put(name,name);
+        }
+        
+        try {
+            Scanner s = new Scanner(new File("creature_data/hero nicknames.txt"));
+            
+            while(s.hasNext()){
+                String[] tokens = s.nextLine().split("->");
+                nickNameMap.put(tokens[0],tokens[1]);
+            }
+            
+        } catch (FileNotFoundException ex) {
+            System.out.println("Hero nickname file not found");
+        }
     }
     
     public static String getCreatureName(int ID){
         return IDToNameMap.get(ID);
     }
     
-    
+    public static String getCreatureNickName(int ID){
+        return nickNameMap.get(IDToNameMap.get(ID));
+    }
     
     public static Monster getMonster(Element element, int tier){
         return (Monster) monsters[element.ordinal()][tier - 1].getCopy();
@@ -176,29 +201,29 @@ public class CreatureFactory {
     
     public static Hero[] getHeroes(String address) {
         try{
-        LinkedList<Hero> heroList = new LinkedList<>();
-        Scanner sc = new Scanner(new File("creature_data/hero orders/" + address + ".txt"));
-        while(sc.hasNext()){
-            String name = sc.nextLine();
-            Hero tempHero = (Hero)heroes.get(name);
-            if (tempHero != null){
-                heroList.add((Hero)heroes.get(name).getCopy());
+            LinkedList<Hero> heroList = new LinkedList<>();
+            Scanner sc = new Scanner(new File("creature_data/hero orders/" + address + ".txt"));
+            while(sc.hasNext()){
+                String name = sc.nextLine();
+                Hero tempHero = (Hero)heroes.get(name);
+                if (tempHero != null){
+                    heroList.add((Hero)heroes.get(name).getCopy());
+                }
+                else{
+                    System.out.println("Error with name in hero order list: " + name);
+                }
             }
-            else{
-                System.out.println("Error with name in hero order list: " + name);
+            sc.close();
+
+            //check for heroes that may have been missed
+            Hero[] defaultOrderHeroes = getHeroesDefaultOrder();
+            for (Hero h : defaultOrderHeroes){
+                if (!containsHero(h.getName(),heroList)){
+                    heroList.add(h);
+                }
             }
-        }
-        sc.close();
-        
-        //check for heroes that may have been missed
-        Hero[] defaultOrderHeroes = getHeroesDefaultOrder();
-        for (Hero h : defaultOrderHeroes){
-            if (!containsHero(h.getName(),heroList)){
-                heroList.add(h);
-            }
-        }
-        Hero[] ans = new Hero[heroList.size()];
-        return heroList.toArray(ans);
+            Hero[] ans = new Hero[heroList.size()];
+            return heroList.toArray(ans);
         }
         catch(FileNotFoundException ex){
             return getHeroesDefaultOrder();
@@ -416,12 +441,14 @@ public class CreatureFactory {
             case "ScaleableAbsorbPercent": return new ScaleableAbsorbPercent(null,Double.parseDouble(tokens[2]));
             case "ScaleableAOE": return new ScaleableAOE(null,Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableAntiAOE": return new ScaleableAntiAOE(null,Double.parseDouble(tokens[2]));
+            case "ScaleableBloodBomb": return new ScaleableBloodBomb(null,Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableHeal": return new ScaleableHeal(null,Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableLifeSteal": return new ScaleableLifeSteal(null,Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleablePercentAtt": return new ScaleablePercentAtt(null,Double.parseDouble(tokens[2]));
             case "ScaleableSacrifice": return new ScaleableSacrifice(null,Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]),Double.parseDouble(tokens[4]));
             case "ScaleableStartingDamage": return new ScaleableStartingDamage(null,Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableStatAura": return new ScaleableStatAura(null,Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]),Elements.parseElement(tokens[4]),Double.parseDouble(tokens[5]));
+            case "ScaleableUnitBuff": return new ScaleableUnitBuff(null,Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]));
             case "StartingDamage": return new StartingDamage(null,Integer.parseInt(tokens[2]));
             case "StatAura": return new StatAura(null,Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]),Elements.parseElement(tokens[4]));
             case "StatLevelBoost": return new StatLevelBoost(null,Double.parseDouble(tokens[2]));

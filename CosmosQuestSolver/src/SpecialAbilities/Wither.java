@@ -19,7 +19,8 @@ public class Wither extends SpecialAbility{
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
         if (thisFormation.getFrontCreature() == owner){
-            owner.changeHP(-owner.getCurrentHP()/amount,thisFormation);//does this count as damage dealt for other team?***
+            int newHP = (int)(owner.getCurrentHP()/amount);
+            owner.changeHP(-owner.getCurrentHP()+newHP,thisFormation);//does this count as damage dealt for other team?***
         }
     }
     

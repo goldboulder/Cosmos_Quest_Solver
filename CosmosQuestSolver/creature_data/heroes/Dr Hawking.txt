@@ -7,4 +7,4 @@ skill ScaleableStartingDamage 1 1.0
 tier1HP 94
 tier2Att 136
 tier4Stats 70
-tier5Skill ScaleableStartingDamage 1 0.908
+tier5Skill ScaleableStartingDamage 1 0.767

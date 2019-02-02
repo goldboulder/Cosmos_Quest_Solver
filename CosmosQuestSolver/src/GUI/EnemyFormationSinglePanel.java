@@ -46,6 +46,10 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
     }
     
     public void setCreature(Creature c){
+        if (c == null && picPanel.getCreature() == null){
+            return;
+        }
+        
         if (c == null || c.isFacingRight() == facingRight){//all creatures need to be facing the same
             picPanel.setCreature(c);
             frame.parametersChanged();

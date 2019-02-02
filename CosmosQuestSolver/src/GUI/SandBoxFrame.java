@@ -51,8 +51,8 @@ public class SandBoxFrame extends JFrame implements EnemySelectFrame, MouseListe
         };
         
         topPanel = new JPanel();
-        leftSelectionPanel = new EnemyFormationMakerPanel(this,"Your Formation",true,true,false,false,false);
-        rightSelectionPanel = new EnemyFormationMakerPanel(this,"Enemy Formation",false,false,true,true,true);
+        leftSelectionPanel = new EnemyFormationMakerPanel(this,"Your Formation",true,true,false,false,false,true);
+        rightSelectionPanel = new EnemyFormationMakerPanel(this,"Enemy Formation",false,false,true,true,true,false);
         
         simulationPanel = new SimulationPanel(this);
         
@@ -197,6 +197,12 @@ public class SandBoxFrame extends JFrame implements EnemySelectFrame, MouseListe
         if (simulationPanel != null){
             simulationPanel.recieveSimulation(new BattleLog(leftSelectionPanel.getEnemyFormation().getCopy(),rightSelectionPanel.getEnemyFormation().getCopy()));
         }
+    }
+    
+    @Override
+    public void filterHeroes(String text) {
+        leftSelectionPanel.filterHeroes(text);
+        rightSelectionPanel.filterHeroes(text);
     }
     
 }

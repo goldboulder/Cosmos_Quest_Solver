@@ -1,1 +1,5 @@
+H,Shaman,1000,0
+H,Ruin,1000,0
 H,Alpha,1000,0
+H,Leprechaun,1000,0
+H,Brynhildr,1000,0

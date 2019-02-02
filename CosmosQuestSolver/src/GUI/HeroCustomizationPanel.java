@@ -37,7 +37,7 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
     private JTextField levelTextField;
     private JTextField promoteLevelTextField;
     
-    public static final int CHANGE_PANEL_SIZE = 30;
+    public static final int CHANGE_PANEL_SIZE = 22;
     
     public HeroCustomizationPanel(ISolverFrame frame, Hero hero, boolean includePrioritize){
         this.frame = frame;
@@ -71,6 +71,7 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
         add(editPanel);
         
         picturePanel.setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
+        picturePanel.setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
         includeCheckBox.setToolTipText("Include this hero in calculations");
         prioritizeCheckBox.setToolTipText("Always have hero in formations");
         includeCheckBox.addActionListener(this);
@@ -80,8 +81,10 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
         levelTextField.getDocument().addDocumentListener(this);
         promoteLevelTextField.getDocument().addDocumentListener(this);
         levelTextField.setColumns(1);
+        //levelTextField.setMaximumSize(new Dimension(30,CHANGE_PANEL_SIZE));
         promoteLevelTextField.setColumns(1);
         promoteLevelTextField.setMaximumSize(new Dimension(10,CHANGE_PANEL_SIZE));
+        editPanel.setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,CHANGE_PANEL_SIZE));
         
         setOpaque(false);
         //setBackground(Color.BLUE);

@@ -40,6 +40,11 @@ public class Monster extends Creature {
         return tier;
     }
     
+    @Override
+    public String getNickName() {
+        return Character.toLowerCase(Elements.getElementChar(element)) + "" + getTier();
+    }
+    
     public static boolean validTier(int tier){
         return (tier > 0 && tier <= TOTAL_TIERS);
     }

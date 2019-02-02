@@ -37,7 +37,7 @@ public class EvenField extends SpecialAbility{//enemies cannot heal back to full
         for (Creature creature : enemyFormation){
             double damageDelt = creature.getBaseHP() * percentDamage  * (1 - enemyFormation.getAOEResistance());
             creature.changeHP(-damageDelt,enemyFormation);//rounding?
-            creature.setMaxHP(creature.getCurrentHP());//units cannot heal past the new HP cap
+            //creature.setMaxHP(creature.getCurrentHP());//units cannot heal past the new HP cap-- this doesn't appear to be true anymore
         }
     }
 

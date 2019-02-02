@@ -1,0 +1,10 @@
+id 144
+rarity Legendary
+element Earth
+baseAtt 54
+baseHP 54
+skill PartingGift 0.1
+tier1HP 99
+tier2Att 99
+tier4Stats 144
+tier5Skill PartingGift 0.1

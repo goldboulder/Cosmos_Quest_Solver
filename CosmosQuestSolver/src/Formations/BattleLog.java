@@ -59,5 +59,38 @@ public class BattleLog {
     //{"left":"Left","right":"Right","title":"Simulation","setup":[-98,-1,-1,-1,-1,-1],"shero":{"96":99},"spromo":{"96":5},"player":[-98,-1,-1,-1,-1,-1],"phero":{"96":99}}"ppromo":{"96":5}}
 
     //{"left":"Me","right":"Enemigo","title":"Fight","setup":[47,-111,47,45,46,-104],"shero":{"109":1,"102":57},"player":[-59,-60,-21,-31,44,46],"phero":{"57":99,"58":99,"19":99,"29":99}}
+
+    public String getSolutionText() {
+        StringBuilder sb = new StringBuilder("");
+        if (rightFormation.isBossFormation()){
+            sb.append("<Boss> ").append(rightFormation.shortHandText());
+            sb.append(" <Your Formation> ").append(leftFormation.shortHandText());
+            long damage = states.getLast().rightFormation.getDamageTaken();
+            sb.append(" <Damage dealt> ").append(OtherThings.intToCommaString(damage));
+            if (leftFormation.getFollowers() != 0){
+                sb.append(" (Followers: ").append(OtherThings.intToCommaString(leftFormation.getFollowers())).append(")");
+            }
+            return sb.toString();
+        }
+        
+        sb.append("<Enemy> ").append(rightFormation.shortHandText());
+        
+        //determine if you won or not
+        if(!states.getLast().leftFormation.isEmpty() && states.getLast().rightFormation.isEmpty()){
+            sb.append(" <Solution> ");
+        }
+        else{
+            sb.append(" <Your line> ");
+        }
+        
+        sb.append(leftFormation.shortHandText());
+        
+        if (leftFormation.getFollowers() != 0){
+            sb.append(" (Followers: ").append(OtherThings.intToCommaString(leftFormation.getFollowers())).append(")");
+        }
+        return sb.toString();
+        
+    }
+    
     
 }

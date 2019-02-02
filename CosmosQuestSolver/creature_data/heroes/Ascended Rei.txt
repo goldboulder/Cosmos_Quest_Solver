@@ -7,4 +7,4 @@ skill ScaleableStatAura 1 0 All 3.3
 tier1HP 127
 tier2Att 46
 tier4Stats 176
-tier5Skill ScaleableStatAura 1 0 All 3
+tier5Skill ScaleableStatAura 1 0 All 2.25

@@ -55,6 +55,7 @@ public class SimulationPanel extends JPanel implements ActionListener{
     private JButton nextButton;
     protected JButton menuButton;
     protected JButton getBattleCodeButton;
+    protected JButton getSolutionTextButton;
     
     protected BattleLog log;
     private int roundNum;
@@ -83,6 +84,7 @@ public class SimulationPanel extends JPanel implements ActionListener{
         nextButton = new JButton(">");
         menuButton = new JButton("Menu");
         getBattleCodeButton = new JButton("Get battle code");
+        getSolutionTextButton = new JButton("Get solution text");
         infoLabel = new JLabel("");
         
         firstButton.addActionListener(this);
@@ -91,6 +93,7 @@ public class SimulationPanel extends JPanel implements ActionListener{
         nextButton.addActionListener(this);
         menuButton.addActionListener(this);
         getBattleCodeButton.addActionListener(this);
+        getSolutionTextButton.addActionListener(this);
         
         firstButton.setActionCommand("first");
         lastButton.setActionCommand("last");
@@ -98,6 +101,7 @@ public class SimulationPanel extends JPanel implements ActionListener{
         nextButton.setActionCommand("next");
         menuButton.setActionCommand("menu");
         getBattleCodeButton.setActionCommand("getCode");
+        getSolutionTextButton.setActionCommand("getText");
         
         
         leftDamageLabelPanel.add(leftDamageTitleLabel);
@@ -113,11 +117,12 @@ public class SimulationPanel extends JPanel implements ActionListener{
         battlePanel.add(rightFormationPanel);
         battlePanel.add(rightDamageLabelPanel);
         
-        buttonPanel.add(new JLabel("                           "));//hack to get some space between the menu button and the others
+        buttonPanel.add(new JLabel("                           "));//hack to get it centered
         buttonPanel.add(firstButton);
         buttonPanel.add(previousButton);
         
         buttonPanel.add(getBattleCodeButton);
+        buttonPanel.add(getSolutionTextButton);
         buttonPanel.add(nextButton);
         buttonPanel.add(lastButton);
         buttonPanel.add(new JLabel("                           "));//hack to get some space between the menu button and the others
@@ -222,6 +227,14 @@ public class SimulationPanel extends JPanel implements ActionListener{
                 catch (UnsupportedEncodingException ex) {
                     infoLabel.setText("Error: missing decoder");
                 }           
+                revalidate();
+                repaint();
+            
+            break;
+            case "getText":
+                copyToClipboard(log.getSolutionText());
+                infoLabel.setText("Copied to Clipboard");
+                
                 revalidate();
                 repaint();
             

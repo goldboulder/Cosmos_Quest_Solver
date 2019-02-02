@@ -7,4 +7,4 @@ skill ScaleableLifeSteal 1 24.0
 tier1HP 40
 tier2Att 28
 tier4Stats 17
-tier5Skill ScaleableLifeSteal 1 19.0
+tier5Skill ScaleableLifeSteal 1 12.0

@@ -15,7 +15,7 @@ T4URUS,99,0
 TR0N1X,99,0
 Aquortis,99,0
 Aeris,99,0
-Geum,99,0
+Geum,99,3
 Rudean,99,0
 Aural,99,0
 Geror,99,0
@@ -97,19 +97,23 @@ Koldis,21,0
 Alvitr,23,0
 Arshen,99,0
 Rua,99,2
-Dorth,99,0
+Dorth,99,2
 Kumu san,1,0
 Liu Cheng,1,0
 Hidoka,1,0
-Master Lee,53,0
+Master Lee,68,0
 Buccaneer Beatrice,1,0
 Corsair Charles,1,0
 Marauder Magnus,1,0
 Raider Rose,1,0
+Blossom,1,0
+Flint,1,0
+Orin,1,0
+Aurora,1,0
 Werewolf,99,4
 Jack'o Knight,1,0
 Dullahan,1,0
-Billy,1,0
+Billy,99,3
 Sanqueen,1,0
 Cliodhna,1,0
 Christmas Elf,54,0

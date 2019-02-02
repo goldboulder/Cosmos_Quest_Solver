@@ -5,6 +5,6 @@ baseAtt 6
 baseHP 50
 skill StatAura 0 1 Water
 tier1HP 31
-tier2Att 4
+tier2Att 10
 tier4Stats 8
 tier5Skill StatAura 0 2 Water

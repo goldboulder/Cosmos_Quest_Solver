@@ -12,5 +12,6 @@ public interface EnemySelectFrame {
     void setMouseCreature(Creature c);
     boolean requestFocusInWindow();
     void parametersChanged();
+    void filterHeroes(String text);
     
 }

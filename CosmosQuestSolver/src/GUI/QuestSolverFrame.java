@@ -75,8 +75,8 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
             }
         };
         
-        assetPanel = new AssetPanel(this,true);
-        enemyFormationMakerPanel = new EnemyFormationMakerPanel(this,"Enemy Formation",false,false,true,false,true);
+        assetPanel = new AssetPanel(this,true,true);
+        enemyFormationMakerPanel = new EnemyFormationMakerPanel(this,"Enemy Formation",false,false,true,false,true,false);
         enemyFormationMakerPanel.setDefaultLevels();
         
         calculationPanel = new CalculationPanel(this);
@@ -316,6 +316,7 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
 
     @Override
     public void recieveDone() {
+        calculationPanel.recieveDone();
         calculationPanel.recieveFailure();
     }
     
@@ -447,6 +448,12 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     @Override
     public String getSelectSource() {
         return "save data/hero quest select data.txt";
+    }
+
+    @Override
+    public void filterHeroes(String text) {
+        assetPanel.filterHeroes(text);
+        enemyFormationMakerPanel.filterHeroes(text);
     }
 
     

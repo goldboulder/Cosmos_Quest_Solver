@@ -4,7 +4,7 @@ element Fire
 baseAtt 40
 baseHP 78
 skill Ricochet 1.0 1
-tier1HP 108
+tier1HP 88
 tier2Att 44
 tier4Stats 37
 tier5Skill Ricochet 1.05 1

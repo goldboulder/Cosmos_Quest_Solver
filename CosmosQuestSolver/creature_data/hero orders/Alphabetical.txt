@@ -32,9 +32,11 @@ Athos
 Atzar
 Aural
 Auri
+Aurora
 Bavah
 Bewat
 Billy
+Blossom
 Boor
 Brynhildr
 Bubbles
@@ -56,6 +58,7 @@ Edana
 Erebus
 Faefyr
 Fir
+Flint
 Flynn
 Forest Druid
 Frosty
@@ -99,6 +102,7 @@ Neil
 Neptunius
 Nicte
 Nimue
+Orin
 Ourea
 Oymos
 Petry

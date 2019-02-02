@@ -6,5 +6,5 @@ baseHP 82
 skill Ricochet 1.0 1
 tier1HP 90
 tier2Att 38
-tier4Stats 17
+tier4Stats 40
 tier5Skill Ricochet 1.05 1

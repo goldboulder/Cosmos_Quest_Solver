@@ -71,6 +71,7 @@ public class CalculationPanel extends JPanel implements ActionListener{
         
         findButton.setActionCommand("find");
         stopSearchButton.setActionCommand("stop searching");
+        stopSearchButton.setEnabled(false);
         solutionDetailsButton.setActionCommand("view solution");
         backButton.setActionCommand("back");
         
@@ -112,6 +113,8 @@ public class CalculationPanel extends JPanel implements ActionListener{
         switch(e.getActionCommand()){
             case "find": 
                 if (!solver.isSearching()){
+                    stopSearchButton.setEnabled(true);
+                    findButton.setEnabled(false);
                     resultStatus = 0;
                     frame.recieveSolution(new Formation());//erases any previous solutions
                     frame.recieveStart();
@@ -155,10 +158,6 @@ public class CalculationPanel extends JPanel implements ActionListener{
                     }
                 }
                 
-                
-                
-                
-                
                 repaint();
                 revalidate();
             break;
@@ -176,13 +175,24 @@ public class CalculationPanel extends JPanel implements ActionListener{
     
     public void recieveStopSearching(){
         solver.stopSearching();
+        stopSearchButton.setEnabled(false);
+        findButton.setEnabled(true);
         searchingLabel.setText("");
         resultStatus = 0;
+    }
+    
+    public void recieveDone() {
+        recieveStopSearching();
+    }
+    
+    public boolean isSearching(){
+        return solver.isSearching();
     }
     
     public void recieveSolutionFound(){
         searchingLabel.setText("");
         solutionDetailsButton.setEnabled(true);
+        stopSearchButton.setEnabled(false);
         resultStatus = 1;
     }
 
@@ -258,5 +268,7 @@ public class CalculationPanel extends JPanel implements ActionListener{
     public AISolver getSolver(){
         return solver;
     }
+
+    
     
 }

@@ -4,6 +4,7 @@
 package GUI;
 
 import Formations.Hero;
+import static GUI.HeroCustomizationPanel.CHANGE_PANEL_SIZE;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.Box;
@@ -27,7 +28,7 @@ public class EnemyHeroCustomizationPanel extends JPanel implements DocumentListe
     private JTextField levelTextField;
     private JTextField promoteLevelTextField;
     
-    public static final int CHANGE_PANEL_SIZE = 30;
+    public static final int CHANGE_PANEL_SIZE = 22;
     
     public EnemyHeroCustomizationPanel(EnemySelectFrame frame, EnemyFormationMakerPanel enemyFormationMakerPanel, Hero hero){//load heroes?
         this.frame = frame;
@@ -56,6 +57,7 @@ public class EnemyHeroCustomizationPanel extends JPanel implements DocumentListe
         add(editPanel);
         
         picturePanel.setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
+        picturePanel.setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
         //addMouseMotionListener(enemyFormationMakerPanel);
         //this.setCursor(new Cursor());
         //setBackground(Color.BLUE);
@@ -64,6 +66,7 @@ public class EnemyHeroCustomizationPanel extends JPanel implements DocumentListe
         levelTextField.setColumns(1);
         promoteLevelTextField.setColumns(1);
         promoteLevelTextField.setMaximumSize(new Dimension(10,CHANGE_PANEL_SIZE));
+        editPanel.setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,CHANGE_PANEL_SIZE));
         
         
         setOpaque(false);

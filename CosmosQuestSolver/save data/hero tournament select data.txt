@@ -106,6 +106,10 @@ Buccaneer Beatrice,false,false
 Corsair Charles,false,false
 Marauder Magnus,true,false
 Raider Rose,false,false
+Blossom,false,false
+Flint,false,false
+Orin,true,false
+Aurora,false,false
 Werewolf,true,false
 Jack'o Knight,false,false
 Dullahan,false,false
