@@ -12,7 +12,6 @@ import cosmosquestsolver.OtherThings;
 public class Berserk extends SpecialAbility{
     
     private double multiplier;
-    private double damage = 0;
 
     public Berserk(Creature owner, double multiplier) {
         super(owner);
@@ -21,10 +20,10 @@ public class Berserk extends SpecialAbility{
     
 
     @Override
-    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//damage is slightly off for AGeum.5***
+    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
         if (thisFormation.getFrontCreature() == owner){
-            damage *= multiplier;
-            owner.setCurrentAtt((long)Math.ceil(damage));
+            owner.setCurrentAtt((long)Math.round(owner.getCurrentAtt()*multiplier));
+            //right here, it seems damage boost from fairies gets added every turn too.
         }
     }
     
@@ -33,10 +32,6 @@ public class Berserk extends SpecialAbility{
         return new Berserk(newOwner,multiplier);
     }
     
-    @Override
-    public void startOfFightAction(Formation thisFormation, Formation enemyFormation) {
-        damage = owner.getBaseAtt();
-    }
 
     
     @Override

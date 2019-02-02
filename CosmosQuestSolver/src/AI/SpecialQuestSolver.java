@@ -42,7 +42,7 @@ public class SpecialQuestSolver extends QuestSolver{
     @Override
     protected void progressReport(int listNum, LinkedList<Creature> creatureList) {
         if (originalMaxCreatures == maxCreatures){
-            frame.recieveProgressString("Biggest search now including " + (listNum+1) + ": " + creatureList.get(listNum).getName());
+            frame.recieveProgressString("Biggest search now including creature " + (listNum+1) + ": " + creatureList.get(listNum).getName());
         }
     }
         

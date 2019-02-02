@@ -28,8 +28,8 @@ public class PartingGift extends SpecialAbility{
 
     @Override
     public void deathAction(Formation thisFormation, Formation enemyFormation) {
-        int attBoost = (int) (owner.getCurrentAtt() * multiplier);
-        int HPBoost = (int) (owner.getMaxHP() * multiplier);
+        int attBoost = (int) Math.round(owner.getCurrentAtt() * multiplier);
+        int HPBoost = (int) Math.round(owner.getMaxHP() * multiplier);
         for (Creature c : thisFormation){
             if (owner != c){
                 c.setMaxHP(c.getMaxHP() + HPBoost);
@@ -42,7 +42,7 @@ public class PartingGift extends SpecialAbility{
     @Override
     public String getDescription() {
         String percent = Integer.toString((int)(multiplier * 100));
-        return "Grants remaining units " + percent + "% attack and HP after dying (" + Integer.toString((int)(owner.getBaseAtt() * multiplier)) + "," + Integer.toString((int)(owner.getBaseHP() * multiplier)) + ")"; //amount?
+        return "Grants remaining units " + percent + "% attack and HP after dying (" + Integer.toString((int)Math.round(owner.getBaseAtt() * multiplier)) + "," + Integer.toString((int)Math.round(owner.getBaseHP() * multiplier)) + ")"; //amount?
     }
     
     @Override
