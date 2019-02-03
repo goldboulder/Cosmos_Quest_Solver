@@ -7,4 +7,4 @@ skill PartingGift 0.15
 tier1HP 221
 tier2Att 221
 tier4Stats 344
-tier5Skill PartingGift 0.15
+tier5Skill PartingGift 0.16
