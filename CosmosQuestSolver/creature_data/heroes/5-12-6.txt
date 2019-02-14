@@ -7,4 +7,4 @@ skill ScaleablePercentAtt 0.0033334
 tier1HP 42
 tier2Att 37
 tier4Stats 39
-tier5Skill ScaleablePercentAtt 0.036667
+tier5Skill ScaleablePercentAtt 0.0036667

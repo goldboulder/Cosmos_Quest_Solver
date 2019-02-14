@@ -42,7 +42,7 @@ public class PartingGift extends SpecialAbility{
     @Override
     public String getDescription() {
         String percent = Integer.toString((int)(multiplier * 100));
-        return "Grants remaining units " + percent + "% attack and HP after dying (" + Integer.toString((int)Math.round(owner.getBaseAtt() * multiplier)) + "," + Integer.toString((int)Math.round(owner.getBaseHP() * multiplier)) + ")"; //amount?
+        return "Grants remaining units " + percent + "% attack and HP after dying (" + Integer.toString((int)Math.round(owner.getCurrentAtt() * multiplier)) + "," + Integer.toString((int)Math.round(owner.getCurrentHP() * multiplier)) + ")"; //amount?
     }
     
     @Override

@@ -40,18 +40,18 @@ public class StatLevelBoost extends SpecialAbility{
             Hero h = (Hero) owner;
             int att = levelStat(h.getLevel(),h,h.getLvl1Att(),h.getLvl1HP());
             int hp = levelStat(h.getLevel(),h,h.getLvl1HP(),h.getLvl1Att());
-            if (owner.getLevel() == Hero.MAX_NORMAL_LEVEL){//Promotion stat boosts don't seem to take effect at non-level 99
-                if (h.getPromoteLevel() >= 1){
-                    hp += h.getPromote1HP();
-                }
-                if (h.getPromoteLevel() >= 2){
-                    att += h.getPromote2Att();
-                }
-                if (h.getPromoteLevel() >= 4){
-                    hp += h.getPromote4Stats();
-                    att += h.getPromote4Stats();
-                }
+            
+            if (h.getPromoteLevel() >= 1){
+                hp += h.getPromote1HP();
             }
+            if (h.getPromoteLevel() >= 2){
+                att += h.getPromote2Att();
+            }
+            if (h.getPromoteLevel() >= 4){
+                hp += h.getPromote4Stats();
+                att += h.getPromote4Stats();
+            }
+            
             
             return new int[]{att,hp};
         }

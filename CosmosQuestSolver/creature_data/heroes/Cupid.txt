@@ -1,0 +1,10 @@
+id 148
+rarity Legendary
+element Air
+baseAtt 20
+baseHP 220
+skill Ricochet 3 1
+tier1HP 150
+tier2Att 50
+tier4Stats 110
+tier5Skill Ricochet 3.3 1

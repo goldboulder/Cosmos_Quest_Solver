@@ -287,8 +287,8 @@ public class CreatureDrawer {
     }
     
     public static void drawLevelNumber(Hero h, Graphics g){
-        if (!Hero.validHeroLevel(h.getLevel()) || (h.getLevel() < Hero.MAX_NORMAL_LEVEL && h.getPromoteLevel() != 0)){
-            g.setColor(NERFED_STATS_COLOR);
+        if (!Hero.validHeroLevel(h.getLevel())/* || (h.getLevel() < Hero.MAX_NORMAL_LEVEL && h.getPromoteLevel() != 0)*/){
+            g.setColor(NERFED_STATS_COLOR);//for showing level is not seen in-game
         }
         else{
             g.setColor(NORMAL_STATS_COLOR);

@@ -161,28 +161,27 @@ public class Hero extends Creature{
     
     public int HPForLevel(){
         int hp = levelStat(level,rarity,lvl1HP,lvl1Att,promoteLevel);
-        if (level == Hero.MAX_NORMAL_LEVEL){//in game, promotions only work for level 99
-            if (promoteLevel >= 1){
-                hp += promote1HP;
-            }
-            if (promoteLevel >= 4){
-                hp += promote4Stats;
-            }
+        
+        if (promoteLevel >= 1){
+            hp += promote1HP;
         }
+        if (promoteLevel >= 4){
+            hp += promote4Stats;
+        }
+        
         return hp;
     }
     
     public int attForLevel(){
-        int att = levelStat(level,rarity,lvl1Att,lvl1HP,promoteLevel);//in game, promotions only work for level 99
-        if (level == Hero.MAX_NORMAL_LEVEL){
-            if (promoteLevel >= 2){
-                att += promote2Att;
-            }
-
-            if (promoteLevel >= 4){
-                att += promote4Stats;
-            }
+        int att = levelStat(level,rarity,lvl1Att,lvl1HP,promoteLevel);
+        
+        if (promoteLevel >= 2){
+            att += promote2Att;
         }
+        if (promoteLevel >= 4){
+            att += promote4Stats;
+        }
+        
         return att;
     }
     
@@ -258,18 +257,18 @@ public class Hero extends Creature{
     
     @Override
     public String getFormationText(){
-        StringBuilder sb = new StringBuilder(getNickName());
-        if (level == MAX_NORMAL_LEVEL && promoteLevel != 0){
-            sb.append(".").append(promoteLevel);
+        StringBuilder sb = new StringBuilder(getNickName() + ":");
+        
+        if (level == 1000){
+            sb.append("1k");
         }
         else{
-            if (level == 1000){
-                sb.append(":").append("1k");
-            }
-            else{
-                sb.append(":").append(level);
-            }
+            sb.append(level);
+        }
             
+        
+        if (promoteLevel != 0){
+            sb.append(".").append(promoteLevel);
         }
         
         return sb.toString();
