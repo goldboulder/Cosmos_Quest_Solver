@@ -4,6 +4,7 @@
 package SpecialAbilities;
 
 import Formations.Creature;
+import Formations.Elements.Element;
 import Formations.Formation;
 import Formations.Hero;
 
@@ -40,7 +41,7 @@ public abstract class SpecialAbility {
     public double extraDamage(Formation thisFormation, Formation enemyFormation){
         return 0;
     }
-    public double getElementDamageBoost() {
+    public double getElementDamageBoost(Element element) {
         return 0;
     }
     public void attack(Formation thisFormation, Formation enemyFormation) {

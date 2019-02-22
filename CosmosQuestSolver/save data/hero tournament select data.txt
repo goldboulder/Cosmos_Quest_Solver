@@ -15,7 +15,7 @@ T4URUS,true,false
 TR0N1X,true,false
 Aquortis,true,false
 Aeris,true,false
-Geum,false,false
+Geum,true,false
 Rudean,true,false
 Aural,true,false
 Geror,true,false
@@ -40,6 +40,9 @@ Defile,true,false
 Raze,true,false
 Ruin,true,false
 Seethe,true,false
+Transient,true,false
+Maunder,true,false
+The Wanderer,true,false
 Ascended Alpha,false,false
 Ascended Athos,true,false
 Ascended Rei,false,false
@@ -100,12 +103,12 @@ Rua,true,false
 Dorth,true,false
 Kumu san,false,false
 Liu Cheng,true,false
-Hidoka,false,false
+Hidoka,true,false
 Master Lee,true,false
 Buccaneer Beatrice,false,false
 Corsair Charles,false,false
 Marauder Magnus,true,false
-Raider Rose,false,false
+Raider Rose,true,false
 Blossom,false,false
 Flint,false,false
 Orin,true,false
@@ -136,9 +139,15 @@ James,false,false
 Dr Hawking,true,false
 Neil,true,true
 Guy,true,false
+Cupid,false,false
 Dicemaster,true,false
 Luxurius Maximus,false,false
 Pokerface,true,false
+Cloud,false,false
+Ember,false,false
+Riptide,false,false
+Spike,false,false
+B-Day,true,false
 Spyke,true,false
 Aoyuki,true,false
 GaiaByte,false,false

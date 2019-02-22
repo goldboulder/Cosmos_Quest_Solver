@@ -143,3 +143,11 @@ Flint
 Orin
 Aurora
 Cupid
+Transient
+Maunder
+The Wanderer
+B-Day
+Cloud
+Ember
+Riptide
+Spike

@@ -40,6 +40,9 @@ Defile
 Raze
 Ruin
 Seethe
+Transient
+Maunder
+The Wanderer
 Ascended Alpha
 Ascended Athos
 Ascended Rei
@@ -140,6 +143,11 @@ Cupid
 Dicemaster
 Luxurius Maximus
 Pokerface
+Cloud
+Ember
+Riptide
+Spike
+B-Day
 Spyke
 Aoyuki
 GaiaByte

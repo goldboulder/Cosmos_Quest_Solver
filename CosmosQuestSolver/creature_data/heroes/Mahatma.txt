@@ -3,8 +3,8 @@ rarity Legendary
 element Air
 baseAtt 26
 baseHP 78
-skill ElementDamageBoost 0.75
+skill ElementDamageBoost Water 0.75
 tier1HP 56
 tier2Att 19
 tier4Stats 25
-tier5Skill ElementDamageBoost 0.83
+tier5Skill ElementDamageBoost Water 0.83

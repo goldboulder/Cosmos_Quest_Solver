@@ -15,7 +15,7 @@ T4URUS,99,0
 TR0N1X,99,0
 Aquortis,99,0
 Aeris,99,0
-Geum,99,3
+Geum,99,4
 Rudean,99,0
 Aural,99,0
 Geror,99,0
@@ -38,8 +38,11 @@ Taint,99,4
 Putrid,99,0
 Defile,99,0
 Raze,99,4
-Ruin,99,0
+Ruin,99,4
 Seethe,99,0
+Transient,99,0
+Maunder,99,0
+The Wanderer,99,0
 Ascended Alpha,1,0
 Ascended Athos,73,0
 Ascended Rei,1,0
@@ -78,7 +81,7 @@ Mahatma,99,0
 Jade,99,0
 Edana,1,0
 Dybbuk,1,0
-Ascended Shygu,74,0
+Ascended Shygu,90,0
 Ascended Thert,99,2
 Ascended Lord Kirk,69,0
 Ascended Neptunius,99,4
@@ -95,17 +98,17 @@ Gurth,1,0
 Sigrun,18,0
 Koldis,21,0
 Alvitr,23,0
-Arshen,99,0
-Rua,99,2
-Dorth,99,2
+Arshen,99,4
+Rua,99,4
+Dorth,99,4
 Kumu san,1,0
 Liu Cheng,1,0
 Hidoka,1,0
-Master Lee,68,0
+Master Lee,99,3
 Buccaneer Beatrice,1,0
 Corsair Charles,1,0
 Marauder Magnus,1,0
-Raider Rose,1,0
+Raider Rose,7,0
 Blossom,1,0
 Flint,1,0
 Orin,1,0
@@ -113,7 +116,7 @@ Aurora,1,0
 Werewolf,99,4
 Jack'o Knight,1,0
 Dullahan,1,0
-Billy,99,3
+Billy,99,4
 Sanqueen,1,0
 Cliodhna,1,0
 Christmas Elf,54,0
@@ -133,12 +136,18 @@ Tiny,1,0
 Nebra,1,0
 Bubbles,1,0
 James,1,0
-Dr Hawking,99,0
+Dr Hawking,99,2
 Neil,99,4
 Guy,36,0
+Cupid,1,0
 Dicemaster,1,0
 Luxurius Maximus,1,0
 Pokerface,99,4
+Cloud,1,0
+Ember,1,0
+Riptide,1,0
+Spike,1,0
+B-Day,1,0
 Spyke,1,0
 Aoyuki,1,0
 GaiaByte,1,0

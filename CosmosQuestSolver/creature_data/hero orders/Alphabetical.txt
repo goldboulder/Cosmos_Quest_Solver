@@ -33,6 +33,7 @@ Atzar
 Aural
 Auri
 Aurora
+B-Day
 Bavah
 Bewat
 Billy
@@ -46,6 +47,7 @@ Carl
 Christmas Elf
 Chroma
 Cliodhna
+Cloud
 Corsair Charles
 Cupid
 Dagda
@@ -56,6 +58,7 @@ Dr Hawking
 Dullahan
 Dybbuk
 Edana
+Ember
 Erebus
 Faefyr
 Fir
@@ -98,6 +101,7 @@ Luxurius Maximus
 Mahatma
 Marauder Magnus
 Master Lee
+Maunder
 Nebra
 Neil
 Neptunius
@@ -116,6 +120,7 @@ Raze
 Rei
 Reindeer
 Rigr
+Riptide
 Rokka
 Rua
 Rudean
@@ -128,6 +133,7 @@ Shaman
 Shygu
 Sigrun
 Sparks
+Spike
 Spyke
 T4URUS
 Taint
@@ -136,9 +142,11 @@ Thert
 Tiny
 Toth
 TR0N1X
+Transient
 Undine
 Valor
 Veildur
+The Wanderer
 Werewolf
 Xarth
 Zaytus

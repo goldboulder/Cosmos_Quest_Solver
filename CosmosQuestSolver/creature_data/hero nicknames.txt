@@ -48,5 +48,6 @@ Reindeer->Deer
 Santa Claus->Santa
 Sexy Santa->SS
 Veildur->Veil
+The Wanderer->Wanderer
 Lord of Chaos->LOC
 Mother of all Kodamas->MOAK

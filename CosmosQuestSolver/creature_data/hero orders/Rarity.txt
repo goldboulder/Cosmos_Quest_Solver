@@ -12,6 +12,7 @@ Toth
 Bylar
 Taint
 Raze
+Transient
 Valor
 Rokka
 Pyromancer
@@ -23,6 +24,7 @@ Fir
 Sparks
 Lady of Twilight
 Dicemaster
+Cloud
 Shaman
 Nimue
 Geron
@@ -37,6 +39,7 @@ Ganah
 Boor
 Putrid
 Ruin
+Maunder
 Nicte
 Forest Druid
 Ignitor
@@ -54,6 +57,7 @@ Frosty
 Leaf
 Tiny
 Luxurius Maximus
+Ember
 Alpha
 Athos
 Rei
@@ -68,6 +72,7 @@ Dagda
 Bavah
 Defile
 Seethe
+The Wanderer
 Shygu
 Thert
 Lord Kirk
@@ -113,6 +118,8 @@ Dr Hawking
 Neil
 Cupid
 Pokerface
+Riptide
+B-Day
 Spyke
 Aoyuki
 GaiaByte
@@ -143,3 +150,4 @@ Raider Rose
 Aurora
 Bubbles
 Guy
+Spike

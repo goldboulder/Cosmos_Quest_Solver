@@ -7,9 +7,17 @@ package Formations;
 public class Elements {
 
     
-    public static enum Element {AIR,WATER,EARTH,FIRE}
+    public static enum Element {AIR,WATER,EARTH,FIRE,VOID}
     public static final double DAMAGE_BOOST = 1.5;
     public static final Element[] MONSTER_ELEMENTS = new Element[]{Element.AIR,Element.WATER,Element.EARTH,Element.FIRE};
+    
+    private static final double[][] ELEMENT_MULTIPLIER_ARRAY = new double[][]{
+        /*a   */{1,DAMAGE_BOOST,1,1,1,1},/*air is strong against water*/
+        /*w   */{1,1,1,DAMAGE_BOOST,1,1},/*water is strong against fire*/
+        /*e   */{DAMAGE_BOOST,1,1,1,1,1},/*earth is strong against air*/
+        /*f   */{1,1,DAMAGE_BOOST,1,1,1},/*fire is strong against earth*/
+        /*v   */{1,1,1,1,1,1},/*void is neutral*/
+    };
     
     public static int numElements(){
         return Element.values().length;
@@ -24,6 +32,7 @@ public class Elements {
             case WATER: return "Water";
             case EARTH: return "Earth";
             case FIRE: return "Fire";
+            case VOID: return "Void";
             default: return "";
         }
     }
@@ -34,6 +43,7 @@ public class Elements {
             case "Water": return Element.WATER;
             case "Earth": return Element.EARTH;
             case "Fire": return Element.FIRE;
+            case "Void": return Element.VOID;
             default: return null;
         }
     }
@@ -50,7 +60,8 @@ public class Elements {
             case WATER: return 'W';
             case EARTH: return 'E';
             case FIRE: return 'F';
-            default: return 'A';
+            case VOID: return 'V';
+            default: return 'N';
         }
     }
     
@@ -60,36 +71,20 @@ public class Elements {
             case 'W': return Element.WATER;
             case 'E': return Element.EARTH;
             case 'F': return Element.FIRE;
+            case 'V': return Element.VOID;
             default: return null;
         }
     }
     
-    private static Element elementWeakness(Element e){//private in case more elements come out that are weak to more than one element. replace eventually?
-        switch(e){
-            case AIR: return Element.EARTH;
-            case WATER: return Element.AIR;
-            case EARTH: return Element.FIRE;
-            case FIRE: return Element.WATER;
-            default: return null;
-        }
-    }
-
+    
+    
     
     public static double damageFromElement(Creature attacker, double baseDamage,Element elementAttacked){//use creatureAttacked instead?
-        if (Elements.elementWeakness(elementAttacked) == attacker.getElement()){
-            return baseDamage * (Elements.DAMAGE_BOOST + attacker.getSpecialAbility().getElementDamageBoost());
-        }
-        else{
-            return baseDamage;
-        }
+        return baseDamage * (ELEMENT_MULTIPLIER_ARRAY[attacker.getElement().ordinal()][elementAttacked.ordinal()] + attacker.getSpecialAbility().getElementDamageBoost(elementAttacked));
     }
     
     public static double elementDamageMultiplier(Creature attacker, Element elementAttacked){//change if more elements come?
-        if (Elements.elementWeakness(elementAttacked) == attacker.getElement()){
-            return Elements.DAMAGE_BOOST + attacker.getSpecialAbility().getElementDamageBoost();
-        }
-        else{
-            return 1;
-        }
+        return ELEMENT_MULTIPLIER_ARRAY[attacker.getElement().ordinal()][elementAttacked.ordinal()] + attacker.getSpecialAbility().getElementDamageBoost(elementAttacked);
     }
+
 }

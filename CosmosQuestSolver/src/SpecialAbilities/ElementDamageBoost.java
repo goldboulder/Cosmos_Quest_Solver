@@ -5,15 +5,19 @@ package SpecialAbilities;
 
 import Formations.Creature;
 import Formations.Elements;
+import Formations.Elements.Element;
+import Formations.Formation;
 
-//attacks a random enemy each turn (only one hit, enemy in first is not guarenteed to get hit)
-//used by Quest heroes 21-24
+//additively boosts damage with element damage.
+//used by Quest heroes 21-24 and drifter heroes
 public class ElementDamageBoost extends SpecialAbility{
     
     private double percentBoost;
+    private Element element;
 
-    public ElementDamageBoost(Creature owner, double multiplier) {
+    public ElementDamageBoost(Creature owner, Element element, double multiplier) {
         super(owner);
+        this.element = element;
         this.percentBoost = multiplier;
     }
     
@@ -21,7 +25,7 @@ public class ElementDamageBoost extends SpecialAbility{
     
     @Override
     public SpecialAbility getCopyForNewOwner(Creature newOwner) {
-        return new ElementDamageBoost(newOwner,percentBoost);
+        return new ElementDamageBoost(newOwner,element,percentBoost);
     }
     
 
@@ -29,11 +33,18 @@ public class ElementDamageBoost extends SpecialAbility{
     
     @Override
     public String getDescription() {
-        double elementalDamage = percentBoost + Elements.DAMAGE_BOOST;
-        if (elementalDamage % 1 == 0){
-            return "x " + ((int)elementalDamage) + " damage to elemental strength";
+        String elementStr;
+        if (element == null){
+            elementStr = "all non-void";
         }
-        return "x " + (elementalDamage) + " damage to elemental strength";
+        else{
+            elementStr = Elements.getString(element).toLowerCase();
+        }
+        
+        if ((percentBoost*100) % 1 == 0){
+            return "+" + ((int)(100*percentBoost)) + "% damage to " + elementStr + " creatures";
+        }
+        return "+" + (100*percentBoost) + "% damage to " + elementStr + " creatures";
     }
     
     @Override
@@ -41,13 +52,24 @@ public class ElementDamageBoost extends SpecialAbility{
         return this.getClass().getSimpleName() + " " + percentBoost;
     }
     
-    public double getElementDamageBoost() {
-        return percentBoost;
+    @Override
+    public double getElementDamageBoost(Element elementAttacked) {//rounding?
+        if (elementAttacked == this.element ||(owner.getElement() == Element.VOID && !(elementAttacked == Element.VOID))){
+            return percentBoost;
+        }
+        else{
+            return 0;
+        }
     }
     
     @Override
     public int viability() {
-        return owner.getBaseHP() * owner.getBaseAtt() * (int)(1+percentBoost);
+        if (element == null){
+            return owner.getBaseHP() * owner.getBaseAtt() * (int)(1+percentBoost);
+        }
+        else{
+            return owner.getBaseHP() * owner.getBaseAtt() * (int)(1+(percentBoost/Elements.numElements()));
+        }
     }
 
     @Override

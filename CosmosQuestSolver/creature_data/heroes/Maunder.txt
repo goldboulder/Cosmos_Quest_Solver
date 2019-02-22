@@ -1,0 +1,10 @@
+id 150
+rarity Rare
+element Void
+baseAtt 34
+baseHP 34
+skill ElementDamageBoost All 0.5
+tier1HP 22
+tier2Att 22
+tier4Stats 32
+tier5Skill ElementDamageBoost All 0.6

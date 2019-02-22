@@ -1,0 +1,10 @@
+id 152
+rarity Legendary
+element Air
+baseAtt 40
+baseHP 100
+skill Simmer 0.1
+tier1HP 61
+tier2Att 51
+tier4Stats 23
+tier5Skill Simmer 0.15

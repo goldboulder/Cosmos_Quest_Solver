@@ -1,5 +1,5 @@
-H,Shaman,1000,0
-H,Ruin,1000,0
-H,Alpha,1000,0
-H,Leprechaun,1000,0
-H,Brynhildr,1000,0
+H,Ember,1000,0
+H,Putrid,1000,0
+H,Riptide,1000,0
+H,Liu Cheng,1000,0
+H,Bavah,1000,0

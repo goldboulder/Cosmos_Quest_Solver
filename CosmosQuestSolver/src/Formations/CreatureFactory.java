@@ -421,10 +421,11 @@ public class CreatureFactory {
             case "BloodBomb": return new BloodBomb(null,Integer.parseInt(tokens[2]));
             case "CriticalHit": return new CriticalHit(null,Double.parseDouble(tokens[2]));
             case "DamageDodge": return new DamageDodge(null,Integer.parseInt(tokens[2]));
-            case "ElementDamageBoost": return new ElementDamageBoost(null,Double.parseDouble(tokens[2]));
+            case "ElementDamageBoost": return new ElementDamageBoost(null,Elements.parseElement(tokens[2]),Double.parseDouble(tokens[3]));
             case "EvenField": return new EvenField(null,Integer.parseInt(tokens[2]));
             case "Execute": return new Execute(null,Double.parseDouble(tokens[2]));
             case "Heal": return new Heal(null,Integer.parseInt(tokens[2]));
+            case "Inferno": return new Inferno(null,Double.parseDouble(tokens[2]));
             case "Intercept": return new Intercept(null,Double.parseDouble(tokens[2]));
             case "LifeSteal": return new LifeSteal(null,Integer.parseInt(tokens[2]));
             case "MonsterBuff": return new MonsterBuff(null,Double.parseDouble(tokens[2]));
@@ -449,10 +450,11 @@ public class CreatureFactory {
             case "ScaleableStartingDamage": return new ScaleableStartingDamage(null,Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableStatAura": return new ScaleableStatAura(null,Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]),Elements.parseElement(tokens[4]),Double.parseDouble(tokens[5]));
             case "ScaleableUnitBuff": return new ScaleableUnitBuff(null,Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]));
+            case "TargetedReflect": return new TargetedReflect(null,Double.parseDouble(tokens[2]));
             case "StartingDamage": return new StartingDamage(null,Integer.parseInt(tokens[2]));
             case "StatAura": return new StatAura(null,Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]),Elements.parseElement(tokens[4]));
             case "StatLevelBoost": return new StatLevelBoost(null,Double.parseDouble(tokens[2]));
-            case "TargetedReflect": return new TargetedReflect(null,Double.parseDouble(tokens[2]));
+            case "Simmer": return new Simmer(null,Double.parseDouble(tokens[2]));
             case "Train": return new Train(null,Integer.parseInt(tokens[2]));
             case "UnitBuff": return new UnitBuff(null,Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]));
             case "Vampyrism": return new Vampyrism(null,Double.parseDouble(tokens[2]));

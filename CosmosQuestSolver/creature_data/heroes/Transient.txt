@@ -1,0 +1,10 @@
+id 149
+rarity Common
+element Void
+baseAtt 22
+baseHP 22
+skill ElementDamageBoost All 0.5
+tier1HP 11
+tier2Att 11
+tier4Stats 20
+tier5Skill ElementDamageBoost All 0.6

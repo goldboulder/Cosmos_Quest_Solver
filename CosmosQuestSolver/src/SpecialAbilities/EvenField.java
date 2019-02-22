@@ -46,9 +46,9 @@ public class EvenField extends SpecialAbility{//enemies cannot heal back to full
     @Override
     public String getDescription() {
         if (numExtra > 0){
-            return "At start, cuts enemy HP to (enemy team size + 1 / your team size) %";
+            return "At start, cuts enemy HP to (enemy team size + 1 / your team size)";
         }
-        return "At start, cuts enemy HP to (enemy team size / your team size) %";
+        return "At start, cuts enemy HP to (enemy team size / your team size)";
     }
     
     @Override

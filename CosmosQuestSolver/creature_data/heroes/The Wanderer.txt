@@ -1,0 +1,10 @@
+id 151
+rarity Legendary
+element Void
+baseAtt 50
+baseHP 50
+skill ElementDamageBoost All 0.5
+tier1HP 80
+tier2Att 80
+tier4Stats 120
+tier5Skill ElementDamageBoost All 0.6

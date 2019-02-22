@@ -40,6 +40,9 @@ Defile,false,false
 Raze,false,false
 Ruin,false,false
 Seethe,false,false
+Transient,false,false
+Maunder,false,false
+The Wanderer,false,false
 Ascended Alpha,false,false
 Ascended Athos,true,false
 Ascended Rei,false,false
@@ -63,7 +66,7 @@ Forest Druid,false,false
 Ignitor,false,false
 Undine,false,false
 Chroma,false,false
-Petry,true,false
+Petry,false,false
 Zaytus,false,false
 Lady Odelith,false,false
 Shygu,true,false
@@ -106,6 +109,10 @@ Buccaneer Beatrice,false,false
 Corsair Charles,false,false
 Marauder Magnus,false,false
 Raider Rose,false,false
+Blossom,false,false
+Flint,false,false
+Orin,false,false
+Aurora,false,false
 Werewolf,true,false
 Jack'o Knight,false,false
 Dullahan,false,false
@@ -132,13 +139,15 @@ James,false,false
 Dr Hawking,false,false
 Neil,true,false
 Guy,false,false
+Cupid,false,false
 Dicemaster,false,false
 Luxurius Maximus,false,false
 Pokerface,true,false
+Cloud,false,false
+Ember,false,false
+Riptide,false,false
+Spike,false,false
+B-Day,false,false
 Spyke,false,false
 Aoyuki,false,false
 GaiaByte,false,false
-Aurora,false,false
-Bronze Hero,false,false
-Gold Hero,false,false
-Silver Hero,false,false

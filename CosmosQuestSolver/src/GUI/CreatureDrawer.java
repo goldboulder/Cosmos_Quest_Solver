@@ -279,6 +279,7 @@ public class CreatureDrawer {
             case WATER: image = ImageFactory.getPicture("Stands/HeroElementWater"); break;
             case EARTH: image = ImageFactory.getPicture("Stands/HeroElementEarth"); break;
             case FIRE: image = ImageFactory.getPicture("Stands/HeroElementFire"); break;
+            case VOID: image = ImageFactory.getPicture("Stands/HeroElementVoid"); break;
             default: image = ImageFactory.getDefaultImage();
         }
         
@@ -373,6 +374,7 @@ public class CreatureDrawer {
             case WATER: image = ImageFactory.getPicture("Stands/MonsterElementWater"); break;
             case EARTH: image = ImageFactory.getPicture("Stands/MonsterElementEarth"); break;
             case FIRE: image = ImageFactory.getPicture("Stands/MonsterElementFire"); break;
+            case VOID: image = ImageFactory.getPicture("Stands/MonsterElementVoid"); break;
             default: image = ImageFactory.getDefaultImage();
         }
         

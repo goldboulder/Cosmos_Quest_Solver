@@ -188,7 +188,7 @@ public abstract class Creature implements Comparable<Creature>{
     //actually changes HP directly. Positive numbers means healing
     public void changeHP(double damage, Formation thisFormation){
         if (currentHP == 0){
-            return;//once dead, cannot be revived
+            return;//once dead, cannot be revived. does damage still count torawds total?
         }
         
         int num;//Geum?

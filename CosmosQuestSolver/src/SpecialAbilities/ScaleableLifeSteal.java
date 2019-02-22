@@ -62,7 +62,7 @@ public class ScaleableLifeSteal extends LifeSteal{
     
     @Override
     public int viability() {
-        return (owner.getBaseHP() * owner.getBaseAtt()) + (owner.getBaseHP() * (roundedScaleMilestone(owner,amount,1)) * Formation.MAX_MEMBERS * 2);
+        return (owner.getBaseHP() * owner.getBaseAtt()) + (owner.getBaseHP() * (roundedScaleMilestone(owner,amount,levelMilestone)) * Formation.MAX_MEMBERS * 2);
     }
 
 }
