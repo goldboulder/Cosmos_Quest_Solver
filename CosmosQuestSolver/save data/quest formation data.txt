@@ -1,5 +1,6 @@
-H,Ember,1000,0
-H,Putrid,1000,0
-H,Riptide,1000,0
-H,Liu Cheng,1000,0
-H,Bavah,1000,0
+H,Forest Druid,1000,0
+H,Neptunius,1000,0
+H,Thert,1000,0
+H,Mahatma,1000,0
+H,Jade,1000,0
+H,Dybbuk,1000,0

@@ -5,6 +5,7 @@ package GUI;
 
 import Formations.Creature;
 import Formations.CreatureFactory;
+import Formations.Hero;
 import Formations.Monster;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
@@ -111,10 +112,10 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
     public void mouseWheelMoved(MouseWheelEvent e) {
         int notches = e.getWheelRotation();
         
-        changeTierOfMonster(-notches);
+        tweakUnit(-notches);
     }
     
-    private void changeTierOfMonster(int tierDifference){
+    private void tweakUnit(int tierDifference){
         if (picPanel.getCreature() instanceof Monster){
             
             Monster m = (Monster)picPanel.getCreature();
@@ -125,6 +126,37 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
                 newMonster.setFacingRight(facingRight);
                 setCreature(newMonster);
                 
+            }
+        }
+        
+        else if (picPanel.getCreature() instanceof Hero){
+            Hero h = (Hero)picPanel.getCreature();
+            int level = h.getLevel();
+            int promo = h.getPromoteLevel();
+            
+            if (tierDifference > 0){
+                if (level < Hero.MAX_NORMAL_LEVEL && level >= 1){
+                    h.levelUp(level + tierDifference);
+                    setCreature(h);
+                    frame.redrawHero(h.getName());
+                }
+                else if (promo < Hero.MAX_PROMOTE_LEVEL){
+                    h.promote(promo + tierDifference);
+                    setCreature(h);
+                    frame.redrawHero(h.getName());
+                }
+            }
+            else if (tierDifference < 0){
+                if (promo > 0){
+                    h.promote(promo +tierDifference);
+                    setCreature(h);
+                    frame.redrawHero(h.getName());
+                }
+                else if (level > 1 && level <= Hero.MAX_NORMAL_LEVEL){
+                    h.levelUp(level + tierDifference);
+                    setCreature(h);
+                    frame.redrawHero(h.getName());
+                }
             }
         }
     }

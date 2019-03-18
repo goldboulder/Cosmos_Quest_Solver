@@ -1,4 +1,0 @@
-id 106
-element Air
-baseAtt 11
-skill Train 10

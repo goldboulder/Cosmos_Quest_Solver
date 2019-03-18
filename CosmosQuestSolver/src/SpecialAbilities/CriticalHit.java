@@ -44,6 +44,7 @@ public class CriticalHit extends SpecialAbility{
     public double extraDamage(Formation thisFormation, Formation enemyFormation){//damage boost from other heroes stacks with crit
         //if (alwaysHit || thisFormation.getTurnSeed(enemyFormation,turn) % 2 == 0){
         //if (enemyFormation.getTurnSeed(Formation.STALEMATE_CUTOFF_POINT-1-turn) % 2 == 0){
+        //do empty spaces count?
         if (Formation.getTurnSeed(seed,Formation.STALEMATE_CUTOFF_POINT-1-turn) % 2 == 0){
             //test this more with data?
             return (multiplier-1) * (owner.getCurrentAtt()+owner.getAttBoost()-(enemyFormation.getFrontCreature().getArmor()/Elements.elementDamageMultiplier(owner,enemyFormation.getFrontCreature().getElement())));

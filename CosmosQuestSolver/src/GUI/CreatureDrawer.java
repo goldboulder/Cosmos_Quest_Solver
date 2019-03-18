@@ -221,7 +221,11 @@ public class CreatureDrawer {
                 name.equals("Ascended Hirate") || 
                 name.equals("Ascended Hattori") ||
                 name.equals("Ascended Defile") ||
-                name.equals("Ascended Seethe")){
+                name.equals("Ascended Seethe") ||
+                name.equals("Ascended Mahatma") || 
+                name.equals("Ascended Jade") || 
+                name.equals("Ascended Edana") || 
+                name.equals("Ascended Dybbuk")){
             return true;
         }
         else{

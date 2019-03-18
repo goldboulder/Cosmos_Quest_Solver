@@ -1,6 +1,0 @@
-element Fire
-att 24
-hp 42
-tier 5
-followers 31000
-skill Nothing

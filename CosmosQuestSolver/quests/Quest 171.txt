@@ -1,0 +1,4 @@
+H,Zaytus,1000,0
+H,Chroma,1000,0
+H,Hattori,1000,0
+H,Hirate,1000,0

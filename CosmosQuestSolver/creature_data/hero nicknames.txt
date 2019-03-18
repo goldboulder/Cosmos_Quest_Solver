@@ -1,4 +1,4 @@
-5-12-6->E-L-F
+5_12_6->E-L-F
 Ascended Alpha->aAlpha
 Ascended Athos->aAthos
 Ascended Atzar->aAtzar
@@ -51,3 +51,7 @@ Veildur->Veil
 The Wanderer->Wanderer
 Lord of Chaos->LOC
 Mother of all Kodamas->MOAK
+Ascended Mahatma->aMahatma
+Ascended Jade->aJade
+Ascended Edana->aEdana
+Ascended Dybbuk->aDybbuk

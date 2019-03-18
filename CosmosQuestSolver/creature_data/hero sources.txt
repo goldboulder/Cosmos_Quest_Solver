@@ -1,0 +1,157 @@
+Hunter->Chest
+Shaman->Chest
+Alpha->Chest
+Carl->Chest
+Nimue->Chest
+Athos->Chest
+Jet->Chest
+Geron->Chest
+Rei->Chest
+Ailen->Chest
+Faefyr->Chest
+Auri->Chest
+K41RY->Chest
+T4URUS->Chest
+TR0N1X->Chest
+Aquortis->Chest
+Aeris->Chest
+Geum->Chest
+Rudean->Chest
+Aural->Chest
+Geror->Chest
+Ourea->Chest
+Erebus->Chest
+Pontus->Chest
+Oymos->Chest
+Xarth->Chest
+Atzar->Chest
+Hama->Chest
+Hallinskidi->Chest
+Rigr->Chest
+Toth->Chest
+Ganah->Chest
+Dagda->Chest
+Bylar->Chest
+Boor->Chest
+Bavah->Chest
+Taint->Chest
+Putrid->Chest
+Defile->Chest
+Raze->Chest
+Ruin->Chest
+Seethe->Chest
+Transient->Chest
+Maunder->Chest
+The Wanderer->Chest
+Ascended Alpha->Chest
+Ascended Athos->Chest
+Ascended Rei->Chest
+Ascended Auri->Chest
+Ascended TR0N1X->Chest
+Ascended Geum->Chest
+Ascended Geror->Chest
+Ascended Pontus->Chest
+Ascended Atzar->Chest
+Ascended Rigr->Chest
+Ascended Dagda->Chest
+Ascended Bavah->Chest
+Ascended Defile->Chest
+Ascended Seethe->Chest
+Valor->Quest
+Rokka->Quest
+Pyromancer->Quest
+Bewat->Quest
+Nicte->Quest
+Forest Druid->Quest
+Ignitor->Quest
+Undine->Quest
+Chroma->Quest
+Petry->Quest
+Zaytus->Quest
+Lady Odelith->Quest
+Shygu->Quest
+Thert->Quest
+Lord Kirk->Quest
+Neptunius->Quest
+Hosokawa->Quest
+Takeda->Quest
+Hirate->Quest
+Hattori->Quest
+Mahatma->Quest
+Jade->Quest
+Edana->Quest
+Dybbuk->Quest
+Ascended Shygu->Quest
+Ascended Thert->Quest
+Ascended Lord Kirk->Quest
+Ascended Neptunius->Quest
+Ascended Hosokawa->Quest
+Ascended Takeda->Quest
+Ascended Hirate->Quest
+Ascended Hattori->Quest
+Ascended Mahatma->Quest
+Ascended Jade->Quest
+Ascended Edana->Quest
+Ascended Dybbuk->Quest
+Veildur->Season
+Brynhildr->Season
+Groth->Season
+Zeth->Season
+Koth->Season
+Gurth->Season
+Sigrun->Season
+Koldis->Season
+Alvitr->Season
+Arshen->Season
+Rua->Season
+Dorth->Season
+Kumu san->Season
+Liu Cheng->Season
+Hidoka->Season
+Master Lee->Season
+Buccaneer Beatrice->Season
+Corsair Charles->Season
+Marauder Magnus->Season
+Raider Rose->Season
+Blossom->Season
+Flint->Season
+Orin->Season
+Aurora->Season
+Werewolf->Event
+Jack'o Knight->Event
+Dullahan->Event
+Billy->Event
+Sanqueen->Event
+Cliodhna->Event
+Christmas Elf->Event
+Reindeer->Event
+Santa Claus->Event
+Sexy Santa->Event
+Fir->Event
+5_12_6->Event
+Kedari->Event
+Frosty->Event
+Sparks->Event
+Leaf->Event
+Flynn->Event
+B-Day->Event
+Lady of Twilight->Special
+Tiny->Special
+Nebra->Special
+Bubbles->Special
+James->Special
+Leprechaun->Special
+Dr Hawking->Special
+Neil->Special
+Guy->Special
+Cupid->Special
+Dicemaster->Auction
+Luxurius Maximus->Auction
+Pokerface->Auction
+Cloud->Auction
+Ember->Auction
+Riptide->Auction
+Spike->Auction
+Spyke->Shop
+Aoyuki->Shop
+GaiaByte->Shop

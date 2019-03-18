@@ -58,7 +58,7 @@ public class MonsterBuff extends SpecialAbility{
     
     @Override
     public int viability() {
-        int att = (int)(owner.getBaseAtt() * Math.pow(multiplier, Formation.MAX_MEMBERS/3.0));
+        int att = (int)(owner.getBaseAtt() * Math.pow(multiplier, (Formation.MAX_MEMBERS-1)/3.0));
         return owner.getBaseHP() * att;
     }
 

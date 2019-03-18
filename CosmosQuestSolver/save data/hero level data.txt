@@ -89,6 +89,10 @@ Ascended Hosokawa,1,0
 Ascended Takeda,1,0
 Ascended Hirate,1,0
 Ascended Hattori,1,0
+Ascended Mahatma,1,0
+Ascended Jade,1,0
+Ascended Edana,1,0
+Ascended Dybbuk,1,0
 Veildur,2,0
 Brynhildr,1,0
 Groth,1,0
@@ -124,18 +128,19 @@ Reindeer,30,0
 Santa Claus,5,0
 Sexy Santa,99,4
 Fir,65,0
-5-12-6,30,0
+5_12_6,30,0
 Kedari,10,0
 Frosty,9,0
-Leprechaun,1,0
 Sparks,27,0
 Leaf,18,0
 Flynn,1,0
+B-Day,1,0
 Lady of Twilight,1,0
 Tiny,1,0
 Nebra,1,0
 Bubbles,1,0
 James,1,0
+Leprechaun,1,0
 Dr Hawking,99,2
 Neil,99,4
 Guy,36,0
@@ -147,7 +152,6 @@ Cloud,1,0
 Ember,1,0
 Riptide,1,0
 Spike,1,0
-B-Day,1,0
 Spyke,1,0
 Aoyuki,1,0
 GaiaByte,1,0

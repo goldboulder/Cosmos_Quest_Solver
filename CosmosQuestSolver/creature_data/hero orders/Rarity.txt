@@ -52,7 +52,7 @@ Jack'o Knight
 Sanqueen
 Reindeer
 Sexy Santa
-5-12-6
+5_12_6
 Frosty
 Leaf
 Tiny
@@ -110,16 +110,16 @@ Dullahan
 Cliodhna
 Santa Claus
 Kedari
-Leprechaun
 Flynn
+B-Day
 Nebra
 James
+Leprechaun
 Dr Hawking
 Neil
 Cupid
 Pokerface
 Riptide
-B-Day
 Spyke
 Aoyuki
 GaiaByte
@@ -145,6 +145,10 @@ Ascended Hosokawa
 Ascended Takeda
 Ascended Hirate
 Ascended Hattori
+Ascended Mahatma
+Ascended Jade
+Ascended Edana
+Ascended Dybbuk
 Master Lee
 Raider Rose
 Aurora

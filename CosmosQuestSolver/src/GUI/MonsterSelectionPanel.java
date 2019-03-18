@@ -114,7 +114,7 @@ public class MonsterSelectionPanel extends JPanel implements ActionListener, Doc
         }
         
         searchTextField.setMaximumSize(new Dimension(80,TEXTBOX_HEIGHT));
-        searchTextField.setColumns(16);
+        searchTextField.setColumns(11);
         questTextField.setColumns(3);
         questTextField.setPreferredSize(new Dimension(30,20));
         questTextField.setMaximumSize(new Dimension(30,20));

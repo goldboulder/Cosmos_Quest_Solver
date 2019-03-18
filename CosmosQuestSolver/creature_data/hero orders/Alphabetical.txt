@@ -1,4 +1,4 @@
-5-12-6
+5_12_6
 Aeris
 Ailen
 Alpha
@@ -13,12 +13,16 @@ Ascended Auri
 Ascended Bavah
 Ascended Dagda
 Ascended Defile
+Ascended Dybbuk
+Ascended Edana
 Ascended Geror
 Ascended Geum
 Ascended Hattori
 Ascended Hirate
 Ascended Hosokawa
+Ascended Jade
 Ascended Lord Kirk
+Ascended Mahatma
 Ascended Neptunius
 Ascended Pontus
 Ascended Rei

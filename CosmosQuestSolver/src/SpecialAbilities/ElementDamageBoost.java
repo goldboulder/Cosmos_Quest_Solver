@@ -49,7 +49,7 @@ public class ElementDamageBoost extends SpecialAbility{
     
     @Override
     public String getParseString() {
-        return this.getClass().getSimpleName() + " " + percentBoost;
+        return this.getClass().getSimpleName() + " " + percentBoost + " " + Elements.getString(element);
     }
     
     @Override

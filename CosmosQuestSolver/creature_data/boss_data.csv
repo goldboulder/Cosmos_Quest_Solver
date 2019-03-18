@@ -1,0 +1,5 @@
+Name,ID,Element,Base attack,Skill
+Doyenne,126,Water,175,DamageDodge 15000
+Kryton,106,Air,11,Train 10
+Lord of Chaos,72,Fire,113,AOE 50
+Mother of all Kodamas,87,Earth,191,AntiAOE 0.5

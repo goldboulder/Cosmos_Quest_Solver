@@ -132,7 +132,7 @@ Corsair Charles
 Marauder Magnus
 Frosty
 Fir
-5-12-6
+5_12_6
 Kedari
 Raze
 Ruin
@@ -151,3 +151,7 @@ Cloud
 Ember
 Riptide
 Spike
+Ascended Mahatma
+Ascended Jade
+Ascended Edana
+Ascended Dybbuk

@@ -1,0 +1,6 @@
+M,F,30
+H,Ignitor,1000,0
+H,Forest Druid,1000,0
+H,Lady Odelith,1000,0
+H,Undine,1000,0
+H,Thert,1000,0

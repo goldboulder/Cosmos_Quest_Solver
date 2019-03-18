@@ -88,6 +88,8 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
             enemyFormationPanel.load();
         }
         
+        
+        
     }
     
     public void setQuest(int questNum) {
@@ -166,9 +168,17 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
     public void setDefaultLevels() {
         enemyHeroesCustomizationPanel.setDefaultLevels();
     }
+    
+    public void sortByStrength() {
+       enemyHeroesCustomizationPanel.sortByStrength();
+    }
 
     public void filterHeroes(String text) {
         enemyHeroesCustomizationPanel.filterHeroes(text);
+    }
+
+    public void redrawHero(String text) {
+        enemyHeroesCustomizationPanel.redrawHero(text);
     }
 
     

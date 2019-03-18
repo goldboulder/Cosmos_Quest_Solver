@@ -1,0 +1,4 @@
+H,Thert,1000,0
+H,Neptunius,1000,0
+H,Mahatma,1000,0
+H,Hosokawa,1000,0

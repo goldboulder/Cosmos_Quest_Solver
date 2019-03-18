@@ -12,6 +12,7 @@ import Formations.Formation;
 public class Revenge extends SpecialAbility{//how does it work with Niel? Pokerface crit extra damage not counted?
     
     private double percent;
+    private boolean attackedThisTurn = false;
     //private long damageTakenThisRound;
     //private int armorThisRound;
 
@@ -27,19 +28,20 @@ public class Revenge extends SpecialAbility{//how does it work with Niel? Pokerf
     
     private double damageGained(Creature attacker){
         double damage = attacker.getCurrentAtt() + attacker.getAttBoost();// + specialAbility.extraDamage(enemyFormation,thisFormation);//change to currentAttack*** current att obsolete?
-        damage = Elements.damageFromElement(attacker,damage,owner.getElement());// - target.getArmor();
+        //damage = Elements.damageFromElement(attacker,damage,owner.getElement());// owner's armor and element boost are not considered
         
         if (damage < 0){
             damage = 0;
         }
         return Math.ceil(damage * percent);
     }
-    /*
+    
     @Override
     public void preRoundAction(Formation thisFormation, Formation enemyFormation){
-        damageTakenThisRound = 0;
+        attackedThisTurn = false;
+        //damageTakenThisRound = 0;
     }
-    */
+    
 /*
     @Override
     public void recordDamageTaken(long damage){//is this skill asymetric? (which side you're on matters)
@@ -47,12 +49,18 @@ public class Revenge extends SpecialAbility{//how does it work with Niel? Pokerf
         armorThisRound = owner.getArmor();
     }
 */
+    
+    @Override
+    public void attack(Formation thisFormation, Formation enemyFormation) {
+        super.attack(thisFormation,enemyFormation);
+        
+        attackedThisTurn = true;
+    }
 
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
-        if (thisFormation.getFrontCreature() == owner){//can only increace damage by direct hits
+        if (attackedThisTurn){//can only increace damage by direct hits
             //owner.setCurrentAtt((int)(owner.getCurrentAtt() + (damageTakenThisRound + armorThisRound)*percent));//armor?
-            
             owner.setCurrentAtt((int)(owner.getCurrentAtt() + damageGained(enemyFormation.getFrontCreature())));//rounding?*
         }
     }

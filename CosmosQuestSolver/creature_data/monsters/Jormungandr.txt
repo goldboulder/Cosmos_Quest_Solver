@@ -1,6 +1,0 @@
-element Water
-att 79
-hp 152
-tier 11
-followers 1315000
-skill Nothing

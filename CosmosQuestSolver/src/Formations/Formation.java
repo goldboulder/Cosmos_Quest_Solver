@@ -4,7 +4,7 @@
 package Formations;
 
 import SpecialAbilities.BloodBomb;
-import SpecialAbilities.CriticalHit;
+import SpecialAbilities.Inferno;
 import SpecialAbilities.Ricochet;
 import SpecialAbilities.ScaleableAOE;
 import SpecialAbilities.ScaleableStartingDamage;
@@ -46,7 +46,7 @@ public class Formation implements Iterable<Creature>{
     public boolean containsLepHeroes() {
         for (int i = 0; i < members.size(); i ++){
             SpecialAbility s = members.get(i).getSpecialAbility();
-            if (s instanceof Ricochet || s instanceof ScaleableAOE || s instanceof ScaleableStartingDamage || s instanceof BloodBomb){
+            if (s instanceof Ricochet || s instanceof ScaleableAOE || s instanceof ScaleableStartingDamage || s instanceof BloodBomb || s instanceof Inferno){
                 return true;
             }
         }

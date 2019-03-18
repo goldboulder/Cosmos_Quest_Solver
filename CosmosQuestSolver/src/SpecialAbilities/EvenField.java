@@ -12,7 +12,7 @@ import cosmosquestsolver.OtherThings;
 //if the hero is alone against a formation of 6, the ability reduces each
 //enemy's hp to 1/6th its original value. has no effect if the user's formation
 //has more creatures than the enemy's formation. Used by Leprechaun
-public class EvenField extends SpecialAbility{//enemies cannot heal back to full health*
+public class EvenField extends SpecialAbility{//enemies cannot heal back to full health?
     
     private int numExtra; //adds invisible units to the enemy formation for the attack
 
@@ -30,13 +30,19 @@ public class EvenField extends SpecialAbility{//enemies cannot heal back to full
     
     @Override
     public void startOfFightAction(Formation thisFormation, Formation enemyFormation) {
+        if (enemyFormation.isBossFormation()){
+            return;
+        }
         double percentDamage = 1-((double) thisFormation.size() / (enemyFormation.size()+numExtra));
         if (percentDamage <= 0){
             return;
         }
         for (Creature creature : enemyFormation){
             double damageDelt = creature.getBaseHP() * percentDamage  * (1 - enemyFormation.getAOEResistance());
-            creature.changeHP(-damageDelt,enemyFormation);//rounding?
+            //round to nearest integer, .5 gets rounded down
+            damageDelt = Math.round(damageDelt-0.0000001);
+            
+            creature.changeHP(-damageDelt,enemyFormation);
             //creature.setMaxHP(creature.getCurrentHP());//units cannot heal past the new HP cap-- this doesn't appear to be true anymore
         }
     }
@@ -46,19 +52,19 @@ public class EvenField extends SpecialAbility{//enemies cannot heal back to full
     @Override
     public String getDescription() {
         if (numExtra > 0){
-            return "At start, cuts enemy HP to (enemy team size + 1 / your team size)";
+            return "At start, cuts enemy HP to (your team size / enemy team size + " + numExtra + ") HP";
         }
-        return "At start, cuts enemy HP to (enemy team size / your team size)";
+        return "At start, cuts enemy HP to (your team size / enemy team size) HP";
     }
     
     @Override
     public String getParseString() {
-        return this.getClass().getSimpleName();
+        return this.getClass().getSimpleName() + " " + numExtra;
     }
     
     @Override
     public int viability() {
-        return owner.getBaseHP() * owner.getBaseAtt();
+        return owner.getBaseHP() * owner.getBaseAtt() *(1+1*numExtra);
     }
 
     @Override

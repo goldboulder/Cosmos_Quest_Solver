@@ -4,6 +4,7 @@
 package GUI;
 
 import AI.AISolver;
+import Formations.CreatureFactory;
 import Formations.Hero;
 import static GUI.EnemyHeroCustomizationPanel.CHANGE_PANEL_SIZE;
 import java.awt.Color;
@@ -81,6 +82,9 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
         levelTextField.getDocument().addDocumentListener(this);
         promoteLevelTextField.getDocument().addDocumentListener(this);
         levelTextField.setColumns(1);
+        levelTextField.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
+        promoteLevelTextField.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
+        //editPanel.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
         //levelTextField.setMaximumSize(new Dimension(30,CHANGE_PANEL_SIZE));
         promoteLevelTextField.setColumns(1);
         promoteLevelTextField.setMaximumSize(new Dimension(10,CHANGE_PANEL_SIZE));

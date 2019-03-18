@@ -1,0 +1,4 @@
+H,Lady Odelith,1000,0
+H,Petry,1000,0
+H,Neptunius,1000,0
+H,Hattori,1000,0

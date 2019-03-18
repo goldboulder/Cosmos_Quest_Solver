@@ -7,6 +7,7 @@ import AI.AISolver;
 import AI.WeirdHeroQuestSolver;
 import Formations.Creature;
 import AI.QuestSolver;
+import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.Hero;
 import Formations.Monster;
@@ -78,6 +79,9 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
         assetPanel = new AssetPanel(this,true,true);
         enemyFormationMakerPanel = new EnemyFormationMakerPanel(this,"Enemy Formation",false,false,true,false,true,false);
         enemyFormationMakerPanel.setDefaultLevels();
+        if (CreatureFactory.getOrderType(false).equals("Strength")){
+            enemyFormationMakerPanel.sortByStrength();
+        }
         
         calculationPanel = new CalculationPanel(this);
         topPanel = new JPanel();
@@ -360,6 +364,7 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE){
             setMouseCreature(null);
+            repaint();
         }
     }
 
@@ -454,6 +459,11 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     public void filterHeroes(String text) {
         assetPanel.filterHeroes(text);
         enemyFormationMakerPanel.filterHeroes(text);
+    }
+
+    @Override
+    public void redrawHero(String text) {
+        enemyFormationMakerPanel.redrawHero(text);
     }
 
     

@@ -1,4 +1,0 @@
-id 87
-element Earth
-baseAtt 191
-skill AntiAOE 0.5

@@ -89,6 +89,10 @@ Ascended Hosokawa
 Ascended Takeda
 Ascended Hirate
 Ascended Hattori
+Ascended Mahatma
+Ascended Jade
+Ascended Edana
+Ascended Dybbuk
 Veildur
 Brynhildr
 Groth
@@ -124,18 +128,19 @@ Reindeer
 Santa Claus
 Sexy Santa
 Fir
-5-12-6
+5_12_6
 Kedari
 Frosty
-Leprechaun
 Sparks
 Leaf
 Flynn
+B-Day
 Lady of Twilight
 Tiny
 Nebra
 Bubbles
 James
+Leprechaun
 Dr Hawking
 Neil
 Guy
@@ -147,7 +152,6 @@ Cloud
 Ember
 Riptide
 Spike
-B-Day
 Spyke
 Aoyuki
 GaiaByte

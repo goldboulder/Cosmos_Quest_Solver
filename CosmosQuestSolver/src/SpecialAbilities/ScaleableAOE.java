@@ -5,6 +5,8 @@ package SpecialAbilities;
 
 import Formations.Creature;
 import Formations.Formation;
+import static SpecialAbilities.SpecialAbility.roundedScaleMilestone;
+import static SpecialAbilities.SpecialAbility.roundedScaleMilestoneStr;
 
 
 //deals a specified amount of AOE damage every turn, increasing linearly as
@@ -20,9 +22,7 @@ public class ScaleableAOE extends AOE{
     
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
-        if (!deadOnStart){
-            enemyFormation.takeAOEDamage(roundedScaleMilestone(owner,damage,levelMilestone));
-        }
+        enemyFormation.takeAOEDamage(roundedScaleMilestone(owner,damage,levelMilestone));
     }
     
     @Override

@@ -11,6 +11,8 @@ import java.awt.Graphics;
 
 
 public class Hero extends Creature{
+
+    
     
     private int lvl1Att;
     private int lvl1HP;
@@ -22,7 +24,7 @@ public class Hero extends Creature{
     private int promote1HP = 0;
     private int promote2Att = 0;
     private int promote4Stats = 0;
-    private SpecialAbility promote5Ability;
+    public SpecialAbility promote5Ability;
     
     //max level obtainable by players. level 1000 heroes exist to fight, but
     //cannot be obtained
@@ -33,6 +35,8 @@ public class Hero extends Creature{
     
     
     public static enum Rarity{COMMON,RARE,LEGENDARY,ASCENDED};
+    
+    
     
     protected Hero(){
         //used for copying

@@ -1,0 +1,5 @@
+H,Undine,1000,0
+H,Lady Odelith,1000,0
+H,Nicte,1000,0
+H,Hosokawa,1000,0
+H,Edana,1000,0

@@ -1,6 +1,0 @@
-element Air
-att 6
-hp 48
-tier 2
-followers 3900
-skill Nothing

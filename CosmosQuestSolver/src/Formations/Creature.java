@@ -20,7 +20,7 @@ public abstract class Creature implements Comparable<Creature>{
     protected int armor = 0;
     protected int currentHP;
     protected long currentAtt;
-    protected SpecialAbility specialAbility;
+    public SpecialAbility specialAbility;
     protected boolean facingRight = true;//for GUI. put in GUI class instead?
     protected int ID;//for quicker copying. Copying names of heroes was not nessesary for fights. Names can be accesed through a method in CreatureFactory.
     //also used for rng skills

@@ -31,7 +31,8 @@ public class RandomTarget extends SpecialAbility{
     @Override
     public void prepareForFight(Formation thisFormation, Formation enemyFormation) {
         //enemyFormation.getTurnSeed(enemyFormation, turn);//gets formation to generate seed at the beginning of the fight. seed might change if called mid-fight
-        seed = Formation.getTurnSeed(0,turn);
+        seed = Formation.getTurnSeed(enemyFormation.getSeed(),turn);
+        //System.out.println("prepareForFight seed: " + seed);
     }
     
     @Override
@@ -39,12 +40,10 @@ public class RandomTarget extends SpecialAbility{
         turn ++;
     }
     
-    //Bubbles currently dampens lux damage if not targeting first according to game code, interaction should be added if this doesn't change
+    //Bubbles dampening lux damage?
     //does element advantage apply to target or front monster? I think front monster
     @Override
     public void attack(Formation thisFormation, Formation enemyFormation) {//attacks a "random" enemy
-        //int position = (int)(Formation.getTurnSeed(seed,turn+1) % enemyFormation.size());
-        //int position = (int)((enemyFormation.getTurnSeed(turn)+1) % enemyFormation.size());
         int position;
         if (enemyFormation.size() == 1){
             position = 0;
@@ -66,48 +65,45 @@ public class RandomTarget extends SpecialAbility{
     
     private int getRandomIndex(long seed, int size){//turn seed?
         
-        ArrayList<Integer> indecies = new ArrayList();
-        for (int i = 0; i < size; i++){
-            indecies.add(i);
+        int[] arr = new int[size];
+        arr[0] = 1;
+        for (int i = 1; i < size; i++){
+            arr[i] = 0;
         }
         
-        //get map of indecies for shuffling
-        int[] map = new int[size];
-        long seedCopy = seed;
-        for (int i = 0; i < size; i++){
-            seedCopy = (seedCopy * 9301 + 49297) % 233280;
-            map[i] = (int)(seedCopy*size/233280.0);
-        }
-        /*
-        System.out.println("map:");
-        for (int i = 0; i < size; i++){
-            System.out.print(map[i] + ",");
-            
+        int[] mapa = new int[size];
+        
+        for (int x = 0; x < size; x++){
+            seed = (9301 * seed + 49297) % 233280;
+            double temp = seed;
+            temp = temp / 233280.0;
+            temp = temp * size;
+            //temp = (double)((long)(temp) | 0);//bitwise expression not needed
+            mapa[x] = (int)temp;
         }
         
-        System.out.println("");
-        */
-        //shuffle
+        
         for (int i = size - 1; i > 0; i--){
-            Collections.swap(indecies, map[size-1-i], i);
-        }
-        
-        //look at dev code. this code compensates for lux's promoted skill
-        //if (ignoreFirst && )
-        
-        
-        
-        /*
-        System.out.println("indecies: ");
-        for (int i = 0; i < size; i++){
-            System.out.print(indecies.get(i) + ",");
+            int mapa_index = size - 1 - i;
+            int index_to_remove = mapa[mapa_index];
+            int removed_value = arr[index_to_remove];
             
+            arr[index_to_remove] = arr[i];
+            arr[i] = removed_value;
         }
-        System.out.println(" return " + indecies.get(0));
-*/
-        return indecies.get(0);
+        
+        int return_value = 0;
+        for (int i = 0; i < size; i++){
+            if (arr[i] > 0){
+                return_value = i;
+            }
+        }
+        
+        return return_value;
+        
         
     }
+    
     
     @Override
     public String getDescription() {
@@ -121,7 +117,8 @@ public class RandomTarget extends SpecialAbility{
     
     @Override
     public String getParseString() {
-        return this.getClass().getSimpleName();
+        String s = ignoreFirst ? "True" : "False";
+        return this.getClass().getSimpleName() + " " + s;
     }
     
     @Override

@@ -9,6 +9,8 @@ import static GUI.AssetPanel.CREATURE_PICTURE_SIZE;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import javax.swing.JLabel;
@@ -223,6 +225,21 @@ public class HeroesCustomizationPanel extends JPanel{
         int height = desiredHeight(numAdded);
         setPreferredSize(new Dimension(width,height));
         setMaximumSize(new Dimension(width,height));
+        
+        revalidate();
+        repaint();
+    }
+
+    public void sortByStrength() {
+        removeAll();
+        
+        LinkedList<HeroCustomizationPanel> heroList = new LinkedList<>();
+        heroList.addAll(Arrays.asList(heroPanelArray));
+        Collections.sort(heroList, (HeroCustomizationPanel p1, HeroCustomizationPanel p2) -> p2.getHero().viability()-p1.getHero().viability());
+        heroPanelArray = heroList.toArray(heroPanelArray);
+        for (HeroCustomizationPanel p : heroPanelArray){
+            add(p);
+        }
         
         revalidate();
         repaint();

@@ -3,6 +3,7 @@
  */
 package GUI;
 
+import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.Hero;
 import cosmosquestsolver.OtherThings;
@@ -457,6 +458,10 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
             if (frame != null){
                 frame.recieveMessageString("Failed to Load");
             }
+        }
+        
+        if (CreatureFactory.getOrderType(true).equals("Strength")){
+            heroesCustomizationPanel.sortByStrength();
         }
 
     }

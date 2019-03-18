@@ -1,4 +1,0 @@
-id 126
-element Water
-baseAtt 175
-skill DamageDodge 15000

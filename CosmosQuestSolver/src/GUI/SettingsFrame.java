@@ -146,6 +146,7 @@ public class SettingsFrame extends JFrame implements ActionListener{
                 fileList.add(name.substring(0, name.length()-4));
             }
         }
+        fileList.add("Strength");
         String[] ans = new String[fileList.size()];
         return fileList.toArray(ans);
     }

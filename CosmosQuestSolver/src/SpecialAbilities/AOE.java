@@ -12,7 +12,6 @@ import Formations.Formation;
 public class AOE extends SpecialAbility{
     
     protected int damage;
-    protected boolean deadOnStart;
     
     public AOE(Creature owner, int damage){
         super(owner);
@@ -20,16 +19,8 @@ public class AOE extends SpecialAbility{
     }
     
     @Override
-    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {
-        deadOnStart = owner.isDead();
-        //System.out.println(owner.getName() + " has " + owner.getCurrentHP());
-    }
-    
-    @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
-        if (!deadOnStart){
-            enemyFormation.takeAOEDamage(damage);
-        }
+        enemyFormation.takeAOEDamage(damage);
     }
 
     @Override

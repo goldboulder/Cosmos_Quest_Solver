@@ -89,6 +89,10 @@ Ascended Hosokawa,false,false
 Ascended Takeda,false,false
 Ascended Hirate,false,false
 Ascended Hattori,false,false
+Ascended Mahatma,false,false
+Ascended Jade,false,false
+Ascended Edana,false,false
+Ascended Dybbuk,false,false
 Veildur,false,false
 Brynhildr,false,false
 Groth,false,false
@@ -124,18 +128,19 @@ Reindeer,false,false
 Santa Claus,false,false
 Sexy Santa,true,false
 Fir,false,false
-5-12-6,false,false
+5_12_6,false,false
 Kedari,false,false
 Frosty,false,false
-Leprechaun,true,false
 Sparks,false,false
 Leaf,false,false
 Flynn,false,false
+B-Day,false,false
 Lady of Twilight,false,false
 Tiny,false,false
 Nebra,false,false
 Bubbles,false,false
 James,false,false
+Leprechaun,true,false
 Dr Hawking,true,false
 Neil,true,false
 Guy,true,false
@@ -143,6 +148,10 @@ Cupid,false,false
 Dicemaster,false,false
 Luxurius Maximus,false,false
 Pokerface,true,false
+Cloud,false,false
+Ember,false,false
+Riptide,false,false
+Spike,false,false
 Spyke,false,false
 Aoyuki,false,false
 GaiaByte,false,false

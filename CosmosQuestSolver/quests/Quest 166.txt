@@ -1,0 +1,4 @@
+H,Forest Druid,1000,0
+H,Undine,1000,0
+H,Takeda,1000,0
+H,Shygu,1000,0

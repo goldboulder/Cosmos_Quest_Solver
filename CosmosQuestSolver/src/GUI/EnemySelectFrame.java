@@ -13,5 +13,6 @@ public interface EnemySelectFrame {
     boolean requestFocusInWindow();
     void parametersChanged();
     void filterHeroes(String text);
+    void redrawHero(String text);
     
 }

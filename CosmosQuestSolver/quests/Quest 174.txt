@@ -1,0 +1,5 @@
+H,Zaytus,1000,0
+H,Ignitor,1000,0
+H,Lord Kirk,1000,0
+H,Hirate,1000,0
+H,Takeda,1000,0

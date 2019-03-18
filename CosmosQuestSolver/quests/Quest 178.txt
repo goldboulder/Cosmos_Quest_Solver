@@ -1,0 +1,5 @@
+H,Forest Druid,1000,0
+H,Jade,1000,0
+H,Takeda,1000,0
+H,Hattori,1000,0
+H,Hirate,1000,0

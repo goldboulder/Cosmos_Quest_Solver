@@ -1,0 +1,4 @@
+M,E,30
+H,Forest Druid,1000,0
+H,Nicte,1000,0
+H,Shygu,1000,0

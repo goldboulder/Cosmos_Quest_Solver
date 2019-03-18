@@ -1,6 +1,0 @@
-element Air
-att 190
-hp 226
-tier 15
-followers 8897000
-skill Nothing

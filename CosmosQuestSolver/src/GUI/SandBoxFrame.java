@@ -88,7 +88,12 @@ public class SandBoxFrame extends JFrame implements EnemySelectFrame, MouseListe
         
         this.requestFocusInWindow();
         
-        
+        if (CreatureFactory.getOrderType(true).equals("Strength")){
+            leftSelectionPanel.sortByStrength();
+        }
+        if (CreatureFactory.getOrderType(false).equals("Strength")){
+            rightSelectionPanel.sortByStrength();
+        }
         addKeyListener(this);
         parametersChanged();
     }
@@ -137,6 +142,7 @@ public class SandBoxFrame extends JFrame implements EnemySelectFrame, MouseListe
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE){
             setMouseCreature(null);
+            repaint();
         }
     }
 
@@ -203,6 +209,12 @@ public class SandBoxFrame extends JFrame implements EnemySelectFrame, MouseListe
     public void filterHeroes(String text) {
         leftSelectionPanel.filterHeroes(text);
         rightSelectionPanel.filterHeroes(text);
+    }
+    
+    @Override
+    public void redrawHero(String text) {
+        leftSelectionPanel.redrawHero(text);
+        rightSelectionPanel.redrawHero(text);
     }
     
 }

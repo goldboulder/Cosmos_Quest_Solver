@@ -1,6 +1,0 @@
-element Earth
-att 120
-hp 128
-tier 12
-followers 1903000
-skill Nothing

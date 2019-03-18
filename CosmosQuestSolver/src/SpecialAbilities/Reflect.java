@@ -36,15 +36,28 @@ public class Reflect extends SpecialAbility{
         if (thisFormation.getFrontCreature() == owner){//can only reflect direct damage while in front
             Creature target = enemyFormation.getFrontCreature();
             if (target.isDead()){//if creature died from normal attack, reflect damage is saved for the next enemy
-                enemyFormation.handleCreatureDeaths(thisFormation);
-                if (enemyFormation.size() > 0){
-                    enemyFormation.getFrontCreature().changeHP(-damageTakenThisRound*multiplier,enemyFormation);//new front creature
+                //target.postRoundAction(enemyFormation, thisFormation);
+                //target.postRoundAction2(enemyFormation, thisFormation);
+                //enemyFormation.handleCreatureDeaths(thisFormation);
+                target = findNextTarget(enemyFormation);
+                if (enemyFormation.size() > 0 && target != null){
+                    target.changeHP(-damageTakenThisRound*multiplier,enemyFormation);//new front creature
                 }
+                
             }
             else{
                 target.changeHP(-damageTakenThisRound*multiplier,enemyFormation);//elemental damage boost and defence not considered.
             }
         }
+    }
+    
+    private Creature findNextTarget(Formation enemyFormation){
+        for (Creature c : enemyFormation){
+            if (!c.isDead()){
+                return c;
+            }
+        }
+        return null;
     }
     
     @Override

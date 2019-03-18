@@ -3,6 +3,7 @@
  */
 package GUI;
 
+import Formations.CreatureFactory;
 import Formations.Hero;
 import static GUI.HeroCustomizationPanel.CHANGE_PANEL_SIZE;
 import java.awt.Color;
@@ -64,6 +65,9 @@ public class EnemyHeroCustomizationPanel extends JPanel implements DocumentListe
         levelTextField.getDocument().addDocumentListener(this);
         promoteLevelTextField.getDocument().addDocumentListener(this);
         levelTextField.setColumns(1);
+        levelTextField.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
+        promoteLevelTextField.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
+        //editPanel.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
         promoteLevelTextField.setColumns(1);
         promoteLevelTextField.setMaximumSize(new Dimension(10,CHANGE_PANEL_SIZE));
         editPanel.setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,CHANGE_PANEL_SIZE));
@@ -179,6 +183,7 @@ public class EnemyHeroCustomizationPanel extends JPanel implements DocumentListe
     }
     
     public void setPromoteLevel(int promoteLevel) {
+        //System.out.println(promoteLevel);
         promoteLevelTextField.setText(Integer.toString(promoteLevel));
         promoteLevelTextField.setForeground(Color.BLACK);
         //promoteHero();
@@ -188,7 +193,14 @@ public class EnemyHeroCustomizationPanel extends JPanel implements DocumentListe
         return hero;
     }
 
-    
+    public void updateTextFields() {
+        int pLevel = hero.getPromoteLevel();
+        //System.out.println("Level: " + hero.getLevel() + "   Promote: " + hero.getPromoteLevel());
+        setLevel(hero.getLevel());//why is this changing the promote level?
+        //System.out.println("sss " + hero.getPromoteLevel());
+        setPromoteLevel(pLevel);
+    }
+
     
     
     

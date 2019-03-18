@@ -7,6 +7,7 @@ import Formations.Elements.Element;
 import GUI.CreatureDrawer;
 import SpecialAbilities.Nothing;
 import SpecialAbilities.SpecialAbility;
+import cosmosquestsolver.OtherThings;
 import java.awt.Graphics;
 
 
@@ -83,10 +84,10 @@ public class Monster extends Creature {
     @Override
     public String toolTipText() {
         if (specialAbility instanceof Nothing){
-            return "<html>" + getName() + "<br>Tier: " + tier + "</html>";
+            return "<html>" + getName() + "<br>Tier: " + tier + "<br>Followers: " + OtherThings.intToCommaString(followers) + "</html>";
         }
         else{
-            return "<html>" + getName() + "<br>Tier: " + tier + "<br>" + specialAbility.getDescription() + "</html>";
+            return "<html>" + getName() + "<br>Tier: " + tier + "<br>" + specialAbility.getDescription() + "<br>Followers: " + OtherThings.intToCommaString(followers) + "</html>";
         }
     }
     

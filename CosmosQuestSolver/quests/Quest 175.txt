@@ -1,0 +1,6 @@
+H,Petry,1000,0
+H,Nicte,1000,0
+H,Chroma,1000,0
+H,Shygu,1000,0
+H,Takeda,1000,0
+H,Neptunius,1000,0

@@ -6,15 +6,16 @@ package cosmosquestsolver;
 import Formations.Creature;
 import Formations.CreatureFactory;
 import Formations.Elements;
-import Formations.Elements.Element;
 import Formations.Formation;
-import Formations.Monster;
+import Formations.WorldBoss;
 import GUI.ImageFactory;
 import GUI.MenuFrame;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 // starts the program. Also has some monsterFile code for debugging
 public class CosmosQuestSolver {
@@ -24,7 +25,7 @@ public class CosmosQuestSolver {
         
         CreatureFactory.initiate();
         ImageFactory.initiate();
-        //test();
+        //creatureFiles();
         new MenuFrame();
         //testFactory();
         //testFormation();
@@ -32,30 +33,32 @@ public class CosmosQuestSolver {
         
     }
     
-    public static void monsterFile(){
-        for (Element element : Element.values()){
-            Monster[] monsters = CreatureFactory.getMonsters(element);
-            for (Monster m : monsters){
-                try{
-                    PrintWriter pw = new PrintWriter(new File("creature_data/monsters/" + m.getName() + ".txt"));
-                    pw.println("element " + Elements.getString(element));
-                    pw.println("att " + m.getBaseAtt());
-                    pw.println("hp " + m.getBaseHP());
-                    pw.println("tier " + m.getTier());
-                    pw.println("followers " + m.getFollowers());
-                    pw.println("skill " + "Nothing");
-                    pw.close();
-                }
-                catch(FileNotFoundException e){
-                    System.out.println("Error!");
-                }
+    public static void creatureFiles(){
+        
+        
+        try{
+            PrintWriter pw = new PrintWriter(new File("creature_data/boss_data.csv"));
+            pw.println("Name,ID,Rarity,Element,Base attack,Baase health,Skill,P1 HP,P2 Att,P4 Stats,P5 Skill");
+            
+            WorldBoss[] bosses = CreatureFactory.getBossesDefaultOrder();
+            for (WorldBoss b : bosses){
+                pw.print(b.getName() + ",");
+                pw.print(b.getRawID() + ",");
+                pw.print(Elements.getString(b.getElement()) + ",");
+                pw.print(b.getBaseAtt() + ",");
+                pw.print(b.specialAbility.getParseString() + "\n");
             }
+            pw.close();
         }
+            
+        catch(FileNotFoundException e){
+            Logger.getLogger(CosmosQuestSolver.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
         
         
         //Collections.sort(heroList, (Hero c1, Hero c2) -> c1.getRawID()-c2.getRawID());
         
-    }
     
     public static void test(){
         LinkedList<Creature> list1 = new LinkedList<>();

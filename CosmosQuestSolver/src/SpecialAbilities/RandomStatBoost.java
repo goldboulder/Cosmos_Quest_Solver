@@ -30,7 +30,8 @@ public class RandomStatBoost extends SpecialAbility{//*activates before leprecha
     
     @Override
     public void prepareForFight(Formation thisFormation, Formation enemyFormation) {//adjusts stats
-        long boost = enemyFormation.getTurnSeed(Formation.STALEMATE_CUTOFF_POINT) % (maxBoost+1);//100 works on code replay only when enemy formation is full
+        //long boost = enemyFormation.getTurnSeed(Formation.STALEMATE_CUTOFF_POINT) % (maxBoost+1);//100 works on code replay only when enemy formation is full
+        long boost = enemyFormation.getSeed() % (maxBoost+1);
         //System.out.println(enemyFormation.getSeed() + " " + boost);
         owner.setBaseAtt((int)(owner.getBaseAtt()+boost));
         owner.setBaseHP((int)(owner.getBaseHP()+boost));

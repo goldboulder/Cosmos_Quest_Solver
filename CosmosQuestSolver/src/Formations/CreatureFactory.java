@@ -6,18 +6,14 @@ package Formations;
 import Formations.Elements.Element;
 import Formations.Hero.Rarity;
 import SpecialAbilities.*;
-import java.awt.image.BufferedImage;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Pattern;
-import javax.imageio.ImageIO;
+//csv file for heroes?
 
 //uses the flyweight and prototype patterns to generate new objects.
 //these include monsters, heroes, world bosses, and images
@@ -33,9 +29,11 @@ public class CreatureFactory {
     private static ArrayList<String> worldBossNames;
     private static HashMap<Integer,String> IDToNameMap;
     private static HashMap<String,String> nickNameMap;
+    private static HashMap<Integer,Source> IDToSourceMap;
     
 
-    public static final int MAX_QUESTS = 160;
+    public static final int MAX_QUESTS = 180;
+    public static enum Source{CHEST, QUEST, SEASON, EVENT, SPECIAL, AUCTION, SHOP};
 
 
     public static void initiate(){
@@ -356,36 +354,94 @@ public class CreatureFactory {
         monsters = new Monster[Elements.MONSTER_ELEMENTS.length][Monster.TOTAL_UNIQUE_TIERS * Monster.getNumTimesRepeat()];
         monsterNames = new ArrayList();
         
-        File[] files = new File("creature_data/monsters").listFiles();
         
+        try{
+            Scanner s = new Scanner(new File("creature_data/monster_data.csv"));
+            s.nextLine();//ignore first row. It's only labels
+            while(s.hasNext()){
+                String[] tokens = s.nextLine().split(",");
+                String name = tokens[0];
+                Element element = Elements.parseElement(tokens[1]);
+                int att = Integer.parseInt(tokens[2]);
+                int HP = Integer.parseInt(tokens[3]);
+                int tier = Integer.parseInt(tokens[4]);
+                long followers = Long.parseLong(tokens[5]);
+                SpecialAbility ability = parseAbility(tokens[6]);
 
-        for (File file : files) {
-            if (file.isFile() && file.getName().endsWith(".txt")) {
-                try{
-                    Monster m = getMonsterFromFile(file);
-                    m.attatchSpecialAbility();
-                    
-                    String name = file.getName().substring(0, file.getName().length()-4);
-                    
-                    monsterNames.add(name);
-                    monsters[m.getElement().ordinal()][m.getTier()-1] = m;//duplicate entries?
-                    IDToNameMap.put(m.getID(),name);
-                }
-                catch(FileNotFoundException ex){
-                    System.out.println("Error reading monster file: " + file.getName());
-                }
+                Monster m = new Monster(element,att,HP,tier,followers,ability);
+                m.attatchSpecialAbility();
+
+                monsterNames.add(name);
+                monsters[m.getElement().ordinal()][m.getTier()-1] = m;//duplicate entries?
+                IDToNameMap.put(m.getID(),name);
             }
         }
+        catch(FileNotFoundException ex){
+            System.out.println("Error reading monster data file");
+        }
+            
+        
         
         
     }
+    
 
     private static void initiateHeroes() {
         
         heroes = new HashMap<>();
         heroNames = new ArrayList<>();
         
-        File[] files = new File("creature_data/heroes").listFiles();
+        
+        try{
+            Scanner s = new Scanner(new File("creature_data/hero_data.csv"));
+            s.nextLine();//ignore first row. It's only labels
+            while(s.hasNext()){
+                String[] tokens = s.nextLine().split(",");
+                String name = tokens[0];
+                int ID = Integer.parseInt(tokens[1]);
+                Rarity rarity = parseRarity(tokens[2]);
+                Element element = Elements.parseElement(tokens[3]);
+                int baseAtt = Integer.parseInt(tokens[4]);
+                int baseHP = Integer.parseInt(tokens[5]);
+                SpecialAbility skill = parseAbility(tokens[6]);
+                int p1Health = Integer.parseInt(tokens[7]);
+                int p2Att = Integer.parseInt(tokens[8]);
+                int p4Stats = Integer.parseInt(tokens[9]);
+                SpecialAbility p5Skill = parseAbility(tokens[10]);
+                
+
+                Hero h = new Hero(element,baseAtt,baseHP,rarity,ID,skill,p1Health,p2Att,p4Stats,p5Skill);
+                h.attatchSpecialAbility();
+                    h.levelUp(1);
+                    h.promote(0);
+                    
+                    
+                    
+                    heroes.put(name,h);
+                    heroNames.add(name);
+                    IDToNameMap.put(h.getID(),name);
+            }
+        }
+        catch(FileNotFoundException ex){
+            System.out.println("Error reading monster data file");
+        }
+        
+        
+        
+        
+        IDToSourceMap = new HashMap<>();
+        try{
+            Scanner s = new Scanner(new File("creature_data/hero sources.txt"));
+            while(s.hasNext()){
+                String[] tokens = s.nextLine().split("->");
+                //System.out.println(tokens[0] + "   " + tokens[1]);
+                IDToSourceMap.put(heroes.get(tokens[0]).getID(), parseSource(tokens[1]));
+            }
+        }
+        catch(FileNotFoundException ex){
+            System.out.println("Error reading hero file: creature_data/hero sources.txt");
+        }
+        /*File[] files = new File("creature_data/heroes").listFiles();
         
 
         for (File file : files) {
@@ -408,81 +464,26 @@ public class CreatureFactory {
             }
         }
         
-        
-    }
-    
-    public static SpecialAbility parseAbility(String str){
-        String[] tokens = str.split(" ");
-        
-        switch (tokens[1]){
-            case "AOE": return new AOE(null,Integer.parseInt(tokens[2]));
-            case "AntiAOE": return new AntiAOE(null,Double.parseDouble(tokens[2]));
-            case "Berserk": return new Berserk(null,Double.parseDouble(tokens[2]));
-            case "BloodBomb": return new BloodBomb(null,Integer.parseInt(tokens[2]));
-            case "CriticalHit": return new CriticalHit(null,Double.parseDouble(tokens[2]));
-            case "DamageDodge": return new DamageDodge(null,Integer.parseInt(tokens[2]));
-            case "ElementDamageBoost": return new ElementDamageBoost(null,Elements.parseElement(tokens[2]),Double.parseDouble(tokens[3]));
-            case "EvenField": return new EvenField(null,Integer.parseInt(tokens[2]));
-            case "Execute": return new Execute(null,Double.parseDouble(tokens[2]));
-            case "Heal": return new Heal(null,Integer.parseInt(tokens[2]));
-            case "Inferno": return new Inferno(null,Double.parseDouble(tokens[2]));
-            case "Intercept": return new Intercept(null,Double.parseDouble(tokens[2]));
-            case "LifeSteal": return new LifeSteal(null,Integer.parseInt(tokens[2]));
-            case "MonsterBuff": return new MonsterBuff(null,Double.parseDouble(tokens[2]));
-            case "Nothing": return new Nothing(null);
-            case "PartingGift": return new PartingGift(null,Double.parseDouble(tokens[2]));
-            case "Purity": return new Purity(null,Double.parseDouble(tokens[2]));
-            case "Rainbow": return new Rainbow(null,Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]));
-            case "RandomStatBoost": return new RandomStatBoost(null,Integer.parseInt(tokens[2]));
-            case "RandomTarget": return new RandomTarget(null,Boolean.parseBoolean(tokens[2]));
-            case "Reflect": return new Reflect(null,Double.parseDouble(tokens[2]));
-            case "Revenge": return new Revenge(null,Double.parseDouble(tokens[2]));
-            case "Ricochet": return new Ricochet(null,Double.parseDouble(tokens[2]),Integer.parseInt(tokens[3]));
-            case "ScaleableAOEReflect": return new ScaleableAOEReflect(null,Double.parseDouble(tokens[2]));
-            case "ScaleableAbsorbPercent": return new ScaleableAbsorbPercent(null,Double.parseDouble(tokens[2]));
-            case "ScaleableAOE": return new ScaleableAOE(null,Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
-            case "ScaleableAntiAOE": return new ScaleableAntiAOE(null,Double.parseDouble(tokens[2]));
-            case "ScaleableBloodBomb": return new ScaleableBloodBomb(null,Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
-            case "ScaleableHeal": return new ScaleableHeal(null,Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
-            case "ScaleableLifeSteal": return new ScaleableLifeSteal(null,Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
-            case "ScaleablePercentAtt": return new ScaleablePercentAtt(null,Double.parseDouble(tokens[2]));
-            case "ScaleableSacrifice": return new ScaleableSacrifice(null,Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]),Double.parseDouble(tokens[4]));
-            case "ScaleableStartingDamage": return new ScaleableStartingDamage(null,Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
-            case "ScaleableStatAura": return new ScaleableStatAura(null,Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]),Elements.parseElement(tokens[4]),Double.parseDouble(tokens[5]));
-            case "ScaleableUnitBuff": return new ScaleableUnitBuff(null,Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]));
-            case "TargetedReflect": return new TargetedReflect(null,Double.parseDouble(tokens[2]));
-            case "StartingDamage": return new StartingDamage(null,Integer.parseInt(tokens[2]));
-            case "StatAura": return new StatAura(null,Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]),Elements.parseElement(tokens[4]));
-            case "StatLevelBoost": return new StatLevelBoost(null,Double.parseDouble(tokens[2]));
-            case "Simmer": return new Simmer(null,Double.parseDouble(tokens[2]));
-            case "Train": return new Train(null,Integer.parseInt(tokens[2]));
-            case "UnitBuff": return new UnitBuff(null,Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]));
-            case "Vampyrism": return new Vampyrism(null,Double.parseDouble(tokens[2]));
-            case "Wither": return new Wither(null,Double.parseDouble(tokens[2]));
-            case "Wrath": return new Wrath(null,Integer.parseInt(tokens[2]));
-            case "WrathPercentAtt": return new WrathPercentAtt(null,Double.parseDouble(tokens[2]));
-            default: return null;
+        IDToSourceMap = new HashMap<>();
+        try{
+            Scanner s = new Scanner(new File("creature_data/hero sources.txt"));
+            while(s.hasNext()){
+                String[] tokens = s.nextLine().split("->");
+                //System.out.println(tokens[0] + "   " + tokens[1]);
+                IDToSourceMap.put(heroes.get(tokens[0]).getID(), parseSource(tokens[1]));
+            }
         }
-    }
-    
-    private static Monster getMonsterFromFile(File file) throws FileNotFoundException {
-        Scanner s = new Scanner(file);
-        
-        Element element = Elements.parseElement(s.nextLine().split(" ")[1]);
-        int att = Integer.parseInt(s.nextLine().split(" ")[1]);
-        int HP = Integer.parseInt(s.nextLine().split(" ")[1]);
-        int tier = Integer.parseInt(s.nextLine().split(" ")[1]);
-        long followers = Long.parseLong(s.nextLine().split(" ")[1]);
-        SpecialAbility ability = parseAbility(s.nextLine());
-        
-        return new Monster(element,att,HP,tier,followers,ability);
+        catch(FileNotFoundException ex){
+            System.out.println("Error reading hero file: creature_data/hero sources.txt");
+        }
+        */
         
     }
     
-    private static Hero getHeroFromFile(File file) throws FileNotFoundException {
+    /*private static Hero getHeroFromFile(File file) throws FileNotFoundException {
         Scanner s = new Scanner(file);
         int id = Integer.parseInt(s.nextLine().split(" ")[1]);
-        Rarity rarity = ParseRarity(s.nextLine().split(" ")[1]);
+        Rarity rarity = parseRarity(s.nextLine().split(" ")[1]);
         Element element = Elements.parseElement(s.nextLine().split(" ")[1]);
         int baseAtt = Integer.parseInt(s.nextLine().split(" ")[1]);
         int baseHP = Integer.parseInt(s.nextLine().split(" ")[1]);
@@ -495,8 +496,107 @@ public class CreatureFactory {
         return new Hero(element,baseAtt,baseHP,rarity,id,ability,tier1HP,tier2Att,tier4Stats,tier5Ability);
         
     }
+*/
     
-    private static Rarity ParseRarity(String str) {
+    private static Source parseSource(String str){
+        switch(str){
+            case "Chest": return Source.CHEST;
+            case "Quest": return Source.QUEST;
+            case "Season": return Source.SEASON;
+            case "Event": return Source.EVENT;
+            case "Special": return Source.SPECIAL;
+            case "Auction": return Source.AUCTION;
+            case "Shop": return Source.SHOP;
+            default: return null;
+        }
+    }
+    
+    private static Color chestColor = new Color(255,255,225);
+    private static Color questColor = new Color(245,225,255);
+    private static Color seasonColor = new Color(255,225,200);
+    private static Color eventColor = new Color(225,255,225);
+    private static Color specialColor = new Color(255,225,225);
+    private static Color auctionColor = new Color(225,225,225);
+    private static Color shopColor = new Color(215,215,255);
+    private static Color defaultColor = Color.WHITE;
+    
+    
+    public static Color SourceToColor(Source s){
+        switch(s){
+            case CHEST: return chestColor;
+            case QUEST: return questColor;
+            case SEASON: return seasonColor;
+            case EVENT: return eventColor;
+            case SPECIAL: return specialColor;
+            case AUCTION: return auctionColor;
+            case SHOP: return shopColor;
+            default: return defaultColor;
+        }
+    }
+    
+    public static Source IDToSource(int ID){
+        return IDToSourceMap.get(ID);
+    }
+    
+    public static SpecialAbility parseAbility(String str){
+        String[] tokens = str.split(" ");
+        
+        switch (tokens[0]){
+            case "AOE": return new AOE(null,Integer.parseInt(tokens[1]));
+            case "AntiAOE": return new AntiAOE(null,Double.parseDouble(tokens[1]));
+            case "Berserk": return new Berserk(null,Double.parseDouble(tokens[1]));
+            case "BloodBomb": return new BloodBomb(null,Integer.parseInt(tokens[1]));
+            case "CriticalHit": return new CriticalHit(null,Double.parseDouble(tokens[1]));
+            case "DamageDodge": return new DamageDodge(null,Integer.parseInt(tokens[1]));
+            case "ElementDamageBoost": return new ElementDamageBoost(null,Elements.parseElement(tokens[1]),Double.parseDouble(tokens[2]));
+            case "EvenField": return new EvenField(null,Integer.parseInt(tokens[1]));
+            case "Execute": return new Execute(null,Double.parseDouble(tokens[1]));
+            case "Heal": return new Heal(null,Integer.parseInt(tokens[1]));
+            case "Inferno": return new Inferno(null,Double.parseDouble(tokens[1]));
+            case "Intercept": return new Intercept(null,Double.parseDouble(tokens[1]));
+            case "LifeSteal": return new LifeSteal(null,Integer.parseInt(tokens[1]));
+            case "MonsterBuff": return new MonsterBuff(null,Double.parseDouble(tokens[1]));
+            case "Nothing": return new Nothing(null);
+            case "PartingGift": return new PartingGift(null,Double.parseDouble(tokens[1]));
+            case "Purity": return new Purity(null,Double.parseDouble(tokens[1]));
+            case "Rainbow": return new Rainbow(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
+            case "RandomStatBoost": return new RandomStatBoost(null,Integer.parseInt(tokens[1]));
+            case "RandomTarget": return new RandomTarget(null,Boolean.parseBoolean(tokens[1]));
+            case "Reflect": return new Reflect(null,Double.parseDouble(tokens[1]));
+            case "Revenge": return new Revenge(null,Double.parseDouble(tokens[1]));
+            case "Ricochet": return new Ricochet(null,Double.parseDouble(tokens[1]),Integer.parseInt(tokens[2]));
+            case "ScaleableAOEReflect": return new ScaleableAOEReflect(null,Double.parseDouble(tokens[1]));
+            case "ScaleableAbsorbPercent": return new ScaleableAbsorbPercent(null,Double.parseDouble(tokens[1]));
+            case "ScaleableAOE": return new ScaleableAOE(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
+            case "ScaleableAntiAOE": return new ScaleableAntiAOE(null,Double.parseDouble(tokens[1]));
+            case "ScaleableBloodBomb": return new ScaleableBloodBomb(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
+            case "ScaleableHeal": return new ScaleableHeal(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
+            case "ScaleableLifeSteal": return new ScaleableLifeSteal(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
+            case "ScaleablePercentAtt": return new ScaleablePercentAtt(null,Double.parseDouble(tokens[1]));
+            case "ScaleableSacrifice": return new ScaleableSacrifice(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]));
+            case "ScaleableStartingDamage": return new ScaleableStartingDamage(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
+            case "ScaleableStatAura": return new ScaleableStatAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Elements.parseElement(tokens[3]),Double.parseDouble(tokens[4]));
+            case "ScaleableUnitBuff": return new ScaleableUnitBuff(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]));
+            case "TargetedReflect": return new TargetedReflect(null,Double.parseDouble(tokens[1]));
+            case "StartingDamage": return new StartingDamage(null,Integer.parseInt(tokens[1]));
+            case "StatAura": return new StatAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Elements.parseElement(tokens[3]));
+            case "StatLevelBoost": return new StatLevelBoost(null,Double.parseDouble(tokens[1]));
+            case "Simmer": return new Simmer(null,Double.parseDouble(tokens[1]));
+            case "Train": return new Train(null,Integer.parseInt(tokens[1]));
+            case "UnitBuff": return new UnitBuff(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
+            case "Vampyrism": return new Vampyrism(null,Double.parseDouble(tokens[1]));
+            case "Wither": return new Wither(null,Double.parseDouble(tokens[1]));
+            case "Wrath": return new Wrath(null,Integer.parseInt(tokens[1]));
+            case "WrathPercentAtt": return new WrathPercentAtt(null,Double.parseDouble(tokens[1]));
+            default: return null;
+        }
+    }
+    
+    
+    
+    
+    
+    private static Rarity parseRarity(String str) {
         switch (str){
             case "Common": return Rarity.COMMON;
             case "Rare": return Rarity.RARE;
@@ -506,11 +606,44 @@ public class CreatureFactory {
         }
     }
     
+    public static String RarityToString(Rarity rarity) {
+        switch (rarity){
+            case COMMON: return "Common";
+            case RARE: return "Rare";
+            case LEGENDARY: return "Legendary";
+            case ASCENDED: return "Ascended";
+            default: return null;
+        }
+    }
+    
     private static void initiateWorldBosses() {
         worldBosses = new HashMap<>();
         worldBossNames = new ArrayList<>();
         
-        File[] files = new File("creature_data/world bosses").listFiles();
+        try{
+            Scanner s = new Scanner(new File("creature_data/boss_data.csv"));
+            s.nextLine();//ignore first row. It's only labels
+            while(s.hasNext()){
+                String[] tokens = s.nextLine().split(",");
+                String name = tokens[0];
+                int ID = Integer.parseInt(tokens[1]);
+                Element element = Elements.parseElement(tokens[2]);
+                int baseAtt = Integer.parseInt(tokens[3]);
+                SpecialAbility skill = parseAbility(tokens[4]);
+                
+
+                WorldBoss b = new WorldBoss(element,baseAtt,ID,skill);
+                b.attatchSpecialAbility();
+                worldBosses.put(name,b);
+                worldBossNames.add(name);
+                IDToNameMap.put(b.getID(),name);
+            }
+        }
+        catch(FileNotFoundException ex){
+            System.out.println("Error reading monster data file");
+        }
+        
+        /*File[] files = new File("creature_data/world bosses").listFiles();
         //If this pathname does not denote a directory, then listFiles() returns null. 
 
         for (File file : files) {
@@ -530,6 +663,7 @@ public class CreatureFactory {
                 }
             }
         }
+*/
         
         
     }

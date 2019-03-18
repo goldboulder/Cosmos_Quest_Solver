@@ -115,15 +115,7 @@ public abstract class SpecialAbility {
     public boolean WBTryLessCreatures(){
         return false;
     }
-    
 
-    
-//Common - Earth - Billy (Zombie) - 40 Attack / 30 HP @ 1 - Deals 1 per 1 damage to first enemy on death.
-//Rare - Water - Sanqueen (Female vampire) - 22 Attack / 88 HP @ 1 - Heals for 100% of damage dealt.
-
-//Legendary - Air - Cliodahn (Banshee) - 60 Attack / 150 HP @ 1 - Gains attack equal to 100% of direct damage taken before armor.
-
-    
     
     
 }

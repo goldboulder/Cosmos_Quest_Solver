@@ -1,0 +1,158 @@
+Name,ID,Rarity,Element,Base attack,Baase health,Skill,P1 HP,P2 Att,P4 Stats,P5 Skill
+Lady of Twilight,0,Common,Air,20,45,StatAura 3 3 All,28,25,15,StatAura 6 6 All
+Tiny,1,Rare,Earth,30,70,ScaleableLifeSteal 1 24.0,40,28,17,ScaleableLifeSteal 1 12.0
+Nebra,2,Legendary,Fire,40,110,StatAura 20 0 All,144,100,20,StatAura 40 0 All
+Valor,3,Common,Air,10,20,StatAura 0 1 Air,7,3,9,StatAura 0 2 Air
+Rokka,4,Common,Earth,8,30,StatAura 0 1 Earth,40,7,5,StatAura 0 2 Earth
+Pyromancer,5,Common,Fire,12,24,StatAura 0 1 Fire,16,2,8,StatAura 0 2 Fire
+Bewat,6,Common,Water,6,50,StatAura 0 1 Water,31,10,8,StatAura 0 2 Water
+Hunter,7,Common,Air,14,22,StatAura 2 0 Air,14,12,4,StatAura 4 0 Air
+Shaman,8,Rare,Earth,20,40,StatAura 0 2 Earth,36,16,25,StatAura 0 4 Earth
+Alpha,9,Legendary,Fire,22,82,AOE 1,115,37,75,AOE 5
+Carl,10,Common,Water,12,28,StatAura 2 0 Water,18,5,5,StatAura 4 0 Water
+Nimue,11,Rare,Air,22,38,StatAura 0 2 Air,49,19,12,StatAura 0 4 Air
+Athos,12,Legendary,Earth,26,70,StatAura 0 2 All,70,32,96,StatAura 0 8 All
+Jet,13,Common,Fire,16,24,StatAura 2 0 Fire,11,9,6,StatAura 4 0 Fire
+Geron,14,Rare,Water,24,36,StatAura 0 2 Water,27,11,18,StatAura 0 4 Water
+Rei,15,Legendary,Air,40,46,StatAura 2 0 All,79,67,52,StatAura 10 0 All
+Ailen,16,Common,Earth,22,19,StatAura 2 0 Earth,21,17,7,StatAura 4 0 Earth
+Faefyr,17,Rare,Fire,18,50,StatAura 0 2 Fire,53,17,19,StatAura 0 4 Fire
+Auri,18,Legendary,Water,32,60,Heal 2,70,41,23,Heal 4
+Nicte,19,Rare,Air,32,22,StatAura 4 0 Air,21,43,24,StatAura 8 0 Air
+James,20,Legendary,Earth,12,50,Ricochet 0.75 5,89,35,29,Ricochet 0.85 5
+K41RY,21,Common,Air,16,28,StatAura 3 0 Air,19,14,19,StatAura 6 0 Air
+T4URUS,22,Rare,Earth,20,46,StatAura 1 0 All,28,20,30,StatAura 2 0 All
+TR0N1X,23,Legendary,Fire,20,100,AOE 3,107,19,35,AOE 6
+Aquortis,24,Common,Water,8,58,StatAura 3 0 Water,28,18,18,StatAura 6 0 Water
+Aeris,25,Rare,Air,32,30,Heal 1,10,36,28,Heal 2
+Geum,26,Legendary,Earth,2,75,Berserk 2.0,213,8,22,Berserk 2.2
+Forest Druid,27,Rare,Earth,16,46,StatAura 4 0 Earth,38,6,7,StatAura 8 0 Earth
+Ignitor,28,Rare,Fire,24,32,StatAura 4 0 Fire,24,11,9,StatAura 8 0 Fire
+Undine,29,Rare,Water,14,58,StatAura 4 0 Water,25,7,15,StatAura 8 0 Water
+Rudean,30,Common,Fire,12,38,StatAura 3 0 Fire,19,7,5,StatAura 6 0 Fire
+Aural,31,Rare,Water,50,18,Berserk 1.2,33,31,28,Berserk 1.32
+Geror,32,Legendary,Air,46,46,MonsterBuff 1.2,95,125,36,MonsterBuff 1.32
+Veildur,33,Legendary,Earth,44,66,StatAura 3 3 All,74,11,51,StatAura 6 6 All
+Brynhildr,34,Legendary,Air,48,72,StatAura 4 4 All,84,23,59,StatAura 8 8 All
+Groth,35,Legendary,Fire,52,78,StatAura 5 5 All,114,70,62,StatAura 10 10 All
+Ourea,36,Common,Earth,16,30,StatAura 3 0 Earth,17,3,8,StatAura 6 0 Earth
+Erebus,37,Rare,Fire,20,48,StatAura 2 2 Fire,55,10,20,StatAura 4 4 Fire
+Pontus,38,Legendary,Water,36,62,Purity 2.0,121,43,39,Purity 2.2
+Chroma,39,Rare,Air,20,52,StatAura 0 4 Air,23,15,15,StatAura 0 8 Air
+Petry,40,Rare,Earth,44,26,StatAura 0 4 Earth,18,16,28,StatAura 0 8 Earth
+Zaytus,41,Rare,Fire,22,58,StatAura 0 4 Fire,57,5,16,StatAura 0 8 Fire
+Spyke,42,Legendary,Air,45,75,Train 10,112,22,40,Train 20
+Aoyuki,43,Legendary,Water,55,70,Rainbow 100 4,75,121,66,Rainbow 200 4
+GaiaByte,44,Legendary,Earth,150,75,Wither 2.0,113,31,52,Wither 1.33
+Oymos,45,Common,Air,14,36,StatAura 4 0 Air,24,15,21,StatAura 8 0 Air
+Xarth,46,Rare,Earth,32,32,StatAura 2 2 Earth,11,18,19,StatAura 4 4 Earth
+Atzar,47,Legendary,Fire,32,76,Purity 2.0,85,28,48,Purity 2.2
+Zeth,48,Legendary,Water,42,70,WrathPercentAtt 0.1,127,16,24,WrathPercentAtt 0.15
+Koth,49,Legendary,Earth,46,76,WrathPercentAtt 0.15,99,39,70,WrathPercentAtt 0.2
+Gurth,50,Legendary,Air,50,82,WrathPercentAtt 0.2,108,43,68,WrathPercentAtt 0.25
+Werewolf,51,Common,Earth,25,35,ScaleableStatAura 0 1 All 9.0,23,28,19,ScaleableStatAura 0 1 All 8.2
+Jack'o Knight,52,Rare,Air,35,55,ScaleableStatAura 1 0 All 9.0,50,13,38,ScaleableStatAura 1 0 All 8.2
+Dullahan,53,Legendary,Fire,45,75,ScaleableStatAura 1 1 All 9.0,114,11,48,ScaleableStatAura 1 1 All 6.6
+Lady Odelith,54,Rare,Water,36,36,StatAura 0 4 Water,19,17,29,StatAura 0 8 Water
+Shygu,55,Legendary,Air,54,34,ScaleableStatAura 0 1 Air 9.0,23,68,71,ScaleableStatAura 0 1 Air 8.2
+Thert,56,Legendary,Earth,28,72,ScaleableStatAura 0 1 Earth 9.0,61,44,35,ScaleableStatAura 0 1 Earth 8.2
+Lord Kirk,57,Legendary,Fire,64,32,ScaleableStatAura 0 1 Fire 9.0,77,99,83,ScaleableStatAura 0 1 Fire 8.2
+Neptunius,58,Legendary,Water,70,30,ScaleableStatAura 0 1 Water 9.0,92,73,83,ScaleableStatAura 0 1 Water 8.2
+Sigrun,59,Legendary,Fire,12,65,Ricochet 0.5 5,132,29,45,Ricochet 0.65 5
+Koldis,60,Legendary,Water,14,70,Ricochet 0.5 5,173,18,26,Ricochet 0.65 5
+Alvitr,61,Legendary,Earth,16,75,Ricochet 0.5 5,152,50,56,Ricochet 0.65 5
+Hama,62,Common,Water,18,30,StatAura 4 0 Water,21,10,7,StatAura 8 0 Water
+Hallinskidi,63,Rare,Air,34,34,StatAura 2 2 Air,17,54,20,StatAura 4 4 Air
+Rigr,64,Legendary,Earth,42,60,Purity 2.0,68,21,93,Purity 2.2
+Ascended Alpha,65,Ascended,Fire,46,174,ScaleableAOE 1 3.3,251,40,92,ScaleableAOE 1 3.0
+Ascended Athos,66,Ascended,Earth,60,162,ScaleableStatAura 0 1 All 3.3,281,57,36,ScaleableStatAura 0 1 All 3.0
+Ascended Rei,67,Ascended,Air,104,120,ScaleableStatAura 1 0 All 3.3,127,46,176,ScaleableStatAura 1 0 All 2.25
+Ascended Auri,68,Ascended,Water,78,148,ScaleableHeal 1 6.58,81,221,59,ScaleableHeal 1 5.98
+Ascended TR0N1X,69,Ascended,Fire,38,190,Ricochet 0.75 5,383,56,25,Ricochet 0.8 5
+Ascended Geum,70,Ascended,Earth,8,222,Berserk 2.0,348,35,16,Berserk 2.2
+Ascended Geror,71,Ascended,Air,116,116,MonsterBuff 1.3,173,22,153,MonsterBuff 1.43
+Christmas Elf,73,Common,Water,24,38,ScaleableHeal 1 9.0,28,34,22,ScaleableHeal 1 8.2
+Reindeer,74,Rare,Air,36,54,ScaleableAOE 1 9.0,53,18,33,ScaleableAOE 1 8.2
+Santa Claus,75,Legendary,Fire,48,72,ScaleableLifeSteal 1 9.0,107,96,78,ScaleableLifeSteal 1 6.6
+Sexy Santa,76,Rare,Earth,44,44,Ricochet 0.66 5,27,41,40,Ricochet 0.71 5
+Toth,77,Common,Fire,24,24,StatAura 4 0 Fire,18,32,16,StatAura 8 0 Fire
+Ganah,78,Rare,Water,30,40,StatAura 2 2 Water,29,26,43,StatAura 4 4 Water
+Dagda,79,Legendary,Air,46,58,Purity 2.0,79,78,123,Purity 2.2
+Bubbles,80,Ascended,Water,110,300,ScaleableAntiAOE 0.005,291,120,58,ScaleableAntiAOE 0.0055
+Ascended Pontus,81,Ascended,Water,86,150,Purity 3.0,124,211,190,Purity 3.3
+Ascended Atzar,82,Ascended,Fire,81,162,Purity 3.0,333,27,86,Purity 3.3
+Arshen,83,Legendary,Air,36,74,Ricochet 1.0 1,83,44,19,Ricochet 1.05 1
+Rua,84,Legendary,Fire,40,78,Ricochet 1.0 1,88,44,37,Ricochet 1.05 1
+Dorth,85,Legendary,Water,44,82,Ricochet 1.0 1,90,38,40,Ricochet 1.05 1
+Ascended Rigr,86,Ascended,Earth,99,141,Purity 3.0,138,121,93,Purity 3.3
+Hosokawa,88,Legendary,Air,50,42,ScaleableStatAura 1 0 Air 9.0,108,115,74,ScaleableStatAura 1 0 Air 8.2
+Takeda,89,Legendary,Earth,66,32,ScaleableStatAura 1 0 Earth 9.0,83,82,32,ScaleableStatAura 1 0 Earth 8.2
+Hirate,90,Legendary,Fire,56,38,ScaleableStatAura 1 0 Fire 9.0,53,133,44,ScaleableStatAura 1 0 Fire 8.2
+Hattori,91,Legendary,Water,48,44,ScaleableStatAura 1 0 Water 9.0,65,74,64,ScaleableStatAura 1 0 Water 8.2
+Ascended Dagda,92,Ascended,Air,107,135,Purity 3.0,208,78,322,Purity 3.3
+Bylar,93,Common,Earth,20,30,StatAura 4 0 Earth,18,6,15,StatAura 8 0 Earth
+Boor,94,Rare,Fire,36,36,Train 3,19,49,20,Train 6
+Bavah,95,Legendary,Water,52,52,StatAura 2 2 All,84,92,43,StatAura 7 7 All
+Leprechaun,96,Legendary,Earth,25,75,EvenField 0,59,13,13,EvenField 1
+Sparks,97,Common,Fire,30,30,StatLevelBoost 2.0,29,29,15,StatLevelBoost 2.2
+Leaf,98,Rare,Earth,42,48,StatLevelBoost 2.0,35,57,26,StatLevelBoost 2.2
+Flynn,99,Legendary,Air,48,70,StatLevelBoost 2.0,46,93,69,StatLevelBoost 2.2
+Ascended Bavah,100,Ascended,Water,122,122,ScaleableStatAura 1 1 All 6.58,217,152,145,ScaleableStatAura 1 1 All 5.98
+Dr Hawking,101,Legendary,Air,60,66,ScaleableStartingDamage 1 1.0,94,136,70,ScaleableStartingDamage 1 0.767
+Master Lee,102,Ascended,Air,90,150,Reflect 0.5,314,290,225,Reflect 0.55
+Kumu san,103,Legendary,Fire,38,70,Reflect 0.2,134,132,135,Reflect 0.22
+Liu Cheng,104,Legendary,Water,42,78,Reflect 0.25,113,147,80,Reflect 0.275
+Hidoka,105,Legendary,Earth,44,86,Reflect 0.3,144,172,45,Reflect 0.33
+Dicemaster,107,Common,Water,26,25,RandomStatBoost 20,19,36,12,RandomStatBoost 40
+Luxurius Maximus,108,Rare,Fire,60,28,RandomTarget False,44,47,29,RandomTarget True
+Pokerface,109,Legendary,Earth,70,70,CriticalHit 3.0,119,211,111,CriticalHit 3.3
+Taint,110,Common,Air,25,25,Ricochet 0.5 5,13,4,21,Ricochet 0.55 5
+Putrid,111,Rare,Earth,50,48,Train -3,51,93,50,Train -2
+Defile,112,Legendary,Fire,48,52,BloodBomb 50,60,138,72,BloodBomb 100
+Neil,113,Legendary,Water,15,150,Intercept 0.3,244,20,23,Intercept 0.35
+Mahatma,114,Legendary,Air,26,78,ElementDamageBoost Water 0.75,56,19,25,ElementDamageBoost Water 0.83
+Jade,115,Legendary,Earth,30,76,ElementDamageBoost Air 0.75,45,37,25,ElementDamageBoost Air 0.83
+Edana,116,Legendary,Fire,36,72,ElementDamageBoost Earth 0.75,91,46,66,ElementDamageBoost Earth 0.83
+Dybbuk,117,Legendary,Water,30,80,ElementDamageBoost Fire 0.75,65,43,37,ElementDamageBoost Fire 0.83
+Ascended Shygu,118,Ascended,Air,135,85,ScaleableStatAura 0 1 Air 5.5,148,113,217,ScaleableStatAura 0 1 Air 5.0
+Ascended Thert,119,Ascended,Earth,70,180,ScaleableStatAura 0 1 Earth 5.5,346,47,46,ScaleableStatAura 0 1 Earth 5.0
+Ascended Lord Kirk,120,Ascended,Fire,160,80,ScaleableStatAura 0 1 Fire 5.5,215,255,87,ScaleableStatAura 0 1 Fire 5.0
+Ascended Neptunius,121,Ascended,Water,175,75,ScaleableStatAura 0 1 Water 5.5,335,201,241,ScaleableStatAura 0 1 Water 5.0
+Ascended Hosokawa,122,Ascended,Air,124,106,ScaleableStatAura 1 0 Air 5.5,229,423,207,ScaleableStatAura 1 0 Air 5.0
+Ascended Takeda,123,Ascended,Earth,164,82,ScaleableStatAura 1 0 Earth 5.5,252,425,66,ScaleableStatAura 1 0 Earth 5.0
+Ascended Hirate,124,Ascended,Fire,144,96,ScaleableStatAura 1 0 Fire 5.5,139,23,27,ScaleableStatAura 1 0 Fire 5.0
+Ascended Hattori,125,Ascended,Water,126,114,ScaleableStatAura 1 0 Water 5.5,218,116,117,ScaleableStatAura 1 0 Water 5.0
+Billy,127,Common,Earth,40,30,Wrath 100,43,30,24,Wrath 125
+Sanqueen,128,Rare,Water,22,88,Vampyrism 0.8,71,8,16,Vampyrism 0.88
+Cliodhna,129,Legendary,Air,60,150,Revenge 1.0,193,240,78,Revenge 1.1
+Guy,130,Ascended,Fire,64,340,TargetedReflect 1.0,160,51,115,TargetedReflect 1.1
+Ascended Defile,131,Ascended,Fire,114,126,ScaleableBloodBomb 7 3.0,126,102,114,ScaleableBloodBomb 3 1.0
+Raider Rose,132,Ascended,Earth,62,186,Execute 0.6,353,32,476,Execute 0.65
+Buccaneer Beatrice,133,Legendary,Water,30,96,Execute 0.3,66,32,66,Execute 0.35
+Corsair Charles,134,Legendary,Air,32,100,Execute 0.35,87,21,64,Execute 0.4
+Marauder Magnus,135,Legendary,Fire,34,105,Execute 0.4,175,67,71,Execute 0.45
+Frosty,136,Rare,Water,52,46,ScaleableAbsorbPercent 0.0033334,51,69,16,ScaleableAbsorbPercent 0.003667
+Fir,137,Common,Earth,18,50,ScaleableAOEReflect 0.001334,33,5,11,ScaleableAOEReflect 0.0014667
+5_12_6,138,Rare,Air,34,78,ScaleablePercentAtt 0.0033334,42,37,39,ScaleablePercentAtt 0.0036667
+Kedari,139,Legendary,Fire,18,170,ScaleableSacrifice 0.3334 0.2223 0.3334,133,19,25,ScaleableSacrifice 0.3637 0.2445 0.3637
+Raze,140,Common,Water,26,18,Ricochet 0.7 1,8,3,14,Ricochet 0.75 1
+Ruin,141,Rare,Air,48,44,WrathPercentAtt 0.1,23,61,23,WrathPercentAtt 0.15
+Seethe,142,Legendary,Earth,54,48,UnitBuff 15 15,57,178,53,UnitBuff 30 30
+Ascended Seethe,143,Ascended,Earth,131,117,ScaleableUnitBuff 0.45455 0.45455,90,117,124,ScaleableUnitBuff 0.55556 0.55556
+Blossom,144,Legendary,Earth,54,54,PartingGift 0.1,99,99,144,PartingGift 0.11
+Flint,145,Legendary,Fire,56,56,PartingGift 0.11,100,100,150,PartingGift 0.12
+Orin,146,Legendary,Air,58,58,PartingGift 0.12,101,101,156,PartingGift 0.13
+Aurora,147,Ascended,Water,130,130,PartingGift 0.15,221,221,344,PartingGift 0.16
+Cupid,148,Legendary,Air,20,220,Ricochet 3.0 1,150,50,110,Ricochet 4.0 1
+Transient,149,Common,Void,22,22,ElementDamageBoost All 0.5,11,11,20,ElementDamageBoost All 0.6
+Maunder,150,Rare,Void,34,34,ElementDamageBoost All 0.5,22,22,32,ElementDamageBoost All 0.6
+The Wanderer,151,Legendary,Void,50,50,ElementDamageBoost All 0.5,80,80,120,ElementDamageBoost All 0.6
+B-Day,152,Legendary,Air,40,100,Simmer 0.1,61,51,23,Simmer 0.15
+Cloud,153,Common,Air,22,44,Inferno 0.95,36,32,11,Inferno 1.0
+Ember,154,Rare,Fire,32,64,Inferno 0.95,34,14,19,Inferno 1.0
+Riptide,155,Legendary,Water,42,84,Inferno 0.95,89,34,22,Inferno 1.0
+Spike,156,Ascended,Earth,90,180,Inferno 0.95,234,103,136,Inferno 1.0
+Ascended Mahatma,157,Ascended,Air,60,180,ElementDamageBoost Water 1.7,241,50,45,ElementDamageBoost Water 2.0
+Ascended Jade,158,Ascended,Earth,68,172,ElementDamageBoost Air 1.7,288,41,33,ElementDamageBoost Air 2.0
+Ascended Edana,159,Ascended,Fire,80,160,ElementDamageBoost Earth 1.7,191,180,74,ElementDamageBoost Earth 2.0
+Ascended Dybbuk,160,Ascended,Water,66,176,ElementDamageBoost Fire 1.7,272,55,29,ElementDamageBoost Fire 2.0

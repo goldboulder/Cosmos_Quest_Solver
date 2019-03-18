@@ -10,8 +10,10 @@ import static GUI.AssetPanel.CREATURE_PICTURE_SIZE;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.File;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Scanner;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -23,6 +25,9 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
     
     private EnemyHeroCustomizationPanel[] heroPanelArray;
     private EnemyBossCustomizationPanel[] bossPanelArray;
+    
+    private boolean includeWorldBosses;
+    
     private final int NUM_COLUMNS;
     
     private HashMap<String,EnemyHeroCustomizationPanel> map;//for finding the right hero panel when loading
@@ -31,6 +36,7 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
         this.frame = frame;
         this.parent = parent;
         this.NUM_COLUMNS = numColumns;
+        this.includeWorldBosses = includeBosses;
         
         setLayout(new GridLayout(0,numColumns));
         
@@ -83,7 +89,6 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
             while (sc.hasNext()){
                 
                 tokens = sc.nextLine().split(",");
-                
                 map.get(tokens[0]).getLevelTextField().setText(tokens[1]);
                 map.get(tokens[0]).getPromoteLevelTextField().setText(tokens[2]);
                 
@@ -91,7 +96,7 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
             }
         }
         catch(Exception e){
-            System.out.println("failed to load");
+            System.out.println("failed to load in EnemyHeroesCustomizationPanel");
         }
     }
 
@@ -125,6 +130,9 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
                 panel.setLevel(1000);
                 panel.setPromoteLevel(0);
             }
+        }
+        if (CreatureFactory.getOrderType(false).equals("Strength")){
+            sortByStrength();
         }
     }
 
@@ -170,7 +178,33 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
         repaint();
     }
     
-    
+    public void sortByStrength() {
+        removeAll();
+        
+        LinkedList<EnemyHeroCustomizationPanel> heroList = new LinkedList<>();
+        heroList.addAll(Arrays.asList(heroPanelArray));
+        Collections.sort(heroList, (EnemyHeroCustomizationPanel p1, EnemyHeroCustomizationPanel p2) -> p2.getHero().viability()-p1.getHero().viability());
+        heroPanelArray = heroList.toArray(heroPanelArray);
+        for (EnemyHeroCustomizationPanel p : heroPanelArray){
+            add(p);
+        }
+        if (includeWorldBosses){
+            for (EnemyBossCustomizationPanel p : bossPanelArray){
+                add(p);
+            }
+        }
+        
+        
+        revalidate();
+        repaint();
+    }
+
+    public void redrawHero(String text) {
+        EnemyHeroCustomizationPanel p = map.get(text);
+        p.updateTextFields();
+        p.repaint();
+        
+    }
     
     
     
