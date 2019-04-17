@@ -33,7 +33,7 @@ public class PartingGift extends SpecialAbility{
         for (Creature c : thisFormation){
             if (owner != c){
                 c.setMaxHP(c.getMaxHP() + HPBoost);
-                c.changeHP(HPBoost, thisFormation);
+                c.changeHPNoDeathCheck(HPBoost, thisFormation);//this currently revives dead units. The game does this too. if changed: do changeHP()
                 c.setCurrentAtt(c.getCurrentAtt() + attBoost);
             }
         }

@@ -3,6 +3,7 @@
  */
 package GUI;
 
+import Formations.Creature;
 import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.Hero;
@@ -142,6 +143,10 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
     public Formation getEnemyFormation() {
         return enemyFormationPanel.getEnemyFormation();
     }
+    
+    public Creature[] getCreatureArray() {
+        return enemyFormationPanel.getEnemyArray();
+    }
 
     public void setHeroLevels(int level) {
         enemyHeroesCustomizationPanel.setLevelAll(level);
@@ -180,6 +185,8 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
     public void redrawHero(String text) {
         enemyHeroesCustomizationPanel.redrawHero(text);
     }
+
+    
 
     
 

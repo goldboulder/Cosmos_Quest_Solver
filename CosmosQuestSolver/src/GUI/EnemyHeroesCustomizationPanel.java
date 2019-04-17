@@ -80,7 +80,6 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
     
     private void load(){
         try{
-            
             Scanner sc = new Scanner(new File("save data/hero level data.txt"));
             sc.nextLine();//followers
             sc.nextLine();//max creatures
@@ -89,6 +88,7 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
             while (sc.hasNext()){
                 
                 tokens = sc.nextLine().split(",");
+                //System.out.println(tokens[0]);
                 map.get(tokens[0]).getLevelTextField().setText(tokens[1]);
                 map.get(tokens[0]).getPromoteLevelTextField().setText(tokens[2]);
                 

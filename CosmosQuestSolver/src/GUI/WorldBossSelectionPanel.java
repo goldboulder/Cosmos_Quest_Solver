@@ -130,7 +130,7 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
     }
 
     public void recieveSolution(Formation f) {
-        solutionFormationPanel.updateFormation(f);
+        solutionFormationPanel.updateFormation(f,true);
         long followersUsed = solutionFormationPanel.getFormation().getFollowers();
         if (followersUsed == 0){
             followersLabel.setText(" ");
@@ -146,7 +146,7 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
     }
 
     public void parametersChanged() {
-        solutionFormationPanel.updateFormation(new Formation());
+        solutionFormationPanel.updateFormation(new Formation(),true);
         damageLabel.setText("Damage: 0");
         setDamage(0);
         followersLabel.setText(" ");

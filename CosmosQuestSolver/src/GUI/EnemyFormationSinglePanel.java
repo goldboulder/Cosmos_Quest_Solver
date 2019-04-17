@@ -22,14 +22,15 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
     
     private CreaturePanelGroup creatureGroup;
     private boolean facingRight;
+    private boolean allowHeroTweak;
     
     private CreaturePicturePanel picPanel;
 
-    public EnemyFormationSinglePanel(EnemySelectFrame frame, CreaturePanelGroup group, Creature creature, boolean facingRight) {
+    public EnemyFormationSinglePanel(EnemySelectFrame frame, CreaturePanelGroup group, Creature creature, boolean facingRight, boolean allowHeroTweak) {
         this.frame = frame;
         this.creatureGroup = group;
         this.facingRight = facingRight;
-        
+        this.allowHeroTweak = allowHeroTweak;
         picPanel = new CreaturePicturePanel(creature);
         add(picPanel);
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -129,7 +130,7 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
             }
         }
         
-        else if (picPanel.getCreature() instanceof Hero){
+        else if (picPanel.getCreature() instanceof Hero && allowHeroTweak){
             Hero h = (Hero)picPanel.getCreature();
             int level = h.getLevel();
             int promo = h.getPromoteLevel();

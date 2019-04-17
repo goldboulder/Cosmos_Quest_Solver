@@ -43,6 +43,9 @@ Seethe,true,false
 Transient,true,false
 Maunder,true,false
 The Wanderer,true,false
+Bortles,true,false
+Murphy,true,false
+Nerissa,true,false
 Ascended Alpha,false,false
 Ascended Athos,true,false
 Ascended Rei,false,false
@@ -89,6 +92,10 @@ Ascended Hosokawa,true,false
 Ascended Takeda,true,false
 Ascended Hirate,true,false
 Ascended Hattori,true,false
+Ascended Mahatma,true,false
+Ascended Jade,true,false
+Ascended Edana,true,false
+Ascended Dybbuk,false,false
 Veildur,true,false
 Brynhildr,false,false
 Groth,false,false
@@ -101,7 +108,7 @@ Alvitr,true,false
 Arshen,true,false
 Rua,true,false
 Dorth,true,false
-Kumu san,false,false
+Kumu san,true,false
 Liu Cheng,true,false
 Hidoka,true,false
 Master Lee,true,false
@@ -124,30 +131,34 @@ Reindeer,true,false
 Santa Claus,true,false
 Sexy Santa,true,false
 Fir,true,false
-5-12-6,true,false
+5_12_6,false,false
 Kedari,true,false
 Frosty,true,false
-Leprechaun,false,false
 Sparks,true,false
 Leaf,true,false
 Flynn,false,false
+Willow,true,false
+Gizmo,false,false
+Daisy,false,false
+Thumper,false,false
+B-Day,true,false
 Lady of Twilight,false,false
 Tiny,false,false
 Nebra,false,false
 Bubbles,false,false
 James,false,false
+Leprechaun,true,false
 Dr Hawking,true,false
 Neil,true,true
 Guy,true,false
 Cupid,false,false
 Dicemaster,true,false
-Luxurius Maximus,false,false
+Luxurius Maximus,true,false
 Pokerface,true,false
 Cloud,false,false
 Ember,false,false
 Riptide,false,false
 Spike,false,false
-B-Day,true,false
 Spyke,true,false
 Aoyuki,true,false
 GaiaByte,false,false

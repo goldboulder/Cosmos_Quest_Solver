@@ -48,9 +48,6 @@ public class RandomTarget extends SpecialAbility{
         if (enemyFormation.size() == 1){
             position = 0;
         }
-        else if (ignoreFirst){
-            position = getRandomIndex(Formation.getTurnSeed(seed,Formation.STALEMATE_CUTOFF_POINT-1-turn),enemyFormation.size()-1) + 1;
-        }
         else{
             position = getRandomIndex(Formation.getTurnSeed(seed,Formation.STALEMATE_CUTOFF_POINT-1-turn),enemyFormation.size());
         }
@@ -59,7 +56,16 @@ public class RandomTarget extends SpecialAbility{
             System.out.println("out of bounds!");
         }
         
+        if (ignoreFirst && position == 0 && enemyFormation.size() > 1){//ignore the first unit if igroreFirst is true
+            position = 1;
+        }
+        
+        long tempAttack = owner.getCurrentAtt();
+        if (position != 0){//bubbles affects if target is not first
+            owner.setCurrentAtt((long)Math.round(owner.getCurrentAtt() * Math.pow(1-enemyFormation.getAOEResistance(),position)));
+        }
         enemyFormation.takeHit(owner,thisFormation,position);
+        owner.setCurrentAtt(tempAttack);
         //System.out.println("\n\n");
     }
     

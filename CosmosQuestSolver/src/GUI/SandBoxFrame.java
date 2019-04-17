@@ -6,6 +6,7 @@ package GUI;
 import Formations.BattleLog;
 import Formations.Creature;
 import Formations.CreatureFactory;
+import Formations.Formation;
 import static GUI.QuestSolverFrame.QUEST_SOLVER_FRAME_HEIGHT;
 import static GUI.QuestSolverFrame.QUEST_SOLVER_FRAME_WIDTH;
 import java.awt.Dimension;
@@ -201,7 +202,25 @@ public class SandBoxFrame extends JFrame implements EnemySelectFrame, MouseListe
     @Override
     public void parametersChanged() {
         if (simulationPanel != null){
-            simulationPanel.recieveSimulation(new BattleLog(leftSelectionPanel.getEnemyFormation().getCopy(),rightSelectionPanel.getEnemyFormation().getCopy()));
+            Creature[] leftCreatures = leftSelectionPanel.getCreatureArray();
+            Creature[] leftCopy = new Creature[leftCreatures.length];
+            for (int i = 0; i < leftCreatures.length; i++){
+                if (leftCreatures[i] != null){
+                    leftCopy[i] = leftCreatures[i].getCopy();
+                }
+            }
+            
+            Creature[] rightCreatures = rightSelectionPanel.getCreatureArray();
+            Creature[] rightCopy = new Creature[rightCreatures.length];
+            for (int i = 0; i < rightCreatures.length; i++){
+                if (rightCreatures[i] != null){
+                    rightCopy[i] = rightCreatures[i].getCopy();
+                }
+            }
+            
+            
+            
+            simulationPanel.recieveSimulation(new BattleLog(new Formation(leftCopy), new Formation(rightCopy)));
         }
     }
     

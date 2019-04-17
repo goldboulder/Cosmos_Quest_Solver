@@ -8,10 +8,10 @@ import Formations.Formation;
 import Formations.Hero;
 
 //at the beggining of the battle, adjests the stats of the owner as if its level
-// was multiplied by a specified amount. Used by the Easter event heroes
+// was multiplied by a specified amount. Used by Easter event 1 heroes
 public class StatLevelBoost extends SpecialAbility{
     
-    private double multiplier;//edit stat gain on rarity type function instead?
+    protected double multiplier;//edit stat gain on rarity type function instead?
 
     public StatLevelBoost(Creature owner, double multiplier) {
         super(owner);
@@ -35,7 +35,7 @@ public class StatLevelBoost extends SpecialAbility{
     }
     
     //slight rounding error on flynn.5 and leaf.5. 
-    private int[] getNewStats(){
+    protected int[] getNewStats(){
         if (owner instanceof Hero){
             Hero h = (Hero) owner;
             int att = levelStat(h.getLevel(),h,h.getLvl1Att(),h.getLvl1HP());
@@ -62,7 +62,7 @@ public class StatLevelBoost extends SpecialAbility{
     
     
     
-    private int levelStat(int level, Hero h, int statWanted, int otherStat){
+    protected int levelStat(int level, Hero h, int statWanted, int otherStat){
             double boost = ((h.rarityStatBoost()*multiplier + h.promotionLevelStatBoost())*statWanted*(level-1)) / (double)(otherStat+statWanted);
             int intBoost = (int) (boost + 0.5);
             return statWanted + intBoost;

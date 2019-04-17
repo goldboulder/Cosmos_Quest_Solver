@@ -39,7 +39,7 @@ public class EvenField extends SpecialAbility{//enemies cannot heal back to full
         }
         for (Creature creature : enemyFormation){
             double damageDelt = creature.getBaseHP() * percentDamage  * (1 - enemyFormation.getAOEResistance());
-            //round to nearest integer, .5 gets rounded down
+            //round to nearest integer, .5 gets rounded down. still not 100% accurate
             damageDelt = Math.round(damageDelt-0.0000001);
             
             creature.changeHP(-damageDelt,enemyFormation);

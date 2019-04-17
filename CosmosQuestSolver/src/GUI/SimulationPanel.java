@@ -177,6 +177,7 @@ public class SimulationPanel extends JPanel implements ActionListener{
         revalidate();
         repaint();
     }
+
     
     protected void changeRound(int round){
         if (round < 0){
@@ -190,8 +191,8 @@ public class SimulationPanel extends JPanel implements ActionListener{
         
         BattleState state = log.getState(round);
         
-        leftFormationPanel.updateFormation(state.leftFormation);
-        rightFormationPanel.updateFormation(state.rightFormation);
+        leftFormationPanel.updateFormation(state.leftFormation,true);
+        rightFormationPanel.updateFormation(state.rightFormation,true);
         leftDamageLabel.setText(OtherThings.intToCommaString(state.rightFormation.getDamageTaken()));
         rightDamageLabel.setText(OtherThings.intToCommaString(state.leftFormation.getDamageTaken()));
         roundLabel.setText(Integer.toString(round));

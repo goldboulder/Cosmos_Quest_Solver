@@ -38,7 +38,7 @@ public class CosmosQuestSolver {
         
         try{
             PrintWriter pw = new PrintWriter(new File("creature_data/boss_data.csv"));
-            pw.println("Name,ID,Rarity,Element,Base attack,Baase health,Skill,P1 HP,P2 Att,P4 Stats,P5 Skill");
+            pw.println("Name,ID,Rarity,Element,Base attack,Base health,Skill,P1 HP,P2 Att,P4 Stats,P5 Skill");
             
             WorldBoss[] bosses = CreatureFactory.getBossesDefaultOrder();
             for (WorldBoss b : bosses){

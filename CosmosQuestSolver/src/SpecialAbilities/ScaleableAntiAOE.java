@@ -70,7 +70,7 @@ public class ScaleableAntiAOE extends AntiAOE{
         }
         
         
-        return "-" + percentStr + "% per level to area skills (" + percentLevelStr + "%)";
+        return "Formation takes" + percentStr + "% less damage per level from AOE skills (" + percentLevelStr + "%)";
         
     }
     

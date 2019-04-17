@@ -21,7 +21,8 @@ public class BloodBomb extends SpecialAbility{
     public void attack(Formation thisFormation, Formation enemyFormation) {
         super.attack(thisFormation,enemyFormation);
         if (enemyFormation.getFrontCreature().isDead()){
-            enemyFormation.takeAOEDamage(damage);
+            //enemyFormation.takeAOEDamage(damage);//bubbles does not work with this skill
+            enemyFormation.takeRawDamage(damage);
         }
     }
 

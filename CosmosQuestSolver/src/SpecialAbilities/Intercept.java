@@ -27,7 +27,7 @@ public class Intercept extends SpecialAbility{
     @Override
     public double alterIncomingDamage(double hit, double initialHit, Formation thisFormation, Formation enemyFormation) {
         if (owner != thisFormation.getFrontCreature() && !owner.isDead()){
-            double damageIntercepted = initialHit * interceptPercent;
+            double damageIntercepted = hit * interceptPercent;
             owner.takeHit(owner, thisFormation, enemyFormation, Math.round(damageIntercepted));
             return Math.round(hit - damageIntercepted);
         }

@@ -210,16 +210,40 @@ public abstract class Creature implements Comparable<Creature>{
         }
     }
     
-    
-    public void takeAOEDamage(double damage, Formation thisFormation) {
-        double adjustedDamage;
-        if (damage > 1){
-            adjustedDamage = Math.floor(damage);
+    //for fairies
+    public void changeHPNoDeathCheck(double damage, Formation thisFormation){
+        
+        int num;//Geum?
+        if (damage < 0){//round away from 0
+            num = (int)Math.floor(damage);
+            thisFormation.addDamageTaken(-(long)Math.floor(damage));
         }
         else{
-            adjustedDamage = Math.ceil(damage);
+            num = (int) Math.ceil(damage);
         }
-        changeHP(-adjustedDamage,thisFormation);
+        
+        
+        currentHP += num;
+        if (currentHP < 0){
+            currentHP = 0;
+        }
+        if (currentHP > maxHP){
+            currentHP = maxHP;
+        }
+    }
+    
+    
+    public void takeAOEDamage(double damage, Formation formation) {//move to specialAbility for Thumper?
+        double newDamage = getSpecialAbility().alterAOEDamage(damage,formation);
+        
+        if (newDamage > 1){
+            newDamage = Math.floor(newDamage);
+        }
+        else{
+            newDamage = Math.ceil(newDamage);
+        }
+        changeHP(-newDamage,formation);
+
     }
     
     public double determineDamage(Creature target, Formation thisFormation, Formation enemyFormation){

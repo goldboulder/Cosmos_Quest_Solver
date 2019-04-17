@@ -17,7 +17,7 @@ import java.util.List;
 //continuously runs battle simulations on a seperate thread
 //to provide a solution for a problem
 
-public abstract class AISolver implements Runnable{
+public abstract class AISolver extends Thread{
     
     protected long followers;
     protected int maxCreatures;

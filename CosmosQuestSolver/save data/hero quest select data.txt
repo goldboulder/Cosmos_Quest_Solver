@@ -43,6 +43,9 @@ Seethe,false,false
 Transient,false,false
 Maunder,false,false
 The Wanderer,false,false
+Bortles,false,false
+Murphy,false,false
+Nerissa,false,false
 Ascended Alpha,false,false
 Ascended Athos,true,false
 Ascended Rei,false,false
@@ -134,6 +137,10 @@ Frosty,false,false
 Sparks,false,false
 Leaf,false,false
 Flynn,false,false
+Willow,false,false
+Gizmo,false,false
+Daisy,false,false
+Thumper,false,false
 B-Day,false,false
 Lady of Twilight,false,false
 Tiny,false,false

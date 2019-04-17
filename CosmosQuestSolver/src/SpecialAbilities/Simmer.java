@@ -21,7 +21,8 @@ public class Simmer extends SpecialAbility{
     
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//anti-aoe?
-        enemyFormation.getCreature(enemyFormation.size()-1).changeHP(-Math.round(owner.getCurrentAtt() * percent * (1-enemyFormation.getAOEResistance())), enemyFormation);
+        //enemyFormation.getCreature(enemyFormation.size()-1).changeHP(-Math.round(owner.getCurrentAtt() * percent * (1-enemyFormation.getAOEResistance())), enemyFormation);
+        enemyFormation.getCreature(enemyFormation.size()-1).takeAOEDamage(Math.round(owner.getCurrentAtt() * percent), enemyFormation);
     }
 
     @Override

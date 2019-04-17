@@ -210,4 +210,9 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
         assetPanel.filterHeroes(text);
     }
     
+    //@Override
+    //public boolean canPauseThread() {
+        //return false;
+    //}
+    
 }

@@ -65,11 +65,13 @@ public class EnemyHeroCustomizationPanel extends JPanel implements DocumentListe
         levelTextField.getDocument().addDocumentListener(this);
         promoteLevelTextField.getDocument().addDocumentListener(this);
         levelTextField.setColumns(1);
-        levelTextField.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
-        promoteLevelTextField.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
-        //editPanel.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
+        levelTextField.setBackground(CreatureFactory.sourceToColor(CreatureFactory.IDToSource(hero.getID())));
+        levelTextField.setToolTipText("Level");
+        promoteLevelTextField.setBackground(CreatureFactory.sourceToColor(CreatureFactory.IDToSource(hero.getID())));
+        //editPanel.setBackground(CreatureFactory.sourceToColor(CreatureFactory.IDToSource(hero.getID())));
         promoteLevelTextField.setColumns(1);
         promoteLevelTextField.setMaximumSize(new Dimension(10,CHANGE_PANEL_SIZE));
+        promoteLevelTextField.setToolTipText("Promotion");
         editPanel.setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,CHANGE_PANEL_SIZE));
         
         

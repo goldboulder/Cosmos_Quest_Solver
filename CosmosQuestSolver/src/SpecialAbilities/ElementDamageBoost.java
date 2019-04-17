@@ -9,7 +9,7 @@ import Formations.Elements.Element;
 import Formations.Formation;
 
 //additively boosts damage with element damage.
-//used by Quest heroes 21-24 and drifter heroes
+//used by djinns and drifter heroes
 public class ElementDamageBoost extends SpecialAbility{
     
     private double percentBoost;
@@ -42,9 +42,9 @@ public class ElementDamageBoost extends SpecialAbility{
         }
         
         if ((percentBoost*100) % 1 == 0){
-            return "+" + ((int)(100*percentBoost)) + "% damage to " + elementStr + " creatures";
+            return "+" + ((int)(100*percentBoost)) + "% elemental damage to " + elementStr + " creatures";
         }
-        return "+" + (100*percentBoost) + "% damage to " + elementStr + " creatures";
+        return "+" + (100*percentBoost) + "% elemental damage to " + elementStr + " creatures";
     }
     
     @Override

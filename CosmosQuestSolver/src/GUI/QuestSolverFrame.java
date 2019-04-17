@@ -185,10 +185,12 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     }
     
     
+    @Override
     public Creature getMouseCreature(){
         return mouseCreature;
     }
     
+    @Override
     public void setMouseCreature(Creature mouseCreature){
         this.mouseCreature = mouseCreature;
         /*
@@ -275,13 +277,23 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     
     @Override
     public void recieveSolution(Formation f){
-        solutionFormationPanel.updateFormation(f);
+        solutionFormationPanel.updateFormation(f,false);
         
         if (!f.isEmpty()){//called by calculationPanel to clear solution. not really a solution
             calculationPanel.recieveSolutionFound();
             calculationPanel.updateSolutionDetails(f, enemyFormationMakerPanel.getEnemyFormation());
         }
     }
+    
+    public void recieveBlankSpaceSolution(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces) {
+        solutionFormationPanel.updateFormation(Formation.listBlankSpacesToArray(creatureList, blankSpaces));
+        
+        if (!creatureList.isEmpty()){//called by calculationPanel to clear solution. not really a solution
+            calculationPanel.recieveSolutionFound();
+            calculationPanel.updateSolutionDetails(new Formation(creatureList,blankSpaces), enemyFormationMakerPanel.getEnemyFormation());
+        }
+    }
+    
 
     @Override
     public long getFollowers() {
@@ -415,7 +427,7 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
             calculationPanel.parametersChanged();
         }
         if (solutionFormationPanel != null){
-            solutionFormationPanel.updateFormation(new Formation());
+            solutionFormationPanel.updateFormation(new Formation(),false);
         }
     }
 
@@ -466,20 +478,5 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
         enemyFormationMakerPanel.redrawHero(text);
     }
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-    
     
 }

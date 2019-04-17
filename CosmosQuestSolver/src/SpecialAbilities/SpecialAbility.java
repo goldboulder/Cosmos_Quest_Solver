@@ -48,6 +48,9 @@ public abstract class SpecialAbility {
         enemyFormation.takeHit(owner,thisFormation);
     }
     public void takeHit(Creature attacker,  Formation thisFormation, Formation enemyFormation, double hit) {
+        if (hit < 0){
+            hit = 0;
+        }
         long longHit = (long)Math.ceil(hit);
         recordDamageTaken(longHit,thisFormation,enemyFormation);
         attacker.getSpecialAbility().recordDamageDealt(longHit,thisFormation,enemyFormation);
@@ -58,6 +61,10 @@ public abstract class SpecialAbility {
     }
     public void recordDamageDealt(long damage, Formation thisFormation, Formation enemyFormation){//needed?
         
+    }
+    
+    public double alterAOEDamage(double damage, Formation formation){
+        return damage * (1 - formation.getAOEResistance());
     }
     
     //if needed, set, not add, damage taken as a local variable

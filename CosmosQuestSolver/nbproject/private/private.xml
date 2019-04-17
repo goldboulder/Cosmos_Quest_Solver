@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/NoHeroesLessSpacesWBOptimizer.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Wither.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/BloodBomb.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/TargetedReflect.java</file>
@@ -17,15 +18,21 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/ISolverFrame.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/ScaleableLifeSteal.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Execute.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/WeirdHeroQuestSolver.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/SpecialAbility.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/RandomStatBoost.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/WrathPercentAtt.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/AISolver.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/ElementDamageBoost.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/ChatBox.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/RandomTarget.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Inferno.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/CriticalHit.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/CreatureDrawer.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/SpecialQuestSolver.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/Monster.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/SettingsFrame.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Purity.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Wrath.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Ricochet.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/Creature.java</file>
@@ -38,14 +45,19 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/AntiAOE.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/EnemySelectFrame.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/EvenField.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/MonsterBuff.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/EnemyFormationSinglePanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/Hero.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/SimulationPanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/Elements.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Revenge.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/PartingGift.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/CombinationIterator.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/PlaceholderTextField.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/ScaleableAOE.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/SimulationOneTimePanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/EnemyHeroesCustomizationPanel.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Reflect.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/EnemyHeroCustomizationPanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/cosmosquestsolver/OtherThings.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/QuestSolverFrame.java</file>

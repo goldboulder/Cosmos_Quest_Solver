@@ -82,12 +82,14 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
         levelTextField.getDocument().addDocumentListener(this);
         promoteLevelTextField.getDocument().addDocumentListener(this);
         levelTextField.setColumns(1);
-        levelTextField.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
-        promoteLevelTextField.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
-        //editPanel.setBackground(CreatureFactory.SourceToColor(CreatureFactory.IDToSource(hero.getID())));
+        levelTextField.setBackground(CreatureFactory.sourceToColor(CreatureFactory.IDToSource(hero.getID())));
+        promoteLevelTextField.setBackground(CreatureFactory.sourceToColor(CreatureFactory.IDToSource(hero.getID())));
+        levelTextField.setToolTipText("Level");
+        //editPanel.setBackground(CreatureFactory.sourceToColor(CreatureFactory.IDToSource(hero.getID())));
         //levelTextField.setMaximumSize(new Dimension(30,CHANGE_PANEL_SIZE));
         promoteLevelTextField.setColumns(1);
         promoteLevelTextField.setMaximumSize(new Dimension(10,CHANGE_PANEL_SIZE));
+        promoteLevelTextField.setToolTipText("Promotion");
         editPanel.setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,CHANGE_PANEL_SIZE));
         
         setOpaque(false);

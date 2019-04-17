@@ -43,6 +43,9 @@ Seethe,false,false
 Transient,false,false
 Maunder,false,false
 The Wanderer,false,false
+Bortles,false,false
+Murphy,false,false
+Nerissa,false,false
 Ascended Alpha,false,false
 Ascended Athos,true,false
 Ascended Rei,false,false
@@ -52,7 +55,7 @@ Ascended Geum,true,true
 Ascended Geror,false,false
 Ascended Pontus,true,false
 Ascended Atzar,false,false
-Ascended Rigr,true,false
+Ascended Rigr,false,false
 Ascended Dagda,false,false
 Ascended Bavah,false,false
 Ascended Defile,false,false
@@ -69,7 +72,7 @@ Chroma,false,false
 Petry,false,false
 Zaytus,false,false
 Lady Odelith,false,false
-Shygu,true,false
+Shygu,false,false
 Thert,true,false
 Lord Kirk,false,false
 Neptunius,true,false
@@ -108,7 +111,7 @@ Dorth,false,false
 Kumu san,false,false
 Liu Cheng,false,false
 Hidoka,false,false
-Master Lee,false,false
+Master Lee,true,false
 Buccaneer Beatrice,false,false
 Corsair Charles,false,false
 Marauder Magnus,false,false
@@ -134,6 +137,10 @@ Frosty,false,false
 Sparks,false,false
 Leaf,false,false
 Flynn,false,false
+Willow,false,false
+Gizmo,false,false
+Daisy,false,false
+Thumper,false,false
 B-Day,false,false
 Lady of Twilight,false,false
 Tiny,false,false

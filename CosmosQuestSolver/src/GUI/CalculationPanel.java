@@ -117,12 +117,12 @@ public class CalculationPanel extends JPanel implements ActionListener{
                     findButton.setEnabled(false);
                     resultStatus = 0;
                     frame.recieveSolution(new Formation());//erases any previous solutions
-                    frame.recieveStart();
                     entireListChatBox.clear();
                     solutionDetailsButton.setEnabled(false);
                     solver = frame.makeSolver();//resets solver
+                    frame.recieveStart();
                     messageLabel.setText("");
-                    new Thread(solver).start();
+                    solver.start();
                     
                     revalidate();
                     repaint();
@@ -267,6 +267,20 @@ public class CalculationPanel extends JPanel implements ActionListener{
     
     public AISolver getSolver(){
         return solver;
+    }
+
+    public void startAgain() {
+        stopSearchButton.setEnabled(true);
+        findButton.setEnabled(false);
+        resultStatus = 0;
+        
+        frame.recieveStart();
+        
+        solutionDetailsButton.setEnabled(false);
+        
+        searchingLabel.setText("Starting again");
+        solver = frame.makeSolver();
+        solver.start();
     }
 
     

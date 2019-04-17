@@ -17,7 +17,7 @@ Aquortis,99,0
 Aeris,99,0
 Geum,99,4
 Rudean,99,0
-Aural,99,0
+Aural,99,4
 Geror,99,0
 Ourea,99,0
 Erebus,99,0
@@ -36,15 +36,18 @@ Boor,99,0
 Bavah,99,0
 Taint,99,4
 Putrid,99,0
-Defile,99,0
+Defile,99,4
 Raze,99,4
 Ruin,99,4
 Seethe,99,0
-Transient,99,0
-Maunder,99,0
-The Wanderer,99,0
+Transient,99,4
+Maunder,99,4
+The Wanderer,99,4
+Bortles,99,0
+Murphy,99,0
+Nerissa,99,0
 Ascended Alpha,1,0
-Ascended Athos,73,0
+Ascended Athos,76,0
 Ascended Rei,1,0
 Ascended Auri,1,0
 Ascended TR0N1X,99,4
@@ -81,11 +84,11 @@ Mahatma,99,0
 Jade,99,0
 Edana,1,0
 Dybbuk,1,0
-Ascended Shygu,90,0
-Ascended Thert,99,2
-Ascended Lord Kirk,69,0
+Ascended Shygu,99,4
+Ascended Thert,99,4
+Ascended Lord Kirk,99,4
 Ascended Neptunius,99,4
-Ascended Hosokawa,1,0
+Ascended Hosokawa,34,0
 Ascended Takeda,1,0
 Ascended Hirate,1,0
 Ascended Hattori,1,0
@@ -105,14 +108,14 @@ Alvitr,23,0
 Arshen,99,4
 Rua,99,4
 Dorth,99,4
-Kumu san,1,0
-Liu Cheng,1,0
-Hidoka,1,0
-Master Lee,99,3
+Kumu san,7,0
+Liu Cheng,20,0
+Hidoka,26,0
+Master Lee,99,4
 Buccaneer Beatrice,1,0
 Corsair Charles,1,0
 Marauder Magnus,1,0
-Raider Rose,7,0
+Raider Rose,99,4
 Blossom,1,0
 Flint,1,0
 Orin,1,0
@@ -134,15 +137,19 @@ Frosty,9,0
 Sparks,27,0
 Leaf,18,0
 Flynn,1,0
+Willow,1,0
+Gizmo,1,0
+Daisy,1,0
+Thumper,1,0
 B-Day,1,0
 Lady of Twilight,1,0
 Tiny,1,0
 Nebra,1,0
 Bubbles,1,0
 James,1,0
-Leprechaun,1,0
-Dr Hawking,99,2
-Neil,99,4
+Leprechaun,99,5
+Dr Hawking,99,4
+Neil,99,5
 Guy,36,0
 Cupid,1,0
 Dicemaster,1,0

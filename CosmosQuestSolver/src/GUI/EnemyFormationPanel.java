@@ -29,14 +29,14 @@ public class EnemyFormationPanel extends JPanel implements CreaturePanelGroup{
         panels = new EnemyFormationSinglePanel[Formation.MAX_MEMBERS];
         if (facingRight){//condense into method?
             for (int i = panels.length - 1; i >= 0; i--){
-                panels[i] = new EnemyFormationSinglePanel(frame,this,null,facingRight);
+                panels[i] = new EnemyFormationSinglePanel(frame,this,null,facingRight,true);
                 add(panels[i]);
                 panels[i].setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
             }
         }
         else{
             for (int i = 0; i < panels.length; i++){
-                panels[i] = new EnemyFormationSinglePanel(frame,this,null,facingRight);
+                panels[i] = new EnemyFormationSinglePanel(frame,this,null,facingRight,true);
                 add(panels[i]);
                 panels[i].setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
             }
@@ -57,7 +57,6 @@ public class EnemyFormationPanel extends JPanel implements CreaturePanelGroup{
         for (int i = Formation.MAX_MEMBERS - f.size(); i < Formation.MAX_MEMBERS; i++){
             panels[i].setCreature(f.getEntry(memberNum));
             memberNum ++;
-            //System.out.println(f.getEntry(0).isFacingRight());
         }
 
         //remove spots if formation is not full
@@ -65,21 +64,15 @@ public class EnemyFormationPanel extends JPanel implements CreaturePanelGroup{
             panels[i].setCreature(null);
         }
         
-        /*
-        for (int i = Formation.MAX_MEMBERS - f.size(); i < Formation.MAX_MEMBERS; i++){
-                panels[i].setCreature(f.getEntry(memberNum));
-                memberNum ++;
-            }
-
-            //remove spots if formation is not full
-            for (int i = Formation.MAX_MEMBERS - f.size() - 1; i >= 0; i--){
-                panels[i].setCreature(null);
-            }
-        */
-        
-        
-        
         frame.parametersChanged();
+        repaint();
+    }
+    
+    public void setFormation(Creature[] creatures){
+        for (int i = 0; i < Formation.MAX_MEMBERS; i ++){
+            panels[i].setCreature(creatures[i]);
+        }
+        revalidate();
         repaint();
     }
     
@@ -95,14 +88,15 @@ public class EnemyFormationPanel extends JPanel implements CreaturePanelGroup{
     
 
     public Formation getEnemyFormation() {
-        LinkedList<Creature> list = new LinkedList<>();
+        return new Formation(getEnemyArray());
+    }
+    
+    public Creature[] getEnemyArray() {
+        Creature[] creatures = new Creature[Formation.MAX_MEMBERS];
         for (int i = 0; i < panels.length; i++){
-            if (panels[i].getCreature() != null){
-                list.add(panels[i].getCreature());
-            }
+            creatures[i] = panels[i].getCreature();
         }
-        
-        return new Formation(list);
+        return creatures;
     }
     
     public void load(){
@@ -142,5 +136,7 @@ public class EnemyFormationPanel extends JPanel implements CreaturePanelGroup{
         }
         return false;
     }
+
+    
     
 }

@@ -1,6 +1,5 @@
-H,Forest Druid,1000,0
-H,Neptunius,1000,0
-H,Thert,1000,0
-H,Mahatma,1000,0
-H,Jade,1000,0
-H,Dybbuk,1000,0
+H,Geron,1000,0
+H,Boor,1000,0
+H,Liu Cheng,1000,0
+H,Rua,1000,0
+H,Ascended Hirate,1000,0

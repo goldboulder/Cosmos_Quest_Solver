@@ -43,6 +43,9 @@ Seethe
 Transient
 Maunder
 The Wanderer
+Bortles
+Murphy
+Nerissa
 Ascended Alpha
 Ascended Athos
 Ascended Rei
@@ -134,6 +137,10 @@ Frosty
 Sparks
 Leaf
 Flynn
+Willow
+Gizmo
+Daisy
+Thumper
 B-Day
 Lady of Twilight
 Tiny

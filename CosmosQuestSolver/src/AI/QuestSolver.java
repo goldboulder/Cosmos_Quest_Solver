@@ -11,6 +11,7 @@ import Formations.Monster;
 import GUI.QuestSolverFrame;
 import cosmosquestsolver.OtherThings;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -24,7 +25,7 @@ public class QuestSolver extends AISolver{
     protected QuestSolverFrame frame;//if a solution is found, this feild lets the frame know and sends the solution to it
     protected Formation enemyFormation;//the formation the solver wants to beat
     protected Hero[] prioritizedHeroes;// heroes that must be in the solution
-    
+    protected boolean containsRandomHeroes;
     
     public QuestSolver(QuestSolverFrame frame){
         this.frame = frame;
@@ -55,6 +56,8 @@ public class QuestSolver extends AISolver{
         heroes = frame.getHeroesWithoutPrioritization();
         prioritizedHeroes = frame.getPrioritizedHeroes();
         enemyFormation = frame.getEnemyFormation();
+        containsRandomHeroes = enemyFormation.containsRandomHeroes();
+        
     }
 
     //gets a list of all creatures available, sorts them by viability, and
@@ -64,6 +67,9 @@ public class QuestSolver extends AISolver{
         LinkedList<Creature> creatureList = getCreatureList();
         sortCreatureList(creatureList);
         sendCreatureList(creatureList);
+        if (creatureList.size() < maxCreatures){
+            maxCreatures = creatureList.size();
+        }
         tryCombinations(creatureList);
     }
     
@@ -144,20 +150,70 @@ public class QuestSolver extends AISolver{
     //and see if any win against the enemy formation. If one is found, send the solution to the 
     //frame and stop
     protected void tryPermutations(LinkedList<Creature> list) {
+        LinkedList<Creature> currentPermutation;
         PermutationIterator<Creature> permutations = new PermutationIterator(list);
         while(permutations.hasNext()){
-            Formation currentFormation = new Formation(permutations.next());
-            if (Formation.passed(currentFormation.getCopy(), enemyFormation.getCopy())){
-                if (!Formation.passed(frame.getSolution().getCopy(), enemyFormation.getCopy())){//if there is already a solution from another thread, don't bother.
-                    frame.recieveSolution(currentFormation);
-                    searching = false;
+            currentPermutation = permutations.next();
+            
+            if(containsRandomHeroes && maxCreatures != Formation.MAX_MEMBERS){
+                LinkedList<Integer> blankSpaces = passedWithShufflingBlankSpaces(currentPermutation);
+                if (blankSpaces != null){
+                    if (!Formation.passed(frame.getSolution().getCopy(), enemyFormation.getCopy())){//if there is already a solution from another thread, don't bother.
+                        frame.recieveBlankSpaceSolution(currentPermutation,blankSpaces);
+                        searching = false;
+                    }
+                    return;
                 }
-                
-                return;//stops the solver from overwriting the solution so it is different than in the solution in the replay
-                
+            }
+            else{
+                Formation currentFormation = new Formation(currentPermutation);
+                if (Formation.passed(currentFormation.getCopy(), enemyFormation.getCopy())){
+                    if (!Formation.passed(frame.getSolution().getCopy(), enemyFormation.getCopy())){//if there is already a solution from another thread, don't bother.
+                        frame.recieveSolution(currentFormation);
+                        searching = false;
+                    }
+
+                    return;//stops the solver from overwriting the solution so it is different than in the solution in the replay
+
+                }
             }
             
         }
+    }
+    
+    protected LinkedList<Integer> passedWithShufflingBlankSpaces(LinkedList<Creature> creatureList){
+        //System.out.println("PassedWithShufflingBlankSpaces");
+        LinkedList<Integer> nums = new LinkedList<>();
+        for (int i = 0; i < Formation.MAX_MEMBERS; i++){
+            nums.add(i);
+        }
+        
+        Iterator<LinkedList<Integer>> combinations = new CombinationIterator(nums,Formation.MAX_MEMBERS - maxCreatures);
+        while(combinations.hasNext()){
+            //make formation with blank spaces
+            LinkedList<Integer> blankSpaces = combinations.next();
+            Creature[] creatureArray = Formation.listBlankSpacesToArray(creatureList, blankSpaces);
+            //get copy
+            Creature[] copyArray = new Creature[creatureArray.length];
+            for (int i = 0; i < creatureArray.length; i++){
+                if (creatureArray[i] != null){
+                    copyArray[i] = creatureArray[i].getCopy();
+                }
+            }
+            
+            //System.out.println("_______________________");
+            //for (Creature c : creatureArray){
+                //System.out.println(c);
+            //}
+            
+            boolean passed = Formation.passed(new Formation(copyArray), enemyFormation.getCopy());
+            //System.out.println(passed);
+            if (passed){
+                return blankSpaces;
+            }
+        }
+        
+        return null;
     }
     
     

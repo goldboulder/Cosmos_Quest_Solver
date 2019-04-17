@@ -40,12 +40,28 @@ public class SolutionFormationPanel extends JPanel{
         //updateFormation(CosmosQuestSolver.getThisFormation());
     }
     
-    public void updateFormation(Formation formation){
+    public void updateFormation(Formation formation, boolean blankSpacesLast){
         for (int i = 0; i < Formation.MAX_MEMBERS; i++){
+            panels[i].setCreature(null);
+        }
+        for (int i = 0; i < formation.size(); i++){
             if (formation.getEntry(i) != null){
                 formation.getEntry(i).setFacingRight(facingRight);
             }
+            if (blankSpacesLast){
             panels[i].setCreature(formation.getEntry(i));
+            }
+            else{
+                panels[i-formation.size() + Formation.MAX_MEMBERS].setCreature(formation.getEntry(i));
+            }
+        }
+        revalidate();
+        repaint();
+    }
+    
+    public void updateFormation(Creature[] creatures) {
+        for (int i = 0; i < Formation.MAX_MEMBERS; i ++){
+            panels[i].setCreature(creatures[i]);
         }
         revalidate();
         repaint();
@@ -60,6 +76,8 @@ public class SolutionFormationPanel extends JPanel{
         }
         return new Formation(list);
     }
+
+    
     
     
 }

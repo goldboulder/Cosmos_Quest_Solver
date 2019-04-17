@@ -53,7 +53,7 @@ public class AntiAOE extends SpecialAbility{
         else{
             percentStr = Double.toString(times100);
         }
-        return "-" + percentStr + "% to area skills";
+        return "Formation takes " + percentStr + "% less damage from AOE skills";
     }
     
     @Override

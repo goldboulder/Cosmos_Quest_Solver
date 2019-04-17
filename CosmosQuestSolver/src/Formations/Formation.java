@@ -4,7 +4,10 @@
 package Formations;
 
 import SpecialAbilities.BloodBomb;
+import SpecialAbilities.CriticalHit;
 import SpecialAbilities.Inferno;
+import SpecialAbilities.RandomStatBoost;
+import SpecialAbilities.RandomTarget;
 import SpecialAbilities.Ricochet;
 import SpecialAbilities.ScaleableAOE;
 import SpecialAbilities.ScaleableStartingDamage;
@@ -31,9 +34,92 @@ public class Formation implements Iterable<Creature>{
     //in rare circumstances, armor might outweigh attack power, resulting in an
     //infinite loop. After a set amount of rounds, end the battle
     public static final int STALEMATE_CUTOFF_POINT = 100;
-    //private long seed = -1;//used for random skills. newSeed should be positive. if newSeed is needed, generate it
+    private long seed = -1;//used for random skills. newSeed should be positive. if newSeed is needed, generate it
+    private LinkedList<Integer> blankSpaces;
+
     
 
+    
+    public static enum VictoryCondition{WIN,DRAW,LOSE};
+    
+    //empty formation
+    public Formation(){
+        members = new LinkedList<>();
+    }
+    
+    public Formation(List<Creature> creatures){
+        
+        members = new LinkedList<>();
+        
+        for (Creature creature: creatures){
+            members.add(creature);
+        }
+    }
+    
+    public Formation(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces) {
+        members = new LinkedList();
+        if (creatureList.size()  + blankSpaces.size() > MAX_MEMBERS){
+            throw new IllegalArgumentException();
+        }
+        for (Creature creature: creatureList){
+            members.add(creature);
+        }
+        seed = getSeedBlankSpaces(Formation.listBlankSpacesToArray(creatureList, blankSpaces));
+        this.blankSpaces = blankSpaces;
+    }
+    
+    public Formation(Creature[] creatures){
+        if (creatures.length > MAX_MEMBERS){
+            throw new IllegalArgumentException();
+        }
+        members = new LinkedList<>();
+        blankSpaces = new LinkedList<>();
+        Creature c;
+        for (int i = 0; i < creatures.length; i++){
+            c = creatures[i];
+            if (c != null){
+                members.add(c);
+            }
+            else{
+                blankSpaces.add(i);
+            }
+        }
+        seed = getSeedBlankSpaces(creatures);
+    }
+    
+    public Formation getCopy() {
+        LinkedList list = new LinkedList<>();
+        
+        for(Creature c : members){
+            list.add(c.getCopy());
+        }
+        Formation f = new Formation(list);
+        f.totalDamageTaken = totalDamageTaken;
+        f.AOEResistance = AOEResistance;
+        f.seed = seed;
+        f.blankSpaces = blankSpaces;
+        return f;
+    }
+    
+    public static Creature[] listBlankSpacesToArray(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces){
+        if (creatureList.size()  + blankSpaces.size() > MAX_MEMBERS){
+            throw new IllegalArgumentException();
+        }
+        Creature[] creatureArray = new Creature[Formation.MAX_MEMBERS];
+        for (int i = 0, j = 0; i < Formation.MAX_MEMBERS; i ++){
+            if (!blankSpaces.contains(i)){
+                creatureArray[i] = creatureList.get(j);
+                j++;
+            }
+                
+        }
+        return creatureArray;
+    }
+    
+    public LinkedList<Creature> getMembers() {
+        return members;
+    }
+    
     public void removeMonsters() {
         for (int i = 0; i < members.size(); i ++){
             if (members.get(i) instanceof Monster){
@@ -52,17 +138,50 @@ public class Formation implements Iterable<Creature>{
         }
         return false;
     }
+    
+    public boolean containsRandomHeroes() {
+        for (int i = 0; i < members.size(); i ++){
+            SpecialAbility s = members.get(i).getSpecialAbility();
+            if (s instanceof RandomTarget || s instanceof RandomStatBoost || s instanceof CriticalHit){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public Creature[] getCreatureArray(){
+        Creature[] creatures = new Creature[MAX_MEMBERS];
+        if (blankSpaces == null){
+            //System.out.println("blank spaces is null");
+            for (int i = 0; i < MAX_MEMBERS; i++){
+                if (i < members.size()){
+                    creatures[i] = (members.get(i));
+                }
+            }
+        }
+        else{
+            for (int i = 0, listIndex = 0; i < MAX_MEMBERS; i++){
+                if (!blankSpaces.contains(i)){
+                    creatures[i] = (members.get(listIndex));
+                    listIndex ++;
+                }
+            }
+        }
+        
+        return creatures;
+    }
 
     //{"setup":[-103,-67,-102,-122,-71,-120],"shero":{"120":88,"118":99,"101":99,"100":99,"69":99,"65":99},"player":[-28,119,117,117,118],"phero":{"26":1000}}
     public String idStr() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         
+        Creature[] creatures = getCreatureArray();
         for (int i = MAX_MEMBERS - 1; i >= 0; i--){
-            try{
-                sb.append(members.get(i).getID());
+            if (creatures[i] != null){
+                sb.append(creatures[i].getID());
             }
-            catch(IndexOutOfBoundsException e){
+            else{
                 sb.append(-1);
             }
             
@@ -72,6 +191,7 @@ public class Formation implements Iterable<Creature>{
         }
         
         sb.append("]");
+        
         return sb.toString();
     }
 
@@ -175,40 +295,6 @@ public class Formation implements Iterable<Creature>{
     public boolean isBossFormation() {
         return members.size() == 1 && members.getFirst() instanceof WorldBoss;
     }
-
-    
-    
-    public static enum VictoryCondition{WIN,DRAW,LOSE};
-    
-    //empty formation
-    public Formation(){
-        members = new LinkedList<>();
-    }
-    
-    public Formation(List<Creature> creatures){
-        
-        members = new LinkedList<>();
-        
-        for (Creature creature: creatures){
-            members.add(creature);
-        }
-    }
-    
-    public Formation getCopy() {
-        LinkedList list = new LinkedList<>();
-        
-        for(Creature c : members){
-            list.add(c.getCopy());
-        }
-        Formation f = new Formation(list);
-        f.totalDamageTaken = totalDamageTaken;
-        f.AOEResistance = AOEResistance;
-        return f;
-    }
-    
-    public LinkedList<Creature> getMembers() {
-        return members;
-    }
     
     /*
     public long getSeed() {
@@ -220,6 +306,11 @@ public class Formation implements Iterable<Creature>{
     */
     
     public long getSeed(){//recalculates every time
+        if (seed != -1){
+            return seed;
+        }
+        
+        
         long newSeed = 1;
         
         for (int i = size()-1; i >= 0; i--){
@@ -229,6 +320,24 @@ public class Formation implements Iterable<Creature>{
         //empty slots (id=abs(-1))
         newSeed += (MAX_MEMBERS - size());// battle code replays don't seem to do this step
         //System.out.println(newSeed);
+        
+        return newSeed;
+        
+    }
+    
+    private long getSeedBlankSpaces(Creature[] creatureArray){
+        //System.out.println("                    " + creatureArray.length);
+        long newSeed = 1;
+        //System.out.println("_______________________");
+        for (int i = creatureArray.length-1; i >= 0; i--){
+            if (creatureArray[i] == null){
+                newSeed ++;
+            }
+            else{
+                newSeed = (newSeed * Math.abs((int)(creatureArray[i].getID())) +1) % Integer.MAX_VALUE;
+            }
+            //System.out.println(newSeed);
+        }
         
         return newSeed;
     }
@@ -350,6 +459,10 @@ public class Formation implements Iterable<Creature>{
     
     //returns true if the formation contains two or more of the same creature
     public boolean contains(Creature c) {
+        if (c == null){
+            return false;
+        }
+        
         for (Creature creature : members){
             if (c.getClass() == creature.getClass() && c.getID() == creature.getID()){
                 return true;
@@ -485,9 +598,16 @@ public class Formation implements Iterable<Creature>{
     }
     
     public void takeAOEDamage(double damage){
-        double newDamage = damage * (1 - AOEResistance);
         for (Creature creature : members){
-            creature.takeAOEDamage(newDamage,this);
+            creature.takeAOEDamage(damage,this);
+        }
+        
+    }
+    
+    // subtracts HP from all creatures without any effects like AOE resistance
+    public void takeRawDamage(double damage) {
+        for (Creature creature : members){
+            creature.changeHP(-damage,this);
         }
     }
     
