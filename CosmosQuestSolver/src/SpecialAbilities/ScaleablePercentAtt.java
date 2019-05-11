@@ -43,7 +43,7 @@ public class ScaleablePercentAtt extends SpecialAbility{
     
     @Override
     public String getDescription() {
-        return "Adds " + OtherThings.nicePercentString(percent) + " of of enemy HP as attack every level (" + OtherThings.nicePercentString(roundedScaleMilestoneDouble(owner,percent,1)) + ")";
+        return "Deals extra damage equalt to " + OtherThings.nicePercentString(percent) + " of of enemy HP every level (" + OtherThings.nicePercentString(roundedScaleMilestoneDouble(owner,percent,1)) + ")";
     }
     
     @Override

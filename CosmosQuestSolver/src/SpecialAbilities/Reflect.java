@@ -19,6 +19,7 @@ public class Reflect extends SpecialAbility{
         this.multiplier = multiplier;
     }
     
+    @Override
     public void preRoundAction(Formation thisFormation, Formation enemyFormation){
         damageTakenThisRound = 0;
     }
@@ -26,8 +27,25 @@ public class Reflect extends SpecialAbility{
 
     @Override
     public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
+        //System.out.println(thisFormation.getFrontCreature());
+        //System.out.println(damage);
         if (owner == thisFormation.getFrontCreature()){
             damageTakenThisRound = damage;
+            //System.out.println("record damage taken: " + damageTakenThisRound);
+        }
+    }
+    
+    public void takeExecute(Creature attacker,Formation thisFormation, Formation enemyFormation, long enemyHPBefore, double percent) {
+        
+        long hpToUse = owner.getBaseHP() > owner.getMaxHP() ? owner.getBaseHP() : owner.getMaxHP();//use base for lep, max for bunnies
+        double percentHealth = (double)owner.getCurrentHP()/hpToUse;
+        
+        if (percentHealth <= percent && !owner.isDead()){
+            
+            owner.takeHit(attacker, thisFormation, enemyFormation, owner.getCurrentHP()+1);
+            //System.out.println("damage taken: " + (enemyHPBefore + 1));
+            owner.recordDamageTaken(enemyHPBefore + 1,thisFormation,enemyFormation);
+            
         }
     }
 
@@ -35,6 +53,7 @@ public class Reflect extends SpecialAbility{
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
         if (thisFormation.getFrontCreature() == owner){//can only reflect direct damage while in front
             Creature target = enemyFormation.getFrontCreature();
+            //System.out.println("damage reflected" + damageTakenThisRound*multiplier);
             if (target.isDead()){//if creature died from normal attack, reflect damage is saved for the next enemy
                 //target.postRoundAction(enemyFormation, thisFormation);
                 //target.postRoundAction2(enemyFormation, thisFormation);

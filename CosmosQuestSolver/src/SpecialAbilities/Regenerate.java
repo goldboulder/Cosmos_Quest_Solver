@@ -33,7 +33,7 @@ public class Regenerate extends SpecialAbility{
     
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//anti-aoe?
-        owner.changeHP(Math.round(damageTakenThisRound * percent), thisFormation);
+        owner.takeHeal(Math.round(damageTakenThisRound * percent), thisFormation);
     }
 
     @Override

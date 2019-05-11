@@ -33,7 +33,7 @@ public class CreatureFactory {
     
 
     public static int MAX_QUESTS;
-    public static enum Source{CHEST, QUEST, SEASON, EVENT, SPECIAL, AUCTION, SHOP};
+    public static enum Source{CHEST,ASCEND, QUEST, SEASON, EVENT, SPECIAL, AUCTION, SHOP};
 
 
     public static void initiate(){
@@ -424,6 +424,7 @@ public class CreatureFactory {
         
         switch(str){
             case "Chest": return Source.CHEST;
+            case "Ascend": return Source.ASCEND;
             case "Quest": return Source.QUEST;
             case "Season": return Source.SEASON;
             case "Event": return Source.EVENT;
@@ -434,19 +435,21 @@ public class CreatureFactory {
         }
     }
     
-    private static Color chestColor = new Color(255,255,225);
-    private static Color questColor = new Color(245,225,255);
-    private static Color seasonColor = new Color(255,225,200);
-    private static Color eventColor = new Color(225,255,225);
-    private static Color specialColor = new Color(255,225,225);
-    private static Color auctionColor = new Color(225,225,225);
-    private static Color shopColor = new Color(215,215,255);
+    private static Color chestColor = new Color(255,255,150);
+    private static Color ascendColor = new Color(165,225,225);
+    private static Color questColor = new Color(225,183,236);
+    private static Color seasonColor = new Color(255,190,135);
+    private static Color eventColor = new Color(172,255,172);
+    private static Color specialColor = new Color(255,180,180);
+    private static Color auctionColor = new Color(200,200,200);
+    private static Color shopColor = new Color(180,180,255);
     private static Color defaultColor = Color.WHITE;
     
     
     public static Color sourceToColor(Source s){
         switch(s){
             case CHEST: return chestColor;
+            case ASCEND: return ascendColor;
             case QUEST: return questColor;
             case SEASON: return seasonColor;
             case EVENT: return eventColor;
@@ -478,11 +481,12 @@ public class CreatureFactory {
             case "EvenField": return new EvenField(null,Integer.parseInt(tokens[1]));
             case "Execute": return new Execute(null,Double.parseDouble(tokens[1]));
             case "ExtraAttackBoost": return new ExtraAttackBoost(null,Double.parseDouble(tokens[1]));
+            case "Fortify": return new Fortify(null,Integer.parseInt(tokens[1]));
             case "Heal": return new Heal(null,Integer.parseInt(tokens[1]));
+            case "HealFirst": return new HealFirst(null,Integer.parseInt(tokens[1]));
             case "Inferno": return new Inferno(null,Double.parseDouble(tokens[1]));
             case "Intercept": return new Intercept(null,Double.parseDouble(tokens[1]));
             case "LifeSteal": return new LifeSteal(null,Integer.parseInt(tokens[1]));
-            case "MonsterArmor": return new MonsterArmor(null,Integer.parseInt(tokens[1]));
             case "MonsterBuff": return new MonsterBuff(null,Double.parseDouble(tokens[1]));
             case "Nothing": return new Nothing(null);
             case "PartingGift": return new PartingGift(null,Double.parseDouble(tokens[1]));

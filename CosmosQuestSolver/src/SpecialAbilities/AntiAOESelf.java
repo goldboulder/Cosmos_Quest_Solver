@@ -22,6 +22,11 @@ public class AntiAOESelf extends SpecialAbility{
     public double alterAOEDamage(double damage, Formation formation){
         return super.alterAOEDamage(damage, formation) * (1 - percent);
     }
+    
+    @Override
+    public void takeExecute(Creature attacker,Formation thisFormation, Formation enemyFormation, long enemyHPBefore, double percent) {
+        super.takeExecute(attacker,thisFormation, enemyFormation, enemyHPBefore, percent*(1-this.percent));
+    }
 
     @Override
     public SpecialAbility getCopyForNewOwner(Creature newOwner) {

@@ -58,7 +58,7 @@ public class Thorns extends SpecialAbility{
     
     @Override
     public String getDescription() {
-        return "Returns " + damage + " damage to attacker";
+        return "Returns " + damage + " damage when attacked";
     }
     
     @Override

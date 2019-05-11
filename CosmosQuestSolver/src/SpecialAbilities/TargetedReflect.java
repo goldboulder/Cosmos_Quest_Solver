@@ -73,7 +73,7 @@ public class TargetedReflect extends SpecialAbility{
     
     @Override
     public int viability() {
-        return (int)(owner.getBaseHP() * owner.getBaseAtt() * (1+4*multiplier)) ;
+        return (int)(owner.getBaseHP() * owner.getBaseAtt() * (1+5*multiplier)) ;
     }
 
     @Override

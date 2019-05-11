@@ -233,7 +233,7 @@ public abstract class Creature implements Comparable<Creature>{
     }
     
     
-    public void takeAOEDamage(double damage, Formation formation) {//move to specialAbility for Thumper?
+    public void takeAOEDamage(double damage, Formation formation) {//modify for p6?
         double newDamage = getSpecialAbility().alterAOEDamage(damage,formation);
         
         if (newDamage > 1){
@@ -244,6 +244,10 @@ public abstract class Creature implements Comparable<Creature>{
         }
         changeHP(-newDamage,formation);
 
+    }
+    
+    public void takeExecute(Creature owner, Formation thisFormation, Formation enemyFormation, long enemyHPBefore, double percent) {
+        getSpecialAbility().takeExecute(owner,thisFormation, enemyFormation, enemyHPBefore, percent);
     }
     
     public double determineDamage(Creature target, Formation thisFormation, Formation enemyFormation){
@@ -274,6 +278,10 @@ public abstract class Creature implements Comparable<Creature>{
     
     public void takeHit(Creature attacker,  Formation thisFormation, Formation enemyFormation, double hit) {//future special ability?
         getSpecialAbility().takeHit(attacker, thisFormation, enemyFormation, hit);
+    }
+    
+    public void takeHeal(double amount, Formation thisFormation) {
+        getSpecialAbility().takeHeal(amount,thisFormation);
     }
     
     public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation) {
@@ -345,5 +353,7 @@ public abstract class Creature implements Comparable<Creature>{
     public int getLvl1HP() {
         return baseHP;
     }
+
+    
     
 }

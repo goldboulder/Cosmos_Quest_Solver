@@ -25,10 +25,16 @@ public class Absorb extends SpecialAbility{
         return new Absorb(newOwner,multiplier);
     }
     
-    @Override
-    public double alterIncomingDamage(double hit, double initialHit, Formation thisFormation, Formation enemyFormation) {
-        return (hit + owner.getArmor()) * multiplier - owner.getArmor();
+    @Override//ricochet attacks are affected!
+    public void takeHit(Creature attacker, Formation thisFormation, Formation enemyFormation, double hit) {
+            
+            super.takeHit(attacker, thisFormation, enemyFormation,(hit + owner.getArmor()) * multiplier - owner.getArmor());
     }
+    
+    //@Override
+    //public double alterIncomingDamage(double hit, double initialHit, Formation thisFormation, Formation enemyFormation) {
+        //return (hit + owner.getArmor()) * multiplier - owner.getArmor();
+    //}
     
     @Override
     public String getDescription() {

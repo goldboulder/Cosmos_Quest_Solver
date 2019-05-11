@@ -8,6 +8,7 @@ import Formations.Formation;
 import cosmosquestsolver.OtherThings;
 import Formations.Hero;
 
+
 //reflects a percentage of the direct damage back as AOE.
 //used by Fir
 public class ScaleableAOEReflect extends SpecialAbility{
@@ -33,7 +34,7 @@ public class ScaleableAOEReflect extends SpecialAbility{
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
         if (thisFormation.getFrontCreature() == owner){//can only reflect direct damage while in front
-            enemyFormation.takeAOEDamage(damageTakenThisRound * roundedScaleMilestoneDouble(owner,multiplier,1));
+            enemyFormation.takeRawDamage(damageTakenThisRound * roundedScaleMilestoneDouble(owner,multiplier,1));
         }
     }
     

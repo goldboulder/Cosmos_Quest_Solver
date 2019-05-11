@@ -3,6 +3,7 @@
  */
 package GUI;
 
+import Formations.Creature;
 import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.WorldBoss;
@@ -13,6 +14,7 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.LinkedList;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -96,6 +98,12 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
         return worldBossPicturePanel.boss;
     }
     
+    public Formation getBossFormation() {
+        LinkedList<Creature> list = new LinkedList<>();
+        list.add(getBoss().getCopy());
+        return new Formation(list);
+    }
+    
     public void setBoss(WorldBoss boss){
         worldBossPicturePanel.setBoss(boss);
         worldBossLabel.setText(boss.getName());
@@ -155,7 +163,7 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
     public long getDamage() {
         return damage;
     }
-    
+
     private class WorldBossPicturePanel extends JPanel{
         
         private WorldBoss boss;

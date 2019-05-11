@@ -43,7 +43,7 @@ public class ScaleableSacrifice extends SpecialAbility{
             if (c != owner){
                 double newAmount = heal * (1 - enemyFormation.getAOEResistance());
                 //have individual creature heal method in Creature?
-                c.changeHP(newAmount,thisFormation);
+                c.takeHeal(newAmount,thisFormation);
                 
             }
         }

@@ -32,9 +32,10 @@ public class WrathPercentAtt extends SpecialAbility{
         //if (thisFormation.getFrontCreature() == owner){
             //enemyFormation.takeAOEDamage(Math.round(owner.getBaseAtt() * multiplier));
         //}
-        for (Creature c : enemyFormation){
-            c.changeHP(-Math.round(owner.getBaseAtt() * multiplier), enemyFormation);//right now, bubbles doesn't seem to work on this ability in-game
-        }
+        enemyFormation.takeRawDamage(Math.round(owner.getBaseAtt() * multiplier));
+        //for (Creature c : enemyFormation){
+            //c.changeHP(-Math.round(owner.getBaseAtt() * multiplier), enemyFormation);//right now, bubbles doesn't seem to work on this ability in-game
+        //}
     }
     
     @Override

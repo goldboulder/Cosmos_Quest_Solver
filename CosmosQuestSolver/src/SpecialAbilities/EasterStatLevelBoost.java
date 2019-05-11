@@ -32,7 +32,8 @@ public class EasterStatLevelBoost extends StatLevelBoost{
     private boolean hasOtherEasterHeroes(Formation formation){
         for (Creature c : formation){
             switch (c.getName()){
-                case "Sparks": case "Leaf": case "Flynn": case "Willow": case "Gizmo": case "Thumper": return true;
+                case "Sparks": case "Leaf": case "Flynn": case "Willow": case "Gizmo": case "Thumper":
+                    return true;
                 default:
             }
         }

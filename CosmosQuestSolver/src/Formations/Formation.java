@@ -614,7 +614,7 @@ public class Formation implements Iterable<Creature>{
     public void AOEHeal(double amount, Formation enemyFormation){//anti AOE rounding?
         double newAmount = amount * (1 - enemyFormation.getAOEResistance());
         for (Creature creature : members){
-            creature.changeHP(newAmount,this);
+            creature.takeHeal(newAmount,this);
         }
     }
     

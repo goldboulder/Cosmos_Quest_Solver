@@ -11,11 +11,11 @@ import cosmosquestsolver.OtherThings;
 
 //+ x armor per unit behind.
 // used by Bortles
-public class MonsterArmor extends SpecialAbility{
+public class Fortify extends SpecialAbility{
     
     private int armorPerCreature;
 
-    public MonsterArmor(Creature owner, int armorPerCreature) {
+    public Fortify(Creature owner, int armorPerCreature) {
         super(owner);
         this.armorPerCreature = armorPerCreature;
     }
@@ -23,19 +23,24 @@ public class MonsterArmor extends SpecialAbility{
     
     @Override
     public SpecialAbility getCopyForNewOwner(Creature newOwner) {
-        return new MonsterArmor(newOwner,armorPerCreature);
+        return new Fortify(newOwner,armorPerCreature);
     }
     
     @Override
-    public void takeHit(Creature attacker,  Formation thisFormation, Formation enemyFormation, double hit) {
-        super.takeHit(attacker,thisFormation,enemyFormation,hit - (unitsBehind(thisFormation) * armorPerCreature));
+    public void prepareForFight(Formation thisFormation, Formation enemyFormation){
+        owner.addArmorBoost(unitsBehind(thisFormation) * armorPerCreature);
     }
+    
+    //@Override
+    //public void takeHit(Creature attacker,  Formation thisFormation, Formation enemyFormation, double hit) {
+        //super.takeHit(attacker,thisFormation,enemyFormation,hit - (unitsBehind(thisFormation) * armorPerCreature));//start of battle!
+    //}
     
     protected int unitsBehind(Formation f){
         int numBehind = 0;
         boolean foundOwner = false;
         for (Creature creature : f){
-            if (foundOwner && !creature.isDead() && creature instanceof Monster){//isDead needed?
+            if (foundOwner){//isDead needed?
                 numBehind ++;
             }
             
@@ -49,7 +54,7 @@ public class MonsterArmor extends SpecialAbility{
     
     @Override
     public String getDescription() {
-        return "+" + armorPerCreature + " armor to self for each monster behind";
+        return "+" + armorPerCreature + " armor to self for each unit behind";
     }
     
     @Override
@@ -59,7 +64,7 @@ public class MonsterArmor extends SpecialAbility{
     
     @Override
     public int viability() {//normal viability, using average damage increace if fighting a creature of a random element
-        return (int)((owner.getBaseHP()+(Formation.MAX_MEMBERS-1)/2.0) * owner.getBaseAtt());
+        return (int)((owner.getBaseHP()+(Formation.MAX_MEMBERS-1)*2.0) * owner.getBaseAtt());
     }
 
     @Override

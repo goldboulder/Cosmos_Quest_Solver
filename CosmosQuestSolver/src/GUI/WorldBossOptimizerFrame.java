@@ -81,14 +81,27 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
         
         
     }
-    
+    /*
     @Override
     public void recieveSolution(Formation f){
         if (calculationPanel.isSearching() || f.isEmpty()){
+            long damage = Formation.damageDealt(f.getCopy(), worldBossSelectionPanel.getBossFormation());
+            
+            if (damage > worldBossSelectionPanel.getDamage()){
+                worldBossSelectionPanel.recieveSolution(f);
+                calculationPanel.updateSolutionDetails(f,worldBossSelectionPanel.getBossFormation());
+            }
+        }
+    }
+*/
+    
+    @Override
+    public void recieveSolution(Formation f){//race condition for LOC NH!
+        if (calculationPanel.isSearching() || f.isEmpty()){
+            
             worldBossSelectionPanel.recieveSolution(f);
-            LinkedList<Creature> bossList = new LinkedList<>();
-            bossList.add(getBoss());
-            calculationPanel.updateSolutionDetails(f,new Formation(bossList));
+            
+            calculationPanel.updateSolutionDetails(f,worldBossSelectionPanel.getBossFormation());
         }
     }
 

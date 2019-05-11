@@ -56,6 +56,24 @@ public abstract class SpecialAbility {
         attacker.getSpecialAbility().recordDamageDealt(longHit,thisFormation,enemyFormation);
         owner.changeHP(-hit,thisFormation);
     }
+    
+    public void takeHeal(double amount, Formation thisFormation) {//formation variable for p6 skills?
+        owner.changeHP(amount, thisFormation);
+    }
+    
+    public void takeExecute(Creature attacker,Formation thisFormation, Formation enemyFormation, long enemyHPBefore, double percent) {
+        
+        long hpToUse = owner.getBaseHP() > owner.getMaxHP() ? owner.getBaseHP() : owner.getMaxHP();//use base for lep, max for bunnies
+        double percentHealth = (double)owner.getCurrentHP()/hpToUse;
+        
+        if (percentHealth <= percent && !owner.isDead()){
+            
+            owner.takeHit(attacker, thisFormation, enemyFormation, owner.getCurrentHP()+1);
+            owner.recordDamageTaken(enemyHPBefore + 1,thisFormation,enemyFormation);
+            
+        }
+    }
+    
     public double alterIncomingDamage(double hit, double initialHit, Formation thisFormation, Formation enemyFormation) {
         return hit;
     }
@@ -124,5 +142,6 @@ public abstract class SpecialAbility {
     }
 
     
+
     
 }

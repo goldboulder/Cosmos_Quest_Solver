@@ -101,16 +101,11 @@ public class Ricochet extends SpecialAbility{
     
     private double multiplier;
     private int numBounces;
-    private boolean deadOnStart;//fringe case where lep and/or Hawking kills them at the start
 
     public Ricochet(Creature owner, double multiplier, int numBounces) {
         super(owner);
         this.multiplier = multiplier;
         this.numBounces = numBounces;
-    }
-    
-    public void preRoundAction(Formation thisFormation, Formation enemyFormation){
-        deadOnStart = owner.isDead();
     }
     
 
@@ -128,7 +123,7 @@ public class Ricochet extends SpecialAbility{
             if (bouncesLeft > 0){
                 double nextCreatureMultiplier = Elements.elementDamageMultiplier(owner,creature.getElement());
                 double rictDamage = owner.determineDamage(creature, thisFormation, enemyFormation) + creature.getArmor();
-                rictDamage *= (1 - enemyFormation.getAOEResistance()) * Math.pow(multiplier, i);
+                rictDamage *= Math.pow(multiplier*(1-enemyFormation.getAOEResistance()), i);
                 
                 //patch to compensate for rico damage now not being individual to each units' element
                 rictDamage *= (hitElementMultiplier / nextCreatureMultiplier);

@@ -25,21 +25,16 @@ public class Execute extends SpecialAbility{
         
         long enemyHPBefore = victem.getCurrentHP();
         super.attack(thisFormation,enemyFormation);
-        //long enemyHPAfter = victem.getCurrentHP();
         
-        //if (enemyHPAfter == 0){//set damage taken back to right amount. This skill cannot do overkill damage.
-            //long damage = enemyHPBefore + 1;
-            //enemyFormation.setDamageTaken(enemyFormationDamageTaken + damage);
-            //victem.recordDamageTaken(damage,enemyFormation,thisFormation);//overrides other damage taken
+        victem.takeExecute(owner,enemyFormation,thisFormation,enemyHPBefore,percent);
+        //long hpToUse = victem.getBaseHP() > victem.getMaxHP() ? victem.getBaseHP() : victem.getMaxHP();//use base for lep, max for bunnies
+        //double percentHealth = (double)victem.getCurrentHP()/hpToUse;
+            
+        //if (percentHealth <= percent && !victem.isDead()){
+            //victem.takeHit(owner, enemyFormation, thisFormation, victem.getCurrentHP()+1);
+            //victem.recordDamageTaken(enemyHPBefore + 1,enemyFormation,thisFormation);
         //}
-        //else{//finish off
-            long hpToUse = victem.getBaseHP() > victem.getMaxHP() ? victem.getBaseHP() : victem.getMaxHP();//use base for lep, max for bunnies
-            double percentHealth = (double)victem.getCurrentHP()/hpToUse;
-            if (percentHealth < percent && !victem.isDead()){//equal to?
-                victem.takeHit(owner, enemyFormation, thisFormation, victem.getCurrentHP()+1);
-                victem.recordDamageTaken(enemyHPBefore + 1,enemyFormation,thisFormation);
-            }
-        //}
+        
     }
     
 
