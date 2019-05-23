@@ -21,9 +21,9 @@ public class ScaleableLifeSteal extends LifeSteal{
     
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
-        if (!deadOnStart){
-            enemyFormation.takeAOEDamage(roundedScaleMilestone(owner,amount,levelMilestone));
-        }
+        
+        enemyFormation.takeAOEDamage(roundedScaleMilestone(owner,amount,levelMilestone));
+        
         
     }
     
@@ -36,9 +36,9 @@ public class ScaleableLifeSteal extends LifeSteal{
 
     @Override
     public void postRoundAction2(Formation thisFormation, Formation enemyFormation) {
-        if (!deadOnStart){
-            thisFormation.AOEHeal(roundedScaleMilestone(owner,amount,levelMilestone), enemyFormation);
-        }
+        
+        thisFormation.AOEHeal(roundedScaleMilestone(owner,amount,levelMilestone), enemyFormation);
+        
     }
     
     @Override

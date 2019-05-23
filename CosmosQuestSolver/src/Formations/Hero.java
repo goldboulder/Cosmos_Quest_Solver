@@ -25,6 +25,7 @@ public class Hero extends Creature{
     private int promote2Att = 0;
     private int promote4Stats = 0;
     public SpecialAbility promote5Ability;
+    //public SpecialAbility promote6Ability;
     
     //max level obtainable by players. level 1000 heroes exist to fight, but
     //cannot be obtained
@@ -60,6 +61,12 @@ public class Hero extends Creature{
     public void attatchSpecialAbility() {
         specialAbility.setOwner(this);
         promote5Ability.setOwner(this);
+    }
+    
+    @Override
+    public void restore(){
+        super.restore();
+        promote5Ability.restore();
     }
     
     @Override

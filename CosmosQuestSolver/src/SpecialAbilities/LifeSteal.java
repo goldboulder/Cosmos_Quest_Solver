@@ -10,23 +10,16 @@ import Formations.Formation;
 public class LifeSteal extends SpecialAbility{
     
     protected int amount;
-    protected boolean deadOnStart;
     
     public LifeSteal(Creature owner, int amount){
         super(owner);
         this.amount = amount;
     }
     
-    @Override
-    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {
-        deadOnStart = owner.isDead();
-    }
 
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
-        if (!deadOnStart){
-            enemyFormation.takeAOEDamage(amount);
-        }
+        enemyFormation.takeAOEDamage(amount);
     }
     
     @Override
@@ -37,9 +30,7 @@ public class LifeSteal extends SpecialAbility{
 
     @Override
     public void postRoundAction2(Formation thisFormation, Formation enemyFormation) {
-        if (!deadOnStart){
-            thisFormation.AOEHeal(amount, enemyFormation);
-        }
+        thisFormation.AOEHeal(amount, enemyFormation);
     }
     
     @Override

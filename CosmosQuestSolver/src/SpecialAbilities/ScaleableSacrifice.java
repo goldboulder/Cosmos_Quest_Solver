@@ -89,7 +89,7 @@ public class ScaleableSacrifice extends SpecialAbility{
         //System.out.println(actualSac);
         //System.out.println((owner.getBaseHP() * owner.getBaseAtt()) + (owner.getBaseHP() * (Formation.MAX_MEMBERS *(2 * (actualDam + actualH) - actualSac))));
         
-        return (owner.getBaseHP() * owner.getBaseAtt()) + (owner.getBaseHP() * (Formation.MAX_MEMBERS *(2 * (actualDam + actualH) - actualSac)));//work on?
+        return (owner.getBaseHP() * owner.getBaseAtt()) + (Formation.MAX_MEMBERS * 70 *(2 * (actualDam + actualH) - actualSac));//work on?
         
     }
 

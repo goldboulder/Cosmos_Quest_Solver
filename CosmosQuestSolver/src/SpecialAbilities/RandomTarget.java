@@ -21,7 +21,10 @@ public class RandomTarget extends SpecialAbility{
         this.ignoreFirst = ignoreFirst;
     }
     
-    
+    @Override
+    public void restore(){
+        turn = 0;
+    }
     
     @Override
     public SpecialAbility getCopyForNewOwner(Creature newOwner) {

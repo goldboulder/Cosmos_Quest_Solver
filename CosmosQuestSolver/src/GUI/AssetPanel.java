@@ -153,6 +153,12 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         assetTitlePanel.setPreferredSize(new Dimension(CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,ASSET_PANEL_HEIGHT));
         assetTitlePanel.setMaximumSize(new Dimension(CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,ASSET_PANEL_HEIGHT));
         assetTitlePanel.setMinimumSize(new Dimension(CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,ASSET_PANEL_HEIGHT));
+        
+        followersPanel.setPreferredSize(new Dimension(QuestSolverFrame.ASSET_PANEL_WIDTH,42));
+        maxCreaturesPanel.setPreferredSize(new Dimension(QuestSolverFrame.ASSET_PANEL_WIDTH,42));
+        //maxCreaturesPanel.setMaximumSize(new Dimension(QuestSolverFrame.ASSET_PANEL_WIDTH,EnemyFormationSinglePanel.TEXT_FIELD_HEIGHT + 36));
+        //maxCreaturesPanel.setMinimumSize(new Dimension(QuestSolverFrame.ASSET_PANEL_WIDTH,EnemyFormationSinglePanel.TEXT_FIELD_HEIGHT + 36));
+        
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         
         //solutionFormationPanel.setBackground(Color.CYAN);

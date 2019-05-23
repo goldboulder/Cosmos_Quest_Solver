@@ -64,9 +64,9 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
         
         titleLabel.setFont(AssetPanel.TITLE_FONT);
         
-        enemyFormationPanel.setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,AssetPanel.CREATURE_PICTURE_SIZE));
-        enemyFormationPanel.setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,AssetPanel.CREATURE_PICTURE_SIZE));
-        enemyFormationPanel.setMinimumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,AssetPanel.CREATURE_PICTURE_SIZE));
+        enemyFormationPanel.setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,AssetPanel.CREATURE_PICTURE_SIZE +  + EnemyFormationSinglePanel.TEXT_FIELD_HEIGHT));
+        enemyFormationPanel.setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,AssetPanel.CREATURE_PICTURE_SIZE + EnemyFormationSinglePanel.TEXT_FIELD_HEIGHT));
+        enemyFormationPanel.setMinimumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,AssetPanel.CREATURE_PICTURE_SIZE + EnemyFormationSinglePanel.TEXT_FIELD_HEIGHT));
         monsterSelectionPanel.setPreferredSize(new Dimension(QuestSolverFrame.ENEMY_FORMATION_MAKER_PANEL_WIDTH - 40,AssetPanel.CREATURE_PICTURE_SIZE + (Integer)UIManager.get("ScrollBar.width")));//onstants?**
         monsterSelectionPanel.setMaximumSize(new Dimension(QuestSolverFrame.ENEMY_FORMATION_MAKER_PANEL_WIDTH - 40,AssetPanel.CREATURE_PICTURE_SIZE + (Integer)UIManager.get("ScrollBar.width")));
         monsterSelectionPanel.setMinimumSize(new Dimension(QuestSolverFrame.ENEMY_FORMATION_MAKER_PANEL_WIDTH - 40,AssetPanel.CREATURE_PICTURE_SIZE + (Integer)UIManager.get("ScrollBar.width")));

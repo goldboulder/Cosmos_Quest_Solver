@@ -29,17 +29,19 @@ public class EnemyFormationPanel extends JPanel implements CreaturePanelGroup{
         panels = new EnemyFormationSinglePanel[Formation.MAX_MEMBERS];
         if (facingRight){//condense into method?
             for (int i = panels.length - 1; i >= 0; i--){
-                panels[i] = new EnemyFormationSinglePanel(frame,this,null,facingRight,true);
+                panels[i] = new EnemyFormationSinglePanel(frame,this,null,facingRight,true,true);
                 add(panels[i]);
-                panels[i].setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
             }
         }
         else{
             for (int i = 0; i < panels.length; i++){
-                panels[i] = new EnemyFormationSinglePanel(frame,this,null,facingRight,true);
+                panels[i] = new EnemyFormationSinglePanel(frame,this,null,facingRight,true,true);
                 add(panels[i]);
-                panels[i].setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
             }
+        }
+        for (int i = 0; i < panels.length; i++){
+            panels[i].setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE + EnemyFormationSinglePanel.TEXT_FIELD_HEIGHT));
+            panels[i].setMinimumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE + EnemyFormationSinglePanel.TEXT_FIELD_HEIGHT));
         }
         
         
@@ -80,7 +82,7 @@ public class EnemyFormationPanel extends JPanel implements CreaturePanelGroup{
 
     public void clear() {
         for (int i = 0; i < panels.length; i++){
-            panels[i].setCreature(null);
+            panels[i].clear();
         }
         frame.parametersChanged();
         repaint();

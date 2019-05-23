@@ -8,24 +8,26 @@ import SpecialAbilities.SpecialAbility;
 import java.awt.Graphics;
 
 //a creature is any unit that can fight. Fundamentally, they have
-// HP, attack power, and a special ability. Including monsters, heroes,
+// HP, attack power, and a special ability. Includes monsters, heroes,
 //and world bosses.
-public abstract class Creature implements Comparable<Creature>{
+public abstract class Creature implements Comparable<Creature>{//refresh instead of copy for performance improvement? textbox to input lineup for quest? put in enemyFormationMakerPanel
     
     protected Element element;
     protected int baseHP;//hp the creatue starts off with
     protected int maxHP;//cannot heal more than this
     protected int baseAtt;//attack the creature starts off with
-    protected int attBoost = 0;
+    protected int attConstantBoost = 0;
+    protected double attPercentBoost = 1;
     protected int armor = 0;
     protected int currentHP;
     protected long currentAtt;
     public SpecialAbility specialAbility;
+    //public SpecialAbility nodeSkill
     protected boolean facingRight = true;//for GUI. put in GUI class instead?
     protected int ID;//for quicker copying. Copying names of heroes was not nessesary for fights. Names can be accesed through a method in CreatureFactory.
     //also used for rng skills
     
-    protected boolean performedDeathAction = false;//put in specialAbility?
+    protected boolean performedDeathAction = false;//delete if the revive skill does not make the on-death skill work a second time
 
     
 
@@ -46,6 +48,16 @@ public abstract class Creature implements Comparable<Creature>{
         this.currentAtt = baseAtt;
     }
     
+    public void restore(){
+        maxHP = baseHP;
+        attConstantBoost = 0;
+        attPercentBoost = 1;
+        armor = 0;
+        currentHP = baseHP;
+        currentAtt = baseAtt;
+        specialAbility.restore();
+        performedDeathAction = false;
+    }
     public abstract Creature getCopy();
     public abstract Hero.Rarity getRarity();// only used by heroes, defensive programming: monsters might have abilities in the future
     public abstract long getFollowers();
@@ -81,12 +93,20 @@ public abstract class Creature implements Comparable<Creature>{
         specialAbility.setOwner(this);
     }
     
-    public int getAttBoost(){
-        return attBoost;
+    public int getAttConstantBoost(){
+        return attConstantBoost;
+    }
+    
+    public double getAttPercentBoost(){
+        return attPercentBoost;
+    }
+    
+    public double attWithBoosts(){
+        return (currentAtt + attConstantBoost) * attPercentBoost;
     }
     
     public int getArmor(){
-        return armor;
+        return armor;//armor times armor percent***
     }
     
     public boolean isFacingRight(){
@@ -141,8 +161,17 @@ public abstract class Creature implements Comparable<Creature>{
         currentHP = HP;
     }
     
+    public void addRawAttBoost(int a) {
+        attConstantBoost += a;
+    }
+    
     public void addAttBoost(int a){
-        attBoost += a;
+        getSpecialAbility().addAttBoost(a);
+    }
+    
+    public void addAttPercentBoost(double a){//add or multiply?** example input would be 1.15
+        attPercentBoost += a;
+        //System.out.println(a + ", attPercentBoost now " + attPercentBoost);
     }
     
     public void addArmorBoost(int a){
@@ -150,7 +179,8 @@ public abstract class Creature implements Comparable<Creature>{
     }
     
     public void resetBoosts(){
-        attBoost = 0;
+        attConstantBoost = 0;
+        attPercentBoost = 1;
         armor = 0;
     }
     
@@ -251,8 +281,9 @@ public abstract class Creature implements Comparable<Creature>{
     }
     
     public double determineDamage(Creature target, Formation thisFormation, Formation enemyFormation){
-        double damage = currentAtt + attBoost + getSpecialAbility().extraDamage(enemyFormation,thisFormation);
-        damage = Elements.damageFromElement(this,damage,target.element) - target.getArmor();
+        double damage = attWithBoosts() + getSpecialAbility().extraDamage(enemyFormation,thisFormation);
+        
+        damage = Elements.damageFromElement(this,damage,target.element) - target.getArmor();//percent damage reduction here?
         
         if (damage < 0){
             damage = 0;
@@ -297,7 +328,7 @@ public abstract class Creature implements Comparable<Creature>{
     }
     
     public void actionOnDeath(Formation thisFormation, Formation enemyFormation) {//is this needed? put in each specialAbility class?
-        if (!performedDeathAction){
+        if (!performedDeathAction){//change for revive?
             getSpecialAbility().deathAction(thisFormation, enemyFormation);
             performedDeathAction = true;
         }
@@ -353,6 +384,10 @@ public abstract class Creature implements Comparable<Creature>{
     public int getLvl1HP() {
         return baseHP;
     }
+
+    
+
+    
 
     
     

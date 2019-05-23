@@ -1,5 +1,6 @@
 5_12_6
 Aeris
+Agatha
 Ailen
 Alpha
 Alvitr
@@ -24,6 +25,7 @@ Ascended Jade
 Ascended Lord Kirk
 Ascended Mahatma
 Ascended Neptunius
+Ascended Nerissa
 Ascended Pontus
 Ascended Rei
 Ascended Rigr
@@ -32,6 +34,7 @@ Ascended Shygu
 Ascended Takeda
 Ascended Thert
 Ascended TR0N1X
+Ascended Wanderer
 Athos
 Atzar
 Aural
@@ -84,6 +87,7 @@ Guy
 Hallinskidi
 Hama
 Hattori
+Helga
 Hidoka
 Hirate
 Hosokawa
@@ -109,6 +113,7 @@ Mahatma
 Marauder Magnus
 Master Lee
 Maunder
+Minerva
 Mother
 Murphy
 Nebra
@@ -117,6 +122,7 @@ Neptunius
 Nerissa
 Nicte
 Nimue
+Ophelia
 Orin
 Ourea
 Oymos

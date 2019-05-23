@@ -10,9 +10,12 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 //csv file for heroes?
 
 //uses the flyweight and prototype patterns to generate new objects.
@@ -28,7 +31,8 @@ public class CreatureFactory {
     private static ArrayList<String> heroNames;
     private static ArrayList<String> worldBossNames;
     private static HashMap<Integer,String> IDToNameMap;
-    private static HashMap<String,String> nickNameMap;
+    private static HashMap<String,String> nickNameToNameMap;
+    private static HashMap<String,String> nameToNickNameMap;
     private static HashMap<Integer,Source> IDToSourceMap;
     
 
@@ -49,6 +53,12 @@ public class CreatureFactory {
                 sum ++;
             }
         }
+        
+        for (Element e : Elements.Element.values()){
+            elementCharacters += Character.toLowerCase(Elements.getElementChar(e));
+        }
+        monsterPattern = Pattern.compile("[" + elementCharacters + "]\\d+");
+        
         MAX_QUESTS = sum;
     }
     
@@ -57,11 +67,72 @@ public class CreatureFactory {
     }
     
     public static String getCreatureNickName(int ID){
-        return nickNameMap.get(IDToNameMap.get(ID));
+        return nameToNickNameMap.get(IDToNameMap.get(ID));
     }
     
     public static Monster getMonster(Element element, int tier){
         return (Monster) monsters[element.ordinal()][tier - 1].getCopy();
+    }
+    
+    private static Pattern heroLevelPromotePattern = Pattern.compile("[^:.]+:[\\d|k]+\\.\\d+");
+    private static Pattern heroLevelPattern = Pattern.compile("[^:.]+:[\\d|k]+");
+    private static Pattern heroPromotePattern = Pattern.compile("[^:.]+\\.\\d+");
+    private static Pattern monsterPattern;//no hardcoding element characters?**
+    private static String elementCharacters;
+    
+    public static Creature parseCreature(String s){
+        String str = s.toLowerCase();
+        String realName = s.split(":|\\.")[0];
+        String[] tokens;
+        //System.out.println("_________________\n" + s);
+        //hero level promo
+        Matcher matcher = heroLevelPromotePattern.matcher(str);
+        if (matcher.find()){
+        
+            tokens = matcher.group().split(":|\\.");
+            //System.out.println("HeroLevelPromote");
+            return getHero(realName,parseLevel(tokens[1]),Math.min(Integer.parseInt(tokens[2]),Hero.MAX_PROMOTE_LEVEL));
+            
+        }
+        
+        //hero level
+        matcher = heroLevelPattern.matcher(str);
+        if (matcher.find()){
+        
+            tokens = matcher.group().split(":");
+            //System.out.println("HeroLevel");
+            return getHero(realName,parseLevel(tokens[1]),0);
+        }
+        
+        //hero promo
+        matcher = heroPromotePattern.matcher(str);
+        if (matcher.find()){
+            tokens = matcher.group().split("\\.");
+            return getHero(realName,Hero.MAX_NORMAL_LEVEL,Math.min(Integer.parseInt(tokens[1]),Hero.MAX_PROMOTE_LEVEL));
+        }
+        
+        //monster
+        matcher = monsterPattern.matcher(str);
+        if (matcher.find()){
+            return getMonster(Elements.charToElement(str.charAt(0)),Integer.parseInt(str.substring(1)));
+        }
+        
+        //just the hero
+        //System.out.println("hero");
+        return getHero(str,1000,0);
+        
+    }
+    
+    private static int parseLevel(String str){
+        if (str.equalsIgnoreCase("1k")){
+            return 1000;
+        }
+        try{
+            return Integer.parseInt(str);
+        }
+        catch(NumberFormatException e){
+            return 1;
+        }
     }
     
     //returns an array of all monsters of a givin element in order of tier.
@@ -177,11 +248,17 @@ public class CreatureFactory {
     }
     
     public static Hero getHero(String name, int level, int promoteLevel){
-        Hero hero = (Hero) heroes.get(name).getCopy();
-        hero.levelUp(level);
+        //System.out.println(name);
+        //System.out.println(heroes.get(name));
+        Hero hero = heroes.get(name);
+        if (hero == null){//check nicknames
+            hero = heroes.get(nickNameToNameMap.get(name));
+        }
+        Hero newHero = (Hero) hero.getCopy();
+        newHero.levelUp(level);
         
-        hero.promote(promoteLevel);
-        return hero;
+        newHero.promote(promoteLevel);
+        return newHero;
     }
     
     public static Hero[] getHeroes(String address) {
@@ -373,7 +450,8 @@ public class CreatureFactory {
         
         heroes = new HashMap<>();
         heroNames = new ArrayList<>();
-        nickNameMap = new HashMap<>();
+        nickNameToNameMap = new HashMap<>();
+        nameToNickNameMap = new HashMap<>();
         IDToSourceMap = new HashMap<>();
         
         try{
@@ -383,16 +461,16 @@ public class CreatureFactory {
                 String[] tokens = s.nextLine().split(",");
                 
                 String name = tokens[0];
-                int ID = Integer.parseInt(tokens[2]);
-                Rarity rarity = parseRarity(tokens[4]);
-                Element element = Elements.parseElement(tokens[5]);
-                int baseAtt = Integer.parseInt(tokens[6]);
-                int baseHP = Integer.parseInt(tokens[7]);
-                SpecialAbility skill = parseAbility(tokens[8]);
-                int p1Health = Integer.parseInt(tokens[9]);
-                int p2Att = Integer.parseInt(tokens[10]);
-                int p4Stats = Integer.parseInt(tokens[11]);
-                SpecialAbility p5Skill = parseAbility(tokens[12]);
+                int ID = Integer.parseInt(tokens[1]);
+                Rarity rarity = parseRarity(tokens[3]);
+                Element element = Elements.parseElement(tokens[4]);
+                int baseAtt = Integer.parseInt(tokens[5]);
+                int baseHP = Integer.parseInt(tokens[6]);
+                SpecialAbility skill = parseAbility(tokens[7]);
+                int p1Health = Integer.parseInt(tokens[8]);
+                int p2Att = Integer.parseInt(tokens[9]);
+                int p4Stats = Integer.parseInt(tokens[10]);
+                SpecialAbility p5Skill = parseAbility(tokens[11]);
 
                 Hero h = new Hero(element,baseAtt,baseHP,rarity,ID,skill,p1Health,p2Att,p4Stats,p5Skill);
                 
@@ -401,23 +479,41 @@ public class CreatureFactory {
                     h.promote(0);
                     
                        
-                    if (tokens[1].equals("-")){
-                        nickNameMap.put(name, name);
-                    }
-                    else{
-                        nickNameMap.put(name, tokens[1]);
-                    }
-                    nickNameMap.put(name, tokens[1]);
-                    IDToSourceMap.put(h.getID(), parseSource(tokens[3]));
+                    
+                    IDToSourceMap.put(h.getID(), parseSource(tokens[2]));
                     heroes.put(name,h);
+                    heroes.put(name.toLowerCase(),h);
                     heroNames.add(name);
                     IDToNameMap.put(h.getID(),name);
             }
         }
         catch(FileNotFoundException ex){
-            System.out.println("Error reading monster data file");
+            System.out.println("Error reading hero data file");
         }
         
+        
+        
+        //nicknames
+        try{
+            Scanner s = new Scanner(new File("creature_data/nicknames.csv"));
+            s.nextLine();//ignore first row. It's only labels
+            while(s.hasNext()){
+                String[] tokens = s.nextLine().split(",");
+                
+                for (int i = 0; i < tokens.length; i ++){
+                    nickNameToNameMap.put(tokens[i].toLowerCase(), tokens[0]);
+                }
+                if (tokens.length > 1){
+                    nameToNickNameMap.put(tokens[0], tokens[1]);
+                }
+                else{// hero has no nickname
+                    nameToNickNameMap.put(tokens[0], tokens[0]);
+                }
+            }
+        }
+        catch(FileNotFoundException ex){
+            System.out.println("Error reading nickname file");
+        }
     }
     
     private static Source parseSource(String str){
@@ -472,6 +568,7 @@ public class CreatureFactory {
             case "AOE": return new AOE(null,Integer.parseInt(tokens[1]));
             case "AntiAOE": return new AntiAOE(null,Double.parseDouble(tokens[1]));
             case "AntiAOESelf": return new AntiAOESelf(null,Double.parseDouble(tokens[1]));
+            case "AttackPercentAura": return new AttackPercentAura(null,Double.parseDouble(tokens[1]));
             case "Berserk": return new Berserk(null,Double.parseDouble(tokens[1]));
             case "BloodBomb": return new BloodBomb(null,Integer.parseInt(tokens[1]));
             case "CriticalHit": return new CriticalHit(null,Double.parseDouble(tokens[1]));

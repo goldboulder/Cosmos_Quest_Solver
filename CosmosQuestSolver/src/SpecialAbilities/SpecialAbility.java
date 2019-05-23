@@ -121,6 +121,10 @@ public abstract class SpecialAbility {
         return "(" + roundedScaleMilestone(owner,amount,milestone) + ")";
     }
     
+    public void restore(){
+        //most abilities don't need any restoring
+    }
+    
     //heroes and special abilities have references to each other. This makes sure
     //there aren't any null pointers
     public abstract SpecialAbility getCopyForNewOwner(Creature newOwner);
@@ -139,6 +143,10 @@ public abstract class SpecialAbility {
     }
     public boolean WBTryLessCreatures(){
         return false;
+    }
+
+    public void addAttBoost(int a) {
+        owner.addRawAttBoost(a);
     }
 
     

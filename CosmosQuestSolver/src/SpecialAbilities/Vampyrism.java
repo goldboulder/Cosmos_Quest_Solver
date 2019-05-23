@@ -13,7 +13,7 @@ public class Vampyrism extends SpecialAbility{ //rounding?
     
     private double percent;
     private long damageDealtThisRound;
-    protected boolean deadOnStart;
+    
 
     public Vampyrism(Creature owner, double multiplier) {
         super(owner);
@@ -25,9 +25,9 @@ public class Vampyrism extends SpecialAbility{ //rounding?
         return new Vampyrism(newOwner,percent);
     }
     
+    @Override
     public void preRoundAction(Formation thisFormation, Formation enemyFormation){
         damageDealtThisRound = 0;
-        deadOnStart = owner.isDead();
     }
     
     @Override
@@ -37,9 +37,7 @@ public class Vampyrism extends SpecialAbility{ //rounding?
 
     @Override
     public void postRoundAction2(Formation thisFormation, Formation enemyFormation) {
-        if (!deadOnStart){
-            owner.changeHP(damageDealtThisRound * percent, enemyFormation);
-        }
+        owner.changeHP(damageDealtThisRound * percent, enemyFormation);
     }
     
     

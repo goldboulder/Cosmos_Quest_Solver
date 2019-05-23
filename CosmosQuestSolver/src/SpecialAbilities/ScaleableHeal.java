@@ -28,9 +28,7 @@ public class ScaleableHeal extends Heal{
 
     @Override
     public void postRoundAction2(Formation thisFormation, Formation enemyFormation) {
-        if (!deadOnStart){
-            thisFormation.AOEHeal(roundedScaleMilestone(owner,amount,levelMilestone), enemyFormation);
-        }
+        thisFormation.AOEHeal(roundedScaleMilestone(owner,amount,levelMilestone), enemyFormation);
         
     }
     

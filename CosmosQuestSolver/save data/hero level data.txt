@@ -60,6 +60,8 @@ Ascended Dagda,1,0
 Ascended Bavah,1,0
 Ascended Defile,1,0
 Ascended Seethe,1,0
+Ascended Wanderer,1,0
+Ascended Nerissa,1,0
 Valor,99,0
 Rokka,99,0
 Pyromancer,99,0
@@ -120,6 +122,10 @@ Blossom,1,0
 Flint,1,0
 Orin,1,0
 Aurora,1,0
+Agatha,1,0
+Ophelia,1,0
+Helga,1,0
+Minerva,1,0
 Werewolf,99,4
 Jack'o Knight,1,0
 Dullahan,1,0
@@ -152,6 +158,7 @@ Dr Hawking,99,4
 Neil,99,5
 Guy,36,0
 Cupid,1,0
+Mother,1,0
 Dicemaster,1,0
 Luxurius Maximus,1,0
 Pokerface,99,4

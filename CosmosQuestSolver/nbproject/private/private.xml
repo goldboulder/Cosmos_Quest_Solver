@@ -19,6 +19,8 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/UnitBuff.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/ScaleableAOEReflect.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/Formation.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Heal.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Nothing.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/ISolverFrame.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/ScaleableLifeSteal.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Execute.java</file>
@@ -28,7 +30,9 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/RandomStatBoost.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/WrathPercentAtt.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/AISolver.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Train.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/ElementDamageBoost.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Rainbow.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/ChatBox.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/RandomTarget.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Thorns.java</file>
@@ -50,6 +54,7 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/CalculationPanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/WorldBossOptimizerFrame.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/MonsterSelectionPanel.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/ScaleableHeal.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/WorldBossOptimizer.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/AntiAOE.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/EnemySelectFrame.java</file>
@@ -60,9 +65,11 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Fortify.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/SimulationPanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/WorldBossSelectionPanel.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Vampyrism.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/Elements.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Revenge.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/PartingGift.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/AttackPercentAura.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/CombinationIterator.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/PlaceholderTextField.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/ScaleableAOE.java</file>
@@ -83,9 +90,11 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/QuestSolver.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/AssetPanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/HeroCustomizationPanel.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/RestorableFormation.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/EnemyFormationPanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/BattleLog.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/AOE.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/LifeSteal.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/SpecialAbilities/Simmer.java</file>
         </group>
     </open-files>

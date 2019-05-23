@@ -93,6 +93,7 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
                 map.get(tokens[0]).getPromoteLevelTextField().setText(tokens[2]);
                 
                 map.get(tokens[0]).levelHero();
+                
             }
         }
         catch(Exception e){

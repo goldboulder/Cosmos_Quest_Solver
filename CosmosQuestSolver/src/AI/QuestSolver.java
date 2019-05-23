@@ -155,6 +155,7 @@ public class QuestSolver extends AISolver{
         while(permutations.hasNext()){
             currentPermutation = permutations.next();
             
+            //enemyFormation.restore();
             if(containsRandomHeroes && maxCreatures != Formation.MAX_MEMBERS){
                 LinkedList<Integer> blankSpaces = passedWithShufflingBlankSpaces(currentPermutation);
                 if (blankSpaces != null){

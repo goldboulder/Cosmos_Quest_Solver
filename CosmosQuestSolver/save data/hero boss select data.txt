@@ -60,6 +60,8 @@ Ascended Dagda,false,false
 Ascended Bavah,false,false
 Ascended Defile,false,false
 Ascended Seethe,false,false
+Ascended Wanderer,false,false
+Ascended Nerissa,false,false
 Valor,false,false
 Rokka,false,false
 Pyromancer,false,false
@@ -120,6 +122,10 @@ Blossom,false,false
 Flint,false,false
 Orin,false,false
 Aurora,false,false
+Agatha,false,false
+Ophelia,false,false
+Helga,false,false
+Minerva,false,false
 Werewolf,true,false
 Jack'o Knight,false,false
 Dullahan,false,false
@@ -152,6 +158,7 @@ Dr Hawking,false,false
 Neil,true,false
 Guy,false,false
 Cupid,false,false
+Mother,false,false
 Dicemaster,false,false
 Luxurius Maximus,false,false
 Pokerface,true,false

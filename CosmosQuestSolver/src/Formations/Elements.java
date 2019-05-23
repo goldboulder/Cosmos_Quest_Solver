@@ -67,11 +67,11 @@ public class Elements {
     
     public static Element charToElement(char c){
         switch(c){
-            case 'A': return Element.AIR;
-            case 'W': return Element.WATER;
-            case 'E': return Element.EARTH;
-            case 'F': return Element.FIRE;
-            case 'V': return Element.VOID;
+            case 'A': case 'a': return Element.AIR;
+            case 'W': case 'w': return Element.WATER;
+            case 'E': case 'e': return Element.EARTH;
+            case 'F': case 'f': return Element.FIRE;
+            case 'V': case 'v': return Element.VOID;
             default: return null;
         }
     }

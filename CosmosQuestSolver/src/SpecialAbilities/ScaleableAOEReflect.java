@@ -8,7 +8,6 @@ import Formations.Formation;
 import cosmosquestsolver.OtherThings;
 import Formations.Hero;
 
-
 //reflects a percentage of the direct damage back as AOE.
 //used by Fir
 public class ScaleableAOEReflect extends SpecialAbility{
@@ -21,6 +20,7 @@ public class ScaleableAOEReflect extends SpecialAbility{
         this.multiplier = multiplier;
     }
     
+    @Override
     public void preRoundAction(Formation thisFormation, Formation enemyFormation){
         damageTakenThisRound = 0;
     }

@@ -13,7 +13,6 @@ public class CriticalHit extends SpecialAbility{
     
     private double multiplier;
     private int turn = 0;
-    private static boolean alwaysHit = false;//temp until fixed
     private long seed = -1;
 
     public CriticalHit(Creature owner, double multiplier) {
@@ -21,7 +20,10 @@ public class CriticalHit extends SpecialAbility{
         this.multiplier = multiplier;
     }
     
-    
+    @Override
+    public void restore(){
+        turn = 0;
+    }
     
     @Override
     public SpecialAbility getCopyForNewOwner(Creature newOwner) {
@@ -47,7 +49,7 @@ public class CriticalHit extends SpecialAbility{
         //do empty spaces count?
         if (Formation.getTurnSeed(seed,Formation.STALEMATE_CUTOFF_POINT-1-turn) % 2 == 0){
             //test this more with data?
-            return (multiplier-1) * (owner.getCurrentAtt()+owner.getAttBoost()-(enemyFormation.getFrontCreature().getArmor()/Elements.elementDamageMultiplier(owner,enemyFormation.getFrontCreature().getElement())));
+            return (multiplier-1) * (owner.attWithBoosts());
         }
         else{
             return 0;

@@ -25,7 +25,11 @@ public class WorldBoss extends Creature{
         this.ID = ID;
     }
     
-    
+    @Override
+    public void restore(){
+        super.restore();
+        damageTaken = 0;
+    }
 
     @Override
     public Creature getCopy() {

@@ -60,6 +60,8 @@ Ascended Dagda
 Ascended Bavah
 Ascended Defile
 Ascended Seethe
+Ascended Wanderer
+Ascended Nerissa
 Valor
 Rokka
 Pyromancer
@@ -120,6 +122,10 @@ Blossom
 Flint
 Orin
 Aurora
+Agatha
+Ophelia
+Helga
+Minerva
 Werewolf
 Jack'o Knight
 Dullahan

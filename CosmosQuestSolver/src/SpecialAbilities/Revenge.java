@@ -27,7 +27,7 @@ public class Revenge extends SpecialAbility{//how does it work with Niel? Pokerf
     }
     
     private double damageGained(Creature attacker){
-        double damage = attacker.getCurrentAtt() + attacker.getAttBoost();// + specialAbility.extraDamage(enemyFormation,thisFormation);//change to currentAttack*** current att obsolete?
+        double damage = + attacker.attWithBoosts();// + specialAbility.extraDamage(enemyFormation,thisFormation);//change to currentAttack*** current att obsolete?
         //damage = Elements.damageFromElement(attacker,damage,owner.getElement());// owner's armor and element boost are not considered
         
         if (damage < 0){

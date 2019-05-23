@@ -12,18 +12,12 @@ import Formations.Formation;
 public class HealFirst extends SpecialAbility{
     
     protected int amount;
-    protected boolean deadOnStart;
 
     public HealFirst(Creature owner, int amount) {
         super(owner);
         this.amount = amount;
     }
     
-    @Override
-    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {
-        deadOnStart = owner.isDead();
-        //System.out.println(owner.getName() + " has " + owner.getCurrentHP());
-    }
     
     @Override
     public SpecialAbility getCopyForNewOwner(Creature newOwner) {
@@ -33,9 +27,7 @@ public class HealFirst extends SpecialAbility{
 
     @Override
     public void postRoundAction2(Formation thisFormation, Formation enemyFormation) {
-        if (!deadOnStart){
-            thisFormation.getFrontCreature().takeHeal(amount * (1 - enemyFormation.getAOEResistance()), enemyFormation);
-        }
+        thisFormation.getFrontCreature().takeHeal(amount * (1 - enemyFormation.getAOEResistance()), enemyFormation);
     }
     
     @Override

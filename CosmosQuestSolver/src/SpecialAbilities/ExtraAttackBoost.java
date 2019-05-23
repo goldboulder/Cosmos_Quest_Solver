@@ -9,7 +9,7 @@ import Formations.Formation;
 import cosmosquestsolver.OtherThings;
 
 //attack boosts are x times as effective.
-// used by 
+// used by Gizmo
 public class ExtraAttackBoost extends SpecialAbility{
     
     private double multiplier;
@@ -20,8 +20,8 @@ public class ExtraAttackBoost extends SpecialAbility{
     }
     
     @Override
-    public double extraDamage(Formation thisFormation, Formation enemyFormation) {
-        return owner.getAttBoost() * (multiplier-1);
+    public void addAttBoost(int a) {
+        owner.addRawAttBoost((int)(multiplier * a));
     }
 
     

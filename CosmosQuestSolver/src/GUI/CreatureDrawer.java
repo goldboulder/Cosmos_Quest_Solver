@@ -42,6 +42,7 @@ public class CreatureDrawer {
             case WATER: g.drawImage(ImageFactory.getPicture("Stands/Water Aura"), 10, 55, 80, 29, null); break;
             case EARTH: g.drawImage(ImageFactory.getPicture("Stands/Earth Aura"), 10, 44, 80, 41, null); break;
             case FIRE: g.drawImage(ImageFactory.getPicture("Stands/Fire Aura"), 10, 50, 80, 36, null); break;
+            case VOID: g.drawImage(ImageFactory.getPicture("Stands/Void Aura"), 10, 50, 80, 36, null); break;
             default: image = ImageFactory.getDefaultImage();
         }
         g.drawImage(image, MONSTER_ELEMENT_X, MONSTER_ELEMENT_Y, MONSTER_ELEMENT_SIZE, MONSTER_ELEMENT_SIZE, null);
@@ -225,7 +226,9 @@ public class CreatureDrawer {
                 name.equals("Ascended Mahatma") || 
                 name.equals("Ascended Jade") || 
                 name.equals("Ascended Edana") || 
-                name.equals("Ascended Dybbuk")){
+                name.equals("Ascended Dybbuk") ||
+                name.equals("Ascended Nerissa") ||
+                name.equals("Ascended Wanderer")){
             return true;
         }
         else{

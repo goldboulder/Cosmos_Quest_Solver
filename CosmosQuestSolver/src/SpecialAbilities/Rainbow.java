@@ -11,7 +11,6 @@ import Formations.Formation;
 // are alive and behind the user. Used by Aoyuki
 public class Rainbow extends SpecialAbility{
     
-    private boolean activated = false;
     private int damageBoost;
     private int numTypesRequired;
 

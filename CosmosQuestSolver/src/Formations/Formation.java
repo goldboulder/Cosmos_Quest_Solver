@@ -22,18 +22,14 @@ import java.util.NoSuchElementException;
 //holds a list of creatures representing a battle line. Also simulates battles
 public class Formation implements Iterable<Creature>{
 
-    
-
-    
-    
-    private long totalDamageTaken = 0;// for tiebreakers in pvp
     public static final int MAX_MEMBERS = 6;//current max creatures possible in one line
-    private LinkedList<Creature> members;
-    private double AOEResistance = 0;//1 is invincible
-    
     //in rare circumstances, armor might outweigh attack power, resulting in an
     //infinite loop. After a set amount of rounds, end the battle
     public static final int STALEMATE_CUTOFF_POINT = 100;
+    
+    protected LinkedList<Creature> members;//arrayList instead?
+    protected long totalDamageTaken = 0;// for tiebreakers in pvp
+    protected double AOEResistance = 0;//1 is invincible
     private long seed = -1;//used for random skills. newSeed should be positive. if newSeed is needed, generate it
     private LinkedList<Integer> blankSpaces;
 

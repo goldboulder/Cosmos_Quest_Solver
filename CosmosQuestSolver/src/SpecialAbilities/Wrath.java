@@ -12,7 +12,6 @@ import cosmosquestsolver.OtherThings;
 public class Wrath extends SpecialAbility{
     
     private int damage;
-    private boolean active = false;//needed?
 
     public Wrath(Creature owner, int damage) {
         super(owner);

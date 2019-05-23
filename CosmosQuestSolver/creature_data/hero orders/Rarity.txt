@@ -111,6 +111,10 @@ Marauder Magnus
 Blossom
 Flint
 Orin
+Agatha
+Ophelia
+Helga
+Minerva
 Dullahan
 Cliodhna
 Santa Claus
@@ -144,6 +148,8 @@ Ascended Dagda
 Ascended Bavah
 Ascended Defile
 Ascended Seethe
+Ascended Wanderer
+Ascended Nerissa
 Ascended Shygu
 Ascended Thert
 Ascended Lord Kirk

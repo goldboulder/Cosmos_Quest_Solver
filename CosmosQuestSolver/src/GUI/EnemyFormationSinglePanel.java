@@ -7,6 +7,7 @@ import Formations.Creature;
 import Formations.CreatureFactory;
 import Formations.Hero;
 import Formations.Monster;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -14,9 +15,12 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 //displays creature and lets you change it
-public class EnemyFormationSinglePanel extends JPanel implements MouseListener, MouseWheelListener{
+public class EnemyFormationSinglePanel extends JPanel implements MouseListener, MouseWheelListener, DocumentListener{
     
     private EnemySelectFrame frame;
     
@@ -25,22 +29,29 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
     private boolean allowHeroTweak;
     
     private CreaturePicturePanel picPanel;
+    private JTextField textField;
 
-    public EnemyFormationSinglePanel(EnemySelectFrame frame, CreaturePanelGroup group, Creature creature, boolean facingRight, boolean allowHeroTweak) {
+    public static final int TEXT_FIELD_HEIGHT = 20;
+    public EnemyFormationSinglePanel(EnemySelectFrame frame, CreaturePanelGroup group, Creature creature, boolean facingRight, boolean allowHeroTweak, boolean hasTextField) {
         this.frame = frame;
         this.creatureGroup = group;
         this.facingRight = facingRight;
         this.allowHeroTweak = allowHeroTweak;
         picPanel = new CreaturePicturePanel(creature);
+        textField = new JTextField();
         add(picPanel);
+        if (hasTextField){
+            add(textField);
+        }
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         picPanel.setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
+        textField.setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,TEXT_FIELD_HEIGHT));
         //setOpaque(false);
         addMouseListener(this);
         addMouseWheelListener(this);
         picPanel.removeMouseListener(picPanel);//replaces mouse actions with this classe's actions. problems with multiple mouseListeners
         //setBackground(Color.BLUE);
-        
+        textField.getDocument().addDocumentListener(this);
     }
     
     public Creature getCreature(){
@@ -48,6 +59,7 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
     }
     
     public void setCreature(Creature c){
+        
         if (c == null && picPanel.getCreature() == null){
             return;
         }
@@ -160,6 +172,49 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
                 }
             }
         }
+    }
+
+    @Override
+    public void insertUpdate(DocumentEvent e) {
+        heroTyped();
+    }
+
+    @Override
+    public void removeUpdate(DocumentEvent e) {
+        heroTyped();
+    }
+
+    @Override
+    public void changedUpdate(DocumentEvent e) {
+        heroTyped();
+    }
+    
+    private void heroTyped(){
+        String text = textField.getText();
+        if (text.isEmpty()){
+            setCreature(null);
+            return;
+        }
+        //get parsed creature
+        try{
+            Creature c = CreatureFactory.parseCreature(text);
+            c.setFacingRight(facingRight);
+            setCreature(c);
+            //System.out.println(c);
+        }
+        catch(Exception e){
+            textField.setForeground(Color.RED);
+            return;
+        }
+        textField.setForeground(Color.BLACK);
+        
+        //sync
+        
+    }
+
+    public void clear() {
+        setCreature(null);
+        textField.setText("");
     }
     
 }

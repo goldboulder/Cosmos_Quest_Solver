@@ -20,7 +20,7 @@ public class Train extends SpecialAbility{
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
         owner.setCurrentAtt(owner.getCurrentAtt() + amount);
-        if (owner.getCurrentAtt() < 0){
+        if (owner.getCurrentAtt() < 0){//negative attack check
             owner.setCurrentAtt(0);
         }
     }

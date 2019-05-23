@@ -22,7 +22,8 @@ public class Purity extends SpecialAbility{
     @Override
     public double extraDamage(Formation thisFormation, Formation enemyFormation) {
         if (enemyFormation.getFrontCreature().getElement() == owner.getElement()){
-            return (owner.getCurrentAtt()+owner.getAttBoost()) * (multiplier - 1);
+            
+            return (owner.attWithBoosts()) * (multiplier - 1);
         }
         else{
             return 0;
