@@ -127,7 +127,7 @@ public class Formation implements Iterable<Creature>{
 
     public boolean containsLepHeroes() {
         for (int i = 0; i < members.size(); i ++){
-            SpecialAbility s = members.get(i).getSpecialAbility();
+            SpecialAbility s = members.get(i).getMainSkill();
             if (s instanceof Ricochet || s instanceof ScaleableAOE || s instanceof ScaleableStartingDamage || s instanceof BloodBomb || s instanceof Inferno){
                 return true;
             }
@@ -137,7 +137,7 @@ public class Formation implements Iterable<Creature>{
     
     public boolean containsRandomHeroes() {
         for (int i = 0; i < members.size(); i ++){
-            SpecialAbility s = members.get(i).getSpecialAbility();
+            SpecialAbility s = members.get(i).getMainSkill();
             if (s instanceof RandomTarget || s instanceof RandomStatBoost || s instanceof CriticalHit){
                 return true;
             }
@@ -253,7 +253,7 @@ public class Formation implements Iterable<Creature>{
         
         HashMap<Creature,Integer> map = new HashMap<>();
         for (int i = 0; i < members.size(); i++){
-            int position = (int)(100*(i + 1.1*Math.random()*members.get(i).getSpecialAbility().positionBias()));
+            int position = (int)(100*(i + 1.1*Math.random()*members.get(i).getMainSkill().positionBias()));
             map.put(members.get(i), position);
         }
         Collections.sort(members, (Creature c1, Creature c2) -> map.get(c2)-map.get(c1));
@@ -543,7 +543,7 @@ public class Formation implements Iterable<Creature>{
         Iterator<Creature> iterator = members.iterator();
         while (iterator.hasNext()) {
             Creature c = iterator.next();
-            if (c.isDead()) {
+            if (c.isDead()) {//defile killing and revive?
                 c.actionOnDeath(this,enemyFormation);
                 iterator.remove();
                 killedSomething = true;
@@ -579,7 +579,7 @@ public class Formation implements Iterable<Creature>{
     }
     
     public void takeHit(Creature attacker, Formation enemyFormation,int position) {//position: which creature to take the hit
-        double hit = attacker.determineDamage(members.get(position),this,enemyFormation);//check for array out of bounds?
+        double hit = attacker.determineDamageDealt(members.get(position),this,enemyFormation);//check for array out of bounds?
         hit = alterIncomingDamage(hit,enemyFormation);//if abilities ever have %reduction armor, do it either ^ or V depending on what gets reduced first. prefer ^
         members.get(position).takeHit(attacker,this,enemyFormation,hit);
     }
@@ -588,7 +588,7 @@ public class Formation implements Iterable<Creature>{
     private double alterIncomingDamage(double hit, Formation enemyFormation){
         double startingDamage = hit;
         for (Creature c : members){
-            hit = c.getSpecialAbility().alterIncomingDamage(hit,startingDamage,this,enemyFormation);
+            hit = c.getMainSkill().alterIncomingDamage(hit,startingDamage,this,enemyFormation);
         }
         return hit;
     }

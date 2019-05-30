@@ -50,7 +50,7 @@ public class WorldBoss extends Creature{
     //world bosses don't have hp, instead, record damage taken
     @Override
     public void takeHit(Creature creature,  Formation thisFormation, Formation enemyFormation) {
-        double hit = creature.determineDamage(this,thisFormation,enemyFormation);
+        double hit = creature.determineDamageDealt(this,thisFormation,enemyFormation);
         thisFormation.addDamageTaken((long)Math.ceil(hit));
         damageTaken = thisFormation.getDamageTaken();//duplicate info? bosses may not always be alone?
     }//damage refection on bosses? override changeHP instead?
@@ -86,7 +86,7 @@ public class WorldBoss extends Creature{
     
     @Override
     public String toolTipText() {
-        return "<html>" + getName() + "<br>Attack: " + getBaseAtt() + "<br>" + getSpecialAbility().getDescription() + "</html>";
+        return "<html>" + getName() + "<br>Attack: " + getBaseAtt() + "<br>" + getMainSkill().getDescription() + "</html>";
     }
     
     @Override

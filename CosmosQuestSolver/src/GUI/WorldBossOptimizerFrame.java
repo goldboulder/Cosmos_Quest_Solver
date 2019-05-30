@@ -139,7 +139,7 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
 
     @Override
     public AISolver makeSolver() {
-        if (worldBossSelectionPanel.getBoss().getSpecialAbility().WBTryLessCreatures() && assetPanel.getEnabledHeroes().isEmpty()){
+        if (worldBossSelectionPanel.getBoss().getMainSkill().WBTryLessCreatures() && assetPanel.getEnabledHeroes().isEmpty()){
             return new NoHeroesLessSpacesWBOptimizer(this);
         }
         else{

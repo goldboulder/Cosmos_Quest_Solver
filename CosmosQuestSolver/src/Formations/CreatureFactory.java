@@ -35,6 +35,8 @@ public class CreatureFactory {
     private static HashMap<String,String> nameToNickNameMap;
     private static HashMap<Integer,Source> IDToSourceMap;
     
+    private static Creature nullCreature;
+    
 
     public static int MAX_QUESTS;
     public static enum Source{CHEST,ASCEND, QUEST, SEASON, EVENT, SPECIAL, AUCTION, SHOP};
@@ -59,7 +61,12 @@ public class CreatureFactory {
         }
         monsterPattern = Pattern.compile("[" + elementCharacters + "]\\d+");
         
+        
         MAX_QUESTS = sum;
+    }
+    
+    public static Creature getNullCreature(){
+        return nullCreature;
     }
     
     public static String getCreatureName(int ID){
@@ -429,7 +436,16 @@ public class CreatureFactory {
                 int att = Integer.parseInt(tokens[2]);
                 int HP = Integer.parseInt(tokens[3]);
                 int tier = Integer.parseInt(tokens[4]);
-                long followers = Long.parseLong(tokens[5]);
+                
+                long followers;
+                try{
+                    followers = Long.parseLong(tokens[5]);
+                }
+                catch (NumberFormatException e){
+                    double tempFollowers = Double.parseDouble(tokens[5]);
+                    followers = (long)tempFollowers;
+                }
+                
                 SpecialAbility ability = parseAbility(tokens[6]);
 
                 Monster m = new Monster(element,att,HP,tier,followers,ability);
@@ -471,8 +487,9 @@ public class CreatureFactory {
                 int p2Att = Integer.parseInt(tokens[9]);
                 int p4Stats = Integer.parseInt(tokens[10]);
                 SpecialAbility p5Skill = parseAbility(tokens[11]);
+                SpecialAbility p6Skill = parseAbility(tokens[12]);
 
-                Hero h = new Hero(element,baseAtt,baseHP,rarity,ID,skill,p1Health,p2Att,p4Stats,p5Skill);
+                Hero h = new Hero(element,baseAtt,baseHP,rarity,ID,skill,p1Health,p2Att,p4Stats,p5Skill,p6Skill);
                 
                 h.attatchSpecialAbility();
                     h.levelUp(1);
@@ -490,8 +507,13 @@ public class CreatureFactory {
         catch(FileNotFoundException ex){
             System.out.println("Error reading hero data file");
         }
-        
-        
+        //nullCreature
+        nullCreature = new Hero(Element.VOID,0,0,Rarity.COMMON,0,new Nothing(null),0,0,0, new Nothing(null), new Nothing(null));//use instead of multiple threads?
+        nullCreature.attatchSpecialAbility();
+        //heroes.put("Nothing",nullCreature);
+        //heroes.put(name.toLowerCase(),nullCreature);
+        //heroNames.add("Nothing");
+        IDToNameMap.put(nullCreature.getID(),"Nothing");
         
         //nicknames
         try{
@@ -565,9 +587,11 @@ public class CreatureFactory {
         
         switch (tokens[0]){
             case "Absorb": return new Absorb(null,Double.parseDouble(tokens[1]));
+            case "Affinity": return new Affinity(null,Double.parseDouble(tokens[1]));
             case "AOE": return new AOE(null,Integer.parseInt(tokens[1]));
             case "AntiAOE": return new AntiAOE(null,Double.parseDouble(tokens[1]));
             case "AntiAOESelf": return new AntiAOESelf(null,Double.parseDouble(tokens[1]));
+            case "AttackBoost": return new AttackBoost(null,Double.parseDouble(tokens[1]));
             case "AttackPercentAura": return new AttackPercentAura(null,Double.parseDouble(tokens[1]));
             case "Berserk": return new Berserk(null,Double.parseDouble(tokens[1]));
             case "BloodBomb": return new BloodBomb(null,Integer.parseInt(tokens[1]));
@@ -577,10 +601,13 @@ public class CreatureFactory {
             case "ElementDamageBoost": return new ElementDamageBoost(null,Elements.parseElement(tokens[1]),Double.parseDouble(tokens[2]));
             case "EvenField": return new EvenField(null,Integer.parseInt(tokens[1]));
             case "Execute": return new Execute(null,Double.parseDouble(tokens[1]));
+            case "ExtraArmorBoost": return new ExtraArmorBoost(null,Double.parseDouble(tokens[1]));
             case "ExtraAttackBoost": return new ExtraAttackBoost(null,Double.parseDouble(tokens[1]));
+            case "ExtraHeal": return new ExtraHeal(null,Double.parseDouble(tokens[1]));
             case "Fortify": return new Fortify(null,Integer.parseInt(tokens[1]));
             case "Heal": return new Heal(null,Integer.parseInt(tokens[1]));
             case "HealFirst": return new HealFirst(null,Integer.parseInt(tokens[1]));
+            case "HPBoost": return new HPBoost(null,Double.parseDouble(tokens[1]));
             case "Inferno": return new Inferno(null,Double.parseDouble(tokens[1]));
             case "Intercept": return new Intercept(null,Double.parseDouble(tokens[1]));
             case "LifeSteal": return new LifeSteal(null,Integer.parseInt(tokens[1]));
@@ -594,6 +621,7 @@ public class CreatureFactory {
             case "Reflect": return new Reflect(null,Double.parseDouble(tokens[1]));
             case "Regenerate": return new Regenerate(null,Double.parseDouble(tokens[1]));
             case "Revenge": return new Revenge(null,Double.parseDouble(tokens[1]));
+            case "Revive": return new Revive(null,Double.parseDouble(tokens[1]));
             case "Ricochet": return new Ricochet(null,Double.parseDouble(tokens[1]),Integer.parseInt(tokens[2]));
             case "ScaleableAOEReflect": return new ScaleableAOEReflect(null,Double.parseDouble(tokens[1]));
             case "ScaleableAbsorbPercent": return new ScaleableAbsorbPercent(null,Double.parseDouble(tokens[1]));

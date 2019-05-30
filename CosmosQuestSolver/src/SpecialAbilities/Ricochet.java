@@ -122,7 +122,7 @@ public class Ricochet extends SpecialAbility{
             
             if (bouncesLeft > 0){
                 double nextCreatureMultiplier = Elements.elementDamageMultiplier(owner,creature.getElement());
-                double rictDamage = owner.determineDamage(creature, thisFormation, enemyFormation) + creature.getArmor();
+                double rictDamage = owner.determineDamageDealt(creature, thisFormation, enemyFormation) + creature.getArmor();//does percent armor count here?*******
                 rictDamage *= Math.pow(multiplier*(1-enemyFormation.getAOEResistance()), i);
                 
                 //patch to compensate for rico damage now not being individual to each units' element

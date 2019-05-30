@@ -30,24 +30,12 @@ public class Reflect extends SpecialAbility{
         //System.out.println(thisFormation.getFrontCreature());
         //System.out.println(damage);
         if (owner == thisFormation.getFrontCreature()){
-            damageTakenThisRound = damage;
+            damageTakenThisRound += damage;
             //System.out.println("record damage taken: " + damageTakenThisRound);
         }
     }
     
-    public void takeExecute(Creature attacker,Formation thisFormation, Formation enemyFormation, long enemyHPBefore, double percent) {
-        
-        long hpToUse = owner.getBaseHP() > owner.getMaxHP() ? owner.getBaseHP() : owner.getMaxHP();//use base for lep, max for bunnies
-        double percentHealth = (double)owner.getCurrentHP()/hpToUse;
-        
-        if (percentHealth <= percent && !owner.isDead()){
-            
-            owner.takeHit(attacker, thisFormation, enemyFormation, owner.getCurrentHP()+1);
-            //System.out.println("damage taken: " + (enemyHPBefore + 1));
-            owner.recordDamageTaken(enemyHPBefore + 1,thisFormation,enemyFormation);
-            
-        }
-    }
+    
 
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {

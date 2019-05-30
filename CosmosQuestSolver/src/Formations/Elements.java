@@ -80,11 +80,11 @@ public class Elements {
     
     
     public static double damageFromElement(Creature attacker, double baseDamage,Element elementAttacked){//use creatureAttacked instead?
-        return baseDamage * (ELEMENT_MULTIPLIER_ARRAY[attacker.getElement().ordinal()][elementAttacked.ordinal()] + attacker.getSpecialAbility().getElementDamageBoost(elementAttacked));
+        return baseDamage * (ELEMENT_MULTIPLIER_ARRAY[attacker.getElement().ordinal()][elementAttacked.ordinal()] + attacker.getMainSkill().getElementDamageBoost(elementAttacked));
     }
     
     public static double elementDamageMultiplier(Creature attacker, Element elementAttacked){//change if more elements come?
-        return ELEMENT_MULTIPLIER_ARRAY[attacker.getElement().ordinal()][elementAttacked.ordinal()] + attacker.getSpecialAbility().getElementDamageBoost(elementAttacked);
+        return ELEMENT_MULTIPLIER_ARRAY[attacker.getElement().ordinal()][elementAttacked.ordinal()] + attacker.getMainSkill().getElementDamageBoost(elementAttacked);
     }
 
 }

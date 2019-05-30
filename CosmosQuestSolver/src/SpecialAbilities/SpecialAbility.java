@@ -44,34 +44,34 @@ public abstract class SpecialAbility {
     public double getElementDamageBoost(Element element) {
         return 0;
     }
-    public void attack(Formation thisFormation, Formation enemyFormation) {
+    public void attack(Formation thisFormation, Formation enemyFormation) {//post/attack action for p6 compatability?
         enemyFormation.takeHit(owner,thisFormation);
     }
-    public void takeHit(Creature attacker,  Formation thisFormation, Formation enemyFormation, double hit) {
+    
+    public double hitAfterDefend(Creature attacker, Formation thisFormation, Formation enemyFormation, double damage){
+        return damage;
+    }
+    
+    public void takeHit(Creature attacker,  Formation thisFormation, Formation enemyFormation, double hit) {//only used by revive and melf. put this back into creature?********
         if (hit < 0){
             hit = 0;
         }
+        
         long longHit = (long)Math.ceil(hit);
         recordDamageTaken(longHit,thisFormation,enemyFormation);
-        attacker.getSpecialAbility().recordDamageDealt(longHit,thisFormation,enemyFormation);
+        attacker.getMainSkill().recordDamageDealt(longHit,thisFormation,enemyFormation);
         owner.changeHP(-hit,thisFormation);
     }
+
     
-    public void takeHeal(double amount, Formation thisFormation) {//formation variable for p6 skills?
-        owner.changeHP(amount, thisFormation);
+    public double healBoost(double amount) {//formation variable for p6 skills?
+        return 0;
     }
     
-    public void takeExecute(Creature attacker,Formation thisFormation, Formation enemyFormation, long enemyHPBefore, double percent) {
-        
+    public boolean shouldTakeExecute(double percent) {
         long hpToUse = owner.getBaseHP() > owner.getMaxHP() ? owner.getBaseHP() : owner.getMaxHP();//use base for lep, max for bunnies
         double percentHealth = (double)owner.getCurrentHP()/hpToUse;
-        
-        if (percentHealth <= percent && !owner.isDead()){
-            
-            owner.takeHit(attacker, thisFormation, enemyFormation, owner.getCurrentHP()+1);
-            owner.recordDamageTaken(enemyHPBefore + 1,thisFormation,enemyFormation);
-            
-        }
+        return percentHealth <= percent && !owner.isDead();
     }
     
     public double alterIncomingDamage(double hit, double initialHit, Formation thisFormation, Formation enemyFormation) {
@@ -148,6 +148,12 @@ public abstract class SpecialAbility {
     public void addAttBoost(int a) {
         owner.addRawAttBoost(a);
     }
+
+    public void addArmorBoost(int a) {
+        owner.addRawArmorBoost(a);
+    }
+
+    
 
     
 

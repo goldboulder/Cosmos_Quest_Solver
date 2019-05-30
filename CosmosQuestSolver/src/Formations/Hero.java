@@ -24,8 +24,8 @@ public class Hero extends Creature{
     private int promote1HP = 0;
     private int promote2Att = 0;
     private int promote4Stats = 0;
-    public SpecialAbility promote5Ability;
-    //public SpecialAbility promote6Ability;
+    public SpecialAbility promote5Skill;
+    public SpecialAbility promote6Skill;
     
     //max level obtainable by players. level 1000 heroes exist to fight, but
     //cannot be obtained
@@ -43,7 +43,7 @@ public class Hero extends Creature{
         //used for copying
     }
 
-    protected Hero(Element element, int baseAtt, int baseHP, Rarity rarity, int ID, SpecialAbility specialAbility, int promote1HP, int promote2Att, int promote4Stats, SpecialAbility promote5Ability){
+    protected Hero(Element element, int baseAtt, int baseHP, Rarity rarity, int ID, SpecialAbility specialAbility, int promote1HP, int promote2Att, int promote4Stats, SpecialAbility promote5Ability, SpecialAbility promote6Ability){
         super(element,baseAtt,baseHP);
         this.specialAbility = specialAbility;
         this.rarity = rarity;
@@ -53,20 +53,22 @@ public class Hero extends Creature{
         this.promote1HP = promote1HP;
         this.promote2Att = promote2Att;
         this.promote4Stats = promote4Stats;
-        this.promote5Ability = promote5Ability;
+        this.promote5Skill = promote5Ability;
+        this.promote6Skill = promote6Ability;
         //hero is leveled initially in creature factory, others leveled in getCopy()
     }
     
     @Override
     public void attatchSpecialAbility() {
         specialAbility.setOwner(this);
-        promote5Ability.setOwner(this);
+        promote5Skill.setOwner(this);
+        promote6Skill.setOwner(this);
     }
     
     @Override
     public void restore(){
         super.restore();
-        promote5Ability.restore();
+        promote5Skill.restore();
     }
     
     @Override
@@ -81,7 +83,9 @@ public class Hero extends Creature{
         hero.promote1HP = promote1HP;
         hero.promote2Att = promote2Att;
         hero.promote4Stats = promote4Stats;
-        hero.promote5Ability = promote5Ability.getCopyForNewOwner(hero);
+        hero.promote5Skill = promote5Skill.getCopyForNewOwner(hero);
+        if (promote6Skill != null)//*********temperary
+            hero.promote6Skill = promote6Skill.getCopyForNewOwner(hero);
         hero.levelUp(level);
         hero.promote(promoteLevel);
         hero.currentAtt = currentAtt;//for sandbox
@@ -142,9 +146,9 @@ public class Hero extends Creature{
     }
     
     @Override
-    public SpecialAbility getSpecialAbility(){
+    public SpecialAbility getMainSkill(){
         if (promoteLevel == MAX_PROMOTE_LEVEL){
-            return promote5Ability;
+            return promote5Skill;
         }
         else{
             return specialAbility;
@@ -229,6 +233,168 @@ public class Hero extends Creature{
         }
     }
     
+    //**************************************************************************
+    // p6 skills
+    //**************************************************************************
+    
+    public void addAttBoost(int a){
+        getMainSkill().addAttBoost(a);
+        if (promoteLevel >= 6){
+            promote6Skill.addAttBoost(a);
+            attConstantBoost -= a;
+        }
+    }
+    
+    public void attack(Formation thisFormation,Formation enemyFormation){//todo. not needed for p6 right now
+        getMainSkill().attack(thisFormation,enemyFormation);
+    }
+    
+    @Override
+    public int viability(){
+        return getMainSkill().viability() + promote6Skill.viability() - getBaseHP()*getBaseAtt();
+        
+    }
+    
+    @Override
+    public void takeAOEDamage(double damage, Formation formation) {
+        double newDamage = getMainSkill().alterAOEDamage(damage,formation);
+        if (promoteLevel >= 6){
+            newDamage = promote6Skill.alterAOEDamage(newDamage, formation);
+        }
+        
+        if (newDamage > 1){
+            newDamage = Math.floor(newDamage);
+        }
+        else{
+            newDamage = Math.ceil(newDamage);
+        }
+        changeHP(-newDamage,formation);
+
+    }
+    
+    @Override
+    public boolean shouldTakeExecute(double percent) {
+        if (promoteLevel < 6){
+            return getMainSkill().shouldTakeExecute(percent);
+        }
+        else{
+            return getMainSkill().shouldTakeExecute(percent) && promote6Skill.shouldTakeExecute(percent);
+        }
+    }
+    
+    @Override
+    public double determineDamageDealt(Creature target, Formation thisFormation, Formation enemyFormation){
+        double damage = attWithBoosts() + getMainSkill().extraDamage(enemyFormation,thisFormation);
+        
+        if (promoteLevel >= 6){
+            damage += promote6Skill.extraDamage(enemyFormation,thisFormation);
+        }
+        
+        damage = Elements.damageFromElement(this,damage,target.element);
+        damage = target.hitAfterDefend(this,enemyFormation,thisFormation,damage);
+        
+        if (damage < 0){
+            damage = 0;
+        }
+        return damage;
+    }
+    
+    @Override
+    public void prepareForFight(Formation thisFormation, Formation enemyFormation){
+        getMainSkill().prepareForFight(thisFormation, enemyFormation);
+        if (promoteLevel >= 6){
+            promote6Skill.prepareForFight(thisFormation, enemyFormation);
+        }
+    }
+    
+    @Override
+    public void startOfFightAction(Formation thisFormation, Formation enemyFormation) {
+        getMainSkill().startOfFightAction(thisFormation, enemyFormation);
+        if (promoteLevel >= 6){
+            promote6Skill.startOfFightAction(thisFormation, enemyFormation);
+        }
+    }
+    
+    @Override
+    public void startOfFightAction2(Formation thisFormation, Formation enemyFormation) {
+        getMainSkill().startOfFightAction2(thisFormation, enemyFormation);
+        if (promoteLevel >= 6){
+            promote6Skill.startOfFightAction2(thisFormation, enemyFormation);
+        }
+    }
+    
+    @Override
+    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {
+        getMainSkill().preRoundAction(thisFormation,enemyFormation);
+        if (promoteLevel >= 6){
+            promote6Skill.preRoundAction(thisFormation, enemyFormation);
+        }
+    }
+    
+    @Override
+    public double hitAfterDefend(Creature attacker, Formation thisFormation, Formation enemyFormation, double damage){
+        double newDamage = damage * getArmorPercent() - getArmor();
+        newDamage = getMainSkill().hitAfterDefend(attacker,thisFormation,enemyFormation,newDamage);
+        if (promoteLevel >= 6){
+            return promote6Skill.hitAfterDefend(attacker,thisFormation,enemyFormation,newDamage);
+        }
+        else{
+            return newDamage;
+        }
+    }
+    
+    public void takeHit(Creature attacker,  Formation thisFormation, Formation enemyFormation, double hit) {//todo
+        getMainSkill().takeHit(attacker, thisFormation, enemyFormation, hit);
+    }
+    
+    @Override
+    public double healBoost(double base){
+        double boost = getMainSkill().healBoost(base);
+        if (promoteLevel >= 6){
+            boost += promote6Skill.healBoost(base);
+        }
+        return boost;
+    }
+    
+    @Override
+    public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation) {
+        getMainSkill().recordDamageTaken(damage,thisFormation,enemyFormation);
+        if (promoteLevel >= 6){
+            promote6Skill.recordDamageTaken(damage,thisFormation, enemyFormation);
+        }
+    }
+    
+    @Override
+    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
+        getMainSkill().postRoundAction(thisFormation,enemyFormation);
+        if (promoteLevel >= 6){
+            promote6Skill.postRoundAction2(thisFormation, enemyFormation);
+        }
+    }
+    
+    @Override
+    public void postRoundAction2(Formation thisFormation, Formation enemyFormation) {
+        getMainSkill().postRoundAction2(thisFormation,enemyFormation);
+        if (promoteLevel >= 6){
+            promote6Skill.postRoundAction2(thisFormation, enemyFormation);
+        }
+    }
+    
+    @Override
+    public void actionOnDeath(Formation thisFormation, Formation enemyFormation) {
+        if (!performedDeathAction){//change for revive?
+            getMainSkill().deathAction(thisFormation, enemyFormation);
+            if (promoteLevel >= 6){
+                promote6Skill.deathAction(thisFormation, enemyFormation);
+            }
+            performedDeathAction = true;
+        }
+    }
+    
+    //**************************************************************************
+    //  end p6 skills
+    //**************************************************************************
+    
     public void setID(int ID){
         this.ID = ID;
     }
@@ -260,10 +426,16 @@ public class Hero extends Creature{
     
     @Override
     public String toolTipText() {
-        if (getSpecialAbility() instanceof Nothing){
+        if (getMainSkill() instanceof Nothing && promote6Skill instanceof Nothing){
             return "<html>" + getName() + "</html>";
         }
-        return "<html>" + getName() + "<br>" + getSpecialAbility().getDescription() + "</html>";
+        if (getMainSkill() instanceof Nothing && !(promote6Skill instanceof Nothing)){
+            return "<html>" + getName() + "<br>" + promote6Skill.getDescription() + "</html>";
+        }
+        if (!(getMainSkill() instanceof Nothing) && promote6Skill instanceof Nothing){
+            return "<html>" + getName() + "<br>" + getMainSkill().getDescription() + "</html>";
+        }
+        return "<html>" + getName() + "<br>" + getMainSkill().getDescription() + "<br>" + promote6Skill.getDescription() + "</html>";
     }
     
     @Override

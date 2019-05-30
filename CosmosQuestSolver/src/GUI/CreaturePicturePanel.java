@@ -48,7 +48,7 @@ public class CreaturePicturePanel extends JPanel implements MouseListener{
     
     private void setMouseOverText(){//toolTip overwrites mouseListener!!!
         if (creature != null){
-            setToolTipText(creature.getName() + ": " + creature.getSpecialAbility().getDescription());
+            setToolTipText(creature.getName() + ": " + creature.getMainSkill().getDescription());
         }
         else{
             this.setToolTipText("");
@@ -87,7 +87,7 @@ public class CreaturePicturePanel extends JPanel implements MouseListener{
         setToolTipText("<html>"
                               + creature.getName()
                               +"<br>"
-                              + creature.getSpecialAbility().getDescription()
+                              + creature.getMainSkill().getDescription()
                               + "</html>");
 */
         }

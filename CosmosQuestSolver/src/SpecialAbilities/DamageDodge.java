@@ -24,15 +24,18 @@ public class DamageDodge extends SpecialAbility{
         return new DamageDodge(newOwner,damageCap);
     }
     
+    
     @Override
-    public void takeHit(Creature attacker,  Formation thisFormation, Formation enemyFormation, double hit) {
-        if((long)Math.ceil(hit) > damageCap){
-            super.takeHit(attacker, thisFormation, enemyFormation, 0);
+    public double hitAfterDefend(Creature attacker, Formation thisFormation, Formation enemyFormation, double damage){
+        if((long)Math.ceil(damage) > damageCap){
+            return 0;
         }
         else{
-            super.takeHit(attacker, thisFormation, enemyFormation, hit);
+            return damage;
         }
     }
+    
+    
     
     
     @Override

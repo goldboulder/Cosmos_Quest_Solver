@@ -25,13 +25,19 @@ public class ScaleableAbsorbPercent extends SpecialAbility{
     public SpecialAbility getCopyForNewOwner(Creature newOwner) {
         return new ScaleableAbsorbPercent(newOwner,percentLessDamage);
     }
-    
+    /*
     @Override//ricochet attacks are affected!
     public void takeHit(Creature attacker, Formation thisFormation, Formation enemyFormation, double hit) {
             double actualPercent = roundedScaleMilestoneDouble(owner,percentLessDamage,1);
             double damageIntercepted = hit * actualPercent;//how does it work when stacked with Intercept?
             super.takeHit(attacker, thisFormation, enemyFormation, hit - damageIntercepted);
     }
+    */
+    @Override
+    public void prepareForFight(Formation thisFormation, Formation enemyFormation){
+        owner.addArmorPercentBoost(1-roundedScaleMilestoneDouble(owner,percentLessDamage,1));
+    }
+    
     
     
     @Override

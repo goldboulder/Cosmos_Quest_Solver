@@ -27,7 +27,7 @@ public class TargetedReflect extends SpecialAbility{
     @Override
     public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
         if (owner == thisFormation.getFrontCreature()){
-            damageTakenThisRound = damage;
+            damageTakenThisRound += damage;
         }
         
     }

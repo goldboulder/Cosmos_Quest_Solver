@@ -48,12 +48,35 @@ public class SpecialWorldBossOptimizer extends WorldBossOptimizer{
     @Override
     protected void bestComboPermu(){
         LinkedList<Creature> creatureList = getCreatureList();
-        Collections.sort(creatureList, (Creature c1, Creature c2) -> followerMinderViability(c2,followers)-followerMinderViability(c1,followers));
+        Collections.sort(creatureList, (Creature c1, Creature c2) -> strengthViability(c2)-strengthViability(c1));
+        
+        switch(maxCreatures){
+            case 1: creatureList = cutList(creatureList,150);break;
+            case 2: creatureList = cutList(creatureList,130);break;
+            case 3: creatureList = cutList(creatureList,110);break;
+            case 4: creatureList = cutList(creatureList,90);break;
+            case 5: creatureList = cutList(creatureList,70);break;
+            case 6: creatureList = cutList(creatureList,74);break;
+        }
+        
+        
         sendCreatureList(creatureList);
         //testList(creatureList);
         tryCombinations(creatureList);
     }
+    
+    public static LinkedList<Creature> cutList(LinkedList<Creature> list, int cutOff){//switch everything to arrayList
+        if (list.size() <= cutOff){
+            return list;
+        }
+        LinkedList<Creature> newList = new LinkedList<>();
+        for (int i = 0; i < cutOff; i++){
+            newList.add(list.get(i));
+        }
         
+        return newList;
+        
+    }
         
         
     @Override

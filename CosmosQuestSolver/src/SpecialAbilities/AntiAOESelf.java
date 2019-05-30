@@ -24,8 +24,8 @@ public class AntiAOESelf extends SpecialAbility{
     }
     
     @Override
-    public void takeExecute(Creature attacker,Formation thisFormation, Formation enemyFormation, long enemyHPBefore, double percent) {
-        super.takeExecute(attacker,thisFormation, enemyFormation, enemyHPBefore, percent*(1-this.percent));
+    public boolean shouldTakeExecute(double percent) {
+        return super.shouldTakeExecute(percent*(1-this.percent));
     }
 
     @Override

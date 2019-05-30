@@ -7,6 +7,7 @@ import Formations.Creature;
 import Formations.Formation;
 import Formations.Hero;
 import GUI.QuestSolverFrame;
+import java.util.Collections;
 import java.util.LinkedList;
 
 //used by WeirdHeroQuestSolver
@@ -33,6 +34,7 @@ public class SpecialQuestSolver extends QuestSolver{
         enemyFormation = frame.getEnemyFormation();
     }
         
+    
         
     @Override
     protected void tooManyPrioritizedCreaturesMessage() {

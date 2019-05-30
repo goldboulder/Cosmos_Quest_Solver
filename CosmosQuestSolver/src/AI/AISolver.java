@@ -196,16 +196,16 @@ public abstract class AISolver extends Thread{
     
     protected int strengthViability(Creature c){
         if (c instanceof Hero){
-            return 1000000000 + c.getSpecialAbility().viability();
-            //return 20 * c.getSpecialAbility().viability();
+            return 1000000000 + c.getMainSkill().viability();
+            //return 20 * c.getMainSkill().viability();
         }
-        return c.getSpecialAbility().viability();
+        return c.getMainSkill().viability();
         
     }
-    
+    /*
     protected int followerMinderViability(Creature c, long averageFollowers){
         if (c instanceof Hero){
-            return 1000000000 + c.getSpecialAbility().viability();//heroes still get top priority because they don't cost followers
+            return 1000000000 + c.getMainSkill().viability();//heroes still get top priority because they don't cost followers
             
         }
         else{
@@ -223,7 +223,7 @@ public abstract class AISolver extends Thread{
              
         }
     }
-
+*/
     public void recieveRefine() {
         //to be overridden
     }

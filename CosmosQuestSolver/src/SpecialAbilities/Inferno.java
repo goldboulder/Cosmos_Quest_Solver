@@ -20,8 +20,8 @@ public class Inferno extends SpecialAbility{
     }
     
     @Override
-    public void attack(Formation thisFormation, Formation enemyFormation) {//anti-aoe?
-        super.attack(thisFormation,enemyFormation);
+    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//anti-aoe?
+        //super.attack(thisFormation,enemyFormation);
         enemyFormation.takeAOEDamage(Math.round(owner.getCurrentAtt() * percent));
         for (Creature c : thisFormation){
             if (c != owner){
@@ -42,7 +42,7 @@ public class Inferno extends SpecialAbility{
 
     @Override
     public int viability() {
-        return owner.getBaseHP() * owner.getBaseAtt();
+        return (int)(owner.getBaseHP() * owner.getBaseAtt() * 1.8);
     }
 
     @Override

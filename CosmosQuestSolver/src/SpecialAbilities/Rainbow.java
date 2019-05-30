@@ -45,7 +45,7 @@ public class Rainbow extends SpecialAbility{
         
         boolean foundOwner = false;
         for (Creature creature : thisFormation){
-            if (foundOwner && !creature.isDead()){
+            if (foundOwner && !creature.isDead() && creature.getElement() != Elements.Element.VOID){
                 elements[creature.getElement().ordinal()] = true;
             }
             if (creature == owner){

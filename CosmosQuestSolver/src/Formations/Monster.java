@@ -14,7 +14,7 @@ import java.awt.Graphics;
 public class Monster extends Creature {
 
     public static final int TOTAL_UNIQUE_TIERS = 15;
-    public static final String[] REPEAT_TIER_STRING = new String[]{"","Furious "};
+    public static final String[] REPEAT_TIER_STRING = new String[]{"","Furious ","Raging "};
     public static final int TOTAL_TIERS = TOTAL_UNIQUE_TIERS * REPEAT_TIER_STRING.length;
     
     private long followers;// number of followers needed to use the monster

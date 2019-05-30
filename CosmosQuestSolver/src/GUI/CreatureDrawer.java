@@ -35,14 +35,14 @@ public class CreatureDrawer {
     public static final Color BUFFED_STATS_COLOR = Color.GREEN;
     public static final Color NERFED_STATS_COLOR = Color.RED;
     
-    public static void drawAura(Creature c, Graphics g){
+    public static void drawFuriousAura(Creature c, Graphics g){
         BufferedImage image = null;
         switch(c.getElement()){
             case AIR: g.drawImage(ImageFactory.getPicture("Stands/Air Aura"), 10, 46, 80, 34, null); break;
             case WATER: g.drawImage(ImageFactory.getPicture("Stands/Water Aura"), 10, 55, 80, 29, null); break;
             case EARTH: g.drawImage(ImageFactory.getPicture("Stands/Earth Aura"), 10, 44, 80, 41, null); break;
             case FIRE: g.drawImage(ImageFactory.getPicture("Stands/Fire Aura"), 10, 50, 80, 36, null); break;
-            case VOID: g.drawImage(ImageFactory.getPicture("Stands/Void Aura"), 10, 50, 80, 36, null); break;
+            case VOID: g.drawImage(ImageFactory.getPicture("Stands/Raging Aura"), 10, 48, 80, 36, null); break;
             default: image = ImageFactory.getDefaultImage();
         }
         g.drawImage(image, MONSTER_ELEMENT_X, MONSTER_ELEMENT_Y, MONSTER_ELEMENT_SIZE, MONSTER_ELEMENT_SIZE, null);
@@ -205,8 +205,8 @@ public class CreatureDrawer {
             g.drawImage(image, AssetPanel.CREATURE_PICTURE_SIZE - CREATURE_X, CREATURE_Y, -CREATURE_WIDTH, CREATURE_HEIGHT, null);
         }
         
-        if (drawFuriousAura(h)){
-            drawAura(h,g);
+        if (CreatureDrawer.drawFuriousAura(h)){
+            drawFuriousAura(h,g);
         }
         
     }
@@ -368,8 +368,12 @@ public class CreatureDrawer {
             g.drawImage(image, AssetPanel.CREATURE_PICTURE_SIZE - CREATURE_X, CREATURE_Y, -CREATURE_WIDTH, CREATURE_HEIGHT, null);
         }
         
-        if (m.getTier() > Monster.TOTAL_UNIQUE_TIERS){
-            drawAura(m,g);
+        //draw aura
+        if (m.getTier() > Monster.TOTAL_UNIQUE_TIERS && m.getTier() <= Monster.TOTAL_UNIQUE_TIERS * 2){
+            drawFuriousAura(m,g);
+        }
+        else if (m.getTier() > Monster.TOTAL_UNIQUE_TIERS * 2){
+            g.drawImage(ImageFactory.getPicture("Stands/Raging Aura"), 10, 46, 80, 34, null);
         }
         
     }

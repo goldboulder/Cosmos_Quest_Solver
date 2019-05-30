@@ -57,10 +57,12 @@ public class WorldBossOptimizer extends AISolver{
         maxCreatures = frame.getMaxCreatures();
         heroes = frame.getHeroesWithoutPrioritization();
         prioritizedHeroes = frame.getPrioritizedHeroes();
+        //create boss formation
         LinkedList<Creature> list = new LinkedList<>();
         list.add(frame.getBoss());
         bossFormation = new Formation(list);
-        NHWBEasy = heroes.length == 0 && prioritizedHeroes.length == 0 && frame.getBoss().getSpecialAbility().WBNHEasy();
+        
+        NHWBEasy = heroes.length == 0 && prioritizedHeroes.length == 0 && frame.getBoss().getMainSkill().WBNHEasy();
     }
 
     
@@ -74,14 +76,14 @@ public class WorldBossOptimizer extends AISolver{
     }
     
     private void sortCreatureList(LinkedList<Creature> creatureList){
-        int numStrongerHeroes = numHeroesStronger();//than average monster? 
-        if (numStrongerHeroes < maxCreatures-1){
-            long averageFollowers = followers/(maxCreatures-numStrongerHeroes);
-            Collections.sort(creatureList, (Creature c1, Creature c2) -> followerMinderViability(c2,averageFollowers)-followerMinderViability(c1,averageFollowers));
-        }
-        else{
+        //int numStrongerHeroes = numHeroesStronger();//than average monster? 
+        //if (numStrongerHeroes < maxCreatures-1){
+            //long averageFollowers = followers/(maxCreatures-numStrongerHeroes);
+            //Collections.sort(creatureList, (Creature c1, Creature c2) -> followerMinderViability(c2,averageFollowers)-followerMinderViability(c1,averageFollowers));
+        //}
+        //else{
             Collections.sort(creatureList, (Creature c1, Creature c2) -> strengthViability(c2)-strengthViability(c1));
-        }
+        //}
     }
     
     protected void tryCombinations(LinkedList<Creature> creatureList){//same as in QuestSolver?
@@ -173,7 +175,7 @@ public class WorldBossOptimizer extends AISolver{
         }
         return baseViability;
     }
-    
+    /*
     @Override//don't need
     protected int followerMinderViability(Creature c, long averageFollowers){
         int baseViability = super.followerMinderViability(c, averageFollowers);
@@ -185,7 +187,7 @@ public class WorldBossOptimizer extends AISolver{
         }
         return baseViability;
     }
-    
+    */
     
     /*
     private void test(){

@@ -26,14 +26,9 @@ public class Execute extends SpecialAbility{
         long enemyHPBefore = victem.getCurrentHP();
         super.attack(thisFormation,enemyFormation);
         
-        victem.takeExecute(owner,enemyFormation,thisFormation,enemyHPBefore,percent);
-        //long hpToUse = victem.getBaseHP() > victem.getMaxHP() ? victem.getBaseHP() : victem.getMaxHP();//use base for lep, max for bunnies
-        //double percentHealth = (double)victem.getCurrentHP()/hpToUse;
-            
-        //if (percentHealth <= percent && !victem.isDead()){
-            //victem.takeHit(owner, enemyFormation, thisFormation, victem.getCurrentHP()+1);
-            //victem.recordDamageTaken(enemyHPBefore + 1,enemyFormation,thisFormation);
-        //}
+        if (victem.shouldTakeExecute(percent)){
+            victem.takeExecute(owner,enemyFormation,thisFormation,enemyHPBefore);
+        }
         
     }
     

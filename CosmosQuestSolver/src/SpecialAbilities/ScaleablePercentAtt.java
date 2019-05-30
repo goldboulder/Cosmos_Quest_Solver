@@ -27,18 +27,22 @@ public class ScaleablePercentAtt extends SpecialAbility{
     public SpecialAbility getCopyForNewOwner(Creature newOwner) {
         return new ScaleablePercentAtt(newOwner,percent);
     }
-    
+    /*
     @Override
-    public double extraDamage(Formation thisFormation, Formation enemyFormation){//damage boost from other heroes stacks with crit
+    public double extraDamage(Formation thisFormation, Formation enemyFormation){//does not stack with element boost
         return enemyFormation.getFrontCreature().getMaxHP() * roundedScaleMilestoneDouble(owner,percent,1);
     }
-
-    @Override//affected by elementDamageBoost?*
-    public void attack(Formation thisFormation, Formation enemyFormation) {
-        //Creature c = enemyFormation.getFrontCreature();
-        
-        //c.takeHit(owner, enemyFormation, thisFormation, Math.floor(c.getMaxHP() * roundedScaleMilestoneDouble(owner,percent,1)));//max or current? before or after attack?***
+    */
+    @Override
+    public void attack(Formation thisFormation, Formation enemyFormation) {//post/attack action for p6 compatability?
+        Creature victem = enemyFormation.getFrontCreature();
+        //long enemyHPBefore = victem.getCurrentHP();
         super.attack(thisFormation, enemyFormation);
+        
+        //double extraHit = victem.getMaxHP() * roundedScaleMilestoneDouble(owner,percent,1);
+        victem.takeHit(owner,enemyFormation,thisFormation,victem.getMaxHP() * roundedScaleMilestoneDouble(owner,percent,1));
+        //victem.recordDamageTaken(victem.getMainSkill().getDamageTaken() + extraHit,thisFormation,enemyFormation);
+        
     }
     
     @Override

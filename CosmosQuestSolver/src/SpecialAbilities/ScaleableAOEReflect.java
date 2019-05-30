@@ -28,7 +28,7 @@ public class ScaleableAOEReflect extends SpecialAbility{
 
     @Override
     public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){//is this skill asymetric? (which side you're on matters)
-        damageTakenThisRound = damage;
+        damageTakenThisRound += damage;
     }
 
     @Override

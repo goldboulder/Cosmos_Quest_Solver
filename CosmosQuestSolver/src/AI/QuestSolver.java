@@ -65,6 +65,16 @@ public class QuestSolver extends AISolver{
     //tests formations most likeley to win (by heuristic) first
     protected void bestComboPermu(){
         LinkedList<Creature> creatureList = getCreatureList();
+        
+        switch(maxCreatures){
+            case 1: creatureList = SpecialWorldBossOptimizer.cutList(creatureList,150);break;
+            case 2: creatureList = SpecialWorldBossOptimizer.cutList(creatureList,130);break;
+            case 3: creatureList = SpecialWorldBossOptimizer.cutList(creatureList,110);break;
+            case 4: creatureList = SpecialWorldBossOptimizer.cutList(creatureList,90);break;
+            case 5: creatureList = SpecialWorldBossOptimizer.cutList(creatureList,70);break;
+            case 6: creatureList = SpecialWorldBossOptimizer.cutList(creatureList,74);break;
+        }
+        
         sortCreatureList(creatureList);
         sendCreatureList(creatureList);
         if (creatureList.size() < maxCreatures){
@@ -77,13 +87,13 @@ public class QuestSolver extends AISolver{
     //likely to produce a solution first. If hero viability outweighs monster viability, sorts by viability.
     protected void sortCreatureList(LinkedList<Creature> creatureList){//debug for not all heroes being first over monsters*******
         int numStrongerHeroes = numHeroesStronger();//than average monster? 
-        if (mindFollowers()){
-            long averageFollowers = followers/(maxCreatures-numStrongerHeroes);
-            Collections.sort(creatureList, (Creature c1, Creature c2) -> followerMinderViability(c2,averageFollowers)-followerMinderViability(c1,averageFollowers));
-        }
-        else{
+        //if (mindFollowers()){
+            //long averageFollowers = followers/(maxCreatures-numStrongerHeroes);
+            //Collections.sort(creatureList, (Creature c1, Creature c2) -> followerMinderViability(c2,averageFollowers)-followerMinderViability(c1,averageFollowers));
+        //}
+        //else{
             Collections.sort(creatureList, (Creature c1, Creature c2) -> strengthViability(c2)-strengthViability(c1));
-        }
+        //}
     }
     
     

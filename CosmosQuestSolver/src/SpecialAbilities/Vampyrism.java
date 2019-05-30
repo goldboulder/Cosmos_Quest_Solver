@@ -32,7 +32,7 @@ public class Vampyrism extends SpecialAbility{ //rounding?
     
     @Override
     public void recordDamageDealt(long damage, Formation thisFormation, Formation enemyFormation){
-        damageDealtThisRound = damage;
+        damageDealtThisRound += damage;
     }
 
     @Override
