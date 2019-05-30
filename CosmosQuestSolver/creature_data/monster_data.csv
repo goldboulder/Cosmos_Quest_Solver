@@ -1,19 +1,19 @@
 Name,Element,Attack,Health,Tier,Followers,Skill
-Raging Ginnun,Air,6419,5277,45,1.97E+11,Nothing
-Raging Brahma,Air,4917,5789,44,1.52E+11,Nothing
-Raging Chronos,Air,4834,4834,43,1.13E+11,Nothing
-Raging World Egg,Air,4931,3797,42,81010000000,Nothing
-Raging The Norns,Air,3273,4484,41,56220000000,Nothing
-Raging Ophion,Air,3430,3363,40,39170000000,Nothing
-Raging Hecatoncheires,Air,3487,2540,39,26350000000,Nothing
-Raging Typhon,Air,3174,2082,38,16980000000,Nothing
-Raging Anka,Air,1566,2919,37,9770000000,Nothing
-Raging Manticore,Air,1709,1994,36,2600000000,Nothing
-Raging Bailong,Air,1594,1609,35,2050000000,Nothing
-Raging Quetzalcoatl,Air,1183,1715,34,1440000000,Nothing
-Raging Griffin,Air,1457,1105,33,1020000000,Nothing
-Raging Harpy,Air,1138,1089,32,689000000,Nothing
-Raging Kodama,Air,950,973,31,444000000,Nothing
+Raging Ginnun,Air,6419,5277,45,197143156000,Nothing
+Raging Brahma,Air,4917,5789,44,151864280000,Nothing
+Raging Chronos,Air,4834,4834,43,112958766000,Nothing
+Raging World Egg,Air,4931,3797,42,81014620000,Nothing
+Raging The Norns,Air,3273,4484,41,56223440000,Nothing
+Raging Ophion,Air,3430,3363,40,39177027000,Nothing
+Raging Hecatoncheires,Air,3487,2540,39,26358974000,Nothing
+Raging Typhon,Air,3174,2082,38,16987578000,Nothing
+Raging Anka,Air,1566,2919,37,9773245000,Nothing
+Raging Manticore,Air,1709,1994,36,62907270000,Nothing
+Raging Bailong,Air,1594,1609,35,2053698000,Nothing
+Raging Quetzalcoatl,Air,1183,1715,34,1444918500,Nothing
+Raging Griffin,Air,1457,1105,33,1021416000,Nothing
+Raging Harpy,Air,1138,1089,32,689803000,Nothing
+Raging Kodama,Air,950,973,31,444349500,Nothing
 Furious Ginnun,Air,906,700,30,252527500,Nothing
 Furious Brahma,Air,616,834,29,184115000,Nothing
 Furious Chronos,Air,642,644,28,132923000,Nothing
@@ -44,21 +44,21 @@ Quetzalcoatl,Air,26,24,4,7500,Nothing
 Griffin,Air,12,36,3,4000,Nothing
 Harpy,Air,6,48,2,1950,Nothing
 Kodama,Air,8,20,1,500,Nothing
-Raging Nun,Water,5231,6357,45,1.92E+11,Nothing
-Raging Niflheim,Water,5299,5299,44,1.49E+11,Nothing
-Raging Ogenos,Water,4574,5014,43,1.10E+11,Nothing
-Raging Cailleach,Water,4571,4012,42,78530000000,Nothing
-Raging Jormungandr,Water,3791,3791,41,54480000000,Nothing
-Raging Cthulhu,Water,3517,3053,40,35180000000,Nothing
-Raging Poseidon,Water,2837,2973,39,24490000000,Nothing
-Raging Leviathan,Water,2525,2525,38,16090000000,Nothing
-Raging Kraken,Water,2529,2069,37,11960000000,Nothing
-Raging Hydra,Water,1808,2018,36,6960000000,Nothing
-Raging Hippocampus,Water,1929,1419,35,2260000000,Nothing
-Raging Yeti,Water,1434,1438,34,1480000000,Nothing
-Raging Mermaid,Water,939,1620,33,938000000,Nothing
-Raging Dakuwaqa,Water,1512,754,32,608000000,Nothing
-Raging Navi,Water,995,995,31,492000000,Nothing
+Raging Nun,Water,5231,6357,45,191758841000,Nothing
+Raging Niflheim,Water,5299,5299,44,148792746000,Nothing
+Raging Ogenos,Water,4574,5014,43,109829937000,Nothing
+Raging Cailleach,Water,4571,4012,42,78534090000,Nothing
+Raging Jormungandr,Water,3791,3791,41,54483043000,Nothing
+Raging Cthulhu,Water,3517,3053,40,35184287000,Nothing
+Raging Poseidon,Water,2837,2973,39,24495221000,Nothing
+Raging Leviathan,Water,2525,2525,38,16098453000,Nothing
+Raging Kraken,Water,2529,2069,37,11969168000,Nothing
+Raging Hydra,Water,1808,2018,36,6969143000,Nothing
+Raging Hippocampus,Water,1929,1419,35,2264341500,Nothing
+Raging Yeti,Water,1434,1438,34,1480580500,Nothing
+Raging Mermaid,Water,939,1620,33,938082000,Nothing
+Raging Dakuwaqa,Water,1512,754,32,608632000,Nothing
+Raging Navi,Water,995,995,31,492537500,Nothing
 Furious Nun,Water,802,802,30,257924500,Nothing
 Furious Niflheim,Water,512,1008,29,185380500,Nothing
 Furious Ogenos,Water,536,762,28,130511500,Nothing
@@ -89,21 +89,21 @@ Yeti,Water,20,36,4,9000,Nothing
 Mermaid,Water,24,18,3,4000,Nothing
 Dakuwaqa,Water,12,24,2,1950,Nothing
 Navi,Water,6,30,1,700,Nothing
-Raging Kailas,Earth,6421,5079,45,1.86E+11,Nothing
-Raging Yggdrasil,Earth,4948,5569,44,1.45E+11,Nothing
-Raging Gea,Earth,5318,4209,43,1.06E+11,Nothing
-Raging Liche,Earth,4264,4264,42,77520000000,Nothing
-Raging Fenrir,Earth,4111,3413,41,52550000000,Nothing
-Raging Akupara,Earth,3038,3496,40,34610000000,Nothing
-Raging Moai Golem,Earth,2888,2888,39,24080000000,Nothing
-Raging Ammit,Earth,2842,2279,38,16480000000,Nothing
-Raging Chimera,Earth,2311,2012,37,10020000000,Nothing
-Raging Alraune,Earth,1902,1842,36,6500000000,Nothing
-Raging Sphinx,Earth,1639,1639,35,2200000000,Nothing
-Raging Ent,Earth,1772,1152,34,1450000000,Nothing
-Raging Centaur,Earth,1029,1545,33,1000000000,Nothing
-Raging Alux,Earth,1116,1110,32,689000000,Nothing
-Raging Sapling,Earth,739,1187,31,410000000,Nothing
+Raging Kailas,Earth,6421,5079,45,186239297000,Nothing
+Raging Yggdrasil,Earth,4948,5569,44,144647311000,Nothing
+Raging Gea,Earth,5318,4209,43,105898763000,Nothing
+Raging Liche,Earth,4264,4264,42,77526752000,Nothing
+Raging Fenrir,Earth,4111,3413,41,52556405000,Nothing
+Raging Akupara,Earth,3038,3496,40,34612964000,Nothing
+Raging Moai Golem,Earth,2888,2888,39,24087491000,Nothing
+Raging Ammit,Earth,2842,2279,38,16483620000,Nothing
+Raging Chimera,Earth,2311,2012,37,10026327000,Nothing
+Raging Alraune,Earth,1902,1842,36,6557680000,Nothing
+Raging Sphinx,Earth,1639,1639,35,2201440000,Nothing
+Raging Ent,Earth,1772,1152,34,1458291500,Nothing
+Raging Centaur,Earth,1029,1545,33,1002272500,Nothing
+Raging Alux,Earth,1116,1110,32,689367500,Nothing
+Raging Sapling,Earth,739,1187,31,410783500,Nothing
 Furious Kailas,Earth,614,1022,30,248541000,Nothing
 Furious Yggdrasil,Earth,614,830,29,181902500,Nothing
 Furious Gea,Earth,540,770,28,134058500,Nothing
@@ -134,21 +134,21 @@ Ent,Earth,10,72,4,9000,Nothing
 Centaur,Earth,16,26,3,3750,Nothing
 Alux,Earth,8,30,2,1350,Nothing
 Sapling,Earth,4,44,1,650,Nothing
-Raging Chaos,Fire,5231,6357,45,2.02E+11,Nothing
-Raging Ra,Fire,6112,4559,44,1.47E+11,Nothing
-Raging Bahamut,Fire,4831,4831,43,1.13E+11,Nothing
-Raging Surtur,Fire,4112,4527,42,80310000000,Nothing
-Raging Huitzilopochtli,Fire,3814,3814,41,55480000000,Nothing
-Raging Beelzebub,Fire,3621,2989,40,35600000000,Nothing
-Raging Balrog,Fire,2657,3089,39,23510000000,Nothing
-Raging Phoenix,Fire,2388,2578,38,15270000000,Nothing
-Raging Ifrit,Fire,2111,1989,37,8600000000,Nothing
-Raging Gargoyle,Fire,2028,1634,36,6030000000,Nothing
-Raging Cherufe,Fire,1121,2119,35,1830000000,Nothing
-Raging Wyvern,Fire,1664,1224,34,1450000000,Nothing
-Raging Hellhound,Fire,1257,1257,33,993000000,Nothing
-Raging Fox Spirit,Fire,1028,1230,32,710000000,Nothing
-Raging Will-o-the-whisp,Fire,1139,815,31,447000000,Nothing
+Raging Chaos,Fire,5231,6357,45,202365391000,Nothing
+Raging Ra,Fire,6112,4559,44,147088733000,Nothing
+Raging Bahamut,Fire,4831,4831,43,112748588000,Nothing
+Raging Surtur,Fire,4112,4527,42,80314766000,Nothing
+Raging Huitzilopochtli,Fire,3814,3814,41,55480717000,Nothing
+Raging Beelzebub,Fire,3621,2989,40,35606695000,Nothing
+Raging Balrog,Fire,2657,3089,39,23513333000,Nothing
+Raging Phoenix,Fire,2388,2578,38,15274811000,Nothing
+Raging Ifrit,Fire,2111,1989,37,8603685000,Nothing
+Raging Gargoyle,Fire,2028,1634,36,6032259000,Nothing
+Raging Cherufe,Fire,1121,2119,35,1830521500,Nothing
+Raging Wyvern,Fire,1664,1224,34,1453356500,Nothing
+Raging Hellhound,Fire,1257,1257,33,993061000,Nothing
+Raging Fox Spirit,Fire,1028,1230,32,710914500,Nothing
+Raging Will-o-the-whisp,Fire,1139,815,31,447190000,Nothing
 Furious Chaos,Fire,690,930,30,257020000,Nothing
 Furious Ra,Fire,676,746,29,179059500,Nothing
 Furious Bahamut,Fire,552,746,28,132125000,Nothing
