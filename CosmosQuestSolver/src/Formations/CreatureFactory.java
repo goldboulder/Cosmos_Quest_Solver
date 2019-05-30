@@ -508,7 +508,7 @@ public class CreatureFactory {
             System.out.println("Error reading hero data file");
         }
         //nullCreature
-        nullCreature = new Hero(Element.VOID,0,0,Rarity.COMMON,0,new Nothing(null),0,0,0, new Nothing(null), new Nothing(null));//use instead of multiple threads?
+        nullCreature = new Hero(Element.VOID,0,0,Rarity.COMMON,-1,new Nothing(null),0,0,0, new Nothing(null), new Nothing(null));//use instead of multiple threads?
         nullCreature.attatchSpecialAbility();
         //heroes.put("Nothing",nullCreature);
         //heroes.put(name.toLowerCase(),nullCreature);
