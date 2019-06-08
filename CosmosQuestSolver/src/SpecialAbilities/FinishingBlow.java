@@ -8,16 +8,16 @@ import Formations.Formation;
 
 //After attacking, insta-kills an enemy if they have less than a given percentage
 //of health.
-//used by season 6 heroes
-public class Execute extends SpecialAbility{
+//used by 4tz4r
+public class FinishingBlow extends SpecialAbility{
     
-    private double percent;
+    private int threshold;
     private Creature victem;
     private long enemyHPBefore;
     
-    public Execute(Creature owner, double percent){
+    public FinishingBlow(Creature owner, int threshold){
         super(owner);
-        this.percent = percent;
+        this.threshold = threshold;
     }
     
     @Override
@@ -32,7 +32,7 @@ public class Execute extends SpecialAbility{
         
         //super.attack(thisFormation,enemyFormation);
         
-        if (victem.shouldTakePercentExecute(percent)){
+        if (victem.shouldTakeConstantExecute(threshold)){
             victem.takeExecute(owner,enemyFormation,thisFormation,enemyHPBefore);
         }
         
@@ -41,23 +41,22 @@ public class Execute extends SpecialAbility{
 
     @Override
     public SpecialAbility getCopyForNewOwner(Creature newOwner) {
-        return new Execute(newOwner,percent);
+        return new FinishingBlow(newOwner,threshold);
     }
 
     @Override
     public String getDescription() {
-        String percentStr = Integer.toString((int)(percent * 100));
-        return "After attacking, insta-kills if enemy is under " + percentStr + "% health";
+        return "After attacking, insta-kills if enemy is under " + threshold + " health";
     }
     
     @Override
     public String getParseString() {
-        return this.getClass().getSimpleName() + " " + percent;
+        return this.getClass().getSimpleName() + " " + threshold;
     }
 
     @Override
     public int viability() {
-        return (int)(owner.getBaseHP() * owner.getBaseAtt() * (1+(2.5*percent)));
+        return owner.getBaseHP() * (owner.getBaseAtt() + threshold/2);
     }
 
     @Override

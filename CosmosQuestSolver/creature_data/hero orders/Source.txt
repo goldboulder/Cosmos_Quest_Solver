@@ -46,6 +46,9 @@ The Wanderer
 Bortles
 Murphy
 Nerissa
+4th05
+4tz4r
+R31
 Ascended Alpha
 Ascended Athos
 Ascended Rei
@@ -62,6 +65,7 @@ Ascended Defile
 Ascended Seethe
 Ascended Wanderer
 Ascended Nerissa
+45c3nd3d R31
 Valor
 Rokka
 Pyromancer
@@ -159,6 +163,7 @@ Neil
 Guy
 Cupid
 Mother
+Tetra
 Dicemaster
 Luxurius Maximus
 Pokerface

@@ -604,6 +604,7 @@ public class CreatureFactory {
             case "ExtraArmorBoost": return new ExtraArmorBoost(null,Double.parseDouble(tokens[1]));
             case "ExtraAttackBoost": return new ExtraAttackBoost(null,Double.parseDouble(tokens[1]));
             case "ExtraHeal": return new ExtraHeal(null,Double.parseDouble(tokens[1]));
+            case "FinishingBlow": return new FinishingBlow(null,Integer.parseInt(tokens[1]));
             case "Fortify": return new Fortify(null,Integer.parseInt(tokens[1]));
             case "Heal": return new Heal(null,Integer.parseInt(tokens[1]));
             case "HealFirst": return new HealFirst(null,Integer.parseInt(tokens[1]));
@@ -618,6 +619,7 @@ public class CreatureFactory {
             case "Rainbow": return new Rainbow(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
             case "RandomStatBoost": return new RandomStatBoost(null,Integer.parseInt(tokens[1]));
             case "RandomTarget": return new RandomTarget(null,Boolean.parseBoolean(tokens[1]));
+            case "RangedAttack": return new RangedAttack(null,Integer.parseInt(tokens[1]));
             case "Reflect": return new Reflect(null,Double.parseDouble(tokens[1]));
             case "Regenerate": return new Regenerate(null,Double.parseDouble(tokens[1]));
             case "Revenge": return new Revenge(null,Double.parseDouble(tokens[1]));
@@ -635,6 +637,7 @@ public class CreatureFactory {
             case "ScaleableStartingDamage": return new ScaleableStartingDamage(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableStatAura": return new ScaleableStatAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Elements.parseElement(tokens[3]),Double.parseDouble(tokens[4]));
             case "ScaleableUnitBuff": return new ScaleableUnitBuff(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]));
+            case "SelfArmor": return new SelfArmor(null,Integer.parseInt(tokens[1]));
             case "TargetedReflect": return new TargetedReflect(null,Double.parseDouble(tokens[1]));
             case "Thorns": return new Thorns(null,Integer.parseInt(tokens[1]));
             case "Train": return new Train(null,Integer.parseInt(tokens[1]));
@@ -644,6 +647,7 @@ public class CreatureFactory {
             case "Simmer": return new Simmer(null,Double.parseDouble(tokens[1]));
             case "UnitBuff": return new UnitBuff(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
             case "Vampyrism": return new Vampyrism(null,Double.parseDouble(tokens[1]));
+            case "WildCard": return new WildCard(null,Double.parseDouble(tokens[1]));
             case "Wither": return new Wither(null,Double.parseDouble(tokens[1]));
             case "Wrath": return new Wrath(null,Integer.parseInt(tokens[1]));
             case "WrathPercentAtt": return new WrathPercentAtt(null,Double.parseDouble(tokens[1]));

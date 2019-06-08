@@ -31,7 +31,7 @@ public class Hero extends Creature{
     //cannot be obtained
     public static final int MAX_NORMAL_LEVEL = 99;
     
-    public static final int MAX_PROMOTE_LEVEL = 5;
+    public static final int MAX_PROMOTE_LEVEL = 6;
     
     
     
@@ -147,7 +147,7 @@ public class Hero extends Creature{
     
     @Override
     public SpecialAbility getMainSkill(){
-        if (promoteLevel == MAX_PROMOTE_LEVEL){
+        if (promoteLevel >= 5){
             return promote5Skill;
         }
         else{
@@ -245,8 +245,12 @@ public class Hero extends Creature{
         }
     }
     
-    public void attack(Formation thisFormation,Formation enemyFormation){//todo. not needed for p6 right now
-        getMainSkill().attack(thisFormation,enemyFormation);
+    @Override
+    public void attack(Formation thisFormation,Formation enemyFormation){
+        super.attack(thisFormation, enemyFormation);
+        if (promoteLevel >= 6){
+            promote6Skill.postAttackAction(thisFormation, enemyFormation);
+        }
     }
     
     @Override
@@ -273,12 +277,12 @@ public class Hero extends Creature{
     }
     
     @Override
-    public boolean shouldTakeExecute(double percent) {
+    public boolean shouldTakePercentExecute(double percent) {
         if (promoteLevel < 6){
-            return getMainSkill().shouldTakeExecute(percent);
+            return getMainSkill().shouldTakePercentExecute(percent);
         }
         else{
-            return getMainSkill().shouldTakeExecute(percent) && promote6Skill.shouldTakeExecute(percent);
+            return getMainSkill().shouldTakePercentExecute(percent) && promote6Skill.shouldTakePercentExecute(percent);
         }
     }
     

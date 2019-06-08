@@ -34,10 +34,10 @@ public class ScaleablePercentAtt extends SpecialAbility{
     }
     */
     @Override
-    public void attack(Formation thisFormation, Formation enemyFormation) {//post/attack action for p6 compatability?
+    public void postAttackAction(Formation thisFormation, Formation enemyFormation) {//post/attack action for p6 compatability?
         Creature victem = enemyFormation.getFrontCreature();
         //long enemyHPBefore = victem.getCurrentHP();
-        super.attack(thisFormation, enemyFormation);
+        //super.attack(thisFormation, enemyFormation);
         
         //double extraHit = victem.getMaxHP() * roundedScaleMilestoneDouble(owner,percent,1);
         victem.takeHit(owner,enemyFormation,thisFormation,victem.getMaxHP() * roundedScaleMilestoneDouble(owner,percent,1));

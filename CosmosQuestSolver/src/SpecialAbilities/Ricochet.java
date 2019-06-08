@@ -111,8 +111,7 @@ public class Ricochet extends SpecialAbility{
 
     
     @Override
-    public void attack(Formation thisFormation, Formation enemyFormation) {
-        super.attack(thisFormation,enemyFormation);
+    public void postAttackAction(Formation thisFormation, Formation enemyFormation) {
         
         int bouncesLeft = numBounces;
         double hitElementMultiplier = Elements.elementDamageMultiplier(owner,enemyFormation.getFrontCreature().getElement());

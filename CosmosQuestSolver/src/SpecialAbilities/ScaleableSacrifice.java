@@ -22,10 +22,6 @@ public class ScaleableSacrifice extends SpecialAbility{
         this.sacrificeAmount = sacrificeAmount;
     }
     
-    @Override
-    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {
-        
-    }
 
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {

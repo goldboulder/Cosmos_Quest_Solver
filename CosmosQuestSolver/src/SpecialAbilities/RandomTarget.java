@@ -15,6 +15,7 @@ public class RandomTarget extends SpecialAbility{
     private int turn = 0;
     private long seed = -1;
     private boolean ignoreFirst;
+    private long tempAttack;
     
     public RandomTarget(Creature owner, boolean ignoreFirst) {
         super(owner);
@@ -41,12 +42,13 @@ public class RandomTarget extends SpecialAbility{
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation){
         turn ++;
+        owner.setCurrentAtt(tempAttack);
     }
     
     //Bubbles dampening lux damage?
     //does element advantage apply to target or front monster? I think front monster
     @Override
-    public void attack(Formation thisFormation, Formation enemyFormation) {//attacks a "random" enemy
+    public int chooseTarget(Formation thisFormation, Formation enemyFormation) {//attacks a "random" enemy
         int position;
         if (enemyFormation.size() == 1){
             position = 0;
@@ -63,14 +65,16 @@ public class RandomTarget extends SpecialAbility{
             position = 1;
         }
         
-        long tempAttack = owner.getCurrentAtt();
+        tempAttack = owner.getCurrentAtt();
         if (position != 0){//bubbles affects if target is not first
             owner.setCurrentAtt((long)Math.round(owner.getCurrentAtt() * Math.pow(1-enemyFormation.getAOEResistance(),position)));
         }
-        enemyFormation.takeHit(owner,thisFormation,position);
+        //enemyFormation.takeHit(owner,thisFormation,position);
         owner.setCurrentAtt(tempAttack);
+        return position;
         //System.out.println("\n\n");
     }
+    
     
     private int getRandomIndex(long seed, int size){//turn seed?
         

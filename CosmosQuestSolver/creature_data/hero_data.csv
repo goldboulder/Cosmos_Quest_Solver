@@ -170,3 +170,8 @@ Ophelia,171,Season,Legendary,Earth,60,52,AttackPercentAura 0.15,78,99,75,AttackP
 Helga,172,Season,Legendary,Water,61,53,AttackPercentAura 0.2,84,101,82,AttackPercentAura 0.25,Nothing
 Minerva,173,Season,Ascended,Fire,124,108,AttackPercentAura 0.25,204,241,256,AttackPercentAura 0.3,Nothing
 Ascended Wanderer,174,Ascend,Ascended,Void,124,124,ElementDamageBoost All 0.75,110,110,110,ElementDamageBoost All 0.85,Nothing
+Tetra,175,Special,Legendary,Fire,50,76,WildCard 1.0,154,68,68,WildCard 1.2,Nothing
+4th05,176,Chest,Common,Earth,28,16,SelfArmor 8,8,16,14,SelfArmor 27,Nothing
+4tz4r,177,Chest,Rare,Fire,28,42,FinishingBlow 64,28,10,36,FinishingBlow 125,Nothing
+R31,178,Chest,Legendary,Air,8,80,RangedAttack 64,112,28,26,RangedAttack 125,Nothing
+45c3nd3d R31,179,Ascend,Ascended,Air,21,210,RangedAttack 125,192,34,78,RangedAttack 216,Nothing

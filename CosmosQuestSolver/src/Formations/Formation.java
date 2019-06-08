@@ -390,12 +390,12 @@ public class Formation implements Iterable<Creature>{
     }
     
     public Creature getFrontCreature(){
-        try{//is this needed?
+        //try{//is this needed?
             return members.getFirst();
-        }
-        catch (NoSuchElementException e){
-            return null;
-        }
+        //}
+        //catch (NoSuchElementException e){
+            //return null;
+        //}
     }
     
     public Creature getCreature(int position) {
@@ -409,12 +409,12 @@ public class Formation implements Iterable<Creature>{
     }
     
     public Creature getEntry(int i) {
-        try{
+        //try{
             return members.get(i);
-        }
-        catch (Exception e){
-            return null;
-        }
+        //}
+        //catch (Exception e){
+            //return null;
+        //}
     }
     
     public boolean isEmpty() {

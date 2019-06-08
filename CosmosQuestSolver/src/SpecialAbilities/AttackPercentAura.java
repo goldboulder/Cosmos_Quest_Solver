@@ -47,36 +47,6 @@ public class AttackPercentAura extends SpecialAbility{
     
     @Override
     public String getDescription() {
-        /*
-        StringBuilder sb = new StringBuilder();
-        if (element == null){
-            sb.append("All");
-        }
-        else{
-            switch(element){//method for this?
-                case AIR: sb.append("Air"); break;
-                case WATER: sb.append("Water"); break;
-                case EARTH: sb.append("Earth"); break;
-                case FIRE: sb.append("Fire"); break;
-                default: sb.append("All");
-            }
-        }
-        sb.append(" creatures ");
-        
-        if (attBoost != 0 && armorBoost == 0){
-            sb.append("have +").append(attBoost).append(" attack");
-        }
-        else if (attBoost == 0 && armorBoost != 0){
-            sb.append("have +").append(armorBoost).append(" armor");
-        }
-        else if (attBoost != 0 && armorBoost != 0){
-            sb.append("have +").append(attBoost).append(" attack and +").append(armorBoost).append(" armor");
-        }
-        else{//no boost
-            return "";
-        }
-        return sb.toString();
-        */
         return "Freindly creatures have " + OtherThings.nicePercentString(boost) + " more attack";
     }
     
@@ -87,7 +57,7 @@ public class AttackPercentAura extends SpecialAbility{
     
     @Override
     public int viability() {
-        return (int)(owner.getBaseAtt() * (boost*6+1) * owner.getBaseHP());
+        return (int)(owner.getBaseAtt() * (boost*Formation.MAX_MEMBERS+1) * owner.getBaseHP());
     }
 
     @Override

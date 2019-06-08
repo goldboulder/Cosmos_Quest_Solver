@@ -209,7 +209,9 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     }
     
     public void attack(Formation thisFormation,Formation enemyFormation){
-        getMainSkill().attack(thisFormation,enemyFormation);
+        enemyFormation.takeHit(this,thisFormation,getMainSkill().chooseTarget(thisFormation,enemyFormation));
+        //getMainSkill().attack(thisFormation,enemyFormation);
+        getMainSkill().postAttackAction(thisFormation, enemyFormation);
     }
     
     public boolean isDead(){
@@ -297,8 +299,12 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
 
     }
     
-    public boolean shouldTakeExecute(double percent) {
-        return getMainSkill().shouldTakeExecute(percent);
+    public boolean shouldTakePercentExecute(double percent) {
+        return getMainSkill().shouldTakePercentExecute(percent);
+    }
+    
+    public boolean shouldTakeConstantExecute(int hp) {
+        return getMainSkill().shouldTakeConstantExecute(hp);
     }
     
     public void takeExecute(Creature attacker, Formation thisFormation, Formation enemyFormation, long enemyHPBefore) {

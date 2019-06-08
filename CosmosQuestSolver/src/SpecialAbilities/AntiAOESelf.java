@@ -24,8 +24,13 @@ public class AntiAOESelf extends SpecialAbility{
     }
     
     @Override
-    public boolean shouldTakeExecute(double percent) {
-        return super.shouldTakeExecute(percent*(1-this.percent));
+    public boolean shouldTakePercentExecute(double percent) {
+        return super.shouldTakePercentExecute(percent*(1-this.percent));
+    }
+    
+    @Override
+    public boolean shouldTakeConstantExecute(int hp) {
+        return super.shouldTakeConstantExecute((int)(percent*hp));
     }
 
     @Override

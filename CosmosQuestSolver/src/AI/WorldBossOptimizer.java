@@ -115,7 +115,7 @@ public class WorldBossOptimizer extends AISolver{
             }
             
             
-            if (canAffordMonsters(combo)){
+            if (canAffordMonsters(combo) && !usingWeakMonstersOnNH(combo)){
                 if (strengthMode){
                     tryPermutations(combo);
                 }
@@ -125,6 +125,22 @@ public class WorldBossOptimizer extends AISolver{
                 }
             }
         }
+    }
+    
+    private boolean usingWeakMonstersOnNH(LinkedList<Creature> combo){
+        final long cutoff = (long)(followers*0.6);
+        if (heroes.length != 0 || prioritizedHeroes.length != 0){// only for no heroes
+            return false;
+        }
+        
+        long sum = 0;
+        for (Creature c : combo){
+            sum += c.getFollowers();
+        }
+        //if (sum < cutoff){
+            //System.out.println(sum);
+        //}
+        return sum < cutoff;
     }
     
     protected void progressReport(int listNum, LinkedList<Creature> creatureList) {

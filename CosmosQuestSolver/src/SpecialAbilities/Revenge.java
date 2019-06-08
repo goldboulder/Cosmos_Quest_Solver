@@ -51,8 +51,8 @@ public class Revenge extends SpecialAbility{//how does it work with Niel? Pokerf
 */
     
     @Override
-    public void attack(Formation thisFormation, Formation enemyFormation) {
-        super.attack(thisFormation,enemyFormation);
+    public void postAttackAction(Formation thisFormation, Formation enemyFormation) {
+        //super.attack(thisFormation,enemyFormation);
         
         attackedThisTurn = true;
     }

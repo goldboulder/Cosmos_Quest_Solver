@@ -44,8 +44,14 @@ public abstract class SpecialAbility {
     public double getElementDamageBoost(Element element) {
         return 0;
     }
-    public void attack(Formation thisFormation, Formation enemyFormation) {//post/attack action for p6 compatability?
-        enemyFormation.takeHit(owner,thisFormation);
+    
+    
+    public int chooseTarget(Formation thisFormation, Formation enemyFormation){
+        return 0;
+    }
+    
+    public void postAttackAction(Formation thisFormation, Formation enemyFormation) {//post/attack action for p6 compatability?
+        
     }
     
     public double hitAfterDefend(Creature attacker, Formation thisFormation, Formation enemyFormation, double damage){
@@ -68,10 +74,14 @@ public abstract class SpecialAbility {
         return 0;
     }
     
-    public boolean shouldTakeExecute(double percent) {
+    public boolean shouldTakePercentExecute(double percent) {//change to be in execute?
         long hpToUse = owner.getBaseHP() > owner.getMaxHP() ? owner.getBaseHP() : owner.getMaxHP();//use base for lep, max for bunnies
         double percentHealth = (double)owner.getCurrentHP()/hpToUse;
         return percentHealth <= percent && !owner.isDead();
+    }
+    
+    public boolean shouldTakeConstantExecute(int hp) {
+        return owner.getCurrentHP() < hp && !owner.isDead();
     }
     
     public double alterIncomingDamage(double hit, double initialHit, Formation thisFormation, Formation enemyFormation) {

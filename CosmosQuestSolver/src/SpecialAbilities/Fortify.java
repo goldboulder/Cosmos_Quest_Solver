@@ -64,7 +64,7 @@ public class Fortify extends SpecialAbility{
     
     @Override
     public int viability() {//normal viability, using average damage increace if fighting a creature of a random element
-        return (int)((owner.getBaseHP()+(Formation.MAX_MEMBERS-1)*2.0) * owner.getBaseAtt());
+        return (int)((owner.getBaseHP()+(Formation.MAX_MEMBERS-1)*armorPerCreature * 1.5) * owner.getBaseAtt());
     }
 
     @Override

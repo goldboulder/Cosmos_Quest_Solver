@@ -228,7 +228,8 @@ public class CreatureDrawer {
                 name.equals("Ascended Edana") || 
                 name.equals("Ascended Dybbuk") ||
                 name.equals("Ascended Nerissa") ||
-                name.equals("Ascended Wanderer")){
+                name.equals("Ascended Wanderer") ||
+                name.equals("45c3nd3d R31")){
             return true;
         }
         else{
@@ -238,10 +239,12 @@ public class CreatureDrawer {
     
     
     public static final int PROMOTE_STAR_SIZE = 20;
-    public static final int MAX_PROMOTE_STAR_SIZE = 28;
+    public static final int P5_STAR_SIZE = 28;
+    public static final int P6_STAR_SIZE = 34;
     private static void drawPromotion(Hero h,Graphics g){
         BufferedImage promoteStar = ImageFactory.getPicture("Stands/PromoteStar");
-        BufferedImage maxPromoteStar = ImageFactory.getPicture("Stands/MaxPromotionStar");
+        BufferedImage p5Star = ImageFactory.getPicture("Stands/P5Star");
+        BufferedImage p6Star = ImageFactory.getPicture("Stands/P6Star");
         int xOffset = h.isFacingRight() ? 2 : AssetPanel.CREATURE_PICTURE_SIZE - PROMOTE_STAR_SIZE - 2;
         g.translate(xOffset, 2);
         switch(h.getPromoteLevel()){
@@ -267,10 +270,18 @@ public class CreatureDrawer {
             break;
             case 5:
                 if (h.isFacingRight()){//5th star is slightly bigger
-                    g.drawImage(maxPromoteStar, 0, 0, MAX_PROMOTE_STAR_SIZE, MAX_PROMOTE_STAR_SIZE, null);
+                    g.drawImage(p5Star, 0, 0, P5_STAR_SIZE, P5_STAR_SIZE, null);
                 }
                 else{
-                    g.drawImage(maxPromoteStar, PROMOTE_STAR_SIZE - MAX_PROMOTE_STAR_SIZE, 0, MAX_PROMOTE_STAR_SIZE, MAX_PROMOTE_STAR_SIZE, null);
+                    g.drawImage(p5Star, PROMOTE_STAR_SIZE - P5_STAR_SIZE, 0, P5_STAR_SIZE, P5_STAR_SIZE, null);
+                }
+            break;
+            case 6:
+                if (h.isFacingRight()){//6th star is even bigger
+                    g.drawImage(p6Star, 0, 0, P6_STAR_SIZE, P6_STAR_SIZE, null);
+                }
+                else{
+                    g.drawImage(p6Star, PROMOTE_STAR_SIZE - P6_STAR_SIZE, 0, P6_STAR_SIZE, P6_STAR_SIZE, null);
                 }
             break;
             

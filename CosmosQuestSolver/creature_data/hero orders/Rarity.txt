@@ -14,6 +14,7 @@ Taint
 Raze
 Transient
 Bortles
+4th05
 Valor
 Rokka
 Pyromancer
@@ -43,6 +44,7 @@ Putrid
 Ruin
 Maunder
 Murphy
+4tz4r
 Nicte
 Forest Druid
 Ignitor
@@ -78,6 +80,7 @@ Defile
 Seethe
 The Wanderer
 Nerissa
+R31
 Shygu
 Thert
 Lord Kirk
@@ -129,6 +132,7 @@ Dr Hawking
 Neil
 Cupid
 Mother
+Tetra
 Pokerface
 Riptide
 Spyke
@@ -150,6 +154,7 @@ Ascended Defile
 Ascended Seethe
 Ascended Wanderer
 Ascended Nerissa
+45c3nd3d R31
 Ascended Shygu
 Ascended Thert
 Ascended Lord Kirk
