@@ -46,7 +46,7 @@ public class MonsterSelectionPanel extends JPanel implements ActionListener, Doc
     private boolean includeQuests;
     
     public static final int ELEMENT_SELECTOR_PANEL_SIZE = 80;
-    public static final int SCROLL_AMOUNT = 33;
+    public static final int SCROLL_AMOUNT = 500;
     
 
     public MonsterSelectionPanel(EnemySelectFrame frame, EnemyFormationMakerPanel enemyFormationMakerPanel, boolean facingRight, boolean includeQuests, boolean includeSearch) {

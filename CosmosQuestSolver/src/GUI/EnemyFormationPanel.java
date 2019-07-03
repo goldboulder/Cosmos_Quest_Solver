@@ -57,7 +57,9 @@ public class EnemyFormationPanel extends JPanel implements CreaturePanelGroup{
         
         
         for (int i = Formation.MAX_MEMBERS - f.size(); i < Formation.MAX_MEMBERS; i++){
-            panels[i].setCreature(f.getEntry(memberNum));
+            Creature c = f.getEntry(memberNum);
+            panels[i].setCreature(c);
+            panels[i].autoSetText(c);
             memberNum ++;
         }
 

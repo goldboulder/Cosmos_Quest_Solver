@@ -72,6 +72,7 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
         
         
     }
+    
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -81,13 +82,13 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
     @Override
     public void mousePressed(MouseEvent e) {
         if (e.getButton() == MouseEvent.BUTTON2){//middle mouse to "copy"
-            //System.out.println("hi");
             frame.setMouseCreature(getCreature());
         }
         else{//pick up creature
             if (frame.getMouseCreature() == null){
                 frame.setMouseCreature(getCreature());
                 setCreature(null);
+                autoSetText(null);
             }
             else{//drop off creature
                 Creature c = frame.getMouseCreature();
@@ -95,6 +96,7 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
                     creatureGroup.removeCreature(c.getName());
                 }
                 setCreature(c);
+                autoSetText(c);
                 frame.setMouseCreature(null);
             }
         }
@@ -138,6 +140,7 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
                 Monster newMonster = CreatureFactory.getMonster(m.getElement(), newTier);
                 newMonster.setFacingRight(facingRight);
                 setCreature(newMonster);
+                autoSetText(newMonster);
                 
             }
         }
@@ -151,11 +154,13 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
                 if (level < Hero.MAX_NORMAL_LEVEL && level >= 1){
                     h.levelUp(level + tierDifference);
                     setCreature(h);
+                    autoSetText(h);
                     frame.redrawHero(h.getName());
                 }
                 else if (promo < Hero.MAX_PROMOTE_LEVEL){
                     h.promote(promo + tierDifference);
                     setCreature(h);
+                    autoSetText(h);
                     frame.redrawHero(h.getName());
                 }
             }
@@ -163,11 +168,13 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
                 if (promo > 0){
                     h.promote(promo +tierDifference);
                     setCreature(h);
+                    autoSetText(h);
                     frame.redrawHero(h.getName());
                 }
                 else if (level > 1 && level <= Hero.MAX_NORMAL_LEVEL){
                     h.levelUp(level + tierDifference);
                     setCreature(h);
+                    autoSetText(h);
                     frame.redrawHero(h.getName());
                 }
             }
@@ -189,8 +196,27 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
         heroTyped();
     }
     
+    private boolean manual;//stops documentListener from changing anything on auto-fills
+    public void autoSetText(Creature c){
+        manual = false;
+        
+        if (c == null){
+            textField.setText("");
+        }
+        else{
+            textField.setText(c.getFormationText());
+        }
+        manual = true;
+        
+        textField.setForeground(Color.BLACK);
+    }
+    
     private void heroTyped(){
+        if (!manual){
+            return;
+        }
         String text = textField.getText();
+        //System.out.println("heroTyped     " + text);
         if (text.isEmpty()){
             setCreature(null);
             return;
@@ -198,15 +224,18 @@ public class EnemyFormationSinglePanel extends JPanel implements MouseListener, 
         //get parsed creature
         try{
             Creature c = CreatureFactory.parseCreature(text);
+            //System.out.println("parsed creature: " + c);
             c.setFacingRight(facingRight);
             setCreature(c);
+            textField.setForeground(Color.BLACK);
             //System.out.println(c);
         }
         catch(Exception e){
+            //System.out.println("error parsing " + text);
             textField.setForeground(Color.RED);
             return;
         }
-        textField.setForeground(Color.BLACK);
+        
         
         //sync
         

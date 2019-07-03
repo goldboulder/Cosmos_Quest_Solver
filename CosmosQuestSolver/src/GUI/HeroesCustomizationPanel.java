@@ -4,7 +4,9 @@
 package GUI;
 
 import Formations.CreatureFactory;
+import Formations.CreatureFactory.Source;
 import Formations.Hero;
+import Formations.Hero.Rarity;
 import static GUI.AssetPanel.CREATURE_PICTURE_SIZE;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -15,10 +17,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 
-public class HeroesCustomizationPanel extends JPanel{
+public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
     
     private ISolverFrame frame;
     
@@ -196,13 +197,22 @@ public class HeroesCustomizationPanel extends JPanel{
         return heroes;
     }
 
-    public void filterHeroes(String text) {
+    private String filterText = "";
+    @Override
+    public String getFilterText(){
+        return filterText;
+    }
+    public void filterHeroes(String text, FilterPanel.SourceFilter source, Rarity rarity, boolean includeSelected, boolean includeBosses) {
+        filterText = text;
         String lowText = text.toLowerCase();
         removeAll();
         
         int numAdded = 0;
         for (HeroCustomizationPanel p : heroPanelArray){
-            if (p.getHero().getName().toLowerCase().contains(lowText)){
+            Hero h = p.getHero();
+            if ((p.heroEnabled() || !includeSelected) && h.getName().toLowerCase().contains(lowText)
+                    && (source == null || FilterPanel.sourceMatch(source,CreatureFactory.IDToSource(h.getID())))
+                    && (rarity == null || h.getRarity() == rarity)){
                 add(p);
                 numAdded ++;
             }

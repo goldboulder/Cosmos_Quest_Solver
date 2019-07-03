@@ -30,7 +30,7 @@ public class AOE extends SpecialAbility{
 
     @Override
     public String getDescription() {
-        return "After every turn, deals " + damage + " aoe";
+        return "After every turn, deals " + damage + " aoe damage";
     }
 
     @Override

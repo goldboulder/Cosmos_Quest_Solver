@@ -85,6 +85,9 @@ public class WildCard extends SpecialAbility{
     
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation){
+        if (thisFormation.getFrontCreature() != owner){// only after attacking
+            return;
+        }
         int enemies = enemyFormation.size();
         //System.out.println("enemies: " + enemies + "   attack: " + attackType);
         switch (attackType){

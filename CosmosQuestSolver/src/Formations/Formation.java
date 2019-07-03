@@ -12,12 +12,12 @@ import SpecialAbilities.Ricochet;
 import SpecialAbilities.ScaleableAOE;
 import SpecialAbilities.ScaleableStartingDamage;
 import SpecialAbilities.SpecialAbility;
+import SpecialAbilities.WildCard;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 //holds a list of creatures representing a battle line. Also simulates battles
 public class Formation implements Iterable<Creature>{
@@ -97,11 +97,24 @@ public class Formation implements Iterable<Creature>{
         return f;
     }
     
+    public LinkedList<Integer> getBlankSpaces(){
+        return blankSpaces;
+    }
+    
     public static Creature[] listBlankSpacesToArray(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces){
+        if (blankSpaces == null){
+            Creature[] array = new Creature[MAX_MEMBERS];
+            for (int i = 0; i < creatureList.size(); i++){
+                array[i] = creatureList.get(i);
+            }
+            return array;
+        }
+        
+        
         if (creatureList.size()  + blankSpaces.size() > MAX_MEMBERS){
             throw new IllegalArgumentException();
         }
-        Creature[] creatureArray = new Creature[Formation.MAX_MEMBERS];
+        Creature[] creatureArray = new Creature[MAX_MEMBERS];
         for (int i = 0, j = 0; i < Formation.MAX_MEMBERS; i ++){
             if (!blankSpaces.contains(i)){
                 creatureArray[i] = creatureList.get(j);
@@ -138,7 +151,7 @@ public class Formation implements Iterable<Creature>{
     public boolean containsRandomHeroes() {
         for (int i = 0; i < members.size(); i ++){
             SpecialAbility s = members.get(i).getMainSkill();
-            if (s instanceof RandomTarget || s instanceof RandomStatBoost || s instanceof CriticalHit){
+            if (s instanceof RandomTarget || s instanceof RandomStatBoost || s instanceof CriticalHit || s instanceof WildCard){
                 return true;
             }
         }
@@ -287,6 +300,8 @@ public class Formation implements Iterable<Creature>{
         
         return sb.toString();
     }
+    
+    //cool solution: <Enemy> Guy:1k, Defile:1k, Geum:1k, Aural:1k, e33 <Solution> Rose:99.4, Guy:36, Hawking:99.4, Neil:99.5, aTR0N1X:99.4, Aurora:99.4
 
     public boolean isBossFormation() {
         return members.size() == 1 && members.getFirst() instanceof WorldBoss;

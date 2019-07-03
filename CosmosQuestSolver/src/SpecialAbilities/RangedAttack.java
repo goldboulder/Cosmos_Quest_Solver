@@ -7,7 +7,7 @@ import Formations.Creature;
 import Formations.Formation;
 import cosmosquestsolver.OtherThings;
 
-//deals a given damage of the owner's attack to the opponent's front unit
+//deals a given damage to the opponent's front unit
 //per turn. Damage is done before healing.
 //Used by R31 and 4sc3nd3d R31.
 public class RangedAttack extends SpecialAbility{
@@ -37,7 +37,7 @@ public class RangedAttack extends SpecialAbility{
 
     @Override
     public int viability() {
-        return (int)(owner.getBaseHP() * (owner.getBaseAtt() + damage * Formation.MAX_MEMBERS * 0.66));
+        return (int)(owner.getBaseHP() * (owner.getBaseAtt() + damage * Formation.MAX_MEMBERS * 0.3));
     }
 
     @Override

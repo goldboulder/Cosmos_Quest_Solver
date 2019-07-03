@@ -57,7 +57,7 @@ public class AttackPercentAura extends SpecialAbility{
     
     @Override
     public int viability() {
-        return (int)(owner.getBaseAtt() * (boost*Formation.MAX_MEMBERS+1) * owner.getBaseHP());
+        return (int)(owner.getBaseAtt() * (1.5*boost*Formation.MAX_MEMBERS+1) * owner.getBaseHP());
     }
 
     @Override

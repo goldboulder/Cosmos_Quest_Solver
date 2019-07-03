@@ -91,7 +91,7 @@ public class CreatureFactory {
         String str = s.toLowerCase();
         String realName = s.split(":|\\.")[0];
         String[] tokens;
-        //System.out.println("_________________\n" + s);
+        
         //hero level promo
         Matcher matcher = heroLevelPromotePattern.matcher(str);
         if (matcher.find()){
@@ -107,7 +107,6 @@ public class CreatureFactory {
         if (matcher.find()){
         
             tokens = matcher.group().split(":");
-            //System.out.println("HeroLevel");
             return getHero(realName,parseLevel(tokens[1]),0);
         }
         
@@ -615,6 +614,7 @@ public class CreatureFactory {
             case "MonsterBuff": return new MonsterBuff(null,Double.parseDouble(tokens[1]));
             case "Nothing": return new Nothing(null);
             case "PartingGift": return new PartingGift(null,Double.parseDouble(tokens[1]));
+            case "PositionAttToHealth": return new PositionAttToHealth(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]));
             case "Purity": return new Purity(null,Double.parseDouble(tokens[1]));
             case "Rainbow": return new Rainbow(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
             case "RandomStatBoost": return new RandomStatBoost(null,Integer.parseInt(tokens[1]));

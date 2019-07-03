@@ -24,7 +24,7 @@ public class ScaleableSacrifice extends SpecialAbility{
     
 
     @Override
-    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
+    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//weird order: heal taken before reflect in game
         
         owner.changeHP(-Math.floor(roundedScaleMilestoneDouble(owner,sacrificeAmount,1)), thisFormation);
         enemyFormation.takeAOEDamage(Math.floor(roundedScaleMilestoneDouble(owner,AOEDamage,1)));

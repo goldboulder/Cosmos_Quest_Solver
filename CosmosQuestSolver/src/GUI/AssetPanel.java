@@ -6,6 +6,7 @@ package GUI;
 import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.Hero;
+import static GUI.QuestSolverFrame.ASSET_PANEL_WIDTH;
 import cosmosquestsolver.OtherThings;
 import java.awt.Color;
 import java.awt.Component;
@@ -42,6 +43,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
     private JTextField followersTextField;
     private JLabel maxCreaturesLabel;
     private JTextField maxCreaturesTextField;
+    private FilterPanel filterPanel;
     private HeroesCustomizationPanel heroesCustomizationPanel;
     private JScrollPane heroesCustomizationScrollPane;
     private JPanel assetTitlePanel;// for making the two hero panels start at the same y
@@ -82,6 +84,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         maxCreaturesTextField = new JTextField(Integer.toString(Formation.MAX_MEMBERS));
         heroesCustomizationPanel = new HeroesCustomizationPanel(frame,HERO_SELECTION_COLUMNS,true,includePrioritize);
         heroesCustomizationScrollPane = new JScrollPane(heroesCustomizationPanel);
+        filterPanel = new FilterPanel(heroesCustomizationPanel,true,false);
         assetTitlePanel = new JPanel();
         assetLabel = new JLabel("Your assets");
         optionsPanel = new JPanel();
@@ -136,15 +139,17 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         add(followersPanel);
         add(maxCreaturesPanel);
         add(optionsPanel);
+        add(filterPanel);
         add(heroesCustomizationScrollPane);
         
         //solutionFormationPanel.setPreferredSize(new Dimension(CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,CREATURE_PICTURE_SIZE));
         //solutionFormationPanel.setMaximumSize(new Dimension(CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,CREATURE_PICTURE_SIZE));
         //solutionFormationPanel.setMinimumSize(new Dimension(CREATURE_PICTURE_SIZE * Formation.MAX_MEMBERS,CREATURE_PICTURE_SIZE));
-        followersTextField.setMaximumSize(new Dimension(100,TEXTBOX_HEIGHT));
+        followersTextField.setMaximumSize(new Dimension(110,TEXTBOX_HEIGHT));
         maxCreaturesTextField.setMaximumSize(new Dimension(15,TEXTBOX_HEIGHT));
         searchTextField.setMaximumSize(new Dimension(70,TEXTBOX_HEIGHT));
         searchTextField.setColumns(10);
+        filterPanel.setMaximumSize(new Dimension(ASSET_PANEL_WIDTH,100));
         
         heroesCustomizationScrollPane.setPreferredSize(new Dimension(HERO_SELECTION_PANEL_WIDTH + 200,HERO_SELECTION_PANEL_HEIGHT));
         heroesCustomizationScrollPane.setMaximumSize(new Dimension(HERO_SELECTION_PANEL_WIDTH + 200,HERO_SELECTION_PANEL_HEIGHT));
@@ -507,7 +512,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
     }
 
     public void filterHeroes(String text) {
-        heroesCustomizationPanel.filterHeroes(text);
+        heroesCustomizationPanel.filterHeroes(text,filterPanel.getSourceFilter(),filterPanel.getRarity(),filterPanel.includeSelected(),false);
     }
 
     

@@ -7,6 +7,7 @@ import Formations.Creature;
 import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.Hero;
+import static GUI.QuestSolverFrame.ASSET_PANEL_WIDTH;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,7 @@ import javax.swing.UIManager;
 public class EnemyFormationMakerPanel extends JPanel implements ActionListener, MouseListener{
     
     private EnemySelectFrame frame;
+    private boolean includeBosses;
     
     private JLabel titleLabel;
     private JPanel enemyFormationAndButtonPanel;
@@ -33,6 +35,7 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
     private JButton clearFormationButton;
     private EnemyFormationPanel enemyFormationPanel;
     private MonsterSelectionPanel monsterSelectionPanel;
+    private FilterPanel filterPanel;
     private EnemyHeroesCustomizationPanel enemyHeroesCustomizationPanel;
     private JScrollPane enemyHeroesCustomizationScrollPane;
     
@@ -43,6 +46,7 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
     public EnemyFormationMakerPanel(EnemySelectFrame frame, String title, boolean facingRight, boolean loadHeroes, boolean loadQuest, boolean includeBosses, boolean includeQuests, boolean includeSearch){
         this.frame = frame;
         this.facingRight = facingRight;
+        this.includeBosses = includeBosses;
         
         titleLabel = new JLabel(title);
         enemyFormationAndButtonPanel = new JPanel();
@@ -50,6 +54,7 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
         enemyFormationPanel = new EnemyFormationPanel(frame,this,facingRight);
         monsterSelectionPanel = new MonsterSelectionPanel(frame,this,facingRight,includeQuests,includeSearch);
         enemyHeroesCustomizationPanel = new EnemyHeroesCustomizationPanel(frame,this,AssetPanel.HERO_SELECTION_COLUMNS,facingRight,includeBosses,loadHeroes);
+        filterPanel = new FilterPanel(enemyHeroesCustomizationPanel,false,includeBosses);
         enemyHeroesCustomizationScrollPane = new JScrollPane(enemyHeroesCustomizationPanel);
         
         enemyFormationAndButtonPanel.add(enemyFormationPanel);
@@ -58,6 +63,7 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
         add(titleLabel);
         add(enemyFormationAndButtonPanel);
         add(monsterSelectionPanel);
+        add(filterPanel);
         add(enemyHeroesCustomizationScrollPane);
         
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -70,6 +76,7 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
         monsterSelectionPanel.setPreferredSize(new Dimension(QuestSolverFrame.ENEMY_FORMATION_MAKER_PANEL_WIDTH - 40,AssetPanel.CREATURE_PICTURE_SIZE + (Integer)UIManager.get("ScrollBar.width")));//onstants?**
         monsterSelectionPanel.setMaximumSize(new Dimension(QuestSolverFrame.ENEMY_FORMATION_MAKER_PANEL_WIDTH - 40,AssetPanel.CREATURE_PICTURE_SIZE + (Integer)UIManager.get("ScrollBar.width")));
         monsterSelectionPanel.setMinimumSize(new Dimension(QuestSolverFrame.ENEMY_FORMATION_MAKER_PANEL_WIDTH - 40,AssetPanel.CREATURE_PICTURE_SIZE + (Integer)UIManager.get("ScrollBar.width")));
+        filterPanel.setMaximumSize(new Dimension(ASSET_PANEL_WIDTH,100));
         enemyHeroesCustomizationScrollPane.setPreferredSize(new Dimension(AssetPanel.HERO_SELECTION_PANEL_WIDTH + 200,AssetPanel.HERO_SELECTION_PANEL_HEIGHT));
         enemyHeroesCustomizationScrollPane.setMaximumSize(new Dimension(AssetPanel.HERO_SELECTION_PANEL_WIDTH + 200,AssetPanel.HERO_SELECTION_PANEL_HEIGHT));//why +200?
         enemyHeroesCustomizationScrollPane.getVerticalScrollBar().setUnitIncrement(AssetPanel.SCROLL_BAR_SPEED);
@@ -179,7 +186,7 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
     }
 
     public void filterHeroes(String text) {
-        enemyHeroesCustomizationPanel.filterHeroes(text);
+        enemyHeroesCustomizationPanel.filterHeroes(text,filterPanel.getSourceFilter(),filterPanel.getRarity(),false,includeBosses);
     }
 
     public void redrawHero(String text) {

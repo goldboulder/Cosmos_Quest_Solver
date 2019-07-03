@@ -18,7 +18,7 @@ import java.util.Scanner;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class EnemyHeroesCustomizationPanel extends JPanel{
+public class EnemyHeroesCustomizationPanel extends JPanel implements HeroListPanel{
     
     private EnemySelectFrame frame;
     private EnemyFormationMakerPanel parent;
@@ -137,20 +137,32 @@ public class EnemyHeroesCustomizationPanel extends JPanel{
         }
     }
 
-    public void filterHeroes(String text) {
+    
+    private String filterText = "";
+    @Override
+    public String getFilterText(){
+        return filterText;
+    }
+    public void filterHeroes(String text, FilterPanel.SourceFilter source, Hero.Rarity rarity, boolean includeSelected, boolean includeBosses) {
+        filterText = text;
         String lowText = text.toLowerCase();
         removeAll();
         
         int numAdded = 0;
-        for (EnemyHeroCustomizationPanel p : heroPanelArray){
-            if (p.getHero().getName().toLowerCase().contains(lowText)){
-                add(p);
-                numAdded ++;
+        if (!includeBosses){
+            for (EnemyHeroCustomizationPanel p : heroPanelArray){
+                Hero h = p.getHero();
+                if (h.getName().toLowerCase().contains(lowText)
+                        && (source == null || FilterPanel.sourceMatch(source,CreatureFactory.IDToSource(h.getID())))
+                        && (rarity == null || h.getRarity() == rarity)){
+                    add(p);
+                    numAdded ++;
+                }
             }
         }
         if (bossPanelArray != null){
             for (EnemyBossCustomizationPanel p : bossPanelArray){
-                if (p.getBoss().getName().toLowerCase().contains(lowText)){
+                if (p.getBoss().getName().toLowerCase().contains(lowText) && includeBosses){
                     add(p);
                     numAdded ++;
                 }
