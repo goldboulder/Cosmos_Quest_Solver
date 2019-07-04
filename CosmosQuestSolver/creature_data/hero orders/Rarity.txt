@@ -15,6 +15,7 @@ Raze
 Transient
 Bortles
 4th05
+Mr Cotton
 Valor
 Rokka
 Pyromancer
@@ -45,6 +46,7 @@ Ruin
 Maunder
 Murphy
 4tz4r
+Sharkjellyn
 Nicte
 Forest Druid
 Ignitor
@@ -81,6 +83,7 @@ Seethe
 The Wanderer
 Nerissa
 R31
+Choco Knight
 Shygu
 Thert
 Lord Kirk
@@ -127,6 +130,7 @@ Daisy
 B-Day
 Nebra
 James
+Smith
 Leprechaun
 Dr Hawking
 Neil
@@ -155,6 +159,7 @@ Ascended Seethe
 Ascended Wanderer
 Ascended Nerissa
 45c3nd3d R31
+Ascended Choco Knight
 Ascended Shygu
 Ascended Thert
 Ascended Lord Kirk
@@ -174,3 +179,4 @@ Thumper
 Bubbles
 Guy
 Spike
+Lili

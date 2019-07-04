@@ -1,96 +1,104 @@
-Hunter,99,0
-Shaman,99,0
-Alpha,99,0
-Carl,99,0
-Nimue,99,0
-Athos,99,0
-Jet,99,0
-Geron,99,0
-Rei,99,0
-Ailen,99,0
-Faefyr,99,0
-Auri,99,0
-K41RY,99,0
-T4URUS,99,0
-TR0N1X,99,0
-Aquortis,99,0
-Aeris,99,0
-Geum,99,4
-Rudean,99,0
-Aural,99,4
-Geror,99,0
-Ourea,99,0
-Erebus,99,0
-Pontus,99,0
-Oymos,99,0
-Xarth,99,0
-Atzar,99,0
-Hama,99,0
-Hallinskidi,99,0
-Rigr,99,0
-Toth,99,0
-Ganah,99,0
-Dagda,99,0
-Bylar,99,0
-Boor,99,0
-Bavah,99,0
-Taint,99,4
-Putrid,99,0
-Defile,99,4
-Raze,99,4
-Ruin,99,4
-Seethe,99,0
-Transient,99,4
-Maunder,99,4
-The Wanderer,99,4
-Bortles,99,0
-Murphy,99,0
-Nerissa,99,0
+Hunter,1,0
+Shaman,1,0
+Alpha,1,0
+Carl,1,0
+Nimue,1,0
+Athos,1,0
+Jet,1,0
+Geron,1,0
+Rei,1,0
+Ailen,1,0
+Faefyr,1,0
+Auri,1,0
+K41RY,1,0
+T4URUS,1,0
+TR0N1X,1,0
+Aquortis,1,0
+Aeris,1,0
+Geum,1,0
+Rudean,1,0
+Aural,1,0
+Geror,1,0
+Ourea,1,0
+Erebus,1,0
+Pontus,1,0
+Oymos,1,0
+Xarth,1,0
+Atzar,1,0
+Hama,1,0
+Hallinskidi,1,0
+Rigr,1,0
+Toth,1,0
+Ganah,1,0
+Dagda,1,0
+Bylar,1,0
+Boor,1,0
+Bavah,1,0
+Taint,1,0
+Putrid,1,0
+Defile,1,0
+Raze,1,0
+Ruin,1,0
+Seethe,1,0
+Transient,1,0
+Maunder,1,0
+The Wanderer,1,0
+Bortles,1,0
+Murphy,1,0
+Nerissa,1,0
+4th05,1,0
+4tz4r,1,0
+R31,1,0
+Mr Cotton,1,0
+Sharkjellyn,1,0
+Choco Knight,1,0
 Ascended Alpha,1,0
-Ascended Athos,76,0
+Ascended Athos,1,0
 Ascended Rei,1,0
 Ascended Auri,1,0
-Ascended TR0N1X,99,4
-Ascended Geum,99,5
+Ascended TR0N1X,1,0
+Ascended Geum,1,0
 Ascended Geror,1,0
-Ascended Pontus,99,4
+Ascended Pontus,1,0
 Ascended Atzar,1,0
-Ascended Rigr,99,4
+Ascended Rigr,1,0
 Ascended Dagda,1,0
 Ascended Bavah,1,0
 Ascended Defile,1,0
 Ascended Seethe,1,0
 Ascended Wanderer,1,0
 Ascended Nerissa,1,0
-Valor,99,0
-Rokka,99,0
-Pyromancer,99,0
-Bewat,99,0
-Nicte,99,0
-Forest Druid,99,0
-Ignitor,99,0
-Undine,99,0
-Chroma,99,0
-Petry,99,0
-Zaytus,99,0
-Lady Odelith,99,0
-Shygu,99,0
-Thert,99,0
-Lord Kirk,99,0
-Neptunius,99,0
-Hosokawa,99,0
-Takeda,99,0
-Hirate,99,0
-Hattori,99,0
-Mahatma,99,0
-Jade,99,0
+45c3nd3d R31,1,0
+Ascended Choco Knight,1,0
+Valor,1,0
+Rokka,1,0
+Pyromancer,1,0
+Bewat,1,0
+Nicte,1,0
+Forest Druid,1,0
+Ignitor,1,0
+Undine,1,0
+Chroma,1,0
+Petry,1,0
+Zaytus,1,0
+Lady Odelith,1,0
+Shygu,1,0
+Thert,1,0
+Lord Kirk,1,0
+Neptunius,1,0
+Hosokawa,1,0
+Takeda,1,0
+Hirate,1,0
+Hattori,1,0
+Mahatma,1,0
+Jade,1,0
 Edana,1,0
 Dybbuk,1,0
-Ascended Shygu,99,4
-Ascended Thert,99,4
-Ascended Lord Kirk,99,4
-Ascended Neptunius,99,4
-Ascended Hosokawa,34,0
+Ascended Shygu,1,0
+Ascended Thert,1,0
+Ascended Lord Kirk,1,0
+Ascended Neptunius,1,0
+Ascended Hosokawa,1,0
 Ascended Takeda,1,0
 Ascended Hirate,1,0
 Ascended Hattori,1,0
@@ -98,26 +106,26 @@ Ascended Mahatma,1,0
 Ascended Jade,1,0
 Ascended Edana,1,0
 Ascended Dybbuk,1,0
-Veildur,2,0
+Veildur,1,0
 Brynhildr,1,0
 Groth,1,0
-Zeth,26,0
+Zeth,1,0
 Koth,1,0
 Gurth,1,0
-Sigrun,18,0
-Koldis,21,0
-Alvitr,23,0
-Arshen,99,4
-Rua,99,4
-Dorth,99,4
-Kumu san,7,0
-Liu Cheng,20,0
-Hidoka,26,0
-Master Lee,99,4
+Sigrun,1,0
+Koldis,1,0
+Alvitr,1,0
+Arshen,1,0
+Rua,1,0
+Dorth,1,0
+Kumu san,1,0
+Liu Cheng,1,0
+Hidoka,1,0
+Master Lee,1,0
 Buccaneer Beatrice,1,0
 Corsair Charles,1,0
 Marauder Magnus,1,0
-Raider Rose,99,4
+Raider Rose,1,0
 Blossom,1,0
 Flint,1,0
 Orin,1,0
@@ -126,22 +134,22 @@ Agatha,1,0
 Ophelia,1,0
 Helga,1,0
 Minerva,1,0
-Werewolf,99,4
+Werewolf,1,0
 Jack'o Knight,1,0
 Dullahan,1,0
-Billy,99,4
+Billy,1,0
 Sanqueen,1,0
 Cliodhna,1,0
-Christmas Elf,54,0
-Reindeer,30,0
-Santa Claus,5,0
-Sexy Santa,99,4
-Fir,65,0
-5_12_6,30,0
-Kedari,10,0
-Frosty,9,0
-Sparks,27,0
-Leaf,18,0
+Christmas Elf,1,0
+Reindeer,1,0
+Santa Claus,1,0
+Sexy Santa,1,0
+Fir,1,0
+5_12_6,1,0
+Kedari,1,0
+Frosty,1,0
+Sparks,1,0
+Leaf,1,0
 Flynn,1,0
 Willow,1,0
 Gizmo,1,0
@@ -153,15 +161,17 @@ Tiny,1,0
 Nebra,1,0
 Bubbles,1,0
 James,1,0
-Leprechaun,99,5
-Dr Hawking,99,4
-Neil,99,5
-Guy,36,0
+Smith,1,0
+Leprechaun,1,0
+Dr Hawking,1,0
+Neil,1,0
+Guy,1,0
 Cupid,1,0
 Mother,1,0
+Tetra,1,0
 Dicemaster,1,0
 Luxurius Maximus,1,0
-Pokerface,99,4
+Pokerface,1,0
 Cloud,1,0
 Ember,1,0
 Riptide,1,0
@@ -169,3 +179,4 @@ Spike,1,0
 Spyke,1,0
 Aoyuki,1,0
 GaiaByte,1,0
+Lili,1,0

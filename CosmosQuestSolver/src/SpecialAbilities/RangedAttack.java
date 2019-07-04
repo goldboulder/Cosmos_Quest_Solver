@@ -12,7 +12,7 @@ import cosmosquestsolver.OtherThings;
 //Used by R31 and 4sc3nd3d R31.
 public class RangedAttack extends SpecialAbility{
     
-    protected int damage;
+    private int damage;
     
     public RangedAttack(Creature owner, int damage){
         super(owner);

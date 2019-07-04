@@ -607,6 +607,7 @@ public class CreatureFactory {
             case "Fortify": return new Fortify(null,Integer.parseInt(tokens[1]));
             case "Heal": return new Heal(null,Integer.parseInt(tokens[1]));
             case "HealFirst": return new HealFirst(null,Integer.parseInt(tokens[1]));
+            case "HealthyAttack": return new HealthyAttack(null,Double.parseDouble(tokens[1]));
             case "HPBoost": return new HPBoost(null,Double.parseDouble(tokens[1]));
             case "Inferno": return new Inferno(null,Double.parseDouble(tokens[1]));
             case "Intercept": return new Intercept(null,Double.parseDouble(tokens[1]));
@@ -620,8 +621,9 @@ public class CreatureFactory {
             case "RandomStatBoost": return new RandomStatBoost(null,Integer.parseInt(tokens[1]));
             case "RandomTarget": return new RandomTarget(null,Boolean.parseBoolean(tokens[1]));
             case "RangedAttack": return new RangedAttack(null,Integer.parseInt(tokens[1]));
+            case "Recover": return new Recover(null,Integer.parseInt(tokens[1]));
+            case "RecoverPercent": return new RecoverPercent(null,Double.parseDouble(tokens[1]));
             case "Reflect": return new Reflect(null,Double.parseDouble(tokens[1]));
-            case "Regenerate": return new Regenerate(null,Double.parseDouble(tokens[1]));
             case "Revenge": return new Revenge(null,Double.parseDouble(tokens[1]));
             case "Revive": return new Revive(null,Double.parseDouble(tokens[1]));
             case "Ricochet": return new Ricochet(null,Double.parseDouble(tokens[1]),Integer.parseInt(tokens[2]));
@@ -640,6 +642,7 @@ public class CreatureFactory {
             case "SelfArmor": return new SelfArmor(null,Integer.parseInt(tokens[1]));
             case "TargetedReflect": return new TargetedReflect(null,Double.parseDouble(tokens[1]));
             case "Thorns": return new Thorns(null,Integer.parseInt(tokens[1]));
+            case "ThornsAll": return new ThornsAll(null,Integer.parseInt(tokens[1]));
             case "Train": return new Train(null,Integer.parseInt(tokens[1]));
             case "StartingDamage": return new StartingDamage(null,Integer.parseInt(tokens[1]));
             case "StatAura": return new StatAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Elements.parseElement(tokens[3]));

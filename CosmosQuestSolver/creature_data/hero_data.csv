@@ -156,7 +156,7 @@ Ascended Mahatma,157,Quest,Ascended,Air,60,180,ElementDamageBoost Water 1.7,241,
 Ascended Jade,158,Quest,Ascended,Earth,68,172,ElementDamageBoost Air 1.7,288,41,144,ElementDamageBoost Air 2.0,Nothing
 Ascended Edana,159,Quest,Ascended,Fire,80,160,ElementDamageBoost Earth 1.7,191,180,99,ElementDamageBoost Earth 2.0,Nothing
 Ascended Dybbuk,160,Quest,Ascended,Water,66,176,ElementDamageBoost Fire 1.7,272,55,169,ElementDamageBoost Fire 2.0,Nothing
-Willow,161,Event,Common,Air,38,30,Regenerate 0.2,22,19,24,Regenerate 0.4,Nothing
+Willow,161,Event,Common,Air,38,30,RecoverPercent 0.2,22,19,24,RecoverPercent 0.4,Nothing
 Gizmo,162,Event,Rare,Fire,40,70,ExtraAttackBoost 3.0,43,26,52,ExtraAttackBoost 4.0,Nothing
 Daisy,163,Event,Legendary,Water,50,84,EasterStatLevelBoost 2.5,50,84,70,EasterStatLevelBoost 3.0,Nothing
 Thumper,164,Event,Ascended,Earth,200,120,AntiAOESelf 0.6,230,320,360,AntiAOESelf 0.7,Nothing
@@ -169,9 +169,15 @@ Agatha,170,Season,Legendary,Air,59,51,AttackPercentAura 0.1,76,92,74,AttackPerce
 Ophelia,171,Season,Legendary,Earth,60,52,AttackPercentAura 0.15,78,99,75,AttackPercentAura 0.2,Nothing
 Helga,172,Season,Legendary,Water,61,53,AttackPercentAura 0.2,84,101,82,AttackPercentAura 0.25,Nothing
 Minerva,173,Season,Ascended,Fire,124,108,AttackPercentAura 0.25,204,241,256,AttackPercentAura 0.3,Nothing
-Ascended Wanderer,174,Ascend,Ascended,Void,124,124,ElementDamageBoost All 0.75,110,110,110,ElementDamageBoost All 0.85,Nothing
+Ascended Wanderer,174,Ascend,Ascended,Void,126,126,ElementDamageBoost All 0.75,110,110,110,ElementDamageBoost All 0.85,Nothing
 Tetra,175,Special,Legendary,Fire,50,76,WildCard 1.0,154,68,68,WildCard 1.2,Nothing
 4th05,176,Chest,Common,Earth,28,16,SelfArmor 8,8,16,14,SelfArmor 27,Nothing
 4tz4r,177,Chest,Rare,Fire,28,42,FinishingBlow 64,28,10,36,FinishingBlow 125,Nothing
 R31,178,Chest,Legendary,Air,8,80,RangedAttack 64,112,28,26,RangedAttack 125,Nothing
 45c3nd3d R31,179,Ascend,Ascended,Air,21,210,RangedAttack 125,192,34,78,RangedAttack 216,Nothing
+Smith,180,Special,Legendary,Earth,45,75,Ricochet 0.9 3,84,47,68,Ricochet 1.0 3,Nothing
+Mr Cotton,181,Chest,Common,Fire,14,32,ThornsAll 10,28,7,12,ThornsAll 15,Nothing
+Sharkjellyn,182,Chest,Rare,Water,20,54,Recover 30,44,13,15,Recover 45,Nothing
+Choco Knight,183,Chest,Legendary,Earth,50,50,HealthyAttack 0.4,72,47,82,HealthyAttack 0.5,Nothing
+Ascended Choco Knight,184,Chest,Ascended,Earth,124,124,HealthyAttack 0.55,98,64,104,HealthyAttack 0.65,Nothing
+Lili,185,Shop,Ascended,Fire,211,92,PositionAttToHealth 0.1 1.0,135,574,171,PositionAttToHealth 0.1 1.2,Nothing

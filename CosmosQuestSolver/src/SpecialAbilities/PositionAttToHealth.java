@@ -45,7 +45,7 @@ public class PositionAttToHealth extends SpecialAbility{//*activates before lepr
         
         //System.out.println("position: " + position);
                 
-        int transfer = (int)(owner.getBaseAtt() * percentPerPosition * position);
+        int transfer = (int)(Math.round(owner.getBaseAtt() * percentPerPosition * position));
         //System.out.println("transfer: " + transfer);
         owner.setMaxHP(owner.getBaseHP()+(int)(transfer*transferRate));//rounding?
         owner.setCurrentHP(owner.getMaxHP());

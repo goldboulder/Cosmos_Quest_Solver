@@ -9,7 +9,7 @@ import Formations.Formation;
 import Formations.Elements.Element;
 
 //increases attack and strength by specified amounts for each unit behind depending on level
-//owner. Used by AscendedSeethe
+//owner. Used by Ascended Seethe
 public class ScaleableUnitBuff extends SpecialAbility{
     
     private double attPerLevel;

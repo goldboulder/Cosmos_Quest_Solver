@@ -9,7 +9,7 @@ Geron,false,false
 Rei,false,false
 Ailen,false,false
 Faefyr,false,false
-Auri,true,false
+Auri,false,false
 K41RY,false,false
 T4URUS,false,false
 TR0N1X,false,false
@@ -46,14 +46,20 @@ The Wanderer,false,false
 Bortles,false,false
 Murphy,false,false
 Nerissa,false,false
+4th05,false,false
+4tz4r,false,false
+R31,false,false
+Mr Cotton,false,false
+Sharkjellyn,false,false
+Choco Knight,false,false
 Ascended Alpha,false,false
-Ascended Athos,true,false
+Ascended Athos,false,false
 Ascended Rei,false,false
 Ascended Auri,false,false
 Ascended TR0N1X,false,false
-Ascended Geum,true,true
+Ascended Geum,false,false
 Ascended Geror,false,false
-Ascended Pontus,true,false
+Ascended Pontus,false,false
 Ascended Atzar,false,false
 Ascended Rigr,false,false
 Ascended Dagda,false,false
@@ -62,6 +68,8 @@ Ascended Defile,false,false
 Ascended Seethe,false,false
 Ascended Wanderer,false,false
 Ascended Nerissa,false,false
+45c3nd3d R31,false,false
+Ascended Choco Knight,false,false
 Valor,false,false
 Rokka,false,false
 Pyromancer,false,false
@@ -75,9 +83,9 @@ Petry,false,false
 Zaytus,false,false
 Lady Odelith,false,false
 Shygu,false,false
-Thert,true,false
+Thert,false,false
 Lord Kirk,false,false
-Neptunius,true,false
+Neptunius,false,false
 Hosokawa,false,false
 Takeda,false,false
 Hirate,false,false
@@ -86,10 +94,10 @@ Mahatma,false,false
 Jade,false,false
 Edana,false,false
 Dybbuk,false,false
-Ascended Shygu,true,false
-Ascended Thert,true,false
+Ascended Shygu,false,false
+Ascended Thert,false,false
 Ascended Lord Kirk,false,false
-Ascended Neptunius,true,false
+Ascended Neptunius,false,false
 Ascended Hosokawa,false,false
 Ascended Takeda,false,false
 Ascended Hirate,false,false
@@ -113,7 +121,7 @@ Dorth,false,false
 Kumu san,false,false
 Liu Cheng,false,false
 Hidoka,false,false
-Master Lee,true,false
+Master Lee,false,false
 Buccaneer Beatrice,false,false
 Corsair Charles,false,false
 Marauder Magnus,false,false
@@ -126,13 +134,13 @@ Agatha,false,false
 Ophelia,false,false
 Helga,false,false
 Minerva,false,false
-Werewolf,true,false
+Werewolf,false,false
 Jack'o Knight,false,false
 Dullahan,false,false
 Billy,false,false
 Sanqueen,false,false
 Cliodhna,false,false
-Christmas Elf,true,false
+Christmas Elf,false,false
 Reindeer,false,false
 Santa Claus,false,false
 Sexy Santa,false,false
@@ -153,15 +161,17 @@ Tiny,false,false
 Nebra,false,false
 Bubbles,false,false
 James,false,false
+Smith,false,false
 Leprechaun,false,false
 Dr Hawking,false,false
-Neil,true,false
+Neil,false,false
 Guy,false,false
 Cupid,false,false
 Mother,false,false
+Tetra,false,false
 Dicemaster,false,false
 Luxurius Maximus,false,false
-Pokerface,true,false
+Pokerface,false,false
 Cloud,false,false
 Ember,false,false
 Riptide,false,false
@@ -169,3 +179,4 @@ Spike,false,false
 Spyke,false,false
 Aoyuki,false,false
 GaiaByte,false,false
+Lili,false,false

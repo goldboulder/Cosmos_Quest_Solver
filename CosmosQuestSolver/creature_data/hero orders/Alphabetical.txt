@@ -15,6 +15,7 @@ Ascended Athos
 Ascended Atzar
 Ascended Auri
 Ascended Bavah
+Ascended Choco Knight
 Ascended Dagda
 Ascended Defile
 Ascended Dybbuk
@@ -55,6 +56,7 @@ Bubbles
 Buccaneer Beatrice
 Bylar
 Carl
+Choco Knight
 Christmas Elf
 Chroma
 Cliodhna
@@ -109,6 +111,7 @@ Lady Odelith
 Lady of Twilight
 Leaf
 Leprechaun
+Lili
 Liu Cheng
 Lord Kirk
 Luxurius Maximus
@@ -118,6 +121,7 @@ Master Lee
 Maunder
 Minerva
 Mother
+Mr Cotton
 Murphy
 Nebra
 Neil
@@ -150,8 +154,10 @@ Santa Claus
 Seethe
 Sexy Santa
 Shaman
+Sharkjellyn
 Shygu
 Sigrun
+Smith
 Sparks
 Spike
 Spyke

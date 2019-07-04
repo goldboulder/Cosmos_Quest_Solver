@@ -49,6 +49,9 @@ Nerissa
 4th05
 4tz4r
 R31
+Mr Cotton
+Sharkjellyn
+Choco Knight
 Ascended Alpha
 Ascended Athos
 Ascended Rei
@@ -66,6 +69,7 @@ Ascended Seethe
 Ascended Wanderer
 Ascended Nerissa
 45c3nd3d R31
+Ascended Choco Knight
 Valor
 Rokka
 Pyromancer
@@ -157,6 +161,7 @@ Tiny
 Nebra
 Bubbles
 James
+Smith
 Leprechaun
 Dr Hawking
 Neil
@@ -174,3 +179,4 @@ Spike
 Spyke
 Aoyuki
 GaiaByte
+Lili

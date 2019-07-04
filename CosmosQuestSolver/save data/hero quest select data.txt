@@ -1,4 +1,4 @@
-Hunter,false,false
+Hunter,true,false
 Shaman,false,false
 Alpha,false,false
 Carl,false,false
@@ -36,7 +36,7 @@ Boor,false,false
 Bavah,false,false
 Taint,false,false
 Putrid,false,false
-Defile,true,false
+Defile,false,false
 Raze,false,false
 Ruin,false,false
 Seethe,false,false
@@ -46,22 +46,30 @@ The Wanderer,false,false
 Bortles,false,false
 Murphy,false,false
 Nerissa,false,false
+4th05,false,false
+4tz4r,false,false
+R31,false,false
+Mr Cotton,false,false
+Sharkjellyn,false,false
+Choco Knight,false,false
 Ascended Alpha,false,false
-Ascended Athos,true,false
+Ascended Athos,false,false
 Ascended Rei,false,false
 Ascended Auri,false,false
-Ascended TR0N1X,true,false
-Ascended Geum,true,false
+Ascended TR0N1X,false,false
+Ascended Geum,false,false
 Ascended Geror,false,false
-Ascended Pontus,true,false
+Ascended Pontus,false,false
 Ascended Atzar,false,false
-Ascended Rigr,true,false
+Ascended Rigr,false,false
 Ascended Dagda,false,false
 Ascended Bavah,false,false
 Ascended Defile,false,false
 Ascended Seethe,false,false
 Ascended Wanderer,false,false
 Ascended Nerissa,false,false
+45c3nd3d R31,false,false
+Ascended Choco Knight,false,false
 Valor,false,false
 Rokka,false,false
 Pyromancer,false,false
@@ -80,16 +88,16 @@ Lord Kirk,false,false
 Neptunius,false,false
 Hosokawa,false,false
 Takeda,false,false
-Hirate,true,false
+Hirate,false,false
 Hattori,false,false
 Mahatma,false,false
 Jade,false,false
 Edana,false,false
 Dybbuk,false,false
-Ascended Shygu,true,false
-Ascended Thert,true,false
-Ascended Lord Kirk,true,false
-Ascended Neptunius,true,false
+Ascended Shygu,false,false
+Ascended Thert,false,false
+Ascended Lord Kirk,false,false
+Ascended Neptunius,false,false
 Ascended Hosokawa,false,false
 Ascended Takeda,false,false
 Ascended Hirate,false,false
@@ -107,17 +115,17 @@ Gurth,false,false
 Sigrun,false,false
 Koldis,false,false
 Alvitr,false,false
-Arshen,true,false
-Rua,true,false
-Dorth,true,false
+Arshen,false,false
+Rua,false,false
+Dorth,false,false
 Kumu san,false,false
 Liu Cheng,false,false
 Hidoka,false,false
-Master Lee,true,false
+Master Lee,false,false
 Buccaneer Beatrice,false,false
 Corsair Charles,false,false
-Marauder Magnus,true,false
-Raider Rose,true,false
+Marauder Magnus,false,false
+Raider Rose,false,false
 Blossom,false,false
 Flint,false,false
 Orin,false,false
@@ -135,7 +143,7 @@ Cliodhna,false,false
 Christmas Elf,false,false
 Reindeer,false,false
 Santa Claus,false,false
-Sexy Santa,true,false
+Sexy Santa,false,false
 Fir,false,false
 5_12_6,false,false
 Kedari,false,false
@@ -153,15 +161,17 @@ Tiny,false,false
 Nebra,false,false
 Bubbles,false,false
 James,false,false
-Leprechaun,true,false
-Dr Hawking,true,false
-Neil,true,false
-Guy,true,false
+Smith,false,false
+Leprechaun,false,false
+Dr Hawking,false,false
+Neil,false,false
+Guy,false,false
 Cupid,false,false
 Mother,false,false
+Tetra,false,false
 Dicemaster,false,false
 Luxurius Maximus,false,false
-Pokerface,true,false
+Pokerface,false,false
 Cloud,false,false
 Ember,false,false
 Riptide,false,false
@@ -169,3 +179,4 @@ Spike,false,false
 Spyke,false,false
 Aoyuki,false,false
 GaiaByte,false,false
+Lili,false,false

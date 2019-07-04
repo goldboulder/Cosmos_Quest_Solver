@@ -1,5 +1,5 @@
-H,Geron,1000,0
-H,Boor,1000,0
-H,Liu Cheng,1000,0
-H,Rua,1000,0
-H,Ascended Hirate,1000,0
+M,A,1
+M,W,1
+M,E,1
+M,F,1
+M,A,2

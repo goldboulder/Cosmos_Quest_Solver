@@ -9,12 +9,12 @@ import cosmosquestsolver.OtherThings;
 
 //regenerates a given percent of damage taken.
 //Used by Willow.
-public class Regenerate extends SpecialAbility{
+public class RecoverPercent extends SpecialAbility{
     
     private double percent;
     private long damageTakenThisRound;
     
-    public Regenerate(Creature owner, double percent){
+    public RecoverPercent(Creature owner, double percent){
         super(owner);
         this.percent = percent;
     }
@@ -38,7 +38,7 @@ public class Regenerate extends SpecialAbility{
 
     @Override
     public SpecialAbility getCopyForNewOwner(Creature newOwner) {
-        return new Regenerate(newOwner,percent);
+        return new RecoverPercent(newOwner,percent);
     }
 
     @Override
