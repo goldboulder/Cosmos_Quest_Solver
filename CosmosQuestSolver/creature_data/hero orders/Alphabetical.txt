@@ -15,7 +15,6 @@ Ascended Athos
 Ascended Atzar
 Ascended Auri
 Ascended Bavah
-Ascended Choco Knight
 Ascended Dagda
 Ascended Defile
 Ascended Dybbuk
@@ -65,6 +64,7 @@ Corsair Charles
 Cupid
 Dagda
 Daisy
+Dark Choco Knight
 Defile
 Dicemaster
 Dorth
