@@ -12,7 +12,7 @@ import Formations.Formation;
 //number of creatures behind the head. Damage done to each hero is reduced by a
 //specified percentage every time it hits a creature, so those near the back
 //of the formation will recieve significantly reduced damage. Used by season 3 and 4
-//heroes, Taint, Raze, Sexy Santa, James, and Ascented TR1N0X
+//heroes, Taint, Raze, Sexy Santa, James, Smith, and Ascented TR1N0X
 
 /*
 public class Ricochet extends SpecialAbility{

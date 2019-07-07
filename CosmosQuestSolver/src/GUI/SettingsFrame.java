@@ -52,7 +52,7 @@ public class SettingsFrame extends JFrame implements ActionListener{
     public SettingsFrame(){
         
         try{//not using image pool because it would trigger loading everything else
-            frameBackground = ImageIO.read(new File("pictures/Creator Background.png"));
+            frameBackground = ImageIO.read(new File("pictures/Backgrounds/Creator Background.png"));
         }
         catch(IOException e){
             System.out.println("error");

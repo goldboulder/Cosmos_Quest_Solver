@@ -196,6 +196,12 @@ public class CreatureDrawer {
     }
     
     protected static void drawHero(Hero h, Graphics g){
+        
+        if (h.getName().equals("Guy")){
+            BufferedImage fireworks = ImageFactory.getPicture("Stands/Firework Aura");
+            g.drawImage(fireworks, AssetPanel.CREATURE_PICTURE_SIZE - CREATURE_X, CREATURE_Y + 4, -CREATURE_WIDTH, CREATURE_HEIGHT - 8, null);
+        }
+        
         BufferedImage image = ImageFactory.getPicture(h.getImageAddress());
         
         if (h.isFacingRight()){
@@ -208,6 +214,7 @@ public class CreatureDrawer {
         if (CreatureDrawer.drawFuriousAura(h)){
             drawFuriousAura(h,g);
         }
+        
         
     }
     
@@ -240,7 +247,7 @@ public class CreatureDrawer {
     
     public static final int PROMOTE_STAR_SIZE = 20;
     public static final int P5_STAR_SIZE = 28;
-    public static final int P6_STAR_SIZE = 34;
+    public static final int P6_STAR_SIZE = 35;
     private static void drawPromotion(Hero h,Graphics g){
         BufferedImage promoteStar = ImageFactory.getPicture("Stands/PromoteStar");
         BufferedImage p5Star = ImageFactory.getPicture("Stands/P5Star");
@@ -278,10 +285,10 @@ public class CreatureDrawer {
             break;
             case 6:
                 if (h.isFacingRight()){//6th star is even bigger
-                    g.drawImage(p6Star, 0, 0, P6_STAR_SIZE, P6_STAR_SIZE, null);
+                    g.drawImage(p6Star, 0, 0, P6_STAR_SIZE - 2, P6_STAR_SIZE, null);
                 }
                 else{
-                    g.drawImage(p6Star, PROMOTE_STAR_SIZE - P6_STAR_SIZE, 0, P6_STAR_SIZE, P6_STAR_SIZE, null);
+                    g.drawImage(p6Star, PROMOTE_STAR_SIZE - P6_STAR_SIZE - 2, 0, P6_STAR_SIZE - 2, P6_STAR_SIZE, null);
                 }
             break;
             

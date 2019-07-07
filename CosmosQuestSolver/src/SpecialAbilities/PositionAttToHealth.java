@@ -57,7 +57,7 @@ public class PositionAttToHealth extends SpecialAbility{//*activates before lepr
     
     @Override
     public String getDescription() {
-        return "At start, turns " + OtherThings.nicePercentString(percentPerPosition) + " of attack per position in line to HP";
+        return "At start, turns " + OtherThings.nicePercentString(percentPerPosition) + " of attack to HP per position in line";
     }
     
     @Override

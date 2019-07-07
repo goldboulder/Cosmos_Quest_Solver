@@ -302,6 +302,7 @@ public class Formation implements Iterable<Creature>{
     }
     
     //cool solution: <Enemy> Guy:1k, Defile:1k, Geum:1k, Aural:1k, e33 <Solution> Rose:99.4, Guy:36, Hawking:99.4, Neil:99.5, aTR0N1X:99.4, Aurora:99.4
+    //<Enemy> Hoso:1k, Veil:1k, Nebra:1k, Nerissa:1k, Liu Cheng:1k <Solution> aAthos:99.5, Rose:99.4, Guy:57, Lee:99.4, Aurora:99.4, Fir:99.5
 
     public boolean isBossFormation() {
         return members.size() == 1 && members.getFirst() instanceof WorldBoss;

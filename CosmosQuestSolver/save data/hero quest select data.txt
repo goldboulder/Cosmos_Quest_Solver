@@ -69,7 +69,7 @@ Ascended Seethe,false,false
 Ascended Wanderer,false,false
 Ascended Nerissa,false,false
 45c3nd3d R31,false,false
-Ascended Choco Knight,false,false
+Dark Choco Knight,false,false
 Valor,false,false
 Rokka,false,false
 Pyromancer,false,false
