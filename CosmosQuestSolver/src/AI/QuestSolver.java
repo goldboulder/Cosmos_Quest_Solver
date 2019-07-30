@@ -4,19 +4,16 @@
 package AI;
 
 import Formations.Creature;
-import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.Hero;
-import Formations.Monster;
 import GUI.QuestSolverFrame;
+import Skills.Nothing;
+import Skills.Skill;
 import cosmosquestsolver.OtherThings;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
 //contatins algorithm to search for a solution to beat a given formation.
 //runs on a seperate thread
@@ -24,8 +21,11 @@ public class QuestSolver extends AISolver{
     
     protected QuestSolverFrame frame;//if a solution is found, this feild lets the frame know and sends the solution to it
     protected Formation enemyFormation;//the formation the solver wants to beat
+    protected Skill[] yourNodes;
+    protected Skill[] enemyNodes;
     protected Hero[] prioritizedHeroes;// heroes that must be in the solution
     protected boolean containsRandomHeroes;
+    protected boolean hasNodes = false;
     
     public QuestSolver(QuestSolverFrame frame){
         this.frame = frame;
@@ -56,8 +56,17 @@ public class QuestSolver extends AISolver{
         heroes = frame.getHeroesWithoutPrioritization();
         prioritizedHeroes = frame.getPrioritizedHeroes();
         enemyFormation = frame.getEnemyFormation();
+        yourNodes = frame.getYourNodes();
+        enemyNodes = frame.getEnemyNodes();
+        enemyFormation.addNodeSkills(enemyNodes);
         containsRandomHeroes = enemyFormation.containsRandomHeroes();
         
+        for (int i = 0; i < Formation.MAX_MEMBERS; i++){
+            if (!(yourNodes[i] instanceof Nothing)){
+                hasNodes = true;
+                break;
+            }
+        }
     }
 
     //gets a list of all creatures available, sorts them by viability, and
@@ -166,11 +175,11 @@ public class QuestSolver extends AISolver{
             currentPermutation = permutations.next();
             
             //enemyFormation.restore();
-            if(containsRandomHeroes && maxCreatures != Formation.MAX_MEMBERS){
+            if(maxCreatures != Formation.MAX_MEMBERS && (containsRandomHeroes || hasNodes)){
                 LinkedList<Integer> blankSpaces = passedWithShufflingBlankSpaces(currentPermutation);
                 if (blankSpaces != null){
                     if (!Formation.passed(frame.getSolution().getCopy(), enemyFormation.getCopy())){//if there is already a solution from another thread, don't bother.
-                        frame.recieveBlankSpaceSolution(currentPermutation,blankSpaces);
+                        frame.recieveBlankSpaceSolution(currentPermutation,blankSpaces,hasNodes);
                         searching = false;
                     }
                     return;
@@ -178,6 +187,10 @@ public class QuestSolver extends AISolver{
             }
             else{
                 Formation currentFormation = new Formation(currentPermutation);
+                if (hasNodes){
+                    currentFormation = currentFormation.getCopy();//monsters can be duplicated (same spot in memory)
+                    currentFormation.addNodeSkills(yourNodes);
+                }
                 if (Formation.passed(currentFormation.getCopy(), enemyFormation.getCopy())){
                     if (!Formation.passed(frame.getSolution().getCopy(), enemyFormation.getCopy())){//if there is already a solution from another thread, don't bother.
                         frame.recieveSolution(currentFormation);
@@ -191,6 +204,22 @@ public class QuestSolver extends AISolver{
             
         }
     }
+    /*//modualize test?
+    private boolean testFormation(Formation f){
+        long damage = Formation.damageDealt(f.getCopy(), bossFormation.getCopy());//what if bosses aren't alone?
+            
+            if (damage > frame.getBestDamage()){
+                frame.recieveDamageOfBattle(damage);//do this first to avoid race condition with multiple threads
+                if (maxCreatures != Formation.MAX_MEMBERS && (hasNodes || containsRandomBoss)){
+                    frame.recieveBlankSpaceSolution(f.getMembers(), f.getBlankSpaces(), hasNodes);
+                }
+                else{
+                    frame.recieveSolution(f);
+                }
+                
+            }
+    }
+    */
     
     protected LinkedList<Integer> passedWithShufflingBlankSpaces(LinkedList<Creature> creatureList){
         //System.out.println("PassedWithShufflingBlankSpaces");
@@ -212,12 +241,13 @@ public class QuestSolver extends AISolver{
                 }
             }
             
-            //System.out.println("_______________________");
-            //for (Creature c : creatureArray){
-                //System.out.println(c);
-            //}
             
-            boolean passed = Formation.passed(new Formation(copyArray), enemyFormation.getCopy());
+            Formation f = new Formation(copyArray);//this may contain 2 of the same (in memory) monster. Copy to prevent it
+            Formation nodeF = f.getCopy();
+            if (hasNodes){
+                nodeF.addNodeSkills(yourNodes);
+            }
+            boolean passed = Formation.passed(nodeF, enemyFormation.getCopy());
             //System.out.println(passed);
             if (passed){
                 return blankSpaces;

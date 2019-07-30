@@ -3,9 +3,9 @@
  */
 package Formations;
 
+import Skills.*;
 import Formations.Elements.Element;
 import Formations.Hero.Rarity;
-import SpecialAbilities.*;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,6 +27,7 @@ public class CreatureFactory {
     private static Monster[][] monsters;
     private static HashMap<String,Hero> heroes;
     private static HashMap<String,WorldBoss> worldBosses;
+    private static NodeSkill[] nodeSkills;
     private static ArrayList<String> monsterNames;
     private static ArrayList<String> heroNames;
     private static ArrayList<String> worldBossNames;
@@ -39,6 +40,8 @@ public class CreatureFactory {
     
 
     public static int MAX_QUESTS;
+
+    
     public static enum Source{CHEST,ASCEND, QUEST, SEASON, EVENT, SPECIAL, AUCTION, SHOP};
 
 
@@ -47,6 +50,7 @@ public class CreatureFactory {
         initiateMonsters();
         initiateHeroes();
         initiateWorldBosses();
+        initiateNodeSkills();
         
         int sum = 0;
         File[] files = new File("quests").listFiles();
@@ -254,13 +258,15 @@ public class CreatureFactory {
     }
     
     public static Hero getHero(String name, int level, int promoteLevel){
-        //System.out.println(name);
-        //System.out.println(heroes.get(name));
+        
         Hero hero = heroes.get(name);
         if (hero == null){//check nicknames
-            hero = heroes.get(nickNameToNameMap.get(name));
+            
+            hero = heroes.get(nickNameToNameMap.get(name.toLowerCase()));
+            
         }
         Hero newHero = (Hero) hero.getCopy();
+        //System.out.println("5");
         newHero.levelUp(level);
         
         newHero.promote(promoteLevel);
@@ -445,10 +451,11 @@ public class CreatureFactory {
                     followers = (long)tempFollowers;
                 }
                 
-                SpecialAbility ability = parseAbility(tokens[6]);
+                Skill skill = parseSkill(tokens[6]);
 
-                Monster m = new Monster(element,att,HP,tier,followers,ability);
-                m.attatchSpecialAbility();
+                Monster m = new Monster(element,att,HP,tier,followers,skill);
+                m.attatchSkill();
+                m.setNodeSkill(new Nothing(m));
 
                 monsterNames.add(name);
                 monsters[m.getElement().ordinal()][m.getTier()-1] = m;//duplicate entries?
@@ -481,16 +488,17 @@ public class CreatureFactory {
                 Element element = Elements.parseElement(tokens[4]);
                 int baseAtt = Integer.parseInt(tokens[5]);
                 int baseHP = Integer.parseInt(tokens[6]);
-                SpecialAbility skill = parseAbility(tokens[7]);
+                Skill skill = parseSkill(tokens[7]);
                 int p1Health = Integer.parseInt(tokens[8]);
                 int p2Att = Integer.parseInt(tokens[9]);
                 int p4Stats = Integer.parseInt(tokens[10]);
-                SpecialAbility p5Skill = parseAbility(tokens[11]);
-                SpecialAbility p6Skill = parseAbility(tokens[12]);
+                Skill p5Skill = parseSkill(tokens[11]);
+                Skill p6Skill = parseSkill(tokens[12]);
 
                 Hero h = new Hero(element,baseAtt,baseHP,rarity,ID,skill,p1Health,p2Att,p4Stats,p5Skill,p6Skill);
                 
-                h.attatchSpecialAbility();
+                h.attatchSkill();
+                h.setNodeSkill(new Nothing(h));
                     h.levelUp(1);
                     h.promote(0);
                     
@@ -508,7 +516,7 @@ public class CreatureFactory {
         }
         //nullCreature
         nullCreature = new Hero(Element.VOID,0,0,Rarity.COMMON,-1,new Nothing(null),0,0,0, new Nothing(null), new Nothing(null));//use instead of multiple threads?
-        nullCreature.attatchSpecialAbility();
+        nullCreature.attatchSkill();
         //heroes.put("Nothing",nullCreature);
         //heroes.put(name.toLowerCase(),nullCreature);
         //heroNames.add("Nothing");
@@ -581,7 +589,7 @@ public class CreatureFactory {
         return IDToSourceMap.get(ID);
     }
     
-    public static SpecialAbility parseAbility(String str){
+    public static Skill parseSkill(String str){
         String[] tokens = str.split(" ");
         
         switch (tokens[0]){
@@ -590,13 +598,16 @@ public class CreatureFactory {
             case "AOE": return new AOE(null,Integer.parseInt(tokens[1]));
             case "AntiAOE": return new AntiAOE(null,Double.parseDouble(tokens[1]));
             case "AntiAOESelf": return new AntiAOESelf(null,Double.parseDouble(tokens[1]));
-            case "AttackBoost": return new AttackBoost(null,Double.parseDouble(tokens[1]));
+            case "ArmorAura": return new ArmorAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]));
+            case "AttackPercentBoost": return new AttackPercentBoost(null,Double.parseDouble(tokens[1]));
+            case "AttackBoostAura": return new AttackBoostAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]));
             case "AttackPercentAura": return new AttackPercentAura(null,Double.parseDouble(tokens[1]));
             case "Berserk": return new Berserk(null,Double.parseDouble(tokens[1]));
             case "BloodBomb": return new BloodBomb(null,Integer.parseInt(tokens[1]));
             case "CriticalHit": return new CriticalHit(null,Double.parseDouble(tokens[1]));
             case "DamageDodge": return new DamageDodge(null,Integer.parseInt(tokens[1]));
             case "EasterStatLevelBoost": return new EasterStatLevelBoost(null,Double.parseDouble(tokens[1]));
+            case "ElementBoostPlusAbsorb": return new ElementBoostPlusAbsorb(null,Elements.parseElement(tokens[1]),Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]));
             case "ElementDamageBoost": return new ElementDamageBoost(null,Elements.parseElement(tokens[1]),Double.parseDouble(tokens[2]));
             case "EvenField": return new EvenField(null,Integer.parseInt(tokens[1]));
             case "Execute": return new Execute(null,Double.parseDouble(tokens[1]));
@@ -631,6 +642,8 @@ public class CreatureFactory {
             case "ScaleableAbsorbPercent": return new ScaleableAbsorbPercent(null,Double.parseDouble(tokens[1]));
             case "ScaleableAOE": return new ScaleableAOE(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableAntiAOE": return new ScaleableAntiAOE(null,Double.parseDouble(tokens[1]));
+            case "ScaleableArmorAura": return new ScaleableArmorAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]),Double.parseDouble(tokens[3]));
+            case "ScaleableAttackBoostAura": return new ScaleableAttackBoostAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableBloodBomb": return new ScaleableBloodBomb(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableHeal": return new ScaleableHeal(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableLifeSteal": return new ScaleableLifeSteal(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
@@ -640,14 +653,14 @@ public class CreatureFactory {
             case "ScaleableStatAura": return new ScaleableStatAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Elements.parseElement(tokens[3]),Double.parseDouble(tokens[4]));
             case "ScaleableUnitBuff": return new ScaleableUnitBuff(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]));
             case "SelfArmor": return new SelfArmor(null,Integer.parseInt(tokens[1]));
-            case "TargetedReflect": return new TargetedReflect(null,Double.parseDouble(tokens[1]));
-            case "Thorns": return new Thorns(null,Integer.parseInt(tokens[1]));
-            case "ThornsAll": return new ThornsAll(null,Integer.parseInt(tokens[1]));
-            case "Train": return new Train(null,Integer.parseInt(tokens[1]));
             case "StartingDamage": return new StartingDamage(null,Integer.parseInt(tokens[1]));
             case "StatAura": return new StatAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Elements.parseElement(tokens[3]));
             case "StatLevelBoost": return new StatLevelBoost(null,Double.parseDouble(tokens[1]));
             case "Simmer": return new Simmer(null,Double.parseDouble(tokens[1]));
+            case "TargetedReflect": return new TargetedReflect(null,Double.parseDouble(tokens[1]));
+            case "Thorns": return new Thorns(null,Integer.parseInt(tokens[1]));
+            case "ThornsAll": return new ThornsAll(null,Integer.parseInt(tokens[1]));
+            case "Train": return new Train(null,Integer.parseInt(tokens[1]));
             case "UnitBuff": return new UnitBuff(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
             case "Vampyrism": return new Vampyrism(null,Double.parseDouble(tokens[1]));
             case "WildCard": return new WildCard(null,Double.parseDouble(tokens[1]));
@@ -691,11 +704,12 @@ public class CreatureFactory {
                 int ID = Integer.parseInt(tokens[1]);
                 Element element = Elements.parseElement(tokens[2]);
                 int baseAtt = Integer.parseInt(tokens[3]);
-                SpecialAbility skill = parseAbility(tokens[4]);
+                Skill skill = parseSkill(tokens[4]);
                 
 
                 WorldBoss b = new WorldBoss(element,baseAtt,ID,skill);
-                b.attatchSpecialAbility();
+                b.attatchSkill();
+                b.setNodeSkill(new Nothing(b));
                 worldBosses.put(name,b);
                 worldBossNames.add(name);
                 IDToNameMap.put(b.getID(),name);
@@ -706,6 +720,21 @@ public class CreatureFactory {
         }
         
         
+    }
+    
+    public static NodeSkill[] getNodeSkills() {
+        return Arrays.copyOf(nodeSkills, nodeSkills.length);
+    }
+
+    private static void initiateNodeSkills() {
+        nodeSkills = new NodeSkill[]{
+            new Affinity(null,0.3),
+            new AttackPercentBoost(null,1.5),
+            new ExtraArmorBoost(null,2),
+            new ExtraAttackBoost(null,2),
+            new ExtraHeal(null,2),
+            new HPBoost(null,1.5),
+            new Revive(null,0.5)};
     }
 
     public static String getOrderType(boolean yourData) {

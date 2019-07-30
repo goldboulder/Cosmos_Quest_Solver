@@ -7,10 +7,11 @@ import AI.AISolver;
 import Formations.Creature;
 import Formations.Formation;
 import Formations.Hero;
+import Skills.Skill;
 import java.util.LinkedList;
 
 
-public interface ISolverFrame {
+public interface ISolverFrame extends ParameterListener{
     long getFollowers();
     int getMaxCreatures();
     Hero[] getHeroes();
@@ -21,7 +22,7 @@ public interface ISolverFrame {
     String getDoneMessage();
     String getSolutionMessage();
     void recieveDamageOfBattle(long damage);
-    void parametersChanged();
+    
     void backToMenuAction();
     void recieveProgressString(String text);
     void recieveMessageString(String text);
@@ -35,5 +36,5 @@ public interface ISolverFrame {
     boolean requestFocusInWindow();
 
     public boolean showViewButton();
-    
+
 }

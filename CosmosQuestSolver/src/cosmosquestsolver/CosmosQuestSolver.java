@@ -46,7 +46,7 @@ public class CosmosQuestSolver {
                 pw.print(b.getRawID() + ",");
                 pw.print(Elements.getString(b.getElement()) + ",");
                 pw.print(b.getBaseAtt() + ",");
-                pw.print(b.specialAbility.getParseString() + "\n");
+                pw.print(b.getMainSkill().getParseString() + "\n");
             }
             pw.close();
         }

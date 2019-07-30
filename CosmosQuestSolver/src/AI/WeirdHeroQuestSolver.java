@@ -32,11 +32,22 @@ public class WeirdHeroQuestSolver extends AISolver{// if more than one hero, sol
     @Override
     protected void search() {
         solverList = new LinkedList<>();
-        for (int i = frame.getMaxCreatures(); i > 0; i--){
-            if (i == frame.getMaxCreatures() || (i < frame.getEnemyFormation().size() && weirdHero.getPromoteLevel()!= 5) || (i <= frame.getEnemyFormation().size() && weirdHero.getPromoteLevel()== 5) ){//don't do non-full formations if lep's ability won't take effect
+        
+        if (weirdHero == null){
+            for (int i = frame.getMaxCreatures(); i > 0; i--){
+                
                 SpecialQuestSolver solver = new SpecialQuestSolver(frame,this,i,weirdHero);
                 solverList.add(solver);
                 new Thread(solver).start();
+            }
+        }
+        else{
+            for (int i = frame.getMaxCreatures(); i > 0; i--){
+                if (i == frame.getMaxCreatures() || (i < frame.getEnemyFormation().size() && weirdHero.getPromoteLevel()!= 5) || (i <= frame.getEnemyFormation().size() && weirdHero.getPromoteLevel()== 5) ){//don't do non-full formations if lep's ability won't take effect
+                    SpecialQuestSolver solver = new SpecialQuestSolver(frame,this,i,weirdHero);
+                    solverList.add(solver);
+                    new Thread(solver).start();
+                }
             }
         }
         

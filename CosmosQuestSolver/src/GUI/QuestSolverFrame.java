@@ -11,13 +11,15 @@ import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.Hero;
 import Formations.Monster;
-import cosmosquestsolver.CosmosQuestSolver;
+import Skills.Skill;
 import cosmosquestsolver.OtherThings;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -29,6 +31,7 @@ import java.io.PrintWriter;
 import java.util.LinkedList;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayer;
@@ -36,7 +39,7 @@ import javax.swing.JPanel;
 import javax.swing.plaf.LayerUI;
 
 //layerUI and JLayer for dragging?
-public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelectFrame, MouseListener, MouseMotionListener, KeyListener, WindowListener, CreatureDragFrame{
+public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelectFrame, MouseListener, MouseMotionListener, KeyListener, WindowListener, CreatureDragFrame, ActionListener{
     private JPanel backgroundPanel;
     private AssetPanel assetPanel;
     private EnemyFormationMakerPanel enemyFormationMakerPanel;
@@ -44,6 +47,8 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     private JPanel topPanel;
     private JLabel solutionLabel;
     private SolutionFormationPanel solutionFormationPanel;
+    private JPanel solutionPlusClearPanel;
+    private JButton clearButton;
     private JPanel yourPanel;
     
     public static final int QUEST_SOLVER_FRAME_WIDTH = 1500;
@@ -86,7 +91,10 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
         calculationPanel = new CalculationPanel(this);
         topPanel = new JPanel();
         solutionLabel = new JLabel("Solution");
-        solutionFormationPanel = new SolutionFormationPanel(true);
+        solutionFormationPanel = new SolutionFormationPanel(this,true,true);
+        solutionPlusClearPanel = new JPanel();
+        clearButton = new JButton("Clear");
+        clearButton.addActionListener(this);
         yourPanel = new JPanel();
         
         topPanel.setLayout(new BoxLayout(topPanel,BoxLayout.X_AXIS));
@@ -107,8 +115,11 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
         //calculationPanel.setBackground(Color.BLUE);
         getContentPane().setBackground(Color.YELLOW);
         
+        solutionPlusClearPanel.add(solutionFormationPanel);
+        solutionPlusClearPanel.add(clearButton);
+        
         yourPanel.add(solutionLabel);
-        yourPanel.add(solutionFormationPanel);
+        yourPanel.add(solutionPlusClearPanel);
         yourPanel.add(assetPanel);
         topPanel.add(yourPanel);
         topPanel.add(enemyFormationMakerPanel);
@@ -132,6 +143,7 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
         
         topPanel.setOpaque(false);
         yourPanel.setOpaque(false);
+        solutionPlusClearPanel.setOpaque(false);
         
         ImageIcon img = new ImageIcon("pictures/Followers Icon.png");//do this before setting visible so the icon doesn't flash in the taskbar
         setIconImage(img.getImage());
@@ -279,18 +291,22 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     public void recieveSolution(Formation f){
         solutionFormationPanel.updateFormation(f,false);
         
-        if (!f.isEmpty()){//called by calculationPanel to clear solution. not really a solution
+        if (!f.isEmpty()){//called by calculationPanel to clearNodes solution. not really a solution
             calculationPanel.recieveSolutionFound();
+            
             calculationPanel.updateSolutionDetails(f, enemyFormationMakerPanel.getEnemyFormation());
         }
     }
     
-    public void recieveBlankSpaceSolution(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces) {
+    public void recieveBlankSpaceSolution(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces, boolean hasNodes) {
         solutionFormationPanel.updateFormation(Formation.listBlankSpacesToArray(creatureList, blankSpaces));
-        
-        if (!creatureList.isEmpty()){//called by calculationPanel to clear solution. not really a solution
+        Formation f = new Formation(creatureList,blankSpaces).getCopy();//same memory slot
+        if (hasNodes){
+            f.addNodeSkills(this.getYourNodes());
+        }
+        if (!creatureList.isEmpty()){//called by calculationPanel to clearNodes solution. not really a solution
             calculationPanel.recieveSolutionFound();
-            calculationPanel.updateSolutionDetails(new Formation(creatureList,blankSpaces), enemyFormationMakerPanel.getEnemyFormation());
+            calculationPanel.updateSolutionDetails(f, enemyFormationMakerPanel.getEnemyFormation());
         }
     }
     
@@ -337,7 +353,7 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     }
     
 
-    @Override
+    @Override//make a lessCreatures solver like the world boss subclass?***
     public AISolver makeSolver() {//if has leprecaun, return subclass****
         if (assetPanel.heroEnabled("Leprechaun")){//hard coded value. currently the only hero that needs this is lep.
             return new WeirdHeroQuestSolver(this,"Leprechaun");//difference in demo sollution and shown solution***
@@ -476,6 +492,20 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     @Override
     public void redrawHero(String text) {
         enemyFormationMakerPanel.redrawHero(text);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        solutionFormationPanel.clearNodes();
+        parametersChanged();
+    }
+
+    public Skill[] getYourNodes() {
+        return solutionFormationPanel.getNodes();
+    }
+    
+    public Skill[] getEnemyNodes(){
+        return enemyFormationMakerPanel.getNodes();
     }
 
     

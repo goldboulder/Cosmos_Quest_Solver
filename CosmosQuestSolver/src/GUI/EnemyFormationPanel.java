@@ -7,6 +7,7 @@ import Formations.Formation;
 import Formations.Creature;
 import Formations.CreatureFactory;
 import Formations.Hero;
+import Skills.Skill;
 import java.awt.Dimension;
 import java.util.LinkedList;
 import javax.swing.BoxLayout;
@@ -139,6 +140,14 @@ public class EnemyFormationPanel extends JPanel implements CreaturePanelGroup{
             }
         }
         return false;
+    }
+
+    Skill[] getNodes() {
+        Skill[] nodes = new Skill[Formation.MAX_MEMBERS];
+        for (int i = 0; i < Formation.MAX_MEMBERS - 1; i++){
+            nodes[i] = panels[i].getNodeSkill().getCopyForNewOwner(null);
+        }
+        return nodes;
     }
 
     

@@ -5,8 +5,8 @@ package Formations;
 
 import Formations.Elements.Element;
 import GUI.CreatureDrawer;
-import SpecialAbilities.Nothing;
-import SpecialAbilities.SpecialAbility;
+import Skills.Nothing;
+import Skills.Skill;
 import cosmosquestsolver.OtherThings;
 import java.awt.Graphics;
 
@@ -20,20 +20,21 @@ public class Monster extends Creature {
     private long followers;// number of followers needed to use the monster
     private int tier;
     
-    protected Monster(Element element, int baseAtt, int baseHP, int tier, long followers, SpecialAbility specialAbility){
+    protected Monster(Element element, int baseAtt, int baseHP, int tier, long followers, Skill skill){
         super(element,baseAtt,baseHP);
         this.followers = followers;
-        this.specialAbility = specialAbility;
+        this.skill = skill;
         this.tier = tier;
     }
 
     @Override
     public Monster getCopy() {
-        Monster m = new Monster(element,baseAtt,baseHP,tier,followers,specialAbility);
+        Monster m = new Monster(element,baseAtt,baseHP,tier,followers,skill);
         m.setID(ID);
         m.currentAtt = currentAtt;
         m.currentHP = currentHP;
-        m.specialAbility = specialAbility.getCopyForNewOwner(m);
+        m.skill = skill.getCopyForNewOwner(m);
+        m.nodeSkill = nodeSkill.getCopyForNewOwner(m);
         return m;
     }
     
@@ -83,11 +84,11 @@ public class Monster extends Creature {
     
     @Override
     public String toolTipText() {
-        if (specialAbility instanceof Nothing){
+        if (skill instanceof Nothing){
             return "<html>" + getName() + "<br>Tier: " + tier + "<br>Followers: " + OtherThings.intToCommaString(followers) + "</html>";
         }
         else{
-            return "<html>" + getName() + "<br>Tier: " + tier + "<br>" + specialAbility.getDescription() + "<br>Followers: " + OtherThings.intToCommaString(followers) + "</html>";
+            return "<html>" + getName() + "<br>Tier: " + tier + "<br>" + skill.getDescription() + "<br>Followers: " + OtherThings.intToCommaString(followers) + "</html>";
         }
     }
     

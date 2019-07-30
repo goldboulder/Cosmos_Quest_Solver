@@ -57,7 +57,7 @@ public class EnemyHeroesCustomizationPanel extends JPanel implements HeroListPan
             for (int i = 0; i < bossPanelArray.length; i++){
                 bosses[i].setFacingRight(facingRight);
                 bossPanelArray[i] = new EnemyBossCustomizationPanel(frame,bosses[i]);
-                add(bossPanelArray[i]);
+                //add(bossPanelArray[i]);bosses only show if the boss check box in FilterPanel is pressed
             }
         }
         

@@ -7,7 +7,7 @@ import Formations.Elements.Element;
 import GUI.AssetPanel;
 import GUI.CreatureDrawer;
 import GUI.ImageFactory;
-import SpecialAbilities.SpecialAbility;
+import Skills.Skill;
 import java.awt.Graphics;
 
 
@@ -19,9 +19,9 @@ public class WorldBoss extends Creature{
         //usedForCopying
     }
     
-    protected WorldBoss(Element element, int baseAtt, int ID, SpecialAbility specialAbility){
+    protected WorldBoss(Element element, int baseAtt, int ID, Skill skill){
         super(element,baseAtt,Integer.MAX_VALUE);
-        this.specialAbility = specialAbility;
+        this.skill = skill;
         this.ID = ID;
     }
     
@@ -37,7 +37,8 @@ public class WorldBoss extends Creature{
         wb.element = element;
         wb.baseHP = baseHP;
         wb.baseAtt = baseAtt;
-        wb.specialAbility = specialAbility.getCopyForNewOwner(wb);
+        wb.skill = skill.getCopyForNewOwner(wb);
+        wb.nodeSkill = nodeSkill.getCopyForNewOwner(wb);
         wb.currentHP = baseHP;//needed?
         wb.currentAtt = baseAtt;
         wb.ID = ID;

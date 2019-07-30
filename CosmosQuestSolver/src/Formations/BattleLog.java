@@ -21,24 +21,6 @@ public class BattleLog {
         states = Formation.getBattleSim(thisFormation, enemyFormation);
     }
     
-    /*public BattleLog(Creature[] leftArray, Creature[] rightArray) {//params for both blank spaces***
-        
-            Creature[] leftCopy = new Creature[leftArray.length];
-            for (int i = 0; i < leftArray.length; i++){
-                leftCopy[i] = leftArray[i].getCopy();
-            }
-            
-            
-            Creature[] rightCopy = new Creature[rightArray.length];
-            for (int i = 0; i < rightArray.length; i++){
-                rightCopy[i] = rightArray[i].getCopy();
-            }
-        this.leftFormation = new Formation(leftCopy);
-        this.rightFormation = new Formation(rightCopy);
-        states = Formation.getBattleSim(thisFormation, enemyFormation);
-    }
-*/
-    
     public BattleLog(){
         this(new Formation(),new Formation());
     }

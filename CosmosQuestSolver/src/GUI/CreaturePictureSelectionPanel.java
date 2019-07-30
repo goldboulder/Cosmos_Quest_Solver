@@ -15,7 +15,7 @@ public class CreaturePictureSelectionPanel extends CreaturePicturePanel implemen
     
 
     public CreaturePictureSelectionPanel(EnemySelectFrame frame, Creature creature) {
-        super(creature);
+        super(frame,creature,false);
         this.frame = frame;
         
         

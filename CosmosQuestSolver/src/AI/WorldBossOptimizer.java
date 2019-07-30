@@ -10,6 +10,8 @@ import Formations.Formation;
 import Formations.Hero;
 import Formations.Monster;
 import GUI.WorldBossOptimizerFrame;
+import Skills.Nothing;
+import Skills.Skill;
 import cosmosquestsolver.OtherThings;
 import java.util.Collections;
 import java.util.HashSet;
@@ -25,6 +27,9 @@ public class WorldBossOptimizer extends AISolver{
     protected WorldBossOptimizerFrame frame;
     protected Formation bossFormation;
     protected Hero[] prioritizedHeroes;
+    protected Skill[] yourNodes;
+    protected boolean hasNodes = false;
+    protected boolean containsRandomBoss;
     private boolean NHWBEasy;
     
     public WorldBossOptimizer(WorldBossOptimizerFrame frame){
@@ -61,8 +66,19 @@ public class WorldBossOptimizer extends AISolver{
         LinkedList<Creature> list = new LinkedList<>();
         list.add(frame.getBoss());
         bossFormation = new Formation(list);
+        containsRandomBoss = bossFormation.containsRandomHeroes();
+        yourNodes = frame.getYourNodes();
+        for (int i = 0; i < Formation.MAX_MEMBERS; i++){
+            //System.out.println(yourNodes[i]);
+            if (!(yourNodes[i] instanceof Nothing)){
+                hasNodes = true;
+                //System.out.println("hasNodes");
+                break;
+            }
+        }
         
-        NHWBEasy = heroes.length == 0 && prioritizedHeroes.length == 0 && frame.getBoss().getMainSkill().WBNHEasy();
+        NHWBEasy = heroes.length == 0 && prioritizedHeroes.length == 0 && frame.getBoss().getMainSkill().WBNHEasy() && !hasNodes && !containsRandomBoss;
+        
     }
 
     
@@ -155,13 +171,33 @@ public class WorldBossOptimizer extends AISolver{
     //is found, update the frame, but still keep searching
     private void tryPermutations(LinkedList<Creature> list) {
         if (NHWBEasy){
+            //no nodes here
             testFormation(new Formation(list));
-            //System.out.println("testing the short way" + maxCreatures);
+            
         }
         else{
+            
             PermutationIterator<Creature> permutations = new PermutationIterator(list);
             while(permutations.hasNext()){
-                testFormation(new Formation(permutations.next()));
+                //if(maxCreatures != Formation.MAX_MEMBERS && (hasNodes || containsRandomBoss)){
+                if(maxCreatures != Formation.MAX_MEMBERS && (hasNodes || containsRandomBoss)){
+                    
+                    LinkedList<Creature> currentPermutation = permutations.next();
+                    testFormation(maxWithShufflingBlankSpaces(currentPermutation));
+                }
+                else{
+                    //System.out.println("No Shuffle");
+                    Formation f = new Formation(permutations.next());
+                    
+                    if (hasNodes){
+                        Formation nodeF = f.getCopy();
+                        nodeF.addNodeSkills(yourNodes);
+                        testFormation(nodeF);
+                    }
+                    else{
+                        testFormation(f);
+                    }
+                }
                 //System.out.println("testing the long way" + maxCreatures);
             }
         }
@@ -173,9 +209,58 @@ public class WorldBossOptimizer extends AISolver{
             
             if (damage > frame.getBestDamage()){
                 frame.recieveDamageOfBattle(damage);//do this first to avoid race condition with multiple threads
-                frame.recieveSolution(f);
+                if (maxCreatures != Formation.MAX_MEMBERS && (hasNodes || containsRandomBoss)){
+                    frame.recieveBlankSpaceSolution(f.getMembers(), f.getBlankSpaces(), hasNodes);
+                }
+                else{
+                    frame.recieveSolution(f);
+                }
                 
             }
+    }
+    
+    protected Formation maxWithShufflingBlankSpaces(LinkedList<Creature> creatureList){
+        //System.out.println("PassedWithShufflingBlankSpaces");
+        LinkedList<Integer> nums = new LinkedList<>();
+        for (int i = 0; i < Formation.MAX_MEMBERS; i++){
+            nums.add(i);
+        }
+        
+        Iterator<LinkedList<Integer>> combinations = new CombinationIterator(nums,Formation.MAX_MEMBERS - maxCreatures);
+        
+        long damage = 0;
+        Formation currentBest = new Formation();
+        while(combinations.hasNext()){
+            //make formation with blank spaces
+            LinkedList<Integer> blankSpaces = combinations.next();
+            Creature[] creatureArray = Formation.listBlankSpacesToArray(creatureList, blankSpaces);
+            //get copy
+            Creature[] copyArray = new Creature[creatureArray.length];
+            for (int i = 0; i < creatureArray.length; i++){
+                if (creatureArray[i] != null){
+                    copyArray[i] = creatureArray[i].getCopy();
+                }
+            }
+            
+            
+            Formation f = new Formation(copyArray);
+            Formation nodeF = f.getCopy();
+            if (hasNodes){
+                nodeF.addNodeSkills(yourNodes);
+            }
+            
+            long tempDamage = Formation.damageDealt(nodeF.getCopy(), bossFormation.getCopy());
+            //System.out.println(passed);
+            if (tempDamage > damage){
+                damage = tempDamage;
+                currentBest = nodeF;
+                if (hasNodes){
+                    currentBest.addNodeSkills(yourNodes);
+                }
+            }
+        }
+        
+        return currentBest;
     }
     
     //since the element of the world boss is known and constant, give monsters strong against

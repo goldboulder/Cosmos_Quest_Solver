@@ -74,8 +74,8 @@ public class SimulationPanel extends JPanel implements ActionListener{
         roundLabelPanel = new JPanel();
         leftDamageTitleLabel = new JLabel("Damage Dealt");
         rightDamageTitleLabel = new JLabel("Damage Dealt");
-        leftFormationPanel = new SolutionFormationPanel(true);
-        rightFormationPanel = new SolutionFormationPanel(false);
+        leftFormationPanel = new SolutionFormationPanel((ParameterListener)frame,true,false);
+        rightFormationPanel = new SolutionFormationPanel((ParameterListener)frame,false,false);
         roundTitleLabel = new JLabel("Round");
         roundLabel = new JLabel("0");
         firstButton = new JButton("<<");

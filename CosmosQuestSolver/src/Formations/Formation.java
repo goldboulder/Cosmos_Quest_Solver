@@ -3,16 +3,17 @@
  */
 package Formations;
 
-import SpecialAbilities.BloodBomb;
-import SpecialAbilities.CriticalHit;
-import SpecialAbilities.Inferno;
-import SpecialAbilities.RandomStatBoost;
-import SpecialAbilities.RandomTarget;
-import SpecialAbilities.Ricochet;
-import SpecialAbilities.ScaleableAOE;
-import SpecialAbilities.ScaleableStartingDamage;
-import SpecialAbilities.SpecialAbility;
-import SpecialAbilities.WildCard;
+import Skills.BloodBomb;
+import Skills.CriticalHit;
+import Skills.Inferno;
+import Skills.Nothing;
+import Skills.RandomStatBoost;
+import Skills.RandomTarget;
+import Skills.Ricochet;
+import Skills.ScaleableAOE;
+import Skills.ScaleableStartingDamage;
+import Skills.Skill;
+import Skills.WildCard;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -25,15 +26,13 @@ public class Formation implements Iterable<Creature>{
     public static final int MAX_MEMBERS = 6;//current max creatures possible in one line
     //in rare circumstances, armor might outweigh attack power, resulting in an
     //infinite loop. After a set amount of rounds, end the battle
-    public static final int STALEMATE_CUTOFF_POINT = 100;
+    public static final int STALEMATE_CUTOFF_POINT = 99;
     
     protected LinkedList<Creature> members;//arrayList instead?
     protected long totalDamageTaken = 0;// for tiebreakers in pvp
     protected double AOEResistance = 0;//1 is invincible
     private long seed = -1;//used for random skills. newSeed should be positive. if newSeed is needed, generate it
     private LinkedList<Integer> blankSpaces;
-
-    
 
     
     public static enum VictoryCondition{WIN,DRAW,LOSE};
@@ -125,6 +124,89 @@ public class Formation implements Iterable<Creature>{
         return creatureArray;
     }
     
+    public void randomizeBlankSpaces() {
+        if (members.size() == MAX_MEMBERS || members.isEmpty()){
+            return;
+        }
+        
+        blankSpaces = new LinkedList<>();
+        LinkedList<Integer> nums = new LinkedList<>();
+        for (int i = 0; i < MAX_MEMBERS; i++){
+            nums.add(i);
+        }
+        Collections.shuffle(nums);
+        for (int i = 0; i < MAX_MEMBERS - members.size(); i++){
+            blankSpaces.add(nums.get(i));
+        }
+        
+        
+        seed = getSeedBlankSpaces(listBlankSpacesToArray(members,blankSpaces));
+    }
+    
+    public void alignNodes(Skill[] nodes) {//include bad nodes?
+        if (members.size() == MAX_MEMBERS || members.isEmpty()){
+            return;
+        }
+        blankSpaces = new LinkedList();
+        LinkedList<Integer> nothingList = new LinkedList<>();
+        LinkedList<Integer> goodList = new LinkedList<>();
+        for (int i = MAX_MEMBERS - 1; i >= 0; i --){
+            if (nodes[i] instanceof Nothing){
+                nothingList.add(i);
+            }
+            else{
+                goodList.add(i);
+            }
+        }
+        Collections.shuffle(goodList);
+        
+        while(!nothingList.isEmpty() && blankSpaces.size() < MAX_MEMBERS - members.size()){
+            blankSpaces.add(nothingList.poll());
+        }
+        
+        while(!goodList.isEmpty() && blankSpaces.size() < MAX_MEMBERS - members.size()){
+            blankSpaces.add(nothingList.poll());
+        }
+        
+    }
+    
+    public void addNodeSkills(Skill[] nodeSkills){
+        
+        Creature[] creatureArray = getCreatureArray();
+        for (int i = 0; i < nodeSkills.length; i++){
+            if (creatureArray[i] != null && nodeSkills[i] != null){
+                creatureArray[i].setNodeSkill(nodeSkills[i]);
+                nodeSkills[i].setOwner(creatureArray[i]);
+            }
+        }
+    }
+    
+    public void clearNodeSkills(){
+        for (Creature c : members){
+            c.setNodeSkill(new Nothing(c));
+        }
+    }
+    /*
+    public boolean hasNodes() {
+        for (Creature c : members){
+            if (!(c.getNodeSkill() instanceof Nothing)){
+                return true;
+            }
+        }
+        return false;
+    }
+    */
+    
+    public int numNodes(){
+        int sum = 0;
+        for (Creature c : members){
+            if (!(c.getNodeSkill() instanceof Nothing)){
+                sum ++;
+            }
+        }
+        return sum;
+    }
+    
     public LinkedList<Creature> getMembers() {
         return members;
     }
@@ -140,7 +222,7 @@ public class Formation implements Iterable<Creature>{
 
     public boolean containsLepHeroes() {
         for (int i = 0; i < members.size(); i ++){
-            SpecialAbility s = members.get(i).getMainSkill();
+            Skill s = members.get(i).getMainSkill();
             if (s instanceof Ricochet || s instanceof ScaleableAOE || s instanceof ScaleableStartingDamage || s instanceof BloodBomb || s instanceof Inferno){
                 return true;
             }
@@ -150,7 +232,7 @@ public class Formation implements Iterable<Creature>{
     
     public boolean containsRandomHeroes() {
         for (int i = 0; i < members.size(); i ++){
-            SpecialAbility s = members.get(i).getMainSkill();
+            Skill s = members.get(i).getMainSkill();
             if (s instanceof RandomTarget || s instanceof RandomStatBoost || s instanceof CriticalHit || s instanceof WildCard){
                 return true;
             }
@@ -261,7 +343,7 @@ public class Formation implements Iterable<Creature>{
         return list;
     }
     
-    //shifts certain heroes to the back or the front of the formation depending on their ability
+    //shifts certain heroes to the back or the front of the formation depending on their skill
     public void positionBias() {
         
         HashMap<Creature,Integer> map = new HashMap<>();
@@ -303,6 +385,7 @@ public class Formation implements Iterable<Creature>{
     
     //cool solution: <Enemy> Guy:1k, Defile:1k, Geum:1k, Aural:1k, e33 <Solution> Rose:99.4, Guy:36, Hawking:99.4, Neil:99.5, aTR0N1X:99.4, Aurora:99.4
     //<Enemy> Hoso:1k, Veil:1k, Nebra:1k, Nerissa:1k, Liu Cheng:1k <Solution> aAthos:99.5, Rose:99.4, Guy:57, Lee:99.4, Aurora:99.4, Fir:99.5
+    //<Enemy> Zeth:1k, a38, f39, a38, f39 <Solution> Hawking:99.4, Guy:80, Dorth:99.4, Lee:99.4, Fir:99.5, Aurora:99.4
 
     public boolean isBossFormation() {
         return members.size() == 1 && members.getFirst() instanceof WorldBoss;
@@ -519,14 +602,14 @@ public class Formation implements Iterable<Creature>{
         } 
     }
     
-    //activates each creature's special ability's start of fight action
+    //activates each creature's skill's start of fight action
     public void startOfFightAction(Formation enemyFormation){
         for (Creature creature : members){
             creature.startOfFightAction(this,enemyFormation);
         }
     }
     
-    //activates each creature's special ability's start of fight action
+    //activates each creature's skill start of fight action
     public void startOfFightAction2(Formation enemyFormation){
         for (Creature creature : members){
             creature.startOfFightAction2(this,enemyFormation);
@@ -598,6 +681,7 @@ public class Formation implements Iterable<Creature>{
         double hit = attacker.determineDamageDealt(members.get(position),this,enemyFormation);//check for array out of bounds?
         hit = alterIncomingDamage(hit,enemyFormation);//if abilities ever have %reduction armor, do it either ^ or V depending on what gets reduced first. prefer ^
         members.get(position).takeHit(attacker,this,enemyFormation,hit);
+        
     }
     
     //for abilities like Niel's, where hits can be affected by abiilities other than armor

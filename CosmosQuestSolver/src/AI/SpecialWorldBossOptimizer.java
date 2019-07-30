@@ -7,6 +7,7 @@ import Formations.Creature;
 import Formations.Formation;
 import Formations.Hero;
 import GUI.WorldBossOptimizerFrame;
+import Skills.Nothing;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -31,6 +32,16 @@ public class SpecialWorldBossOptimizer extends WorldBossOptimizer{
         LinkedList<Creature> list = new LinkedList<>();
         list.add(frame.getBoss());
         bossFormation = new Formation(list);
+        containsRandomBoss = bossFormation.containsRandomHeroes();
+        yourNodes = frame.getYourNodes();
+        for (int i = 0; i < Formation.MAX_MEMBERS; i++){
+            //System.out.println(yourNodes[i]);
+            if (!(yourNodes[i] instanceof Nothing)){
+                hasNodes = true;
+                //System.out.println("hasNodes");
+                break;
+            }
+        }
     }
         
     @Override

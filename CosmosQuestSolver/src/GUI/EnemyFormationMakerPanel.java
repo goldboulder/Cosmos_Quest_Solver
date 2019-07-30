@@ -8,6 +8,7 @@ import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.Hero;
 import static GUI.QuestSolverFrame.ASSET_PANEL_WIDTH;
+import Skills.Skill;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -191,6 +192,10 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
 
     public void redrawHero(String text) {
         enemyHeroesCustomizationPanel.redrawHero(text);
+    }
+
+    Skill[] getNodes() {
+        return enemyFormationPanel.getNodes();
     }
 
     

@@ -10,6 +10,7 @@ import Formations.Creature;
 import Formations.Formation;
 import Formations.Hero;
 import Formations.WorldBoss;
+import Skills.Skill;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -104,6 +105,41 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
             calculationPanel.updateSolutionDetails(f,worldBossSelectionPanel.getBossFormation());
         }
     }
+    
+    public void recieveBlankSpaceSolution(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces, boolean hasNodes){//race condition for LOC NH!
+        
+            
+        worldBossSelectionPanel.recieveSolution(new Formation(creatureList,blankSpaces).getCreatureArray());
+        Formation f = new Formation(creatureList,blankSpaces);
+        if (hasNodes){
+            f.addNodeSkills(this.getYourNodes());
+        }
+        calculationPanel.updateSolutionDetails(f,worldBossSelectionPanel.getBossFormation());
+    }
+    /*
+    @Override
+    public void recieveSolution(Formation f){
+        solutionFormationPanel.updateFormation(f,false);
+        
+        if (!f.isEmpty()){//called by calculationPanel to clearNodes solution. not really a solution
+            calculationPanel.recieveSolutionFound();
+            
+            calculationPanel.updateSolutionDetails(f, enemyFormationMakerPanel.getEnemyFormation());
+        }
+    }
+    
+    public void recieveBlankSpaceSolution(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces, boolean hasNodes) {
+        solutionFormationPanel.updateFormation(Formation.listBlankSpacesToArray(creatureList, blankSpaces));
+        Formation f = new Formation(creatureList,blankSpaces);
+        if (hasNodes){
+            f.addNodeSkills(this.getYourNodes());
+        }
+        if (!creatureList.isEmpty()){//called by calculationPanel to clearNodes solution. not really a solution
+            calculationPanel.recieveSolutionFound();
+            calculationPanel.updateSolutionDetails(f, enemyFormationMakerPanel.getEnemyFormation());
+        }
+    }
+*/
 
     @Override
     public long getFollowers() {
@@ -139,7 +175,8 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
 
     @Override
     public AISolver makeSolver() {
-        if (worldBossSelectionPanel.getBoss().getMainSkill().WBTryLessCreatures() && assetPanel.getEnabledHeroes().isEmpty()){
+        WorldBoss b = worldBossSelectionPanel.getBoss();
+        if (b.getMainSkill().WBTryLessCreatures() && assetPanel.getEnabledHeroes().isEmpty() || (!b.getMainSkill().WBNHEasy() && worldBossSelectionPanel.hasNodes())){
             return new NoHeroesLessSpacesWBOptimizer(this);
         }
         else{
@@ -227,5 +264,9 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
     //public boolean canPauseThread() {
         //return false;
     //}
+
+    public Skill[] getYourNodes() {
+        return worldBossSelectionPanel.getNodes();
+    }
     
 }

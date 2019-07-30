@@ -225,6 +225,7 @@ public class CalculationPanel extends JPanel implements ActionListener{
 
     public void updateSolutionDetails(Formation left, Formation right) {
         solutionDetailsButton.setEnabled(true);
+        //System.out.println(left);
         log = new BattleLog(left.getCopy(),right.getCopy());
     }
 

@@ -44,7 +44,7 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
         this.frame = frame;
         this.hero = hero;
         
-        picturePanel = new CreaturePicturePanel(hero);
+        picturePanel = new CreaturePicturePanel(frame,hero,false);
         editPanel = new JPanel();
         includeCheckBox = new JCheckBox();
         prioritizeCheckBox = new JCheckBox();

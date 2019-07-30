@@ -3,10 +3,12 @@
  */
 package GUI;
 
+import AI.AISolver;
 import Formations.BattleLog;
 import Formations.Creature;
 import Formations.CreatureFactory;
 import Formations.Formation;
+import Formations.Hero;
 import static GUI.QuestSolverFrame.QUEST_SOLVER_FRAME_HEIGHT;
 import static GUI.QuestSolverFrame.QUEST_SOLVER_FRAME_WIDTH;
 import java.awt.Dimension;
@@ -19,6 +21,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.LinkedList;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -218,9 +221,12 @@ public class SandBoxFrame extends JFrame implements EnemySelectFrame, MouseListe
                 }
             }
             
+            Formation leftNodeF = new Formation(leftCopy);
+            Formation rightNodeF = new Formation(rightCopy);
+            leftNodeF.addNodeSkills(leftSelectionPanel.getNodes());
+            rightNodeF.addNodeSkills(rightSelectionPanel.getNodes());
             
-            
-            simulationPanel.recieveSimulation(new BattleLog(new Formation(leftCopy), new Formation(rightCopy)));
+            simulationPanel.recieveSimulation(new BattleLog(leftNodeF, rightNodeF));
         }
     }
     
@@ -235,5 +241,7 @@ public class SandBoxFrame extends JFrame implements EnemySelectFrame, MouseListe
         leftSelectionPanel.redrawHero(text);
         rightSelectionPanel.redrawHero(text);
     }
+
+    
     
 }

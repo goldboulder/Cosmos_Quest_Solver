@@ -4,7 +4,7 @@
 package Formations;
 
 import Formations.Elements.Element;
-import SpecialAbilities.SpecialAbility;
+import Skills.Skill;
 import java.awt.Graphics;
 
 //a creature is any unit that can fight. Fundamentally, they have
@@ -18,12 +18,16 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     protected int baseAtt;//attack the creature starts off with
     protected int attConstantBoost = 0;
     protected double attPercentBoost = 1;
-    protected int armorConstant = 0;
+    protected int armorConstant = 0;//subtracts damage
     protected double armorPercent = 1;//1 = take normalDamage
+    protected double attConstantBoostEffectiveness = 1;
+    protected double armorConstantEffectiveness = 1;
+    protected double healEffectiveness = 1;
     protected int currentHP;
     protected long currentAtt;
-    public SpecialAbility specialAbility;
-    //public SpecialAbility nodeSkill
+    protected Skill skill;
+    protected Skill nodeSkill;
+    
     protected boolean facingRight = true;//for GUI. put in GUI class instead?
     protected int ID;//for quicker copying. Copying names of heroes was not nessesary for fights. Names can be accesed through a method in CreatureFactory.
     //also used for rng skills
@@ -55,9 +59,13 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         attPercentBoost = 1;
         armorConstant = 0;
         armorPercent = 1;
+        attConstantBoostEffectiveness = 1;
+        armorConstantEffectiveness = 1;
+        healEffectiveness = 1;
         currentHP = baseHP;
         currentAtt = baseAtt;
-        specialAbility.restore();
+        skill.restore();
+        nodeSkill.restore();
         performedDeathAction = false;
     }
     public abstract Creature getCopy();
@@ -87,16 +95,26 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         this.ID = ID;
     }
     
-    public SpecialAbility getMainSkill(){
-        return specialAbility;
+    public Skill getMainSkill(){
+        return skill;
     }
     
-    public void attatchSpecialAbility() {
-        specialAbility.setOwner(this);
+    
+    public Skill getNodeSkill(){
+        return nodeSkill;
+    }
+    
+    public void setNodeSkill(Skill nodeSkill){
+        this.nodeSkill = nodeSkill;
+    }
+    
+    
+    public void attatchSkill() {
+        skill.setOwner(this);
     }
     
     public int getAttConstantBoost(){
-        return attConstantBoost;
+        return (int)(attConstantBoost * attConstantBoostEffectiveness);
     }
     
     public double getAttPercentBoost(){
@@ -104,16 +122,18 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     }
     
     public double attWithBoosts(){
-        return (currentAtt + attConstantBoost) * attPercentBoost;
+        return (currentAtt + attConstantBoost * attConstantBoostEffectiveness) * attPercentBoost;
     }
     
     public double hitAfterDefend(Creature attacker, Formation thisFormation, Formation enemyFormation, double damage){
-        double newDamage = damage * getArmorPercent() - getArmor();
-        return getMainSkill().hitAfterDefend(attacker,thisFormation,enemyFormation,newDamage);
+        double newDamage = damage * getArmorPercent() - getArmor();//armor last?
+        newDamage = getMainSkill().hitAfterDefend(attacker,thisFormation,enemyFormation,newDamage);
+        newDamage = getNodeSkill().hitAfterDefend(attacker, thisFormation, enemyFormation, newDamage);
+        return newDamage;
     }
     
     public int getArmor(){
-        return armorConstant;//armor times armorConstant percent***
+        return (int)(armorConstant * armorConstantEffectiveness);
     }
     
     public double getArmorPercent(){
@@ -172,12 +192,8 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         currentHP = HP;
     }
     
-    public void addRawAttBoost(int a) {
+    public void addAttConstantBoost(int a) {
         attConstantBoost += a;
-    }
-    
-    public void addAttBoost(int a){
-        getMainSkill().addAttBoost(a);
     }
     
     public void addAttPercentBoost(double a){//add or multiply?** example input would be 1.15
@@ -185,16 +201,13 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         //System.out.println(a + ", attPercentBoost now " + attPercentBoost);
     }
     
-    public void addArmorBoost(int a){
-        getMainSkill().addArmorBoost(a);
-    }
     
-    public void addRawArmorBoost(int a) {
+    public void addArmor(int a) {
         armorConstant += a;
     }
     
     public void addArmorPercentBoost(double a){
-        armorPercent *= a;
+        armorPercent *= a;//p6 skill?
     }
     
     public void resetBoosts(){
@@ -204,14 +217,39 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         armorPercent = 1;
     }
     
+    public void addArmorConstantEffectivness(double e){
+        armorConstantEffectiveness += e;
+    }
+    
+    public void addAttConstantBoostEffectiveness(double e){
+        attConstantBoostEffectiveness += e;
+    }
+    
+    public void addHealEffectivness(double e){
+        healEffectiveness += e;
+    }
+    
+    public double getArmorConstantEffectivness(){
+        return armorConstantEffectiveness;
+    }
+    
+    public double getAttConstantBoostEffectivness(){
+        return attConstantBoostEffectiveness;
+    }
+    
+    public double getHealEffectivness(){
+        return healEffectiveness;
+    }
+    
     public char getElementChar(){
         return Elements.getElementChar(element);
     }
     
     public void attack(Formation thisFormation,Formation enemyFormation){
-        enemyFormation.takeHit(this,thisFormation,getMainSkill().chooseTarget(thisFormation,enemyFormation));
+        enemyFormation.takeHit(this,thisFormation,getMainSkill().chooseTarget(thisFormation,enemyFormation));//node skill unlikely to matter here
         //getMainSkill().attack(thisFormation,enemyFormation);
         getMainSkill().postAttackAction(thisFormation, enemyFormation);
+        nodeSkill.postAttackAction(thisFormation, enemyFormation);
     }
     
     public boolean isDead(){
@@ -230,7 +268,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
        // if (getName().equals("Arshen")){
         //    System.out.println(getMainSkill());
         //}
-        return getMainSkill().viability();
+        return getMainSkill().viability() + nodeSkill.viability() - baseHP*baseAtt;
         
     }
     
@@ -286,7 +324,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     }
     
     
-    public void takeAOEDamage(double damage, Formation formation) {//modify for p6?
+    public void takeAOEDamage(double damage, Formation formation) {//modify for nodes?
         double newDamage = getMainSkill().alterAOEDamage(damage,formation);
         
         if (newDamage > 1){
@@ -299,11 +337,11 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
 
     }
     
-    public boolean shouldTakePercentExecute(double percent) {
+    public boolean shouldTakePercentExecute(double percent) {//modify for nodes?
         return getMainSkill().shouldTakePercentExecute(percent);
     }
     
-    public boolean shouldTakeConstantExecute(int hp) {
+    public boolean shouldTakeConstantExecute(int hp) {//modify for nodes?
         return getMainSkill().shouldTakeConstantExecute(hp);
     }
     
@@ -312,7 +350,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         //recordDamageTaken(enemyHPBefore + 1,thisFormation,enemyFormation);
     }
     
-    public double determineDamageDealt(Creature target, Formation thisFormation, Formation enemyFormation){
+    public double determineDamageDealt(Creature target, Formation thisFormation, Formation enemyFormation){//modify for nodes?
         double damage = attWithBoosts() + getMainSkill().extraDamage(enemyFormation,thisFormation);
         
         damage = Elements.damageFromElement(this,damage,target.element);//percent damage reduction here?
@@ -326,45 +364,56 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     
     public void prepareForFight(Formation thisFormation, Formation enemyFormation){
         getMainSkill().prepareForFight(thisFormation, enemyFormation);
+        nodeSkill.prepareForFight(thisFormation, enemyFormation);
     }
     
-    public void startOfFightAction(Formation thisFormation, Formation enemyFormation) {
+    public void startOfFightAction(Formation thisFormation, Formation enemyFormation) {//modify for nodes?
         getMainSkill().startOfFightAction(thisFormation, enemyFormation);
     }
     
-    public void startOfFightAction2(Formation thisFormation, Formation enemyFormation) {
+    public void startOfFightAction2(Formation thisFormation, Formation enemyFormation) {//modify for nodes?
         getMainSkill().startOfFightAction2(thisFormation, enemyFormation);
     }
     
-    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {//reseting buffs done elsewhere
+    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {//modify for nodes?
         getMainSkill().preRoundAction(thisFormation,enemyFormation);
     }
     
-    public void takeHit(Creature attacker,  Formation thisFormation, Formation enemyFormation, double hit) {//future special ability?
-        getMainSkill().takeHit(attacker, thisFormation, enemyFormation, hit);
+    public void takeHit(Creature attacker,  Formation thisFormation, Formation enemyFormation, double hit) {//future skill?
+        //getMainSkill().takeHit(attacker, thisFormation, enemyFormation, hit);
+        
+        if (hit < 0){
+            hit = 0;
+        }
+        
+        long longHit = (long)Math.ceil(hit);
+        recordDamageTaken(longHit,thisFormation,enemyFormation);
+        attacker.recordDamageDealt(longHit,thisFormation,enemyFormation);
+        changeHP(-hit,thisFormation);
     }
     
     public void takeHeal(double amount, Formation thisFormation) {
-        changeHP(amount + healBoost(amount), thisFormation);
+        changeHP(amount * healEffectiveness, thisFormation);
     }
     
-    public double healBoost(double base){
-        return getMainSkill().healBoost(base);
-    }
-    
-    public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation) {
+    public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation) {//modify for nodes?
         getMainSkill().recordDamageTaken(damage,thisFormation,enemyFormation);
+    }
+    
+    public void recordDamageDealt(long damage, Formation thisFormation, Formation enemyFormation){//modify for nodes?
+        getMainSkill().recordDamageDealt(damage,thisFormation,enemyFormation);
     }
 
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//AOE takes effect even when dead
-        getMainSkill().postRoundAction(thisFormation,enemyFormation);
+        getMainSkill().postRoundAction(thisFormation,enemyFormation);//modify for nodes?
     }
     
     public void postRoundAction2(Formation thisFormation, Formation enemyFormation) {
         getMainSkill().postRoundAction2(thisFormation,enemyFormation);
+        nodeSkill.postRoundAction2(thisFormation, enemyFormation);
     }
     
-    public void actionOnDeath(Formation thisFormation, Formation enemyFormation) {//is this needed? put in each specialAbility class?
+    public void actionOnDeath(Formation thisFormation, Formation enemyFormation) {//is this needed? put in each skill class?
         if (!performedDeathAction){//change for revive?
             getMainSkill().deathAction(thisFormation, enemyFormation);
             performedDeathAction = true;

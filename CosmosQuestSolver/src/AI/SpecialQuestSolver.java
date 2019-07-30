@@ -7,6 +7,7 @@ import Formations.Creature;
 import Formations.Formation;
 import Formations.Hero;
 import GUI.QuestSolverFrame;
+import Skills.Nothing;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -25,6 +26,7 @@ public class SpecialQuestSolver extends QuestSolver{
         this.weirdHero = weirdHero;
     }
         
+    @Override
     protected void obtainProblem(){
         followers = frame.getFollowers();
         // maxCreatures already known
@@ -32,6 +34,19 @@ public class SpecialQuestSolver extends QuestSolver{
         heroes = frame.getHeroesWithoutPrioritization();
         prioritizedHeroes = frame.getPrioritizedHeroes();
         enemyFormation = frame.getEnemyFormation();
+        yourNodes = frame.getYourNodes();
+        enemyNodes = frame.getEnemyNodes();
+        enemyFormation.addNodeSkills(enemyNodes);
+        containsRandomHeroes = enemyFormation.containsRandomHeroes();
+        
+        for (int i = 0; i < maxCreatures; i++){
+            //System.out.println(yourNodes[i]);
+            if (!(yourNodes[i] instanceof Nothing)){
+                hasNodes = true;
+                //System.out.println("hasNodes");
+                break;
+            }
+        }
     }
         
     
@@ -54,7 +69,7 @@ public class SpecialQuestSolver extends QuestSolver{
     //will also work.
     @Override
     protected boolean proceedWithPermutations(LinkedList<Creature> combo) {
-        if (combo.size() == originalMaxCreatures){
+        if (combo.size() == originalMaxCreatures || weirdHero == null){
             return true;
         }
         else{

@@ -37,7 +37,7 @@ public class Elements {
         }
     }
 
-    static Element parseElement(String str) {
+    public static Element parseElement(String str) {
         switch (str){
             case "Air": return Element.AIR;
             case "Water": return Element.WATER;

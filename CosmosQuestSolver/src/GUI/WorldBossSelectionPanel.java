@@ -7,6 +7,8 @@ import Formations.Creature;
 import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.WorldBoss;
+import Skills.Nothing;
+import Skills.Skill;
 import cosmosquestsolver.OtherThings;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -36,6 +38,8 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
     private long damage;
     private JLabel followersLabel;
     private SolutionFormationPanel solutionFormationPanel;
+    private JPanel solutionPlusClearPanel;
+    private JButton clearButton;
     
     private HashMap<String,WorldBoss> map;
     
@@ -54,7 +58,11 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
         damageLabel = new JLabel("Damage: 0");
         damage = 0;
         followersLabel = new JLabel(" ");
-        solutionFormationPanel = new SolutionFormationPanel(true);
+        solutionPlusClearPanel = new JPanel();
+        clearButton = new JButton("Clear");
+        clearButton.addActionListener(this);
+        clearButton.setActionCommand("clear");
+        solutionFormationPanel = new SolutionFormationPanel(frame,true,true);
         
         setBoss(CreatureFactory.getDefaultBoss());
         
@@ -62,11 +70,13 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
         solutionTitlePanel.add(solutionLabel);
         solutionTitlePanel.add(damageLabel);
         solutionTitlePanel.add(followersLabel);
+        solutionPlusClearPanel.add(solutionFormationPanel);
+        solutionPlusClearPanel.add(clearButton);
         add(titlePanel);
         add(worldBossPicturePanel);
         add(buttonPanel);
         add(solutionTitlePanel);
-        add(solutionFormationPanel);
+        add(solutionPlusClearPanel);
         
         initiateButtons();
         
@@ -91,6 +101,8 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
         titlePanel.setOpaque(false);
         buttonPanel.setOpaque(false);
         solutionTitlePanel.setOpaque(false);
+        solutionPlusClearPanel.setMaximumSize(new Dimension(QuestSolverFrame.QUEST_SOLVER_FRAME_WIDTH,AssetPanel.CREATURE_PICTURE_SIZE));
+        solutionPlusClearPanel.setOpaque(false);
         //solutionFormationPanel.setOpaque(false);
     }
     
@@ -123,10 +135,17 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!worldBossPicturePanel.getBoss().getName().equals(e.getActionCommand())){
-            frame.parametersChanged();
-            setBoss(map.get(e.getActionCommand()));
+        if (e.getActionCommand().equals("clear")){
+            solutionFormationPanel.clearNodes();
+            parametersChanged();
         }
+        else{
+            if (!worldBossPicturePanel.getBoss().getName().equals(e.getActionCommand())){
+                frame.parametersChanged();
+                setBoss(map.get(e.getActionCommand()));
+            }
+        }
+        
         
     }
 
@@ -152,6 +171,22 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
         }
         
     }
+    
+    public void recieveSolution(Creature[] creatures) {
+        solutionFormationPanel.updateFormation(creatures);
+        long followersUsed = solutionFormationPanel.getFormation().getFollowers();
+        if (followersUsed == 0){
+            followersLabel.setText(" ");
+        }
+        else{
+            followersLabel.setText("Followers Used: " + OtherThings.intToCommaString(followersUsed));
+        }
+        
+        if (new Formation(creatures).isEmpty()){//resets damage if clicking search again without changing anything
+            setDamage(0);
+        }
+        
+    }
 
     public void parametersChanged() {
         solutionFormationPanel.updateFormation(new Formation(),true);
@@ -162,6 +197,20 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
 
     public long getDamage() {
         return damage;
+    }
+
+    Skill[] getNodes() {
+        return solutionFormationPanel.getNodes();
+    }
+
+    boolean hasNodes() {
+        Skill[] nodes = getNodes();
+        for (int i = 0; i < nodes.length; i ++){
+            if (nodes[i] != null && !(nodes[i] instanceof Nothing)){
+                return true;
+            }
+        }
+        return false;
     }
 
     private class WorldBossPicturePanel extends JPanel{
