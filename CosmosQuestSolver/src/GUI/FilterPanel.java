@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -40,6 +41,7 @@ public class FilterPanel extends JPanel implements ActionListener{
     
     private JCheckBox selectedBox;
     private JCheckBox bossBox;
+    private JButton selectShownButton;
     
     private ButtonGroup sourceGroup;
     private ButtonGroup rarityGroup;
@@ -68,7 +70,7 @@ public class FilterPanel extends JPanel implements ActionListener{
     }
     
     
-    public FilterPanel(HeroListPanel heroListPanel, boolean includeSelected, boolean includeBosses){
+    public FilterPanel(HeroListPanel heroListPanel, boolean includeSelected, boolean includeBosses, boolean selectShown){
         this.heroListPanel = heroListPanel;
         this.includeBosses = includeBosses;
         
@@ -91,6 +93,9 @@ public class FilterPanel extends JPanel implements ActionListener{
         
         bossBox = new JCheckBox();
         selectedBox = new JCheckBox();
+        selectShownButton = new JButton("Select Shown");
+        selectShownButton.setActionCommand("select shown");
+        selectShownButton.addActionListener(this);
 
         sourceGroup = new ButtonGroup();
         rarityGroup = new ButtonGroup();
@@ -164,6 +169,9 @@ public class FilterPanel extends JPanel implements ActionListener{
         }
         if (includeBosses){
             otherPanel.add(bossBox);
+        }
+        if (selectShown){
+            otherPanel.add(selectShownButton);
         }
         
         
@@ -240,7 +248,10 @@ public class FilterPanel extends JPanel implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("boss") && bossBox.isSelected()){
+        if (e.getActionCommand().equals("select shown")){
+            heroListPanel.selectShown();
+        }
+        else if (e.getActionCommand().equals("boss") && bossBox.isSelected()){
             allSourceButton.setSelected(true);
             allRarityButton.setSelected(true);
         }

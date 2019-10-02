@@ -33,7 +33,7 @@ public class CriticalHit extends Skill{
     @Override
     public void prepareForFight(Formation thisFormation, Formation enemyFormation) {
         //enemyFormation.getTurnSeed(enemyFormation, turn);//gets formation to generate seed at the beginning of the fight. seed might change if called mid-fight
-        seed = enemyFormation.getTurnSeed(0);
+        seed = enemyFormation.getSeed();
         
     }
     
@@ -47,7 +47,7 @@ public class CriticalHit extends Skill{
         //if (alwaysHit || thisFormation.getTurnSeed(enemyFormation,turn) % 2 == 0){
         //if (enemyFormation.getTurnSeed(Formation.STALEMATE_CUTOFF_POINT-1-turn) % 2 == 0){
         //do empty spaces count?
-        if (Formation.getTurnSeed(seed,Formation.STALEMATE_CUTOFF_POINT-turn) % 2 == 0){
+        if (Formation.getTurnSeed(seed,turn) % 2 == 0){
             //test this more with data?
             return (multiplier-1) * (owner.attWithBoosts());
         }

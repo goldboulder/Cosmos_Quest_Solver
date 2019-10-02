@@ -52,6 +52,9 @@ R31
 Mr Cotton
 Sharkjellyn
 Choco Knight
+Newt
+Electra
+Boson
 Ascended Alpha
 Ascended Athos
 Ascended Rei
@@ -70,6 +73,7 @@ Ascended Wanderer
 Ascended Nerissa
 45c3nd3d R31
 Dark Choco Knight
+Higgs
 Valor
 Rokka
 Pyromancer
@@ -134,6 +138,10 @@ Agatha
 Ophelia
 Helga
 Minerva
+Thrace
+Scinda
+Myrmillo
+Retia
 Werewolf
 Jack'o Knight
 Dullahan

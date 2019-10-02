@@ -11,6 +11,7 @@ import Formations.Formation;
 public class PartingGift extends Skill{
     
     private double multiplier;
+    private boolean activated = false;
 
     public PartingGift(Creature owner, double multiplier) {//how will this work with geum?
         super(owner);
@@ -25,9 +26,21 @@ public class PartingGift extends Skill{
         return new PartingGift(newOwner,multiplier);
     }
     
+    @Override
+    public void deathAction(Formation thisFormation, Formation enemyFormation){
+        if (!activated){
+            grantBoost(thisFormation);
+        }
+    }
 
     @Override
-    public void deathAction(Formation thisFormation, Formation enemyFormation) {
+    public void postRoundAction0(Formation thisFormation, Formation enemyFormation) {//triggers before reflect
+        if (owner.isDead() && !activated){
+            grantBoost(thisFormation);
+        }
+    }
+    
+    private void grantBoost(Formation thisFormation){
         int attBoost = (int) Math.round(owner.getCurrentAtt() * multiplier);
         int HPBoost = (int) Math.round(owner.getMaxHP() * multiplier);
         for (Creature c : thisFormation){
@@ -38,6 +51,7 @@ public class PartingGift extends Skill{
                 c.setCurrentAtt(c.getCurrentAtt() + attBoost);
             }
         }
+        activated = true;
     }
     
     @Override

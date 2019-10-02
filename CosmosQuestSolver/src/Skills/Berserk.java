@@ -8,28 +8,38 @@ import Formations.Formation;
 import cosmosquestsolver.OtherThings;
 
 //multiplies the owner's base attack power by a specified amount every time
-//the user attacks. Used by Aural, Geum, and Ascended Geum
+//the user attacks. Used by Aural, Geum,Ascended Geum, and subatomic heroes
 public class Berserk extends Skill{
     
     private double multiplier;
+    private int turns;
+    private int countdown;
+    private boolean frontOnly;
 
-    public Berserk(Creature owner, double multiplier) {
+    public Berserk(Creature owner, double multiplier, int turns, boolean frontOnly) {
         super(owner);
         this.multiplier = multiplier;
+        this.turns = turns;
+        countdown = turns;
+        this.frontOnly = frontOnly;
     }
     
 
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
-        if (thisFormation.getFrontCreature() == owner){
-            owner.setCurrentAtt((long)Math.round(owner.getCurrentAtt()*multiplier));
-            //right here, it seems damage boost from fairies gets added every turn too.
+        if (!frontOnly || thisFormation.getFrontCreature() == owner){
+            countdown --;
+            if (countdown == 0){
+                owner.setCurrentAtt((long)Math.round(owner.getCurrentAtt()*multiplier));
+                countdown = turns;
+                //right here, it seems damage boost from fairies gets added every turn too.
+            }
         }
     }
     
     @Override
     public Skill getCopyForNewOwner(Creature newOwner) {
-        return new Berserk(newOwner,multiplier);
+        return new Berserk(newOwner,multiplier,turns,frontOnly);
     }
     
 
@@ -43,7 +53,20 @@ public class Berserk extends Skill{
         else{
             multiplierString = Double.toString(multiplier);
         }
-        return "Attacking multiplies attack by " + multiplierString;
+        String turnString = "";
+        if (turns == 1 && frontOnly){
+            turnString = "attack";
+        }
+        else if (turns == 1 && !frontOnly){
+            turnString = "turn";
+        }
+        else if (turns != 1 && !frontOnly){
+            turnString = Integer.toString(turns) + " turns";
+        }
+        else{
+            turnString = Integer.toString(turns) + " attacks";
+        }
+        return "Attack multiplies by " + multiplierString + " every " + turnString;
     }
     
     @Override
@@ -54,12 +77,14 @@ public class Berserk extends Skill{
     @Override
     public int viability() {
         //int highest = owner.getBaseHP() > owner.getBaseAtt() ? owner.getBaseHP() : owner.getBaseAtt();
-        return owner.getBaseHP() * owner.getBaseAtt() * (int)Math.pow(multiplier,1.5);
+        double frontMultiplier = frontOnly ? 1 : 1.2;
+        return (int)(frontMultiplier * owner.getBaseHP() * owner.getBaseAtt() * Math.pow((multiplier-1)/turns + 1,1.5));
+        
     }
 
     @Override
     public int positionBias() {
-        return 1;
+        return frontOnly ? 1 : -3;
     }
     
     

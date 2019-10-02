@@ -6,12 +6,12 @@ package Skills;
 import Formations.Creature;
 import Formations.Elements;
 import Formations.Formation;
-import GUI.NodePanel;
+import GUI.RunePanel;
 import cosmosquestsolver.OtherThings;
 
 //revives a creature to x% health when killed. only done once.
-// used by 
-public class Revive extends Skill implements NodeSkill{
+// used as a rune skill
+public class Revive extends Skill implements RuneSkill{
     
     private boolean activated;
     private double percent;
@@ -63,7 +63,7 @@ public class Revive extends Skill implements NodeSkill{
     }
     
     @Override
-    public void addNodeFields(NodePanel panel) {
+    public void addRuneFields(RunePanel panel) {
         panel.addDoubleTextField("percent",percent);
     }
     
@@ -74,7 +74,7 @@ public class Revive extends Skill implements NodeSkill{
     
     @Override
     public String getName() {
-        return "Revive";
+        return "Angel";
     }
     
 }

@@ -77,7 +77,7 @@ public class Hero extends Creature{
         
         hero.element = element;
         hero.skill = skill.getCopyForNewOwner(hero);
-        hero.nodeSkill = nodeSkill.getCopyForNewOwner(hero);
+        hero.runeSkill = runeSkill.getCopyForNewOwner(hero);
         hero.rarity = rarity;
         hero.lvl1Att = lvl1Att;
         hero.lvl1HP = lvl1HP;
@@ -249,7 +249,7 @@ public class Hero extends Creature{
     
     @Override
     public int viability(){
-        int num = getMainSkill().viability() + nodeSkill.viability() - getBaseHP()*getBaseAtt();
+        int num = getMainSkill().viability() + runeSkill.viability() - getBaseHP()*getBaseAtt();
         if (promoteLevel >= 6){
             num += promote6Skill.viability() - baseHP*baseAtt;
         }
@@ -258,7 +258,7 @@ public class Hero extends Creature{
     
     @Override
     public void takeAOEDamage(double damage, Formation formation) {
-        double newDamage = getMainSkill().alterAOEDamage(damage,formation);//nodes?
+        double newDamage = getMainSkill().alterAOEDamage(damage,formation);//runes?
         if (promoteLevel >= 6){
             newDamage = promote6Skill.alterAOEDamage(newDamage, formation);
         }
@@ -274,7 +274,7 @@ public class Hero extends Creature{
     }
     
     @Override
-    public boolean shouldTakePercentExecute(double percent) {//nodes?
+    public boolean shouldTakePercentExecute(double percent) {//runes?
         if (promoteLevel < 6){
             return getMainSkill().shouldTakePercentExecute(percent);
         }
@@ -284,7 +284,7 @@ public class Hero extends Creature{
     }
     
     @Override
-    public double determineDamageDealt(Creature target, Formation thisFormation, Formation enemyFormation){//nodes?
+    public double determineDamageDealt(Creature target, Formation thisFormation, Formation enemyFormation){//runes?
         double damage = attWithBoosts() + getMainSkill().extraDamage(enemyFormation,thisFormation);
         
         if (promoteLevel >= 6){
@@ -303,14 +303,14 @@ public class Hero extends Creature{
     @Override
     public void prepareForFight(Formation thisFormation, Formation enemyFormation){
         getMainSkill().prepareForFight(thisFormation, enemyFormation);
-        nodeSkill.prepareForFight(thisFormation, enemyFormation);
+        runeSkill.prepareForFight(thisFormation, enemyFormation);
         if (promoteLevel >= 6){
             promote6Skill.prepareForFight(thisFormation, enemyFormation);
         }
     }
     
     @Override
-    public void startOfFightAction(Formation thisFormation, Formation enemyFormation) {//nodes?
+    public void startOfFightAction(Formation thisFormation, Formation enemyFormation) {//runes?
         getMainSkill().startOfFightAction(thisFormation, enemyFormation);
         if (promoteLevel >= 6){
             promote6Skill.startOfFightAction(thisFormation, enemyFormation);
@@ -318,7 +318,7 @@ public class Hero extends Creature{
     }
     
     @Override
-    public void startOfFightAction2(Formation thisFormation, Formation enemyFormation) {//nodes?
+    public void startOfFightAction2(Formation thisFormation, Formation enemyFormation) {//runes?
         getMainSkill().startOfFightAction2(thisFormation, enemyFormation);
         if (promoteLevel >= 6){
             promote6Skill.startOfFightAction2(thisFormation, enemyFormation);
@@ -326,7 +326,7 @@ public class Hero extends Creature{
     }
     
     @Override
-    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {//nodes?
+    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {//runes?
         getMainSkill().preRoundAction(thisFormation,enemyFormation);
         if (promoteLevel >= 6){
             promote6Skill.preRoundAction(thisFormation, enemyFormation);
@@ -340,18 +340,18 @@ public class Hero extends Creature{
         if (promoteLevel >= 6){
             newDamage = promote6Skill.hitAfterDefend(attacker,thisFormation,enemyFormation,newDamage);
         }
-        newDamage = nodeSkill.hitAfterDefend(attacker, thisFormation, enemyFormation, newDamage);
+        newDamage = runeSkill.hitAfterDefend(attacker, thisFormation, enemyFormation, newDamage);
         return newDamage;
     }
     
-    public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation) {//nodes?
+    public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation) {//runes?
         super.recordDamageTaken(damage, thisFormation, enemyFormation);
         if (promoteLevel >= 6){
             promote6Skill.recordDamageTaken(damage,thisFormation,enemyFormation);
         }
     }
     
-    public void recordDamageDealt(long damage, Formation thisFormation, Formation enemyFormation){//nodes?
+    public void recordDamageDealt(long damage, Formation thisFormation, Formation enemyFormation){//runes?
         super.recordDamageDealt(damage, thisFormation, enemyFormation);
         if (promoteLevel >= 6){
             promote6Skill.recordDamageDealt(damage,thisFormation,enemyFormation);
@@ -359,24 +359,41 @@ public class Hero extends Creature{
     }
     
     @Override
-    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//nodes?
+    public void postRoundAction0(Formation thisFormation, Formation enemyFormation) {//runes?
+        getMainSkill().postRoundAction0(thisFormation,enemyFormation);
+        if (promoteLevel >= 6){
+            promote6Skill.postRoundAction0(thisFormation, enemyFormation);
+        }
+    }
+    
+    @Override
+    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//runes?
         getMainSkill().postRoundAction(thisFormation,enemyFormation);
         if (promoteLevel >= 6){
-            promote6Skill.postRoundAction2(thisFormation, enemyFormation);
+            promote6Skill.postRoundAction(thisFormation, enemyFormation);
         }
     }
     
     @Override
     public void postRoundAction2(Formation thisFormation, Formation enemyFormation) {
         getMainSkill().postRoundAction2(thisFormation,enemyFormation);
-        nodeSkill.postRoundAction2(thisFormation,enemyFormation);
+        runeSkill.postRoundAction2(thisFormation,enemyFormation);
         if (promoteLevel >= 6){
             promote6Skill.postRoundAction2(thisFormation, enemyFormation);
         }
     }
     
     @Override
-    public void actionOnDeath(Formation thisFormation, Formation enemyFormation) {//nodes?
+    public void postRoundAction3(Formation thisFormation, Formation enemyFormation) {
+        getMainSkill().postRoundAction3(thisFormation,enemyFormation);
+        runeSkill.postRoundAction3(thisFormation,enemyFormation);
+        if (promoteLevel >= 6){
+            promote6Skill.postRoundAction3(thisFormation, enemyFormation);
+        }
+    }
+    
+    @Override
+    public void actionOnDeath(Formation thisFormation, Formation enemyFormation) {//runes?
         if (!performedDeathAction){//change for revive?
             getMainSkill().deathAction(thisFormation, enemyFormation);
             if (promoteLevel >= 6){

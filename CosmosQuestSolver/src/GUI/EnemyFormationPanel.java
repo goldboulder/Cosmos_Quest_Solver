@@ -142,12 +142,12 @@ public class EnemyFormationPanel extends JPanel implements CreaturePanelGroup{
         return false;
     }
 
-    Skill[] getNodes() {
-        Skill[] nodes = new Skill[Formation.MAX_MEMBERS];
+    Skill[] getRunes() {
+        Skill[] runes = new Skill[Formation.MAX_MEMBERS];
         for (int i = 0; i < Formation.MAX_MEMBERS - 1; i++){
-            nodes[i] = panels[i].getNodeSkill().getCopyForNewOwner(null);
+            runes[i] = panels[i].getRuneSkill().getCopyForNewOwner(null);
         }
-        return nodes;
+        return runes;
     }
 
     

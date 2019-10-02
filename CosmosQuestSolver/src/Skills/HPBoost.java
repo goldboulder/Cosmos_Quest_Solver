@@ -6,12 +6,12 @@ package Skills;
 import Formations.Creature;
 import Formations.Elements;
 import Formations.Formation;
-import GUI.NodePanel;
+import GUI.RunePanel;
 import cosmosquestsolver.OtherThings;
 
 //grants x% more health.
-// used by 
-public class HPBoost extends Skill implements NodeSkill{
+// used as a rune skill
+public class HPBoost extends Skill implements RuneSkill{
     
     private double multiplier;
 
@@ -35,7 +35,7 @@ public class HPBoost extends Skill implements NodeSkill{
     
     @Override
     public String getDescription() {
-        return "Initial HP times " + OtherThings.nicePercentString(multiplier);
+        return "Initial HP times " + OtherThings.twoDecimalFormat(multiplier);
     }
     
     @Override
@@ -59,7 +59,7 @@ public class HPBoost extends Skill implements NodeSkill{
     }
     
     @Override
-    public void addNodeFields(NodePanel panel) {
+    public void addRuneFields(RunePanel panel) {
         panel.addDoubleTextField("multiplier",multiplier);
     }
     
@@ -70,7 +70,7 @@ public class HPBoost extends Skill implements NodeSkill{
     
     @Override
     public String getName() {
-        return "HP% Up";
+        return "Tank";
     }
     
 }

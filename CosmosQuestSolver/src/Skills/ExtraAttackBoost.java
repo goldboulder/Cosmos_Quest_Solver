@@ -6,12 +6,12 @@ package Skills;
 import Formations.Creature;
 import Formations.Elements;
 import Formations.Formation;
-import GUI.NodePanel;
+import GUI.RunePanel;
 import cosmosquestsolver.OtherThings;
 
 //attack boosts are x times as effective.
-// used by Gizmo
-public class ExtraAttackBoost extends Skill implements NodeSkill{
+// used by Gizmo  and as a rune skill
+public class ExtraAttackBoost extends Skill implements RuneSkill{
     
     private double multiplier;
 
@@ -44,7 +44,7 @@ public class ExtraAttackBoost extends Skill implements NodeSkill{
     
    @Override
     public int viability() {
-        return (int)(owner.getBaseHP() * owner.getBaseAtt() * (1 + multiplier*1.1));
+        return (int)(owner.getBaseHP() * owner.getBaseAtt() * (1 + multiplier*0.1));
     }
 
     @Override
@@ -58,7 +58,7 @@ public class ExtraAttackBoost extends Skill implements NodeSkill{
     }
     
     @Override
-    public void addNodeFields(NodePanel panel) {
+    public void addRuneFields(RunePanel panel) {
         panel.addDoubleTextField("multiplier",multiplier);
     }
     
@@ -69,7 +69,7 @@ public class ExtraAttackBoost extends Skill implements NodeSkill{
     
     @Override
     public String getName() {
-        return "Att Boost% Up";
+        return "Att Boost+";
     }
     
 }

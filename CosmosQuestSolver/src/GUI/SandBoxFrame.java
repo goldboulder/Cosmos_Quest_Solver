@@ -221,12 +221,12 @@ public class SandBoxFrame extends JFrame implements EnemySelectFrame, MouseListe
                 }
             }
             
-            Formation leftNodeF = new Formation(leftCopy);
-            Formation rightNodeF = new Formation(rightCopy);
-            leftNodeF.addNodeSkills(leftSelectionPanel.getNodes());
-            rightNodeF.addNodeSkills(rightSelectionPanel.getNodes());
+            Formation leftRuneF = new Formation(leftCopy);
+            Formation rightRuneF = new Formation(rightCopy);
+            leftRuneF.addRuneSkills(leftSelectionPanel.getRunes());
+            rightRuneF.addRuneSkills(rightSelectionPanel.getRunes());
             
-            simulationPanel.recieveSimulation(new BattleLog(leftNodeF, rightNodeF));
+            simulationPanel.recieveSimulation(new BattleLog(leftRuneF, rightRuneF));
         }
     }
     

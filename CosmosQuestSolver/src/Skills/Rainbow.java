@@ -73,7 +73,7 @@ public class Rainbow extends Skill{
     
     @Override
     public String getDescription() {
-        return "+" + damageBoost + " attack when " + numTypesRequired + " elemental types alive";
+        return "+" + damageBoost + " attack when " + numTypesRequired + " elemental types are alive. Void and self don't count";
     }
     
     @Override

@@ -5,11 +5,12 @@ package Skills;
 
 import Formations.Creature;
 import Formations.Formation;
+import GUI.RunePanel;
 import cosmosquestsolver.OtherThings;
 
 //reduces the effect of AOE attacks for the user only.
-//Used by Thumper
-public class AntiAOESelf extends Skill{
+//Used by Thumper and as a rune skill
+public class AntiAOESelf extends Skill implements RuneSkill{
     
     protected double percent;
     
@@ -45,9 +46,9 @@ public class AntiAOESelf extends Skill{
 
     @Override
     public int viability() {
-        double limitedPercent = (1 - percent);
-        if (limitedPercent <= 0.3){
-            limitedPercent = 0.3;
+        double limitedPercent = (1 - percent/2.5);
+        if (limitedPercent <= 0.5){
+            limitedPercent = 0.5;
         }
         return (int)((owner.getBaseHP() * owner.getBaseAtt()) / limitedPercent);
     }
@@ -60,6 +61,21 @@ public class AntiAOESelf extends Skill{
     @Override
     public int positionBias() {
         return -1;
+    }
+
+    @Override
+    public void addRuneFields(RunePanel panel) {
+        panel.addDoubleTextField("percent",percent);
+    }
+
+    @Override
+    public String getImageName() {
+        return this.getClass().getSimpleName();
+    }
+    
+    @Override
+    public String getName() {
+        return "Antimagic";
     }
     
     

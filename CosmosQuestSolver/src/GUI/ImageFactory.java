@@ -28,6 +28,7 @@ public class ImageFactory {
         attemptToAddPictures("pictures/Stands");
         attemptToAddPictures("pictures/Backgrounds");
         attemptToAddPictures("pictures/Others");
+        attemptToAddPictures("pictures/Skills");
     }
     
     public static BufferedImage getPicture(String address){

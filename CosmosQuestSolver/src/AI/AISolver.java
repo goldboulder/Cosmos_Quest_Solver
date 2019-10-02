@@ -10,6 +10,8 @@ import Formations.Elements.Element;
 import Formations.Formation;
 import Formations.Hero;
 import Formations.Monster;
+import GUI.ISolverFrame;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -110,51 +112,46 @@ public abstract class AISolver extends Thread{
         return strongestMonster;
     }
     
-    protected LinkedList<Creature> getCreatureList(){//put in AISolver?
+    protected LinkedList<Creature> getCreatureList(ISolverFrame frame, AISolver solver){
         LinkedList<Creature> creatureList = new LinkedList<>();
         //add all heroes
+        LinkedList<Creature> topHeroes = new LinkedList<>();
+        LinkedList<Creature> normalHeroes = new LinkedList<>();
+        LinkedList<Creature> bottomHeroes = new LinkedList<>();//alwaysHeroes are taken care of elsewhere
         for (Hero hero : heroes){
-            creatureList.add(hero);
+            switch(frame.getHeroPriority(hero.getName())){
+                case TOP: topHeroes.add(hero); break;
+                case NORMAL: normalHeroes.add(hero); break;
+                case BOTTOM: bottomHeroes.add(hero); break;
+                //default: System.out.println("Error in AISolver: invalid priority");
+            }
+            
         }
+        Collections.sort(topHeroes, (Creature c1, Creature c2) -> strengthViability(c2)-strengthViability(c1));
+        Collections.sort(normalHeroes, (Creature c1, Creature c2) -> strengthViability(c2)-strengthViability(c1));
+        Collections.sort(bottomHeroes, (Creature c1, Creature c2) -> strengthViability(c2)-strengthViability(c1));
+        
+        creatureList.addAll(topHeroes);
+        creatureList.addAll(normalHeroes);
+        creatureList.addAll(bottomHeroes);
+        
         //add all monsters
+        LinkedList<Creature> monsters = new LinkedList<>();
         for (Element element: Elements.MONSTER_ELEMENTS){
             
             if (mindFollowers()){
                 for (int i = Monster.TOTAL_TIERS; i > 0; i --){//replace with addUsefulMonsters?
-                    addMonster(CreatureFactory.getMonster(element, i),creatureList);
+                    addMonster(CreatureFactory.getMonster(element, i),monsters);
                 }
             }
             else{
-                addStrongestMonsters(creatureList,element);// only consider strongest monsters. Heroes are stronger here...?
+                addStrongestMonsters(monsters,element);// only consider strongest monsters. Heroes are stronger here...?
             }
         }
+        Collections.sort(monsters, (Creature c1, Creature c2) -> solver.strengthViability(c2)-solver.strengthViability(c1));
+        creatureList.addAll(monsters);
         
         return creatureList;
-    }
-    
-    //adds all useful monsters of a specified element to the list. Weeds out the bottom tier monsters
-    protected void addAllUsefulMonsters(List<Creature> creatureList, Element element){
-        Monster averageMonster = null;// the highest tier monster you can spam the entire row with
-        long averageFollowers = followers/maxCreatures;
-        for (int i = Monster.TOTAL_TIERS; i > 0; i --){
-            Monster m = CreatureFactory.getMonster(element, i);
-            
-            if (m.getFollowers() > followers){
-                continue;
-            }
-            
-            if (averageMonster == null && m.getFollowers() < averageFollowers){
-                averageMonster = m;
-                //System.out.println("Average monster: " + m);
-            }
-            // if the monster has clearly inferior stats to the averageMonster, don't bother including it
-            if (averageMonster == null || m.getBaseHP() > averageMonster.getBaseHP() || m.getBaseAtt() > averageMonster.getBaseAtt()){
-                addMonster(m,creatureList);
-            }
-            else{//however, sometimes a cheap monster is needed to finish off a monster or act as a tie breaker when it is the last one alive. add one of that monster
-                creatureList.add(m);
-            }
-        }
     }
     
     //only adds the strongest monsters for each element and any lower tier monsters that may have more HP or att than them at the cost of the other

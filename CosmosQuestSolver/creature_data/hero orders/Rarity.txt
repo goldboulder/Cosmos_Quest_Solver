@@ -16,6 +16,7 @@ Transient
 Bortles
 4th05
 Mr Cotton
+Newt
 Valor
 Rokka
 Pyromancer
@@ -47,6 +48,7 @@ Maunder
 Murphy
 4tz4r
 Sharkjellyn
+Electra
 Nicte
 Forest Druid
 Ignitor
@@ -84,6 +86,7 @@ The Wanderer
 Nerissa
 R31
 Choco Knight
+Boson
 Shygu
 Thert
 Lord Kirk
@@ -120,7 +123,9 @@ Orin
 Agatha
 Ophelia
 Helga
-Minerva
+Thrace
+Scinda
+Myrmillo
 Dullahan
 Cliodhna
 Santa Claus
@@ -160,6 +165,7 @@ Ascended Wanderer
 Ascended Nerissa
 45c3nd3d R31
 Dark Choco Knight
+Higgs
 Ascended Shygu
 Ascended Thert
 Ascended Lord Kirk
@@ -175,6 +181,8 @@ Ascended Dybbuk
 Master Lee
 Raider Rose
 Aurora
+Minerva
+Retia
 Thumper
 Bubbles
 Guy

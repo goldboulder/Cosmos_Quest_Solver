@@ -28,7 +28,7 @@ public class HealthyAttack extends Skill{
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
         if (thisFormation.getFrontCreature() == owner){
-            enemyFormation.getFrontCreature().takeAOEDamage(HPBefore * percent, enemyFormation);
+            enemyFormation.getFrontCreature().takeAOEDamage(Math.round(HPBefore * percent), enemyFormation);
         }
     }
 

@@ -4,9 +4,7 @@
 package Skills;
 
 import Formations.Creature;
-import Formations.Elements;
 import Formations.Formation;
-import Formations.Elements.Element;
 
 //increases attack and strength by specified amounts for each unit behind depending on level
 //owner. Used by Ascended Seethe
@@ -15,7 +13,7 @@ public class ScaleableUnitBuff extends Skill{
     private double attPerLevel;
     private double HPPerLevel;
     
-    public ScaleableUnitBuff(Creature owner, double attPerLevel, double HPPerLevel) {//if elsment is null, apply to all creatures
+    public ScaleableUnitBuff(Creature owner, double attPerLevel, double HPPerLevel) {
         super(owner);
         this.attPerLevel = attPerLevel;
         this.HPPerLevel = HPPerLevel;

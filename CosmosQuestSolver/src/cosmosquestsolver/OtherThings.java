@@ -12,6 +12,7 @@ public class OtherThings {
     
     private static DecimalFormat intCommaFormat = new DecimalFormat("###,###,###,###");
     private static DecimalFormat twoDecimalFormat = new DecimalFormat("##.00");
+    private static DecimalFormat sciNotFormat = new DecimalFormat("0.#E0");
     
     public static double fact(int num){
         double ans = 1;
@@ -41,8 +42,11 @@ public class OtherThings {
         if (num % 1 == 0){
             return Integer.toString((int) num);
         }
-        else{
+        else if ((num*10)%1 == 0){
             return Double.toString(num);
+        }
+        else{
+            return twoDecimalFormat.format(num);
         }
     }
     
@@ -67,6 +71,10 @@ public class OtherThings {
     public static String decodeBase64(String code){
         byte[] decoded = Base64.getDecoder().decode(code);
         return new String(decoded);
+    }
+
+    public static String SciNotStr(double num) {
+        return sciNotFormat.format(num);
     }
     
 }

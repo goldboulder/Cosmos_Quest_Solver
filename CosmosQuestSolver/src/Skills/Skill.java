@@ -94,10 +94,16 @@ public abstract class Skill {
     public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
         
     }
+    public void postRoundAction0(Formation thisFormation, Formation enemyFormation) {//for fairies
+        
+    }
     public void postRoundAction(Formation thisFormation, Formation enemyFormation){//have 2 post actions? AOE then heal
     
     }
     public void postRoundAction2(Formation thisFormation, Formation enemyFormation){//healing goes here
+        
+    }
+    public void postRoundAction3(Formation thisFormation, Formation enemyFormation) {//for reflect
         
     }
     public void deathAction(Formation thisFormation, Formation enemyFormation){
@@ -149,6 +155,8 @@ public abstract class Skill {
     public boolean WBTryLessCreatures(){
         return false;
     }
+
+    
 
     
 

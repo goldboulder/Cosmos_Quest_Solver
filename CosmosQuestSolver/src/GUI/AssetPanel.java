@@ -6,6 +6,7 @@ package GUI;
 import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.Hero;
+import GUI.HeroCustomizationPanel.Priority;
 import static GUI.QuestSolverFrame.ASSET_PANEL_WIDTH;
 import cosmosquestsolver.OtherThings;
 import java.awt.Color;
@@ -74,7 +75,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
     
     
     
-    public AssetPanel(ISolverFrame frame,boolean includePrioritize, boolean includeSearch){
+    public AssetPanel(ISolverFrame frame,boolean includePrioritize, boolean includeSearch, boolean includeSelectShow){
         this.frame = frame;
         
         
@@ -84,7 +85,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         maxCreaturesTextField = new JTextField(Integer.toString(Formation.MAX_MEMBERS));
         heroesCustomizationPanel = new HeroesCustomizationPanel(frame,HERO_SELECTION_COLUMNS,true,includePrioritize);
         heroesCustomizationScrollPane = new JScrollPane(heroesCustomizationPanel);
-        filterPanel = new FilterPanel(heroesCustomizationPanel,true,false);
+        filterPanel = new FilterPanel(heroesCustomizationPanel,true,false,includeSelectShow);
         assetTitlePanel = new JPanel();
         assetLabel = new JLabel("Your assets");
         optionsPanel = new JPanel();
@@ -211,14 +212,14 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         return heroesCustomizationPanel.getHeroes();
     }
     
-    public Hero[] getHeroesWithoutPrioritization() {
-        return heroesCustomizationPanel.getHeroesWithoutPrioritization();
+    public Hero[] getHeroes(Priority p) {
+        return heroesCustomizationPanel.getHeroes(p);
     }
-    
+    /*
     public Hero[] getPrioritizedHeroes() {
         return heroesCustomizationPanel.getPrioritizedHeroes();
     }
-
+*/
     public boolean heroEnabled(String heroName) {
         return heroesCustomizationPanel.heroEnabled(heroName);
     }
@@ -352,7 +353,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
                 heroesCustomizationPanel.disableAll();
             break;
             case "deprioritize all":
-                heroesCustomizationPanel.deprioritizeAll();
+                heroesCustomizationPanel.setPriority(Priority.NORMAL);
             break;
             case "set level all":
                 int level = 1;
@@ -409,7 +410,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
 
     private void save(String fileSource) {
         
-        if (JOptionPane.showConfirmDialog(this,"Save current heroes?","",JOptionPane.YES_NO_OPTION) != 0){
+        if (JOptionPane.showConfirmDialog(this,"Save current heroes for " + frame.getSavePartMessage() + "?","",JOptionPane.YES_NO_OPTION) != 0){
             return;
         }
         
@@ -418,9 +419,12 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
             PrintWriter heroLevelsFile = new PrintWriter("save data/hero level data.txt");
             PrintWriter heroSelectFile = new PrintWriter(fileSource);
             
+            
             creatureFollowersFile.println(followers);
             creatureFollowersFile.println(maxCreatures);
+            
             writeLevelString(heroLevelsFile);
+            
             writeSelectString(heroSelectFile);
             
             creatureFollowersFile.close();
@@ -453,7 +457,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
             }
             while (heroSelectScanner.hasNext()){
                 tokens = heroSelectScanner.nextLine().split(",");
-                setHeroSelect(tokens[0],Boolean.parseBoolean(tokens[1]),Boolean.parseBoolean(tokens[2]));
+                setHeroSelect(tokens[0],Boolean.parseBoolean(tokens[1]),HeroCustomizationPanel.numToPriority((Integer.parseInt(tokens[2]))));
                 //heroesCustomizationPanel.setHeroSelect(tokens[0],Boolean.parseBoolean(tokens[2]),Boolean.parseBoolean(tokens[3]));
             }
             
@@ -495,12 +499,12 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         heroesCustomizationPanel.setHeroPromoteLevel(name,promoteLevel);
     }
     
-    public void setHeroSelect(String name, boolean selected, boolean prioritized){
-        heroesCustomizationPanel.setHeroSelect(name,selected,prioritized);
+    public void setHeroSelect(String name, boolean selected, Priority p){
+        heroesCustomizationPanel.setHeroSelect(name,selected,p);
     }
 
-    boolean heroPrioritized(String hName) {
-        return heroesCustomizationPanel.heroPrioritized(hName);
+    public Priority getPriority(String hName) {
+        return heroesCustomizationPanel.getPriority(hName);
     }
 
     public void writeLevelString(PrintWriter heroLevelsFile) {
@@ -514,6 +518,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
     public void filterHeroes(String text) {
         heroesCustomizationPanel.filterHeroes(text,filterPanel.getSourceFilter(),filterPanel.getRarity(),filterPanel.includeSelected(),false);
     }
+
 
     
 

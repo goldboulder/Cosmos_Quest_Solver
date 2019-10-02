@@ -4,11 +4,10 @@
 package AI;
 
 import Formations.Creature;
-import Formations.Formation;
 import Formations.Hero;
+import GUI.HeroCustomizationPanel.Priority;
 import GUI.QuestSolverFrame;
 import Skills.Nothing;
-import java.util.Collections;
 import java.util.LinkedList;
 
 //used by WeirdHeroQuestSolver
@@ -31,19 +30,19 @@ public class SpecialQuestSolver extends QuestSolver{
         followers = frame.getFollowers();
         // maxCreatures already known
         originalMaxCreatures = frame.getMaxCreatures();
-        heroes = frame.getHeroesWithoutPrioritization();
-        prioritizedHeroes = frame.getPrioritizedHeroes();
+        heroes = frame.getHeroes();//is this field needed?
+        prioritizedHeroes = frame.getHeroes(Priority.ALWAYS);
         enemyFormation = frame.getEnemyFormation();
-        yourNodes = frame.getYourNodes();
-        enemyNodes = frame.getEnemyNodes();
-        enemyFormation.addNodeSkills(enemyNodes);
+        yourRunes = frame.getYourRunes();
+        enemyRunes = frame.getEnemyRunes();
+        enemyFormation.addRuneSkills(enemyRunes);
         containsRandomHeroes = enemyFormation.containsRandomHeroes();
         
         for (int i = 0; i < maxCreatures; i++){
-            //System.out.println(yourNodes[i]);
-            if (!(yourNodes[i] instanceof Nothing)){
-                hasNodes = true;
-                //System.out.println("hasNodes");
+            //System.out.println(yourRunes[i]);
+            if (!(yourRunes[i] instanceof Nothing)){
+                hasRunes = true;
+                //System.out.println("hasRunes");
                 break;
             }
         }

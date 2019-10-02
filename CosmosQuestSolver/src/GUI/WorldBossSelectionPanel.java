@@ -17,8 +17,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.LinkedList;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -34,6 +37,10 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
     private JPanel buttonPanel;
     private JPanel solutionTitlePanel;
     private JLabel solutionLabel;
+    private JPanel damagePanel;
+    private JPanel solutionTextPanel;
+    private JPanel followersTextPanel;
+    private JButton analysisButton;
     private JLabel damageLabel;
     private long damage;
     private JLabel followersLabel;
@@ -55,6 +62,12 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
         buttonPanel = new JPanel();
         solutionTitlePanel = new JPanel();
         solutionLabel = new JLabel("Solution");
+        damagePanel = new JPanel();
+        analysisButton = new JButton("AS / hit");
+        analysisButton.addActionListener(this);
+        analysisButton.setActionCommand("analysis");
+        solutionTextPanel = new JPanel();
+        followersTextPanel = new JPanel();
         damageLabel = new JLabel("Damage: 0");
         damage = 0;
         followersLabel = new JLabel(" ");
@@ -67,9 +80,17 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
         setBoss(CreatureFactory.getDefaultBoss());
         
         titlePanel.add(worldBossLabel);
-        solutionTitlePanel.add(solutionLabel);
-        solutionTitlePanel.add(damageLabel);
-        solutionTitlePanel.add(followersLabel);
+        solutionTextPanel.add(Box.createRigidArea(new Dimension(300, 0)));
+        solutionTextPanel.add(solutionLabel);
+        damagePanel.add(Box.createRigidArea(new Dimension(215, 0)));
+        damagePanel.add(analysisButton);
+        damagePanel.add(Box.createRigidArea(new Dimension(12, 0)));
+        damagePanel.add(damageLabel);
+        followersTextPanel.add(Box.createRigidArea(new Dimension(300, 0)));
+        followersTextPanel.add(followersLabel);
+        solutionTitlePanel.add(solutionTextPanel);
+        solutionTitlePanel.add(damagePanel);
+        solutionTitlePanel.add(followersTextPanel);
         solutionPlusClearPanel.add(solutionFormationPanel);
         solutionPlusClearPanel.add(clearButton);
         add(titlePanel);
@@ -81,6 +102,9 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
         initiateButtons();
         
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+        damagePanel.setLayout(new BoxLayout(damagePanel,BoxLayout.X_AXIS));
+        solutionTextPanel.setLayout(new BoxLayout(solutionTextPanel,BoxLayout.X_AXIS));
+        followersTextPanel.setLayout(new BoxLayout(followersTextPanel,BoxLayout.X_AXIS));
         solutionTitlePanel.setLayout(new BoxLayout(solutionTitlePanel,BoxLayout.Y_AXIS));
         worldBossPicturePanel.setPreferredSize(new Dimension(BOSS_DRAW_WIDTH,BOSS_DRAW_HEIGHT));
         worldBossPicturePanel.setMaximumSize(new Dimension(BOSS_DRAW_WIDTH,BOSS_DRAW_HEIGHT));
@@ -91,6 +115,9 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
         buttonPanel.setPreferredSize(new Dimension(QuestSolverFrame.QUEST_SOLVER_TOP_PANEL_WIDTH/2 - 100,100));
         buttonPanel.setMaximumSize(new Dimension(QuestSolverFrame.QUEST_SOLVER_TOP_PANEL_WIDTH/2 - 100,100));
         buttonPanel.setMinimumSize(new Dimension(QuestSolverFrame.QUEST_SOLVER_TOP_PANEL_WIDTH/2 - 100,100));
+        damagePanel.setMaximumSize(new Dimension(QuestSolverFrame.QUEST_SOLVER_TOP_PANEL_WIDTH/2 - 100,100));
+        solutionTextPanel.setMaximumSize(new Dimension(QuestSolverFrame.QUEST_SOLVER_TOP_PANEL_WIDTH/2 - 100,100));
+        followersTextPanel.setMaximumSize(new Dimension(QuestSolverFrame.QUEST_SOLVER_TOP_PANEL_WIDTH/2 - 100,100));
         
         worldBossLabel.setFont(new Font("Courier", Font.PLAIN, 30));
         solutionLabel.setFont(new Font("Courier", Font.PLAIN, 22));
@@ -99,6 +126,9 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
         //worldBossLabel.setHorizontalAlignment(SwingConstants.CENTER);
         //solutionLabel.setVerticalAlignment(SwingConstants.BOTTOM);
         titlePanel.setOpaque(false);
+        solutionTextPanel.setOpaque(false);
+        damagePanel.setOpaque(false);
+        followersTextPanel.setOpaque(false);
         buttonPanel.setOpaque(false);
         solutionTitlePanel.setOpaque(false);
         solutionPlusClearPanel.setMaximumSize(new Dimension(QuestSolverFrame.QUEST_SOLVER_FRAME_WIDTH,AssetPanel.CREATURE_PICTURE_SIZE));
@@ -136,8 +166,11 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("clear")){
-            solutionFormationPanel.clearNodes();
+            solutionFormationPanel.clearRunes();
             parametersChanged();
+        }
+        else if (e.getActionCommand().equals("analysis")){
+            displayASPerHitPanel();
         }
         else{
             if (!worldBossPicturePanel.getBoss().getName().equals(e.getActionCommand())){
@@ -199,18 +232,43 @@ public class WorldBossSelectionPanel extends JPanel implements ActionListener{
         return damage;
     }
 
-    Skill[] getNodes() {
-        return solutionFormationPanel.getNodes();
+    Skill[] getRunes() {
+        return solutionFormationPanel.getRunes();
     }
 
-    boolean hasNodes() {
-        Skill[] nodes = getNodes();
-        for (int i = 0; i < nodes.length; i ++){
-            if (nodes[i] != null && !(nodes[i] instanceof Nothing)){
+    boolean hasRunes() {
+        Skill[] runes = getRunes();
+        for (int i = 0; i < runes.length; i ++){
+            if (runes[i] != null && !(runes[i] instanceof Nothing)){
                 return true;
             }
         }
         return false;
+    }
+    
+    private void displayASPerHitPanel() {
+        JDialog dialog = new JDialog((JFrame)frame, "AS / hit", true);//getId?
+        dialog.setLocationRelativeTo(null);
+        
+        JPanel backgroundPanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(ImageFactory.getPicture("Backgrounds/CQ Background"), 0, 0, dialog.getWidth(), dialog.getHeight(), null);
+            }
+        };
+        
+        backgroundPanel.add(new WorldBossASPerHitPanel(dialog, damage, getBoss(), heroesEnabled()));
+        
+        dialog.getContentPane().add(backgroundPanel);
+        //centerScreen(dialog);
+        
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+    
+    private boolean heroesEnabled(){
+        return frame.hasHeroesEnabled();
     }
 
     private class WorldBossPicturePanel extends JPanel{

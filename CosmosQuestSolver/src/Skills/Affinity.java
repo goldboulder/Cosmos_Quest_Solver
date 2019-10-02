@@ -5,12 +5,12 @@ package Skills;
 
 import Formations.Creature;
 import Formations.Formation;
-import GUI.NodePanel;
+import GUI.RunePanel;
 import cosmosquestsolver.OtherThings;
 
 //reduces damage against the same element
-// used by 
-public class Affinity extends Skill implements NodeSkill{
+// used as a rune skill
+public class Affinity extends Skill implements RuneSkill{
     
     private double multiplier;
 
@@ -61,7 +61,7 @@ public class Affinity extends Skill implements NodeSkill{
     }
 
     @Override
-    public void addNodeFields(NodePanel panel) {
+    public void addRuneFields(RunePanel panel) {
         panel.addDoubleTextField("multiplier",multiplier);
     }
 

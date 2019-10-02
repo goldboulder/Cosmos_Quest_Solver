@@ -5,7 +5,6 @@ package GUI;
 
 import Formations.CreatureFactory;
 import Formations.Elements;
-import Skills.NodeSkill;
 import Skills.Skill;
 import java.awt.Color;
 import java.awt.Component;
@@ -23,11 +22,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import Skills.RuneSkill;
 
 
-public class NodePanel extends JPanel implements ActionListener{
+public class RunePanel extends JPanel implements ActionListener{
     
-    private NodeSelecterPanel parent;
+    private RuneSelecterPanel parent;
     private String skillName;
     
     private JPanel imagePanel;
@@ -38,13 +38,13 @@ public class NodePanel extends JPanel implements ActionListener{
     private ArrayList<FieldPanel> fieldPanels;
     
 
-    public NodePanel(NodeSelecterPanel parent, NodeSkill skill) {
+    public RunePanel(RuneSelecterPanel parent, RuneSkill skill) {
         this.parent = parent;
         this.skillName = skill.getClass().getSimpleName();
         leftPanel = new JPanel();
         selectButton = new JButton();
         selectButton.addActionListener(this);
-        selectButton.setToolTipText("Set skill");
+        selectButton.setToolTipText("<html>Set skill<br>" + skill.getDescription() + "</html>");
         fieldPanels = new ArrayList<>();
         image = new JLabel(new ImageIcon(ImageFactory.getPicture("Skills/" + skill.getImageName()).getScaledInstance(40,40,java.awt.Image.SCALE_SMOOTH )));
         imagePanel = new JPanel();
@@ -65,10 +65,10 @@ public class NodePanel extends JPanel implements ActionListener{
         imageLabel.setOpaque(false);
         imagePanel.setOpaque(false);
         
-        imagePanel.setMinimumSize(new Dimension(120,NodeSelecterPanel.NODE_PANEL_HEIGHT));
-        imagePanel.setMaximumSize(new Dimension(120,NodeSelecterPanel.NODE_PANEL_HEIGHT));
-        leftPanel.setMinimumSize(new Dimension(140,NodeSelecterPanel.NODE_PANEL_HEIGHT));
-        leftPanel.setMaximumSize(new Dimension(140,NodeSelecterPanel.NODE_PANEL_HEIGHT));
+        imagePanel.setMinimumSize(new Dimension(120,RuneSelecterPanel.RUNE_PANEL_HEIGHT));
+        imagePanel.setMaximumSize(new Dimension(120,RuneSelecterPanel.RUNE_PANEL_HEIGHT));
+        leftPanel.setMinimumSize(new Dimension(140,RuneSelecterPanel.RUNE_PANEL_HEIGHT));
+        leftPanel.setMaximumSize(new Dimension(140,RuneSelecterPanel.RUNE_PANEL_HEIGHT));
         
         Skill a = (Skill) skill;
         image.setToolTipText(a.getDescription());
@@ -119,7 +119,7 @@ public class NodePanel extends JPanel implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //update node and close
+        //update rune and close
         try{
             //getSkill();
             parent.sendSkill(getSkill());

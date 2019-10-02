@@ -49,14 +49,15 @@ public class WildCard extends Skill{
     @Override
     public void prepareForFight(Formation thisFormation, Formation enemyFormation) {
         //enemyFormation.getTurnSeed(enemyFormation, turn);//gets formation to generate seed at the beginning of the fight. seed might change if called mid-fight
-        seed = Formation.getTurnSeed(enemyFormation.getSeed(),turn);
+        seed = enemyFormation.getSeed();
         
     }
     
     @Override
     public void preRoundAction(Formation thisFormation, Formation enemyFormation){
         //determine attack type
-        attackType = (int)(Formation.getTurnSeed(seed,Formation.STALEMATE_CUTOFF_POINT-turn) % 6);//change?
+        attackType = (int)(Formation.getTurnSeed(seed,turn) % 6);//change?
+        turn ++;
     }
     
     @Override
@@ -144,7 +145,6 @@ public class WildCard extends Skill{
                 
         }
         
-        turn ++;
     }
     
     private void wildAttack(Formation thisFormation, Formation enemyFormation, int index, double percent){

@@ -6,12 +6,12 @@ package Skills;
 import Formations.Creature;
 import Formations.Elements;
 import Formations.Formation;
-import GUI.NodePanel;
+import GUI.RunePanel;
 import cosmosquestsolver.OtherThings;
 
 //attack boosts are x times as effective.
-// used by 
-public class ExtraArmorBoost extends Skill implements NodeSkill{
+// used as a rune skill
+public class ExtraArmorBoost extends Skill implements RuneSkill{
     
     private double multiplier;
 
@@ -59,7 +59,7 @@ public class ExtraArmorBoost extends Skill implements NodeSkill{
     
     
     @Override
-    public void addNodeFields(NodePanel panel) {
+    public void addRuneFields(RunePanel panel) {
         panel.addDoubleTextField("multiplier",multiplier);
     }
     
@@ -70,6 +70,6 @@ public class ExtraArmorBoost extends Skill implements NodeSkill{
     
     @Override
     public String getName() {
-        return "Armor% Up";
+        return "Armor+";
     }
 }

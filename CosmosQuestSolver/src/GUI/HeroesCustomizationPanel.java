@@ -4,10 +4,10 @@
 package GUI;
 
 import Formations.CreatureFactory;
-import Formations.CreatureFactory.Source;
 import Formations.Hero;
 import Formations.Hero.Rarity;
 import static GUI.AssetPanel.CREATURE_PICTURE_SIZE;
+import GUI.HeroCustomizationPanel.Priority;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.PrintWriter;
@@ -26,11 +26,13 @@ public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
     private final int NUM_COLUMNS;
     private HeroCustomizationPanel[] heroPanelArray;
     private HashMap<String,HeroCustomizationPanel> map;//for finding the right hero panel when loading
+    private HashMap<String,HeroCustomizationPanel> shownMap;
 
     public HeroesCustomizationPanel(ISolverFrame frame, int numColumns, boolean facingRight, boolean includePrioritize) {//reference solver, not frame?***
         this.frame = frame;
         this.NUM_COLUMNS = numColumns;
         map = new HashMap<>();
+        shownMap = new HashMap<>();
         
         setLayout(new GridLayout(0,numColumns));
         
@@ -42,6 +44,7 @@ public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
             //heroPanelArray[i].setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE+HeroCustomizationPanel.CHANGE_PANEL_SIZE-8));
             add(heroPanelArray[i]);
             map.put(heroes[i].getName(),heroPanelArray[i]);
+            shownMap.put(heroes[i].getName(),heroPanelArray[i]);
         }
         
         int height = desiredHeight(heroPanelArray.length);
@@ -55,19 +58,25 @@ public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
         //int height = (AssetPanel.CREATURE_PICTURE_SIZE) * (int)((Math.ceil((heroPanelArray.length - 1) / numColumns)+1));
         return (AssetPanel.CREATURE_PICTURE_SIZE + HeroCustomizationPanel.CHANGE_PANEL_SIZE) * (int)((Math.ceil((units - 1) / NUM_COLUMNS)+1));
     }
-
+    
+    public void setPriority(Priority p){
+        for (HeroCustomizationPanel panel : heroPanelArray){
+            panel.setPriority(p);
+        }
+    }
+    
     public void disableAll() {
         for (HeroCustomizationPanel panel : heroPanelArray){
             panel.setHeroEnabled(false);
         }
     }
-    
+    /*
     public void deprioritizeAll(){
         for (HeroCustomizationPanel panel : heroPanelArray){
             panel.setPrioritizeHero(false);
         }
     }
-
+*/
     public void setLevelAll(int level) {
         for (HeroCustomizationPanel panel : heroPanelArray){
             panel.setLevel(level);
@@ -96,12 +105,12 @@ public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
         heroPanelArray[heroPanelArray.length - 1].writeHeroSelectString(file);
     }
 /*
-    public void setHeroStats(String token, int level, boolean heroEnabled, boolean heroPrioritized) {
+    public void setHeroStats(String token, int level, boolean heroEnabled, boolean getPriority) {
         HeroCustomizationPanel p = map.get(token);
         if (p != null){
             p.setLevel(level);
             p.setHeroEnabled(heroEnabled);
-            p.setPrioritizeHero(heroPrioritized);
+            p.setPriority(getPriority);
         }
     }
    */ 
@@ -121,11 +130,11 @@ public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
         }
     }
     
-    public void setHeroSelect(String name, boolean enabled, boolean prioritized){
+    public void setHeroSelect(String name, boolean enabled, Priority priority){
         HeroCustomizationPanel p = map.get(name);
         if (p != null){
             p.setHeroEnabled(enabled);
-            p.setPrioritizeHero(prioritized);
+            p.setPriority(priority);
         }
     }
     
@@ -145,10 +154,10 @@ public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
         
     }
     
-    public Hero[] getHeroesWithoutPrioritization() {
+    public Hero[] getHeroes(Priority p) {
         LinkedList<Hero> heroes = new LinkedList<>();
         for(int i = 0; i < heroPanelArray.length; i++){
-            if (heroPanelArray[i].heroEnabled() && !heroPanelArray[i].heroPrioritized()){
+            if (heroPanelArray[i].heroEnabled() && heroPanelArray[i].getPriority() == p){
                 heroes.add((Hero)heroPanelArray[i].getHero().getCopy());
             }
         }
@@ -156,11 +165,11 @@ public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
         return convertToArray(heroes);
         
     }
-    
+    /*
     public Hero[] getPrioritizedHeroes() {
         LinkedList<Hero> heroes = new LinkedList<>();
         for(int i = 0; i < heroPanelArray.length; i++){
-            if (heroPanelArray[i].heroPrioritized()){
+            if (heroPanelArray[i].getPriority()){
                 heroes.add((Hero)heroPanelArray[i].getHero().getCopy());
             }
         }
@@ -168,7 +177,7 @@ public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
         return convertToArray(heroes);
         
     }
-    
+    */
     public static Hero[] convertToArray(LinkedList<Hero> heroes){
         int i = 0;
         Hero[] ans = new Hero[heroes.size()];
@@ -182,11 +191,15 @@ public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
     public boolean heroEnabled(String heroName) {
         return map.get(heroName).heroEnabled();
     }
-
-    public boolean heroPrioritized(String hName) {
-        return map.get(hName).heroPrioritized();
+    
+    public Priority getPriority(String heroName){
+        return map.get(heroName).getPriority();
     }
-
+/*
+    public boolean getPriority(String hName) {
+        return map.get(hName).getPriority();
+    }
+*/
     public LinkedList<Hero> getEnabledHeroes() {
         LinkedList<Hero> heroes = new LinkedList<>();
         for(int i = 0; i < heroPanelArray.length; i++){
@@ -202,10 +215,24 @@ public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
     public String getFilterText(){
         return filterText;
     }
+    
+    @Override
+    public void selectShown(){
+        for (HeroCustomizationPanel p : heroPanelArray){
+            if (shownMap.get(p.getHero().getName()) != null){
+                p.setHeroEnabled(true);
+            }
+            else{
+                p.setHeroEnabled(false);
+            }
+        }
+    }
+    
     public void filterHeroes(String text, FilterPanel.SourceFilter source, Rarity rarity, boolean includeSelected, boolean includeBosses) {
         filterText = text;
         String lowText = text.toLowerCase();
         removeAll();
+        shownMap.clear();
         
         int numAdded = 0;
         for (HeroCustomizationPanel p : heroPanelArray){
@@ -214,6 +241,7 @@ public class HeroesCustomizationPanel extends JPanel implements HeroListPanel{
                     && (source == null || FilterPanel.sourceMatch(source,CreatureFactory.IDToSource(h.getID())))
                     && (rarity == null || h.getRarity() == rarity)){
                 add(p);
+                shownMap.put(p.getHero().getName(),p);
                 numAdded ++;
             }
         }

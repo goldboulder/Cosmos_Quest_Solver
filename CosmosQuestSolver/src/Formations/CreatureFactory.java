@@ -27,7 +27,7 @@ public class CreatureFactory {
     private static Monster[][] monsters;
     private static HashMap<String,Hero> heroes;
     private static HashMap<String,WorldBoss> worldBosses;
-    private static NodeSkill[] nodeSkills;
+    private static RuneSkill[] RuneSkills;
     private static ArrayList<String> monsterNames;
     private static ArrayList<String> heroNames;
     private static ArrayList<String> worldBossNames;
@@ -50,7 +50,8 @@ public class CreatureFactory {
         initiateMonsters();
         initiateHeroes();
         initiateWorldBosses();
-        initiateNodeSkills();
+        initiateNickNames();
+        initiateRuneSkills();
         
         int sum = 0;
         File[] files = new File("quests").listFiles();
@@ -67,6 +68,30 @@ public class CreatureFactory {
         
         
         MAX_QUESTS = sum;
+    }
+    
+    private static void initiateNickNames(){
+        //nicknames
+        try{
+            Scanner s = new Scanner(new File("creature_data/nicknames.csv"));
+            s.nextLine();//ignore first row. It's only labels
+            while(s.hasNext()){
+                String[] tokens = s.nextLine().split(",");
+                
+                for (int i = 0; i < tokens.length; i ++){
+                    nickNameToNameMap.put(tokens[i].toLowerCase(), tokens[0]);
+                }
+                if (tokens.length > 1){
+                    nameToNickNameMap.put(tokens[0], tokens[1]);
+                }
+                else{// hero has no nickname
+                    nameToNickNameMap.put(tokens[0], tokens[0]);
+                }
+            }
+        }
+        catch(FileNotFoundException ex){
+            System.out.println("Error reading nickname file");
+        }
     }
     
     public static Creature getNullCreature(){
@@ -455,7 +480,7 @@ public class CreatureFactory {
 
                 Monster m = new Monster(element,att,HP,tier,followers,skill);
                 m.attatchSkill();
-                m.setNodeSkill(new Nothing(m));
+                m.setRuneSkill(new Nothing(m));
 
                 monsterNames.add(name);
                 monsters[m.getElement().ordinal()][m.getTier()-1] = m;//duplicate entries?
@@ -498,7 +523,7 @@ public class CreatureFactory {
                 Hero h = new Hero(element,baseAtt,baseHP,rarity,ID,skill,p1Health,p2Att,p4Stats,p5Skill,p6Skill);
                 
                 h.attatchSkill();
-                h.setNodeSkill(new Nothing(h));
+                h.setRuneSkill(new Nothing(h));
                     h.levelUp(1);
                     h.promote(0);
                     
@@ -522,27 +547,7 @@ public class CreatureFactory {
         //heroNames.add("Nothing");
         IDToNameMap.put(nullCreature.getID(),"Nothing");
         
-        //nicknames
-        try{
-            Scanner s = new Scanner(new File("creature_data/nicknames.csv"));
-            s.nextLine();//ignore first row. It's only labels
-            while(s.hasNext()){
-                String[] tokens = s.nextLine().split(",");
-                
-                for (int i = 0; i < tokens.length; i ++){
-                    nickNameToNameMap.put(tokens[i].toLowerCase(), tokens[0]);
-                }
-                if (tokens.length > 1){
-                    nameToNickNameMap.put(tokens[0], tokens[1]);
-                }
-                else{// hero has no nickname
-                    nameToNickNameMap.put(tokens[0], tokens[0]);
-                }
-            }
-        }
-        catch(FileNotFoundException ex){
-            System.out.println("Error reading nickname file");
-        }
+        
     }
     
     private static Source parseSource(String str){
@@ -602,8 +607,9 @@ public class CreatureFactory {
             case "AttackPercentBoost": return new AttackPercentBoost(null,Double.parseDouble(tokens[1]));
             case "AttackBoostAura": return new AttackBoostAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]));
             case "AttackPercentAura": return new AttackPercentAura(null,Double.parseDouble(tokens[1]));
-            case "Berserk": return new Berserk(null,Double.parseDouble(tokens[1]));
+            case "Berserk": return new Berserk(null,Double.parseDouble(tokens[1]),Integer.parseInt(tokens[2]),Boolean.parseBoolean(tokens[3]));
             case "BloodBomb": return new BloodBomb(null,Integer.parseInt(tokens[1]));
+            case "BloodLust": return new BloodLust(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
             case "CriticalHit": return new CriticalHit(null,Double.parseDouble(tokens[1]));
             case "DamageDodge": return new DamageDodge(null,Integer.parseInt(tokens[1]));
             case "EasterStatLevelBoost": return new EasterStatLevelBoost(null,Double.parseDouble(tokens[1]));
@@ -624,7 +630,9 @@ public class CreatureFactory {
             case "Intercept": return new Intercept(null,Double.parseDouble(tokens[1]));
             case "LifeSteal": return new LifeSteal(null,Integer.parseInt(tokens[1]));
             case "MonsterBuff": return new MonsterBuff(null,Double.parseDouble(tokens[1]));
+            case "NoHeroes": return new NoHeroes(null);
             case "Nothing": return new Nothing(null);
+            case "NoUnits": return new NoUnits(null);
             case "PartingGift": return new PartingGift(null,Double.parseDouble(tokens[1]));
             case "PositionAttToHealth": return new PositionAttToHealth(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]));
             case "Purity": return new Purity(null,Double.parseDouble(tokens[1]));
@@ -709,7 +717,7 @@ public class CreatureFactory {
 
                 WorldBoss b = new WorldBoss(element,baseAtt,ID,skill);
                 b.attatchSkill();
-                b.setNodeSkill(new Nothing(b));
+                b.setRuneSkill(new Nothing(b));
                 worldBosses.put(name,b);
                 worldBossNames.add(name);
                 IDToNameMap.put(b.getID(),name);
@@ -722,19 +730,23 @@ public class CreatureFactory {
         
     }
     
-    public static NodeSkill[] getNodeSkills() {
-        return Arrays.copyOf(nodeSkills, nodeSkills.length);
+    public static RuneSkill[] getRuneSkills() {
+        return Arrays.copyOf(RuneSkills, RuneSkills.length);
     }
 
-    private static void initiateNodeSkills() {
-        nodeSkills = new NodeSkill[]{
+    private static void initiateRuneSkills() {
+        RuneSkills = new RuneSkill[]{
             new Affinity(null,0.3),
+            new Revive(null,0.5),
+            new AntiAOESelf(null,0.5),
             new AttackPercentBoost(null,1.5),
             new ExtraArmorBoost(null,2),
             new ExtraAttackBoost(null,2),
             new ExtraHeal(null,2),
             new HPBoost(null,1.5),
-            new Revive(null,0.5)};
+            
+            new NoHeroes(null),
+            new NoUnits(null)};
     }
 
     public static String getOrderType(boolean yourData) {

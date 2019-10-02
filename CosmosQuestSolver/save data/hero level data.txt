@@ -52,6 +52,9 @@ R31,1,0
 Mr Cotton,1,0
 Sharkjellyn,1,0
 Choco Knight,1,0
+Newt,1,0
+Electra,1,0
+Boson,1,0
 Ascended Alpha,1,0
 Ascended Athos,1,0
 Ascended Rei,1,0
@@ -70,6 +73,7 @@ Ascended Wanderer,1,0
 Ascended Nerissa,1,0
 45c3nd3d R31,1,0
 Dark Choco Knight,1,0
+Higgs,1,0
 Valor,1,0
 Rokka,1,0
 Pyromancer,1,0
@@ -134,6 +138,10 @@ Agatha,1,0
 Ophelia,1,0
 Helga,1,0
 Minerva,1,0
+Thrace,1,0
+Scinda,1,0
+Myrmillo,1,0
+Retia,1,0
 Werewolf,1,0
 Jack'o Knight,1,0
 Dullahan,1,0

@@ -5,10 +5,11 @@ package AI;
 
 import Formations.Elements;
 import Formations.Creature;
-import Formations.CreatureFactory;
+import Formations.Elements.Element;
 import Formations.Formation;
 import Formations.Hero;
 import Formations.Monster;
+import GUI.HeroCustomizationPanel.Priority;
 import GUI.WorldBossOptimizerFrame;
 import Skills.Nothing;
 import Skills.Skill;
@@ -17,7 +18,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.ListIterator;
 
 //given the users assets and a world boss, calculates the maximum damage a user
 //can deal to that world boss and the formation used to deal that damage.
@@ -27,8 +28,8 @@ public class WorldBossOptimizer extends AISolver{
     protected WorldBossOptimizerFrame frame;
     protected Formation bossFormation;
     protected Hero[] prioritizedHeroes;
-    protected Skill[] yourNodes;
-    protected boolean hasNodes = false;
+    protected Skill[] yourRunes;
+    protected boolean hasRunes = false;
     protected boolean containsRandomBoss;
     private boolean NHWBEasy;
     
@@ -60,34 +61,58 @@ public class WorldBossOptimizer extends AISolver{
     private void obtainProblem(){
         followers = frame.getFollowers();
         maxCreatures = frame.getMaxCreatures();
-        heroes = frame.getHeroesWithoutPrioritization();
-        prioritizedHeroes = frame.getPrioritizedHeroes();
+        heroes = frame.getHeroes();//is this field needed?
+        prioritizedHeroes = frame.getHeroes(Priority.ALWAYS);
         //create boss formation
         LinkedList<Creature> list = new LinkedList<>();
         list.add(frame.getBoss());
         bossFormation = new Formation(list);
         containsRandomBoss = bossFormation.containsRandomHeroes();
-        yourNodes = frame.getYourNodes();
+        yourRunes = frame.getYourRunes();
         for (int i = 0; i < Formation.MAX_MEMBERS; i++){
-            //System.out.println(yourNodes[i]);
-            if (!(yourNodes[i] instanceof Nothing)){
-                hasNodes = true;
-                //System.out.println("hasNodes");
+            //System.out.println(yourRunes[i]);
+            if (!(yourRunes[i] instanceof Nothing)){
+                hasRunes = true;
+                //System.out.println("hasRunes");
                 break;
             }
         }
         
-        NHWBEasy = heroes.length == 0 && prioritizedHeroes.length == 0 && frame.getBoss().getMainSkill().WBNHEasy() && !hasNodes && !containsRandomBoss;
+        NHWBEasy = heroes.length == 0 && prioritizedHeroes.length == 0 && frame.getBoss().getMainSkill().WBNHEasy() && !hasRunes && !containsRandomBoss;
         
     }
 
     
     protected void bestComboPermu(){
-        LinkedList<Creature> creatureList = getCreatureList();
-        sortCreatureList(creatureList);
+        LinkedList<Creature> creatureList = getCreatureList(frame,this);
+        pruneSubOptimalMonsters(creatureList);
         sendCreatureList(creatureList);
         //testList(creatureList);
         tryCombinations(creatureList);
+        
+    }
+    
+    private void pruneSubOptimalMonsters(LinkedList<Creature> list){
+        Element bossElement = frame.getBoss().getElement();
+        if (bossElement == Element.VOID){
+            return;
+        }
+        int previousID = -1;
+        ListIterator<Creature> iterator = list.listIterator();
+        while (iterator.hasNext()){
+            Creature c = iterator.next();
+            if (c instanceof Monster){
+                Monster m = (Monster) c;
+                if (!Elements.hasAdvantage(m.getElement(), bossElement) && ((m.getFollowers() > followers*0.2 && m.getFollowers() > 100000) || m.getID() == previousID)){
+                    iterator.remove();
+                }
+                
+            }
+            else{//only prune for no heroes
+                return;
+            }
+            previousID = c.getID();
+        }
         
     }
     
@@ -144,7 +169,7 @@ public class WorldBossOptimizer extends AISolver{
     }
     
     private boolean usingWeakMonstersOnNH(LinkedList<Creature> combo){
-        final long cutoff = (long)(followers*0.6);
+        final long cutoff = (long)(followers*0.8);
         if (heroes.length != 0 || prioritizedHeroes.length != 0){// only for no heroes
             return false;
         }
@@ -156,7 +181,7 @@ public class WorldBossOptimizer extends AISolver{
         //if (sum < cutoff){
             //System.out.println(sum);
         //}
-        return sum < cutoff;
+        return sum < cutoff && sum > 50000;
     }
     
     protected void progressReport(int listNum, LinkedList<Creature> creatureList) {
@@ -171,7 +196,7 @@ public class WorldBossOptimizer extends AISolver{
     //is found, update the frame, but still keep searching
     private void tryPermutations(LinkedList<Creature> list) {
         if (NHWBEasy){
-            //no nodes here
+            //no runes here
             testFormation(new Formation(list));
             
         }
@@ -179,8 +204,8 @@ public class WorldBossOptimizer extends AISolver{
             
             PermutationIterator<Creature> permutations = new PermutationIterator(list);
             while(permutations.hasNext()){
-                //if(maxCreatures != Formation.MAX_MEMBERS && (hasNodes || containsRandomBoss)){
-                if(maxCreatures != Formation.MAX_MEMBERS && (hasNodes || containsRandomBoss)){
+                //if(maxCreatures != Formation.MAX_MEMBERS && (hasRunes || containsRandomBoss)){
+                if(maxCreatures != Formation.MAX_MEMBERS && (hasRunes || containsRandomBoss)){
                     
                     LinkedList<Creature> currentPermutation = permutations.next();
                     testFormation(maxWithShufflingBlankSpaces(currentPermutation));
@@ -189,10 +214,10 @@ public class WorldBossOptimizer extends AISolver{
                     //System.out.println("No Shuffle");
                     Formation f = new Formation(permutations.next());
                     
-                    if (hasNodes){
-                        Formation nodeF = f.getCopy();
-                        nodeF.addNodeSkills(yourNodes);
-                        testFormation(nodeF);
+                    if (hasRunes){
+                        Formation runeF = f.getCopy();
+                        runeF.addRuneSkills(yourRunes);
+                        testFormation(runeF);
                     }
                     else{
                         testFormation(f);
@@ -209,8 +234,8 @@ public class WorldBossOptimizer extends AISolver{
             
             if (damage > frame.getBestDamage()){
                 frame.recieveDamageOfBattle(damage);//do this first to avoid race condition with multiple threads
-                if (maxCreatures != Formation.MAX_MEMBERS && (hasNodes || containsRandomBoss)){
-                    frame.recieveBlankSpaceSolution(f.getMembers(), f.getBlankSpaces(), hasNodes);
+                if (maxCreatures != Formation.MAX_MEMBERS && (hasRunes || containsRandomBoss)){
+                    frame.recieveBlankSpaceSolution(f.getMembers(), f.getBlankSpaces(), hasRunes);
                 }
                 else{
                     frame.recieveSolution(f);
@@ -244,18 +269,18 @@ public class WorldBossOptimizer extends AISolver{
             
             
             Formation f = new Formation(copyArray);
-            Formation nodeF = f.getCopy();
-            if (hasNodes){
-                nodeF.addNodeSkills(yourNodes);
+            Formation runeF = f.getCopy();
+            if (hasRunes){
+                runeF.addRuneSkills(yourRunes);
             }
             
-            long tempDamage = Formation.damageDealt(nodeF.getCopy(), bossFormation.getCopy());
+            long tempDamage = Formation.damageDealt(runeF.getCopy(), bossFormation.getCopy());
             //System.out.println(passed);
             if (tempDamage > damage){
                 damage = tempDamage;
-                currentBest = nodeF;
-                if (hasNodes){
-                    currentBest.addNodeSkills(yourNodes);
+                currentBest = runeF;
+                if (hasRunes){
+                    currentBest.addRuneSkills(yourRunes);
                 }
             }
         }
@@ -269,7 +294,7 @@ public class WorldBossOptimizer extends AISolver{
     protected int strengthViability(Creature c){
         int baseViability = super.strengthViability(c);
         if (Elements.elementDamageMultiplier(c,bossFormation.getFrontCreature().getElement()) > 1){
-            baseViability  = (int)(baseViability * (double)Elements.DAMAGE_BOOST * 30);
+            baseViability  = (int)(baseViability * (double)Elements.DAMAGE_BOOST * 3);
         }
         if (Elements.elementDamageMultiplier(bossFormation.getFrontCreature(),c.getElement()) > 1){
             baseViability  = (int)(baseViability * (double)Elements.DAMAGE_BOOST / 3);

@@ -7,9 +7,11 @@ import AI.AISolver;
 import AI.NoHeroesLessSpacesWBOptimizer;
 import AI.WorldBossOptimizer;
 import Formations.Creature;
+import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.Hero;
 import Formations.WorldBoss;
+import GUI.HeroCustomizationPanel.Priority;
 import Skills.Skill;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -40,7 +42,7 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
         };
         
         topPanel = new JPanel();
-        assetPanel = new AssetPanel(this,true,true);
+        assetPanel = new AssetPanel(this,true,true,false);
         worldBossSelectionPanel = new WorldBossSelectionPanel(this);
         calculationPanel = new CalculationPanel(this);
         
@@ -106,13 +108,13 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
         }
     }
     
-    public void recieveBlankSpaceSolution(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces, boolean hasNodes){//race condition for LOC NH!
+    public void recieveBlankSpaceSolution(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces, boolean hasRunes){//race condition for LOC NH!
         
             
         worldBossSelectionPanel.recieveSolution(new Formation(creatureList,blankSpaces).getCreatureArray());
         Formation f = new Formation(creatureList,blankSpaces);
-        if (hasNodes){
-            f.addNodeSkills(this.getYourNodes());
+        if (hasRunes){
+            f.addRuneSkills(this.getYourRunes());
         }
         calculationPanel.updateSolutionDetails(f,worldBossSelectionPanel.getBossFormation());
     }
@@ -121,20 +123,20 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
     public void recieveSolution(Formation f){
         solutionFormationPanel.updateFormation(f,false);
         
-        if (!f.isEmpty()){//called by calculationPanel to clearNodes solution. not really a solution
+        if (!f.isEmpty()){//called by calculationPanel to clearRunes solution. not really a solution
             calculationPanel.recieveSolutionFound();
             
             calculationPanel.updateSolutionDetails(f, enemyFormationMakerPanel.getEnemyFormation());
         }
     }
     
-    public void recieveBlankSpaceSolution(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces, boolean hasNodes) {
+    public void recieveBlankSpaceSolution(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces, boolean hasRunes) {
         solutionFormationPanel.updateFormation(Formation.listBlankSpacesToArray(creatureList, blankSpaces));
         Formation f = new Formation(creatureList,blankSpaces);
-        if (hasNodes){
-            f.addNodeSkills(this.getYourNodes());
+        if (hasRunes){
+            f.addRuneSkills(this.getYourRunes());
         }
-        if (!creatureList.isEmpty()){//called by calculationPanel to clearNodes solution. not really a solution
+        if (!creatureList.isEmpty()){//called by calculationPanel to clearRunes solution. not really a solution
             calculationPanel.recieveSolutionFound();
             calculationPanel.updateSolutionDetails(f, enemyFormationMakerPanel.getEnemyFormation());
         }
@@ -156,6 +158,16 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
         return assetPanel.getHeroes();
     }
     
+    @Override
+    public Hero[] getHeroes(Priority p){
+        return assetPanel.getHeroes(p);
+    }
+    
+    @Override
+    public Priority getHeroPriority(String name){
+        return assetPanel.getPriority(name);
+    }
+    /*
     public Hero[] getHeroesWithoutPrioritization() {
         return assetPanel.getHeroesWithoutPrioritization();
     }
@@ -163,9 +175,15 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
     public Hero[] getPrioritizedHeroes() {
         return assetPanel.getPrioritizedHeroes();
     }
+*/
 
     public WorldBoss getBoss() {
-        return (WorldBoss) worldBossSelectionPanel.getBoss().getCopy();
+        try{
+            return (WorldBoss) worldBossSelectionPanel.getBoss().getCopy();
+        }
+        catch(NullPointerException e){
+            return CreatureFactory.getDefaultBoss();
+        }
     }
 
     @Override
@@ -176,7 +194,7 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
     @Override
     public AISolver makeSolver() {
         WorldBoss b = worldBossSelectionPanel.getBoss();
-        if (b.getMainSkill().WBTryLessCreatures() && assetPanel.getEnabledHeroes().isEmpty() || (!b.getMainSkill().WBNHEasy() && worldBossSelectionPanel.hasNodes())){
+        if (b.getMainSkill().WBTryLessCreatures() && assetPanel.getEnabledHeroes().isEmpty() || (!b.getMainSkill().WBNHEasy() && worldBossSelectionPanel.hasRunes())){
             return new NoHeroesLessSpacesWBOptimizer(this);
         }
         else{
@@ -252,7 +270,13 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
 
     @Override
     public String getSelectSource() {
-        return "save data/hero boss select data.txt";
+        //return "save data/hero boss select data.txt";
+        return "save data/hero " + getBoss().getNickName() + " select data.txt";
+    }
+    
+    @Override
+    public String getSavePartMessage() {
+        return getBoss().getName();
     }
     
     @Override
@@ -265,8 +289,14 @@ public class WorldBossOptimizerFrame extends JFrame implements ISolverFrame{
         //return false;
     //}
 
-    public Skill[] getYourNodes() {
-        return worldBossSelectionPanel.getNodes();
+    public Skill[] getYourRunes() {
+        return worldBossSelectionPanel.getRunes();
     }
+
+    boolean hasHeroesEnabled() {
+        return !assetPanel.getEnabledHeroes().isEmpty();
+    }
+
+    
     
 }

@@ -13,6 +13,7 @@ import cosmosquestsolver.OtherThings;
 public class Simmer extends Skill{
     
     protected double percent;
+    protected double damageThisTurn = 0;//remember value if fairies change it
     
     public Simmer(Creature owner, double percent){
         super(owner);
@@ -20,9 +21,14 @@ public class Simmer extends Skill{
     }
     
     @Override
+    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {
+        damageThisTurn = Math.round(owner.getCurrentAtt() * percent);
+    }
+    
+    @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//anti-aoe?
         //enemyFormation.getCreature(enemyFormation.size()-1).changeHP(-Math.round(owner.getCurrentAtt() * percent * (1-enemyFormation.getAOEResistance())), enemyFormation);
-        enemyFormation.getCreature(enemyFormation.size()-1).takeAOEDamage(Math.round(owner.getCurrentAtt() * percent), enemyFormation);
+        enemyFormation.getCreature(enemyFormation.size()-1).takeAOEDamage(damageThisTurn, enemyFormation);
     }
 
     @Override

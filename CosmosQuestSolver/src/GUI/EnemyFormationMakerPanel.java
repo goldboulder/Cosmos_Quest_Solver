@@ -55,7 +55,7 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
         enemyFormationPanel = new EnemyFormationPanel(frame,this,facingRight);
         monsterSelectionPanel = new MonsterSelectionPanel(frame,this,facingRight,includeQuests,includeSearch);
         enemyHeroesCustomizationPanel = new EnemyHeroesCustomizationPanel(frame,this,AssetPanel.HERO_SELECTION_COLUMNS,facingRight,includeBosses,loadHeroes);
-        filterPanel = new FilterPanel(enemyHeroesCustomizationPanel,false,includeBosses);
+        filterPanel = new FilterPanel(enemyHeroesCustomizationPanel,false,includeBosses,false);
         enemyHeroesCustomizationScrollPane = new JScrollPane(enemyHeroesCustomizationPanel);
         
         enemyFormationAndButtonPanel.add(enemyFormationPanel);
@@ -194,8 +194,8 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
         enemyHeroesCustomizationPanel.redrawHero(text);
     }
 
-    Skill[] getNodes() {
-        return enemyFormationPanel.getNodes();
+    Skill[] getRunes() {
+        return enemyFormationPanel.getRunes();
     }
 
     

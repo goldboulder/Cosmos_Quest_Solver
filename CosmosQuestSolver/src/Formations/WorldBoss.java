@@ -38,7 +38,7 @@ public class WorldBoss extends Creature{
         wb.baseHP = baseHP;
         wb.baseAtt = baseAtt;
         wb.skill = skill.getCopyForNewOwner(wb);
-        wb.nodeSkill = nodeSkill.getCopyForNewOwner(wb);
+        wb.runeSkill = runeSkill.getCopyForNewOwner(wb);
         wb.currentHP = baseHP;//needed?
         wb.currentAtt = baseAtt;
         wb.ID = ID;
@@ -60,10 +60,9 @@ public class WorldBoss extends Creature{
     //world boss should implement battleCreature, not extend creature
     @Override
     public void changeHP(double damage, Formation thisFormation){
-        
         long num;//Geum
         if (damage < 0){//round away from 0
-            num = (long)Math.floor(damage);
+            num = (long)Math.round(damage-0.0001);
             thisFormation.addDamageTaken(-num);
         }
         else{//this shouldn't happen. Bosses have no use for healing
@@ -87,7 +86,7 @@ public class WorldBoss extends Creature{
     
     @Override
     public String toolTipText() {
-        return "<html>" + getName() + "<br>Attack: " + getBaseAtt() + "<br>" + getMainSkill().getDescription() + "</html>";
+        return "<html>" + getName() + "<br>Attack: " + getBaseAtt() + "<br>" + "Element: " + Elements.getString(element) + "<br>" + getMainSkill().getDescription() + "</html>";
     }
     
     @Override

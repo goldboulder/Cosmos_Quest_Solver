@@ -26,7 +26,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     protected int currentHP;
     protected long currentAtt;
     protected Skill skill;
-    protected Skill nodeSkill;
+    protected Skill runeSkill;
     
     protected boolean facingRight = true;//for GUI. put in GUI class instead?
     protected int ID;//for quicker copying. Copying names of heroes was not nessesary for fights. Names can be accesed through a method in CreatureFactory.
@@ -65,7 +65,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         currentHP = baseHP;
         currentAtt = baseAtt;
         skill.restore();
-        nodeSkill.restore();
+        runeSkill.restore();
         performedDeathAction = false;
     }
     public abstract Creature getCopy();
@@ -100,12 +100,12 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     }
     
     
-    public Skill getNodeSkill(){
-        return nodeSkill;
+    public Skill getRuneSkill(){
+        return runeSkill;
     }
     
-    public void setNodeSkill(Skill nodeSkill){
-        this.nodeSkill = nodeSkill;
+    public void setRuneSkill(Skill runeSkill){
+        this.runeSkill = runeSkill;
     }
     
     
@@ -128,7 +128,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     public double hitAfterDefend(Creature attacker, Formation thisFormation, Formation enemyFormation, double damage){
         double newDamage = damage * getArmorPercent() - getArmor();//armor last?
         newDamage = getMainSkill().hitAfterDefend(attacker,thisFormation,enemyFormation,newDamage);
-        newDamage = getNodeSkill().hitAfterDefend(attacker, thisFormation, enemyFormation, newDamage);
+        newDamage = getRuneSkill().hitAfterDefend(attacker, thisFormation, enemyFormation, newDamage);
         return newDamage;
     }
     
@@ -246,10 +246,10 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     }
     
     public void attack(Formation thisFormation,Formation enemyFormation){
-        enemyFormation.takeHit(this,thisFormation,getMainSkill().chooseTarget(thisFormation,enemyFormation));//node skill unlikely to matter here
+        enemyFormation.takeHit(this,thisFormation,getMainSkill().chooseTarget(thisFormation,enemyFormation));//rune skill unlikely to matter here
         //getMainSkill().attack(thisFormation,enemyFormation);
         getMainSkill().postAttackAction(thisFormation, enemyFormation);
-        nodeSkill.postAttackAction(thisFormation, enemyFormation);
+        runeSkill.postAttackAction(thisFormation, enemyFormation);
     }
     
     public boolean isDead(){
@@ -268,7 +268,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
        // if (getName().equals("Arshen")){
         //    System.out.println(getMainSkill());
         //}
-        return getMainSkill().viability() + nodeSkill.viability() - baseHP*baseAtt;
+        return getMainSkill().viability() + runeSkill.viability() - baseHP*baseAtt;
         
     }
     
@@ -278,12 +278,11 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     //actually changes HP directly. Positive numbers means healing
     public void changeHP(double damage, Formation thisFormation){
         
-        
         int num;//Geum?
         
-        if (damage < 0){//round away from 0
-            num = (int)Math.floor(damage);
-            thisFormation.addDamageTaken(-(long)Math.floor(damage));
+        if (damage < 0){
+            num = (int)Math.round(damage-0.0001);
+            thisFormation.addDamageTaken(-(long)Math.round(damage-0.0001));
         }
         else{
             num = (int) Math.ceil(damage);
@@ -324,7 +323,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     }
     
     
-    public void takeAOEDamage(double damage, Formation formation) {//modify for nodes?
+    public void takeAOEDamage(double damage, Formation formation) {//modify for runes?
         double newDamage = getMainSkill().alterAOEDamage(damage,formation);
         
         if (newDamage > 1){
@@ -337,11 +336,11 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
 
     }
     
-    public boolean shouldTakePercentExecute(double percent) {//modify for nodes?
+    public boolean shouldTakePercentExecute(double percent) {//modify for runes?
         return getMainSkill().shouldTakePercentExecute(percent);
     }
     
-    public boolean shouldTakeConstantExecute(int hp) {//modify for nodes?
+    public boolean shouldTakeConstantExecute(int hp) {//modify for runes?
         return getMainSkill().shouldTakeConstantExecute(hp);
     }
     
@@ -350,7 +349,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         //recordDamageTaken(enemyHPBefore + 1,thisFormation,enemyFormation);
     }
     
-    public double determineDamageDealt(Creature target, Formation thisFormation, Formation enemyFormation){//modify for nodes?
+    public double determineDamageDealt(Creature target, Formation thisFormation, Formation enemyFormation){//modify for runes?
         double damage = attWithBoosts() + getMainSkill().extraDamage(enemyFormation,thisFormation);
         
         damage = Elements.damageFromElement(this,damage,target.element);//percent damage reduction here?
@@ -364,18 +363,18 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     
     public void prepareForFight(Formation thisFormation, Formation enemyFormation){
         getMainSkill().prepareForFight(thisFormation, enemyFormation);
-        nodeSkill.prepareForFight(thisFormation, enemyFormation);
+        runeSkill.prepareForFight(thisFormation, enemyFormation);
     }
     
-    public void startOfFightAction(Formation thisFormation, Formation enemyFormation) {//modify for nodes?
+    public void startOfFightAction(Formation thisFormation, Formation enemyFormation) {//modify for runes?
         getMainSkill().startOfFightAction(thisFormation, enemyFormation);
     }
     
-    public void startOfFightAction2(Formation thisFormation, Formation enemyFormation) {//modify for nodes?
+    public void startOfFightAction2(Formation thisFormation, Formation enemyFormation) {//modify for runes?
         getMainSkill().startOfFightAction2(thisFormation, enemyFormation);
     }
     
-    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {//modify for nodes?
+    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {//modify for runes?
         getMainSkill().preRoundAction(thisFormation,enemyFormation);
     }
     
@@ -386,7 +385,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
             hit = 0;
         }
         
-        long longHit = (long)Math.ceil(hit);
+        long longHit = (long)Math.round(hit);
         recordDamageTaken(longHit,thisFormation,enemyFormation);
         attacker.recordDamageDealt(longHit,thisFormation,enemyFormation);
         changeHP(-hit,thisFormation);
@@ -396,21 +395,30 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         changeHP(amount * healEffectiveness, thisFormation);
     }
     
-    public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation) {//modify for nodes?
+    public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation) {//modify for runes?
         getMainSkill().recordDamageTaken(damage,thisFormation,enemyFormation);
     }
     
-    public void recordDamageDealt(long damage, Formation thisFormation, Formation enemyFormation){//modify for nodes?
+    public void recordDamageDealt(long damage, Formation thisFormation, Formation enemyFormation){//modify for runes?
         getMainSkill().recordDamageDealt(damage,thisFormation,enemyFormation);
+    }
+    
+    public void postRoundAction0(Formation thisFormation, Formation enemyFormation) {
+        getMainSkill().postRoundAction0(thisFormation,enemyFormation);//modify for runes?
     }
 
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//AOE takes effect even when dead
-        getMainSkill().postRoundAction(thisFormation,enemyFormation);//modify for nodes?
+        getMainSkill().postRoundAction(thisFormation,enemyFormation);//modify for runes?
     }
     
     public void postRoundAction2(Formation thisFormation, Formation enemyFormation) {
         getMainSkill().postRoundAction2(thisFormation,enemyFormation);
-        nodeSkill.postRoundAction2(thisFormation, enemyFormation);
+        runeSkill.postRoundAction2(thisFormation, enemyFormation);
+    }
+    
+    public void postRoundAction3(Formation thisFormation, Formation enemyFormation) {
+        getMainSkill().postRoundAction3(thisFormation,enemyFormation);
+        runeSkill.postRoundAction3(thisFormation, enemyFormation);
     }
     
     public void actionOnDeath(Formation thisFormation, Formation enemyFormation) {//is this needed? put in each skill class?
@@ -470,6 +478,10 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     public int getLvl1HP() {
         return baseHP;
     }
+
+    
+
+    
 
     
 

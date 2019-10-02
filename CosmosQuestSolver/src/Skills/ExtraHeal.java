@@ -6,12 +6,12 @@ package Skills;
 import Formations.Creature;
 import Formations.Elements;
 import Formations.Formation;
-import GUI.NodePanel;
+import GUI.RunePanel;
 import cosmosquestsolver.OtherThings;
 
 //heals are x times as effective.
-// used by 
-public class ExtraHeal extends Skill implements NodeSkill{
+// used as a rune skill
+public class ExtraHeal extends Skill implements RuneSkill{
     
     private double multiplier;
 
@@ -58,7 +58,7 @@ public class ExtraHeal extends Skill implements NodeSkill{
     }
     
     @Override
-    public void addNodeFields(NodePanel panel) {
+    public void addRuneFields(RunePanel panel) {
         panel.addDoubleTextField("multiplier",multiplier);
     }
     
@@ -69,7 +69,7 @@ public class ExtraHeal extends Skill implements NodeSkill{
     
     @Override
     public String getName() {
-        return "Heal% Up";
+        return "Heal+";
     }
     
 }

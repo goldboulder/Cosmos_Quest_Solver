@@ -6,6 +6,8 @@ package Formations;
 import Skills.BloodBomb;
 import Skills.CriticalHit;
 import Skills.Inferno;
+import Skills.NoHeroes;
+import Skills.NoUnits;
 import Skills.Nothing;
 import Skills.RandomStatBoost;
 import Skills.RandomTarget;
@@ -35,19 +37,25 @@ public class Formation implements Iterable<Creature>{
     private LinkedList<Integer> blankSpaces;
 
     
+
+    
     public static enum VictoryCondition{WIN,DRAW,LOSE};
     
     //empty formation
     public Formation(){
         members = new LinkedList<>();
+        blankSpaces = new LinkedList<>();
     }
     
     public Formation(List<Creature> creatures){
         
         members = new LinkedList<>();
-        
+        blankSpaces = new LinkedList<>();
         for (Creature creature: creatures){
             members.add(creature);
+        }
+        for (int i = members.size(); i < MAX_MEMBERS; i++){
+            blankSpaces.add(i);
         }
     }
     
@@ -83,16 +91,22 @@ public class Formation implements Iterable<Creature>{
     }
     
     public Formation getCopy() {
-        LinkedList list = new LinkedList<>();
+        LinkedList<Creature> list = new LinkedList<>();
         
         for(Creature c : members){
             list.add(c.getCopy());
         }
         Formation f = new Formation(list);
+        f.blankSpaces.clear();//constructor above adds blank spaces if not full
         f.totalDamageTaken = totalDamageTaken;
         f.AOEResistance = AOEResistance;
         f.seed = seed;
-        f.blankSpaces = blankSpaces;
+        
+        for (Integer i : blankSpaces){
+            f.blankSpaces.add(i);
+        }
+        //}
+        //f.blankSpaces = blankSpaces;
         return f;
     }
     
@@ -129,7 +143,7 @@ public class Formation implements Iterable<Creature>{
             return;
         }
         
-        blankSpaces = new LinkedList<>();
+        blankSpaces.clear();
         LinkedList<Integer> nums = new LinkedList<>();
         for (int i = 0; i < MAX_MEMBERS; i++){
             nums.add(i);
@@ -143,15 +157,15 @@ public class Formation implements Iterable<Creature>{
         seed = getSeedBlankSpaces(listBlankSpacesToArray(members,blankSpaces));
     }
     
-    public void alignNodes(Skill[] nodes) {//include bad nodes?
+    public void alignRunes(Skill[] runes) {
         if (members.size() == MAX_MEMBERS || members.isEmpty()){
             return;
         }
-        blankSpaces = new LinkedList();
+        
         LinkedList<Integer> nothingList = new LinkedList<>();
         LinkedList<Integer> goodList = new LinkedList<>();
         for (int i = MAX_MEMBERS - 1; i >= 0; i --){
-            if (nodes[i] instanceof Nothing){
+            if (runes[i] instanceof Nothing || runes[i] instanceof NoHeroes || runes[i] instanceof NoUnits){
                 nothingList.add(i);
             }
             else{
@@ -159,6 +173,13 @@ public class Formation implements Iterable<Creature>{
             }
         }
         Collections.shuffle(goodList);
+        
+        //check if things need adjusting?
+        //if a bad spot is occupied and a good one is not, continue?
+        
+        
+        blankSpaces.clear();
+        
         
         while(!nothingList.isEmpty() && blankSpaces.size() < MAX_MEMBERS - members.size()){
             blankSpaces.add(nothingList.poll());
@@ -170,26 +191,26 @@ public class Formation implements Iterable<Creature>{
         
     }
     
-    public void addNodeSkills(Skill[] nodeSkills){
+    public void addRuneSkills(Skill[] runeSkills){
         
         Creature[] creatureArray = getCreatureArray();
-        for (int i = 0; i < nodeSkills.length; i++){
-            if (creatureArray[i] != null && nodeSkills[i] != null){
-                creatureArray[i].setNodeSkill(nodeSkills[i]);
-                nodeSkills[i].setOwner(creatureArray[i]);
+        for (int i = 0; i < runeSkills.length; i++){
+            if (creatureArray[i] != null && runeSkills[i] != null){
+                creatureArray[i].setRuneSkill(runeSkills[i]);
+                runeSkills[i].setOwner(creatureArray[i]);
             }
         }
     }
     
-    public void clearNodeSkills(){
+    public void clearRuneSkills(){
         for (Creature c : members){
-            c.setNodeSkill(new Nothing(c));
+            c.setRuneSkill(new Nothing(c));
         }
     }
     /*
-    public boolean hasNodes() {
+    public boolean hasRunes() {
         for (Creature c : members){
-            if (!(c.getNodeSkill() instanceof Nothing)){
+            if (!(c.getRuneSkill() instanceof Nothing)){
                 return true;
             }
         }
@@ -197,10 +218,10 @@ public class Formation implements Iterable<Creature>{
     }
     */
     
-    public int numNodes(){
+    public int numRunes(){
         int sum = 0;
         for (Creature c : members){
-            if (!(c.getNodeSkill() instanceof Nothing)){
+            if (!(c.getRuneSkill() instanceof Nothing)){
                 sum ++;
             }
         }
@@ -211,13 +232,57 @@ public class Formation implements Iterable<Creature>{
         return members;
     }
     
-    public void removeMonsters() {
+    public void removeMonsters() {//does not keep original blank spaces*
+        boolean monstersRemoved = false;
         for (int i = 0; i < members.size(); i ++){
             if (members.get(i) instanceof Monster){
                 members.remove(i);
+                    monstersRemoved = true;
                 i --;
             }
         }
+        //handle blank spaces
+        if (monstersRemoved){
+            
+            blankSpaces.clear();
+            
+            for (int i = MAX_MEMBERS - 1; i >= 0; i --){
+                if (members.size() + blankSpaces.size() < MAX_MEMBERS){
+                    blankSpaces.add(i);
+                }
+            }
+        }
+        
+    }
+    
+    
+    public boolean removeWeakDragonMonsters(int dragonPosition, int dragonDamage, boolean hasRunes) {
+        boolean didSomething = false;
+        Creature[] array = getCreatureArray();
+        for (int i = dragonPosition + 1; i < MAX_MEMBERS; i ++){
+            if (array[i] instanceof Monster && array[i].getBaseHP() < dragonDamage){
+                array[i] = null;
+                didSomething = true;
+            }
+        }
+        
+        if (didSomething){
+            
+            members.clear();
+            blankSpaces.clear();
+            Creature c;
+            for (int i = 0; i < array.length; i++){
+                c = array[i];
+                if (c != null){
+                    members.add(c);
+                }
+                else if (hasRunes){
+                    blankSpaces.add(i);
+                }
+            }
+            
+        }
+        return didSomething;
     }
 
     public boolean containsLepHeroes() {
@@ -242,8 +307,8 @@ public class Formation implements Iterable<Creature>{
     
     public Creature[] getCreatureArray(){
         Creature[] creatures = new Creature[MAX_MEMBERS];
-        if (blankSpaces == null){
-            //System.out.println("blank spaces is null");
+        if (blankSpaces.isEmpty()){
+            
             for (int i = 0; i < MAX_MEMBERS; i++){
                 if (i < members.size()){
                     creatures[i] = (members.get(i));
@@ -251,14 +316,33 @@ public class Formation implements Iterable<Creature>{
             }
         }
         else{
+            //if (blankSpaces == null) blankSpaces = new LinkedList<>();
+            //System.out.println(members.size() + " " + blankSpaces.size() + " " + (members.size() + blankSpaces.size()));
+            
+            
             for (int i = 0, listIndex = 0; i < MAX_MEMBERS; i++){
+                
                 if (!blankSpaces.contains(i)){
                     creatures[i] = (members.get(listIndex));
                     listIndex ++;
                 }
             }
         }
-        
+        /*
+        //debug: print creatureGrid
+        System.out.println("formation");
+        for (int i = 0; i < creatures.length; i ++){
+            
+                if (creatures[i] != null){
+                    System.out.print(" " + creatures[i].getNickName());
+                }
+                else{
+                    System.out.print(" null ");
+                }
+            
+            System.out.println();
+        }
+        */
         return creatures;
     }
 
@@ -466,7 +550,8 @@ public class Formation implements Iterable<Creature>{
     }
     
     public static long getTurnSeed(long seed,int turn){
-        for (int i = 0; i < turn; ++i){
+        turn = Formation.STALEMATE_CUTOFF_POINT - turn;
+        for (int i = 0; i < turn; i++){
                 seed = (16807 * seed) % Integer.MAX_VALUE;
         }
         return seed;
@@ -623,6 +708,12 @@ public class Formation implements Iterable<Creature>{
         }
     }
     
+    public void postRoundAction0(Formation enemyFormation){
+        for (int i = members.size() - 1; i >= 0; i--){
+            members.get(i).postRoundAction0(this,enemyFormation);
+        }
+    }
+    
     public void postRoundAction(Formation enemyFormation){
         for (int i = members.size() - 1; i >= 0; i--){
             members.get(i).postRoundAction(this,enemyFormation);
@@ -635,15 +726,23 @@ public class Formation implements Iterable<Creature>{
         }
     }
     
+    public void postRoundAction3(Formation enemyFormation){
+        for (int i = members.size() - 1; i >= 0; i--){
+            members.get(i).postRoundAction3(this,enemyFormation);
+        }
+    }
+    
     // at the end of each round, delete dead creatures
     // the creatures behind, if any, will take their place at the front
-    public boolean handleCreatureDeaths(Formation enemyFormation){//iterator efficiency?
+    public boolean handleCreatureDeaths(Formation enemyFormation, boolean deathAction){//iterator efficiency?
         boolean killedSomething = false;
         Iterator<Creature> iterator = members.iterator();
         while (iterator.hasNext()) {
             Creature c = iterator.next();
             if (c.isDead()) {//defile killing and revive?
-                c.actionOnDeath(this,enemyFormation);
+                if (deathAction){
+                    c.actionOnDeath(this,enemyFormation);
+                }
                 iterator.remove();
                 killedSomething = true;
             }
@@ -658,8 +757,8 @@ public class Formation implements Iterable<Creature>{
         boolean leftDead = false;
         boolean rightDead = false;
         do{
-            leftDead = thisFormation.handleCreatureDeaths(enemyFormation);
-            rightDead = enemyFormation.handleCreatureDeaths(thisFormation);
+            leftDead = thisFormation.handleCreatureDeaths(enemyFormation,true);
+            rightDead = enemyFormation.handleCreatureDeaths(thisFormation,true);
         }
         while(leftDead || rightDead);
     }
@@ -854,6 +953,11 @@ public class Formation implements Iterable<Creature>{
     public static void doBattlePrep(Formation thisFormation, Formation enemyFormation){
         thisFormation.prepareForFight(enemyFormation);
         enemyFormation.prepareForFight(thisFormation);
+        
+        //noHeroes and NoUnits eliminations
+        thisFormation.handleCreatureDeaths(enemyFormation,false);
+        enemyFormation.handleCreatureDeaths(thisFormation,false);
+        
         thisFormation.startOfFightAction(enemyFormation);
         enemyFormation.startOfFightAction(thisFormation);
         thisFormation.startOfFightAction2(enemyFormation);
@@ -867,11 +971,17 @@ public class Formation implements Iterable<Creature>{
         thisFormation.attack(enemyFormation);
         enemyFormation.attack(thisFormation);
         
+        thisFormation.postRoundAction0(enemyFormation);
+        enemyFormation.postRoundAction0(thisFormation);
+        
         thisFormation.postRoundAction(enemyFormation);
         enemyFormation.postRoundAction(thisFormation);
         
         thisFormation.postRoundAction2(enemyFormation);//for healing
         enemyFormation.postRoundAction2(thisFormation);
+        
+        thisFormation.postRoundAction3(enemyFormation);//for reflect
+        enemyFormation.postRoundAction3(thisFormation);
         
         
         handleDeaths(thisFormation,enemyFormation);

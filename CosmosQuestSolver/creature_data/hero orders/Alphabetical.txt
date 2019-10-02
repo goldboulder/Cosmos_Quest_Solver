@@ -50,6 +50,7 @@ Billy
 Blossom
 Boor
 Bortles
+Boson
 Brynhildr
 Bubbles
 Buccaneer Beatrice
@@ -72,6 +73,7 @@ Dr Hawking
 Dullahan
 Dybbuk
 Edana
+Electra
 Ember
 Erebus
 Faefyr
@@ -94,6 +96,7 @@ Hama
 Hattori
 Helga
 Hidoka
+Higgs
 Hirate
 Hosokawa
 Hunter
@@ -123,10 +126,12 @@ Minerva
 Mother
 Mr Cotton
 Murphy
+Myrmillo
 Nebra
 Neil
 Neptunius
 Nerissa
+Newt
 Nicte
 Nimue
 Ophelia
@@ -143,6 +148,7 @@ Raider Rose
 Raze
 Rei
 Reindeer
+Retia
 Rigr
 Riptide
 Rokka
@@ -151,6 +157,7 @@ Rudean
 Ruin
 Sanqueen
 Santa Claus
+Scinda
 Seethe
 Sexy Santa
 Shaman
@@ -166,6 +173,7 @@ Taint
 Takeda
 Tetra
 Thert
+Thrace
 Thumper
 Tiny
 Toth

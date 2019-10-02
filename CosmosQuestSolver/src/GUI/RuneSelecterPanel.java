@@ -4,7 +4,6 @@
 package GUI;
 
 import Formations.CreatureFactory;
-import Skills.NodeSkill;
 import Skills.Nothing;
 import Skills.Skill;
 import java.awt.Color;
@@ -22,30 +21,33 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
+import Skills.RuneSkill;
 
 
 
-public class NodeSelecterPanel extends JPanel implements ActionListener{
+public class RuneSelecterPanel extends JPanel implements ActionListener{
     
-    private NodeHolder nodeHolder;
+    private RuneHolder runeHolder;
     private JDialog parent;
     private JPanel instructionPanel;
     private JLabel instructionLabel;
     //private JPanel noSkillPanel;
     private JButton noSkillButton;
     private JScrollPane scrollPane;
-    private JPanel nodePanelHolderPanel;
-    private NodePanel[] nodePanels;
+    private JPanel runePanelHolderPanel;
+    private RunePanel[] runePanels;
     
     public static final int WIDTH = 300;
-    public static final int NODE_PANEL_HEIGHT = 80;
+    public static final int INSTRUCTION_PANEL_HEIGHT = 70;
+    public static final int RUNE_PANEL_HEIGHT = 80;
     public static final int NUM_SKILLS_VISIBLE = 7;
     
-    public NodeSelecterPanel(JDialog parent, NodeHolder nodeHolder){
+    
+    public RuneSelecterPanel(JDialog parent, RuneHolder runeHolder){
         
         this.parent = parent;
-        this.nodeHolder = nodeHolder;
-        instructionLabel = new JLabel("Select a skill");
+        this.runeHolder = runeHolder;
+        instructionLabel = new JLabel("Select a rune skill");
         instructionLabel.setForeground(Color.WHITE);
         instructionPanel = new JPanel();
         //noSkillPanel = new JPanel();
@@ -53,20 +55,20 @@ public class NodeSelecterPanel extends JPanel implements ActionListener{
         noSkillButton.addActionListener(this);
         noSkillButton.setIcon(new ImageIcon(ImageFactory.getPicture("Others/Cross").getScaledInstance(20,20,java.awt.Image.SCALE_SMOOTH )));
         noSkillButton.setToolTipText("No skill");
-        NodeSkill[] nodeSkills = CreatureFactory.getNodeSkills();
-        nodePanels = new NodePanel[nodeSkills.length];
-        nodePanelHolderPanel = new JPanel();
-        for (int i = 0; i < nodeSkills.length; i++){
-            nodePanels[i] = new NodePanel(this,nodeSkills[i]);
-            nodeSkills[i].addNodeFields(nodePanels[i]);
-            nodePanels[i].setLayout(new BoxLayout(nodePanels[i],BoxLayout.X_AXIS));
-            nodePanels[i].setOpaque(false);
-            nodePanelHolderPanel.add(nodePanels[i]);
-            nodePanels[i].setPreferredSize(new Dimension(WIDTH,NODE_PANEL_HEIGHT));
+        RuneSkill[] runeSkills = CreatureFactory.getRuneSkills();
+        runePanels = new RunePanel[runeSkills.length];
+        runePanelHolderPanel = new JPanel();
+        for (int i = 0; i < runeSkills.length; i++){
+            runePanels[i] = new RunePanel(this,runeSkills[i]);
+            runeSkills[i].addRuneFields(runePanels[i]);
+            runePanels[i].setLayout(new BoxLayout(runePanels[i],BoxLayout.X_AXIS));
+            runePanels[i].setOpaque(false);
+            runePanelHolderPanel.add(runePanels[i]);
+            runePanels[i].setPreferredSize(new Dimension(WIDTH,RUNE_PANEL_HEIGHT));
         }
         
         
-        scrollPane = new JScrollPane(nodePanelHolderPanel);
+        scrollPane = new JScrollPane(runePanelHolderPanel);
         JLabel blankLabel = new JLabel("                                    ");
         JLabel blankLabel2 = new JLabel("                     ");
         blankLabel.setOpaque(false);
@@ -82,12 +84,12 @@ public class NodeSelecterPanel extends JPanel implements ActionListener{
         add(scrollPane);
         
         setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-        nodePanelHolderPanel.setLayout(new BoxLayout(nodePanelHolderPanel,BoxLayout.Y_AXIS));
+        runePanelHolderPanel.setLayout(new BoxLayout(runePanelHolderPanel,BoxLayout.Y_AXIS));
         
         instructionLabel.setOpaque(false);
-        nodePanelHolderPanel.setOpaque(false);
-        //nodePanelHolderPanel.setBackground(Color.RED);
-        //nodePanelHolderPanel.setMaximumSize(new Dimension(WIDTH,NODE_PANEL_HEIGHT * nodePanels.length));
+        runePanelHolderPanel.setOpaque(false);
+        //runePanelHolderPanel.setBackground(Color.RED);
+        //runePanelHolderPanel.setMaximumSize(new Dimension(WIDTH,RUNE_PANEL_HEIGHT * runePanels.length));
         setOpaque(false);
         scrollPane.setOpaque(false);
         instructionPanel.setOpaque(false);
@@ -95,20 +97,21 @@ public class NodeSelecterPanel extends JPanel implements ActionListener{
         scrollPane.getViewport().setOpaque(false);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
         scrollPane.getVerticalScrollBar().setUnitIncrement(50);
-        nodePanelHolderPanel.setPreferredSize(new Dimension(WIDTH,NODE_PANEL_HEIGHT * NUM_SKILLS_VISIBLE));
-        scrollPane.setPreferredSize(new Dimension(WIDTH + (Integer)UIManager.get("ScrollBar.width"),NODE_PANEL_HEIGHT * NUM_SKILLS_VISIBLE + 30));
-        setPreferredSize(new Dimension(WIDTH + (Integer)UIManager.get("ScrollBar.width"),NODE_PANEL_HEIGHT * NUM_SKILLS_VISIBLE + 40));
+        instructionPanel.setPreferredSize(new Dimension(WIDTH,INSTRUCTION_PANEL_HEIGHT));
+        runePanelHolderPanel.setPreferredSize(new Dimension(WIDTH,RUNE_PANEL_HEIGHT * runeSkills.length));
+        scrollPane.setPreferredSize(new Dimension(WIDTH + (Integer)UIManager.get("ScrollBar.width"),RUNE_PANEL_HEIGHT * NUM_SKILLS_VISIBLE));
+        setPreferredSize(new Dimension(WIDTH + (Integer)UIManager.get("ScrollBar.width"),RUNE_PANEL_HEIGHT * NUM_SKILLS_VISIBLE + INSTRUCTION_PANEL_HEIGHT));
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         
         //center screen
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        parent.setLocation((dim.width-WIDTH)/2, (dim.height-NODE_PANEL_HEIGHT * NUM_SKILLS_VISIBLE)/2);
+        parent.setLocation((dim.width-WIDTH)/2, (dim.height-RUNE_PANEL_HEIGHT * NUM_SKILLS_VISIBLE)/2);
         
     }
 
     public void sendSkill(Skill skill) {
-        nodeHolder.setNodeSkill(skill);
-        nodeHolder.parametersChanged();
+        runeHolder.setRuneSkill(skill);
+        runeHolder.parametersChanged();
     }
 
     

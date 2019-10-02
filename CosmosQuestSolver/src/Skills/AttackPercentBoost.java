@@ -4,13 +4,13 @@ package Skills;
 import Formations.Creature;
 import Formations.Elements;
 import Formations.Formation;
-import GUI.NodePanel;
-import GUI.NodeSelecterPanel;
+import GUI.RunePanel;
+import GUI.RuneSelecterPanel;
 import cosmosquestsolver.OtherThings;
 
 //grants x% more attack.
-// used by 
-public class AttackPercentBoost extends Skill implements NodeSkill{
+// used as a rune skill 
+public class AttackPercentBoost extends Skill implements RuneSkill{
     
     private double multiplier;
 
@@ -57,7 +57,7 @@ public class AttackPercentBoost extends Skill implements NodeSkill{
     }
 
     @Override
-    public void addNodeFields(NodePanel panel) {
+    public void addRuneFields(RunePanel panel) {
         panel.addDoubleTextField("multiplier",multiplier);
     }
     
@@ -68,7 +68,7 @@ public class AttackPercentBoost extends Skill implements NodeSkill{
     
     @Override
     public String getName() {
-        return "Att% Up";
+        return "DPS";
     }
     
 }

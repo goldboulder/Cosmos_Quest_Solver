@@ -11,6 +11,7 @@ import Formations.CreatureFactory;
 import Formations.Formation;
 import Formations.Hero;
 import Formations.Monster;
+import GUI.HeroCustomizationPanel.Priority;
 import Skills.Skill;
 import cosmosquestsolver.OtherThings;
 import java.awt.Color;
@@ -81,7 +82,7 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
             }
         };
         
-        assetPanel = new AssetPanel(this,true,true);
+        assetPanel = new AssetPanel(this,true,true,false);
         enemyFormationMakerPanel = new EnemyFormationMakerPanel(this,"Enemy Formation",false,false,true,false,true,false);
         enemyFormationMakerPanel.setDefaultLevels();
         if (CreatureFactory.getOrderType(false).equals("Strength")){
@@ -291,20 +292,20 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     public void recieveSolution(Formation f){
         solutionFormationPanel.updateFormation(f,false);
         
-        if (!f.isEmpty()){//called by calculationPanel to clearNodes solution. not really a solution
+        if (!f.isEmpty()){//called by calculationPanel to clearRunes solution. not really a solution
             calculationPanel.recieveSolutionFound();
             
             calculationPanel.updateSolutionDetails(f, enemyFormationMakerPanel.getEnemyFormation());
         }
     }
     
-    public void recieveBlankSpaceSolution(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces, boolean hasNodes) {
+    public void recieveBlankSpaceSolution(LinkedList<Creature> creatureList, LinkedList<Integer> blankSpaces, boolean hasRunes) {
         solutionFormationPanel.updateFormation(Formation.listBlankSpacesToArray(creatureList, blankSpaces));
         Formation f = new Formation(creatureList,blankSpaces).getCopy();//same memory slot
-        if (hasNodes){
-            f.addNodeSkills(this.getYourNodes());
+        if (hasRunes){
+            f.addRuneSkills(this.getYourRunes());
         }
-        if (!creatureList.isEmpty()){//called by calculationPanel to clearNodes solution. not really a solution
+        if (!creatureList.isEmpty()){//called by calculationPanel to clearRunes solution. not really a solution
             calculationPanel.recieveSolutionFound();
             calculationPanel.updateSolutionDetails(f, enemyFormationMakerPanel.getEnemyFormation());
         }
@@ -330,6 +331,11 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
         return assetPanel.getHeroes();
     }
     
+    @Override
+    public Hero[] getHeroes(Priority p){
+        return assetPanel.getHeroes(p);
+    }
+    /*
     public Hero[] getHeroesWithoutPrioritization() {
         return assetPanel.getHeroesWithoutPrioritization();
     }
@@ -337,6 +343,7 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     public Hero[] getPrioritizedHeroes() {
         return assetPanel.getPrioritizedHeroes();
     }
+*/
     
     public Formation getSolution() {
         return solutionFormationPanel.getFormation();
@@ -468,10 +475,16 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     public void recieveStart() {
         
     }
-
-    public boolean heroPrioritized(String hName) {
-        return assetPanel.heroPrioritized(hName);
+    
+    @Override
+    public Priority getHeroPriority(String name){
+        return assetPanel.getPriority(name);
     }
+/*
+    public boolean getPriority(String hName) {
+        return assetPanel.getPriority(hName);
+    }
+*/
 
     @Override
     public boolean showViewButton() {
@@ -481,6 +494,11 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
     @Override
     public String getSelectSource() {
         return "save data/hero quest select data.txt";
+    }
+    
+    @Override
+    public String getSavePartMessage() {
+        return "quests";
     }
 
     @Override
@@ -496,16 +514,16 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        solutionFormationPanel.clearNodes();
+        solutionFormationPanel.clearRunes();
         parametersChanged();
     }
 
-    public Skill[] getYourNodes() {
-        return solutionFormationPanel.getNodes();
+    public Skill[] getYourRunes() {
+        return solutionFormationPanel.getRunes();
     }
     
-    public Skill[] getEnemyNodes(){
-        return enemyFormationMakerPanel.getNodes();
+    public Skill[] getEnemyRunes(){
+        return enemyFormationMakerPanel.getRunes();
     }
 
     

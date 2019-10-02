@@ -3,10 +3,8 @@
  */
 package GUI;
 
-import AI.AISolver;
 import Formations.CreatureFactory;
 import Formations.Hero;
-import static GUI.EnemyHeroCustomizationPanel.CHANGE_PANEL_SIZE;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -15,9 +13,9 @@ import java.awt.event.ActionListener;
 import java.io.PrintWriter;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JLayer;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -29,25 +27,31 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
     
     private ISolverFrame frame;
     private Hero hero;
+    private boolean includeForce;
     
     private CreaturePicturePanel picturePanel;
     private JPanel editPanel;
     private JCheckBox includeCheckBox;
-    private JCheckBox prioritizeCheckBox;
+    private JButton prioritizeButton;
     //private JLabel levelLabel;
     private JTextField levelTextField;
     private JTextField promoteLevelTextField;
+    
+    public enum Priority{NORMAL,ALWAYS,TOP,BOTTOM};
+    private Priority priority;
+    public static final Color forceColor = new Color(128,0,145);
     
     public static final int CHANGE_PANEL_SIZE = 22;
     
     public HeroCustomizationPanel(ISolverFrame frame, Hero hero, boolean includePrioritize){
         this.frame = frame;
         this.hero = hero;
+        this.includeForce = includePrioritize;
         
         picturePanel = new CreaturePicturePanel(frame,hero,false);
         editPanel = new JPanel();
         includeCheckBox = new JCheckBox();
-        prioritizeCheckBox = new JCheckBox();
+        prioritizeButton = new JButton();
         //levelLabel = new JLabel("Lvl");
         levelTextField = new JTextField("1");
         promoteLevelTextField = new JTextField("0");
@@ -61,9 +65,9 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
         editPanel.setLayout(new BoxLayout(editPanel,BoxLayout.X_AXIS));
         
         editPanel.add(includeCheckBox);
-        if (includePrioritize){
-            editPanel.add(prioritizeCheckBox);
-        }
+        //if (includePrioritize){
+            editPanel.add(prioritizeButton);
+        //}
         editPanel.add(levelTextField);
         editPanel.add(promoteLevelTextField);
         editPanel.add(Box.createHorizontalStrut(1));
@@ -74,11 +78,11 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
         picturePanel.setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
         picturePanel.setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
         includeCheckBox.setToolTipText("Include this hero in calculations");
-        prioritizeCheckBox.setToolTipText("Always have hero in formations");
+        //prioritizeCheckBox.setToolTipText("Always have hero in formations");
         includeCheckBox.addActionListener(this);
         includeCheckBox.setActionCommand("include");
-        prioritizeCheckBox.addActionListener(this);
-        prioritizeCheckBox.setActionCommand("prioritize");
+        prioritizeButton.addActionListener(this);
+        prioritizeButton.setActionCommand("prioritize");
         levelTextField.getDocument().addDocumentListener(this);
         promoteLevelTextField.getDocument().addDocumentListener(this);
         levelTextField.setColumns(1);
@@ -93,7 +97,7 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
         editPanel.setMaximumSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,CHANGE_PANEL_SIZE));
         
         setOpaque(false);
-        //setBackground(Color.BLUE);
+        //includeCheckBox.setForeground(Color.BLUE);
     }
     
     @Override
@@ -186,16 +190,44 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
     
     public void setHeroEnabled(boolean b) {
         includeCheckBox.setSelected(b);
-        if (!b && prioritizeCheckBox.isSelected()){
-            prioritizeCheckBox.setSelected(false);
-        }
+        //if (!b && prioritizeCheckBox.isSelected()){
+            //prioritizeCheckBox.setSelected(false);
+        //}
         repaint();
     }
     
-    public void setPrioritizeHero(boolean b){
-        prioritizeCheckBox.setSelected(b);
-        if (b && !includeCheckBox.isSelected()){
-            includeCheckBox.setSelected(true);
+    public Priority getPriority(){
+        return priority;
+    }
+    
+    public void setPriority(Priority p){
+        if (p == Priority.ALWAYS && !includeForce){
+            setPrioritizeHeroInternal(Priority.TOP);
+        }
+        else{
+            setPrioritizeHeroInternal(p);
+        }
+    }
+    
+    private void setPrioritizeHeroInternal(Priority p){
+        this.priority = p;
+        switch(p){
+            case NORMAL:
+                prioritizeButton.setBackground(Color.LIGHT_GRAY);
+                prioritizeButton.setToolTipText("Normal search order");
+                break;
+            case ALWAYS:
+                prioritizeButton.setBackground(forceColor);
+                prioritizeButton.setToolTipText("Force solutions to have this hero");
+                break;
+            case TOP:
+                prioritizeButton.setBackground(Color.GREEN);
+                prioritizeButton.setToolTipText("Check combinations with this hero first");
+                break;
+            case BOTTOM:
+                prioritizeButton.setBackground(Color.RED);
+                prioritizeButton.setToolTipText("Only include hero if all other combinations have been tried");
+                break;
         }
         repaint();
     }
@@ -223,18 +255,31 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
         
     }
     
-    
+    public static Priority numToPriority(int num){
+        switch(num){
+            case 0: return Priority.NORMAL;
+            case 1: return Priority.ALWAYS;
+            case 2: return Priority.TOP;
+            case 3: return Priority.BOTTOM;
+        }
+        System.out.println("wrong number in numToPriority in HeroCustomizationPanel");
+        return Priority.NORMAL;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         //ensure that if a hero is disabled, deprioritize it. If prioritized, enable it
+        /*
         if (e.getActionCommand().equals("include") && !includeCheckBox.isSelected() && prioritizeCheckBox.isSelected()){
             prioritizeCheckBox.doClick();
         }
         else if (e.getActionCommand().equals("prioritize") && !includeCheckBox.isSelected() && prioritizeCheckBox.isSelected()){
             includeCheckBox.setSelected(true);
         }
-        
+        */
+        if (e.getActionCommand().equals("prioritize")){
+            setPriority(numToPriority((priority.ordinal()+1)%Priority.values().length));//toggle between different options
+        }
         
         try{
             ISolverFrame i = (ISolverFrame) frame;
@@ -252,15 +297,12 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
     }
 
     public void writeHeroSelectString(PrintWriter file) {
-        file.print(hero.getName() + "," + Boolean.toString(includeCheckBox.isSelected()) + "," + Boolean.toString(prioritizeCheckBox.isSelected()));
+        int priorityNum = priority == null ? 0 : priority.ordinal();
+        file.print(hero.getName() + "," + Boolean.toString(includeCheckBox.isSelected()) + "," + priorityNum);
     }
 
     public boolean heroEnabled() {
         return includeCheckBox.isSelected();
-    }
-    
-    public boolean heroPrioritized() {
-        return prioritizeCheckBox.isSelected();
     }
 
     public Hero getHero() {

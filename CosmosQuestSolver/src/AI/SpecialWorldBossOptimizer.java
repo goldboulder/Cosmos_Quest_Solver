@@ -27,18 +27,18 @@ public class SpecialWorldBossOptimizer extends WorldBossOptimizer{
         
     protected void obtainProblem(){
         followers = frame.getFollowers();
-        heroes = new Hero[0];
+        heroes = new Hero[0];//needed?
         prioritizedHeroes = new Hero[0];
         LinkedList<Creature> list = new LinkedList<>();
         list.add(frame.getBoss());
         bossFormation = new Formation(list);
         containsRandomBoss = bossFormation.containsRandomHeroes();
-        yourNodes = frame.getYourNodes();
+        yourRunes = frame.getYourRunes();
         for (int i = 0; i < Formation.MAX_MEMBERS; i++){
-            //System.out.println(yourNodes[i]);
-            if (!(yourNodes[i] instanceof Nothing)){
-                hasNodes = true;
-                //System.out.println("hasNodes");
+            //System.out.println(yourRunes[i]);
+            if (!(yourRunes[i] instanceof Nothing)){
+                hasRunes = true;
+                //System.out.println("hasRunes");
                 break;
             }
         }
@@ -58,8 +58,8 @@ public class SpecialWorldBossOptimizer extends WorldBossOptimizer{
         
     @Override
     protected void bestComboPermu(){
-        LinkedList<Creature> creatureList = getCreatureList();
-        Collections.sort(creatureList, (Creature c1, Creature c2) -> strengthViability(c2)-strengthViability(c1));
+        LinkedList<Creature> creatureList = getCreatureList(frame,this);
+        //Collections.sort(creatureList, (Creature c1, Creature c2) -> strengthViability(c2)-strengthViability(c1));
         
         switch(maxCreatures){
             case 1: creatureList = cutList(creatureList,150);break;

@@ -35,7 +35,7 @@ public class RandomTarget extends Skill{
     @Override
     public void prepareForFight(Formation thisFormation, Formation enemyFormation) {
         //enemyFormation.getTurnSeed(enemyFormation, turn);//gets formation to generate seed at the beginning of the fight. seed might change if called mid-fight
-        seed = Formation.getTurnSeed(enemyFormation.getSeed(),turn);
+        seed = enemyFormation.getSeed();
         //System.out.println("prepareForFight seed: " + seed);
     }
     
@@ -54,7 +54,7 @@ public class RandomTarget extends Skill{
             position = 0;
         }
         else{
-            position = getRandomIndex(Formation.getTurnSeed(seed,Formation.STALEMATE_CUTOFF_POINT-turn),enemyFormation.size());
+            position = getRandomIndex(Formation.getTurnSeed(seed,turn),enemyFormation.size());
         }
         
         if (position < 0 || position >= enemyFormation.size()){

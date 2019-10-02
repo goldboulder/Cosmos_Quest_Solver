@@ -19,7 +19,7 @@ public class SolutionFormationPanel extends JPanel{
     private CreaturePicturePanel[] panels;
     private boolean facingRight;
 
-    public SolutionFormationPanel(ParameterListener frame, boolean facingRight, boolean adjustNodes) {
+    public SolutionFormationPanel(ParameterListener frame, boolean facingRight, boolean adjustRunes) {
         this.frame = frame;
         this.facingRight = facingRight;
         setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
@@ -27,14 +27,14 @@ public class SolutionFormationPanel extends JPanel{
         panels = new CreaturePicturePanel[Formation.MAX_MEMBERS];
         if (facingRight){
             for (int i = Formation.MAX_MEMBERS - 1; i >= 0; i--){
-                panels[i] = new CreaturePicturePanel((ParameterListener)frame,null,adjustNodes);
+                panels[i] = new CreaturePicturePanel((ParameterListener)frame,null,adjustRunes);
                 add(panels[i]);
                 panels[i].setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
             }
         }
         else{
             for (int i = 0; i < Formation.MAX_MEMBERS; i++){
-                panels[i] = new CreaturePicturePanel((ParameterListener)frame,null,adjustNodes);
+                panels[i] = new CreaturePicturePanel((ParameterListener)frame,null,adjustRunes);
                 add(panels[i]);
                 panels[i].setPreferredSize(new Dimension(AssetPanel.CREATURE_PICTURE_SIZE,AssetPanel.CREATURE_PICTURE_SIZE));
             }
@@ -63,9 +63,9 @@ public class SolutionFormationPanel extends JPanel{
     }
 
     
-    public void clearNodes(){
+    public void clearRunes(){
         for (CreaturePicturePanel p : panels){
-            p.setNodeSkill(new Nothing(null));
+            p.setRuneSkill(new Nothing(null));
         }
         //frame.parametersChanged();
     }
@@ -83,19 +83,19 @@ public class SolutionFormationPanel extends JPanel{
         for (int i = 0; i < Formation.MAX_MEMBERS; i++){
             creatures[i] = panels[i].getCreature();
             if (creatures[i] != null){
-                creatures[i].setNodeSkill(panels[i].getNodeSkill());
+                creatures[i].setRuneSkill(panels[i].getRuneSkill());
             }
         }
         return new Formation(creatures);
     }
 
 
-    public Skill[] getNodes() {
-        Skill[] nodes = new Skill[Formation.MAX_MEMBERS];
+    public Skill[] getRunes() {
+        Skill[] runes = new Skill[Formation.MAX_MEMBERS];
         for (int i = 0; i < Formation.MAX_MEMBERS; i++){
-            nodes[i] = panels[i].getNodeSkill().getCopyForNewOwner(null);
+            runes[i] = panels[i].getRuneSkill().getCopyForNewOwner(null);
         }
-        return nodes;
+        return runes;
     }
 
     

@@ -218,6 +218,11 @@ public class EnemyHeroesCustomizationPanel extends JPanel implements HeroListPan
         p.repaint();
         
     }
+
+    @Override
+    public void selectShown() {
+        System.out.println("EnemyHeroCustomizationPanel: selectShown not implemented");
+    }
     
     
     

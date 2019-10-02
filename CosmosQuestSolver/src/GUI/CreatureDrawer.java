@@ -4,10 +4,10 @@
 package GUI;
 
 import Formations.Creature;
-import Formations.CreatureFactory;
 import Formations.Hero;
 import Formations.Monster;
 import Formations.WorldBoss;
+import cosmosquestsolver.OtherThings;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -86,7 +86,12 @@ public class CreatureDrawer {
         }
         Graphics2D g2 = (Graphics2D)g;
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_GASP);
-        g2.drawString(Long.toString(c.getCurrentAtt()), ATTACK_STRING_X + textCenterNum, STATS_STRING_Y);
+        if (c.getCurrentAtt() < 100000){
+            g2.drawString(Long.toString(c.getCurrentAtt()), ATTACK_STRING_X + textCenterNum, STATS_STRING_Y);
+        }
+        else{
+            g2.drawString(OtherThings.SciNotStr(c.getCurrentAtt()), ATTACK_STRING_X + textCenterNum, STATS_STRING_Y);
+        }
     }
     
     public static void drawHPNumbers(Creature c, Graphics g){
@@ -122,7 +127,12 @@ public class CreatureDrawer {
         }
         Graphics2D g2 = (Graphics2D)g;
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_GASP);
-        g2.drawString(Integer.toString(c.getCurrentHP()), HP_STRING_X + textCenterNum, STATS_STRING_Y);
+        if (c.getCurrentHP() < 100000){
+            g2.drawString(Integer.toString(c.getCurrentHP()), HP_STRING_X + textCenterNum, STATS_STRING_Y);
+        }
+        else{
+            g2.drawString(OtherThings.SciNotStr(c.getCurrentHP()), HP_STRING_X + textCenterNum, STATS_STRING_Y);
+        }
     }
     
     

@@ -76,7 +76,11 @@ public class Elements {
         }
     }
     
-    
+    public static boolean hasAdvantage(Element yourElement, Element enemyElement){
+        double attack = ELEMENT_MULTIPLIER_ARRAY[yourElement.ordinal()][enemyElement.ordinal()];
+        double defence = ELEMENT_MULTIPLIER_ARRAY[enemyElement.ordinal()][yourElement.ordinal()];
+        return attack/defence > 1;
+    }
     
     
     public static double damageFromElement(Creature attacker, double baseDamage,Element elementAttacked){//use creatureAttacked instead?

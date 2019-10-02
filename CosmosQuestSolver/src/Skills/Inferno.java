@@ -19,6 +19,10 @@ public class Inferno extends Skill{
         this.percent = percent;
     }
     
+    public double getPercent(){
+        return percent;
+    }
+    
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//anti-aoe?
         //super.attack(thisFormation,enemyFormation);
@@ -54,7 +58,7 @@ public class Inferno extends Skill{
 
     @Override
     public int positionBias() {
-        return -1;
+        return -2;
     }
     
     @Override

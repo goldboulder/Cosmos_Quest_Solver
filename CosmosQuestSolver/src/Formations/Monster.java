@@ -34,7 +34,7 @@ public class Monster extends Creature {
         m.currentAtt = currentAtt;
         m.currentHP = currentHP;
         m.skill = skill.getCopyForNewOwner(m);
-        m.nodeSkill = nodeSkill.getCopyForNewOwner(m);
+        m.runeSkill = runeSkill.getCopyForNewOwner(m);
         return m;
     }
     

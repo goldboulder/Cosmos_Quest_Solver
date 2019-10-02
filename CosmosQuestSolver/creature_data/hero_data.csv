@@ -15,7 +15,7 @@ Athos,12,Chest,Legendary,Earth,26,70,ArmorAura 4 All,70,32,96,ArmorAura 10 All,N
 Jet,13,Chest,Common,Fire,16,24,AttackBoostAura 2 Fire,11,9,12,AttackBoostAura 4 Fire,Nothing
 Geron,14,Chest,Rare,Water,24,36,ArmorAura 3 Water,27,11,28,ArmorAura 6 Water,Nothing
 Rei,15,Chest,Legendary,Air,40,46,AttackBoostAura 5 All,79,67,89,AttackBoostAura 15 All,Nothing
-Ailen,16,Chest,Common,Earth,22,19,AttackBoostAura 4 Earth,21,17,12,AttackBoostAura 4 Earth,Nothing
+Ailen,16,Chest,Common,Earth,22,19,AttackBoostAura 2 Earth,21,17,12,AttackBoostAura 4 Earth,Nothing
 Faefyr,17,Chest,Rare,Fire,18,50,ArmorAura 3 Fire,53,17,19,ArmorAura 6 Fire,Nothing
 Auri,18,Chest,Legendary,Water,32,60,Heal 4,70,74,23,Heal 8,Nothing
 Nicte,19,Quest,Rare,Air,32,22,AttackBoostAura 4 Air,21,43,24,AttackBoostAura 8 Air,Nothing
@@ -25,12 +25,12 @@ T4URUS,22,Chest,Rare,Earth,20,46,AttackBoostAura 2 All,28,20,30,AttackBoostAura 
 TR0N1X,23,Chest,Legendary,Fire,20,100,AOE 3,107,44,35,AOE 9,Nothing
 Aquortis,24,Chest,Common,Water,8,58,AttackBoostAura 3 Water,28,18,18,AttackBoostAura 6 Water,Nothing
 Aeris,25,Chest,Rare,Air,32,30,Heal 2,20,36,28,Heal 4,Nothing
-Geum,26,Chest,Legendary,Earth,2,75,Berserk 2.0,213,8,22,Berserk 2.2,Nothing
+Geum,26,Chest,Legendary,Earth,2,75,Berserk 2.0 1 true,213,8,22,Berserk 2.2 1 true,Nothing
 Forest Druid,27,Quest,Rare,Earth,16,46,AttackBoostAura 4 Earth,38,16,19,AttackBoostAura 8 Earth,Nothing
 Ignitor,28,Quest,Rare,Fire,24,32,AttackBoostAura 4 Fire,24,22,23,AttackBoostAura 8 Fire,Nothing
 Undine,29,Quest,Rare,Water,14,58,AttackBoostAura 4 Water,25,7,15,AttackBoostAura 8 Water,Nothing
 Rudean,30,Chest,Common,Fire,12,38,AttackBoostAura 3 Fire,19,14,10,AttackBoostAura 6 Fire,Nothing
-Aural,31,Chest,Rare,Water,50,18,Berserk 1.2,33,31,28,Berserk 1.32,Nothing
+Aural,31,Chest,Rare,Water,50,18,Berserk 1.2 1 true,33,31,28,Berserk 1.32 1 true,Nothing
 Geror,32,Chest,Legendary,Air,46,46,MonsterBuff 1.2,95,125,36,MonsterBuff 1.32,Nothing
 Veildur,33,Season,Legendary,Earth,44,66,StatAura 3 3 All,98,42,51,StatAura 6 6 All,Nothing
 Brynhildr,34,Season,Legendary,Air,48,72,StatAura 4 4 All,84,56,59,StatAura 8 8 All,Nothing
@@ -47,9 +47,9 @@ GaiaByte,44,Shop,Legendary,Earth,150,75,Wither 2.0,151,84,52,Wither 1.33,Nothing
 Oymos,45,Chest,Common,Air,14,36,AttackBoostAura 4 Air,24,15,21,AttackBoostAura 8 Air,Nothing
 Xarth,46,Chest,Rare,Earth,32,32,StatAura 2 2 Earth,23,25,19,StatAura 4 4 Earth,Nothing
 Atzar,47,Chest,Legendary,Fire,32,76,Purity 2.0,85,28,48,Purity 2.2,Nothing
-Zeth,48,Season,Legendary,Water,42,70,WrathPercentAtt 0.1,127,76,24,WrathPercentAtt 0.15,Nothing
-Koth,49,Season,Legendary,Earth,46,76,WrathPercentAtt 0.15,99,39,70,WrathPercentAtt 0.2,Nothing
-Gurth,50,Season,Legendary,Air,50,82,WrathPercentAtt 0.2,108,43,68,WrathPercentAtt 0.25,Nothing
+Zeth,48,Season,Legendary,Water,42,70,WrathPercentAtt 0.1,127,76,24,WrathPercentAtt 0.2,Nothing
+Koth,49,Season,Legendary,Earth,46,76,WrathPercentAtt 0.15,99,39,70,WrathPercentAtt 0.25,Nothing
+Gurth,50,Season,Legendary,Air,50,82,WrathPercentAtt 0.2,108,43,68,WrathPercentAtt 0.3,Nothing
 Werewolf,51,Event,Common,Earth,25,35,ScaleableArmorAura 1 All 9.0,23,28,19,ScaleableArmorAura 1 All 7.615,Nothing
 Jack'o Knight,52,Event,Rare,Air,35,55,ScaleableAttackBoostAura 1 All 9.0,50,13,38,ScaleableAttackBoostAura 1 All 7.615,Nothing
 Dullahan,53,Event,Legendary,Fire,45,75,ScaleableStatAura 1 1 All 9.0,114,45,65,ScaleableStatAura 1 1 All 6.6,Nothing
@@ -69,7 +69,7 @@ Ascended Athos,66,Ascend,Ascended,Earth,60,162,ScaleableArmorAura 1 All 3.3,281,
 Ascended Rei,67,Ascend,Ascended,Air,104,120,ScaleableAttackBoostAura 1 All 3.3,167,86,176,ScaleableAttackBoostAura 1 All 2.25,Nothing
 Ascended Auri,68,Ascend,Ascended,Water,78,148,ScaleableHeal 1 6.58,151,221,59,ScaleableHeal 1 5.98,Nothing
 Ascended TR0N1X,69,Ascend,Ascended,Fire,38,190,Ricochet 0.75 5,383,56,25,Ricochet 0.8 5,Nothing
-Ascended Geum,70,Ascend,Ascended,Earth,8,222,Berserk 2.0,348,35,16,Berserk 2.2,Nothing
+Ascended Geum,70,Ascend,Ascended,Earth,8,222,Berserk 2.0 1 true,348,35,16,Berserk 2.2 1 true,Nothing
 Ascended Geror,71,Ascend,Ascended,Air,116,116,MonsterBuff 1.3,173,22,153,MonsterBuff 1.43,Nothing
 Christmas Elf,73,Event,Common,Water,24,38,ScaleableHeal 1 9.0,28,34,22,ScaleableHeal 1 7.615,Nothing
 Reindeer,74,Event,Rare,Air,36,54,ScaleableAOE 1 9.0,53,18,33,ScaleableAOE 1 7.615,Nothing
@@ -138,7 +138,7 @@ Kedari,139,Event,Legendary,Fire,18,170,ScaleableSacrifice 0.3334 0.2223 0.3334,1
 Raze,140,Chest,Common,Water,26,18,Ricochet 0.7 1,8,9,14,Ricochet 0.75 1,Nothing
 Ruin,141,Chest,Rare,Air,48,44,WrathPercentAtt 0.1,23,61,23,WrathPercentAtt 0.15,Nothing
 Seethe,142,Chest,Legendary,Earth,54,48,UnitBuff 15 15,57,178,53,UnitBuff 30 30,Nothing
-Ascended Seethe,143,Ascend,Ascended,Earth,131,117,ScaleableUnitBuff 0.45455 0.45455,90,117,124,ScaleableUnitBuff 0.55556 0.55556,Nothing
+Ascended Seethe,143,Ascend,Ascended,Earth,131,117,ScaleableUnitBuff 0.45 0.45,90,117,124,ScaleableUnitBuff 0.56 0.56,Nothing
 Blossom,144,Season,Legendary,Earth,54,54,PartingGift 0.1,99,99,144,PartingGift 0.11,Nothing
 Flint,145,Season,Legendary,Fire,56,56,PartingGift 0.11,100,100,150,PartingGift 0.12,Nothing
 Orin,146,Season,Legendary,Air,58,58,PartingGift 0.12,101,101,156,PartingGift 0.13,Nothing
@@ -180,4 +180,12 @@ Mr Cotton,181,Chest,Common,Fire,14,32,ThornsAll 10,28,7,12,ThornsAll 15,Nothing
 Sharkjellyn,182,Chest,Rare,Water,20,54,Recover 30,44,13,15,Recover 45,Nothing
 Choco Knight,183,Chest,Legendary,Earth,50,50,HealthyAttack 0.4,72,47,82,HealthyAttack 0.5,Nothing
 Dark Choco Knight,184,Ascend,Ascended,Earth,124,124,HealthyAttack 0.55,98,64,104,HealthyAttack 0.65,Nothing
-Lili,185,Shop,Ascended,Fire,211,92,PositionAttToHealth 0.1 1.0,174,535,171,PositionAttToHealth 0.1 1.2,Nothing
+Lili,185,Shop,Ascended,Fire,211,92,PositionAttToHealth 0.1 1.0,174,535,171,PositionAttToHealth 0.1 1.1,Nothing
+Thrace,187,Season,Legendary,Fire,61,53,BloodLust 125 125,82,131,104,BloodLust 150 150,Nothing
+Scinda,188,Season,Legendary,Air,63,55,BloodLust 150 150,78,125,116,BloodLust 175 175,Nothing
+Myrmillo,189,Season,Legendary,Earth,65,57,BloodLust 175 175,94,141,99,BloodLust 200 200,Nothing
+Retia,190,Season,Ascended,Water,126,144,BloodLust 350 350,246,318,338,BloodLust 450 450,Nothing
+Newt,191,Chest,Common,Water,4,48,Berserk 2.0 5 false,14,1,4,Berserk 2.5 5 false,Nothing
+Electra,192,Chest,Rare,Air,6,58,Berserk 3.0 6 false,30,4,8,Berserk 4.0 6 false,Nothing
+Boson,193,Chest,Legendary,Fire,3,72,Berserk 3.0 8 false,181,19,21,Berserk 4.0 8 false,Nothing
+Higgs,194,Ascend,Ascended,Fire,7,214,Berserk 4.0 9 false,301,14,30,Berserk 5.0 9 false,Nothing

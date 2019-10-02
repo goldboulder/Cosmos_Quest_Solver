@@ -25,22 +25,24 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 //displays creature and lets you change it
-public class EnemyFormationSinglePanel extends JPanel implements NodeHolder, MouseListener, MouseWheelListener, DocumentListener{
+public class EnemyFormationSinglePanel extends JPanel implements RuneHolder, MouseListener, MouseWheelListener, DocumentListener{
     
     private EnemySelectFrame frame;
     
     private CreaturePanelGroup creatureGroup;
     private boolean facingRight;
     private boolean allowHeroTweak;
+    private boolean swapOnClick = false;
+    private boolean clickForRunes = true;
     
     private CreaturePicturePanel picPanel;
     private JTextField textField;
-    //private Skill nodeSkill;
+    //private Skill runeSkill;
 
     public static final int TEXT_FIELD_HEIGHT = 20;
     public EnemyFormationSinglePanel(EnemySelectFrame frame, CreaturePanelGroup group, Creature creature, boolean facingRight, boolean allowHeroTweak, boolean hasTextField) {
         this.frame = frame;
-        //nodeSkill = new Nothing(creature);
+        //runeSkill = new Nothing(creature);
         this.creatureGroup = group;
         this.facingRight = facingRight;
         this.allowHeroTweak = allowHeroTweak;
@@ -91,8 +93,8 @@ public class EnemyFormationSinglePanel extends JPanel implements NodeHolder, Mou
         if (e.getButton() == MouseEvent.BUTTON2){//middle mouse to "copy"
             frame.setMouseCreature(getCreature());
         }
-        else if (e.getButton() == MouseEvent.BUTTON3){
-            displayNodePanel();
+        else if (e.getButton() == MouseEvent.BUTTON3 && clickForRunes){
+            displayRunePanel();
         }
         else{//pick up creature
             if (frame.getMouseCreature() == null){
@@ -102,18 +104,30 @@ public class EnemyFormationSinglePanel extends JPanel implements NodeHolder, Mou
             }
             else{//drop off creature
                 Creature c = frame.getMouseCreature();
+                Creature swap = getCreature();
                 if (!(c instanceof Monster) && creatureGroup.containsCreature(c.getName())){
                     creatureGroup.removeCreature(c.getName());
                 }
                 setCreature(c);
                 autoSetText(c);
-                frame.setMouseCreature(null);
+                if (swapOnClick){
+                    frame.setMouseCreature(swap);
+                }
+                else{
+                    frame.setMouseCreature(null);
+                }
             }
         }
         
     }
     
+    public void setDoSwap(boolean b){
+        swapOnClick = b;
+    }
     
+    public void setDoRunes(boolean b){
+        clickForRunes = b;
+    }
 
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -122,22 +136,22 @@ public class EnemyFormationSinglePanel extends JPanel implements NodeHolder, Mou
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        Skill nodeSkill = picPanel.getNodeSkill();
+        Skill runeSkill = picPanel.getRuneSkill();
         Creature creature = picPanel.getCreature();
         if (creature != null){
-            if ((nodeSkill instanceof Nothing)){
+            if ((runeSkill instanceof Nothing)){
                 setToolTipText(creature.toolTipText());
             }
             else{
                 StringBuilder sb = new StringBuilder(creature.toolTipText());
                 sb.delete(sb.length() - 7, sb.length());
-                sb.append("<br>").append(nodeSkill.getDescription()).append("</html>");
+                sb.append("<br>").append(runeSkill.getDescription()).append("</html>");
                 setToolTipText(sb.toString());
             }
         }
         else{
-            if ((!(nodeSkill instanceof Nothing))){
-                setToolTipText(nodeSkill.getDescription());
+            if ((!(runeSkill instanceof Nothing))){
+                setToolTipText(runeSkill.getDescription());
             }
         }
     }
@@ -266,34 +280,34 @@ public class EnemyFormationSinglePanel extends JPanel implements NodeHolder, Mou
 
     public void clear() {
         setCreature(null);
-        setNodeSkill(new Nothing(null));
+        setRuneSkill(new Nothing(null));
         textField.setText("");
     }
 
     @Override
-    public void setNodeSkill(Skill skill) {
-        picPanel.setNodeSkill(skill);
+    public void setRuneSkill(Skill skill) {
+        picPanel.setRuneSkill(skill);
         //frame.parametersChanged();
     }
     
     @Override
-    public Skill getNodeSkill() {
-        return picPanel.getNodeSkill();
+    public Skill getRuneSkill() {
+        return picPanel.getRuneSkill();
     }
 
-    private void displayNodePanel() {
-        JDialog dialog = new JDialog((JFrame)frame, "Node", true);//getId?
+    private void displayRunePanel() {
+        JDialog dialog = new JDialog((JFrame)frame, "Rune", true);//getId?
         dialog.setLocationRelativeTo(null);
         
         JPanel backgroundPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                g.drawImage(ImageFactory.getPicture("Backgrounds/Node Selecter Background"), 0, 0, dialog.getWidth(), dialog.getHeight(), null);
+                g.drawImage(ImageFactory.getPicture("Backgrounds/Rune Selecter Background"), 0, 0, dialog.getWidth(), dialog.getHeight(), null);
             }
         };
         
-        backgroundPanel.add(new NodeSelecterPanel(dialog, this));
+        backgroundPanel.add(new RuneSelecterPanel(dialog, this));
         
         dialog.getContentPane().add(backgroundPanel);
         //centerScreen(dialog);
