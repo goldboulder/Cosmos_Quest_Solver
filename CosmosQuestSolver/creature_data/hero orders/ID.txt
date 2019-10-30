@@ -188,3 +188,7 @@ Newt
 Electra
 Boson
 Higgs
+Casper
+Adrian
+Bride
+Adam

@@ -20,12 +20,24 @@ public class BloodLust extends Skill{
     }
     
     @Override
-    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
-        if (enemyFormation.getFrontCreature().isDead() && thisFormation.getFrontCreature() == owner){
+    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//take glitch into account?
+        if (!owner.isDead() && enemyFormation.getFrontCreature().isDead() && thisFormation.getFrontCreature() == owner){
             owner.setCurrentAtt(owner.getCurrentAtt() + attGain);
             owner.setMaxHP(owner.getMaxHP() + HPGain);
             owner.setCurrentHP(owner.getCurrentHP() + HPGain);
         }
+        //game bug quick patch
+        if (owner.isDead() && enemyFormation.getFrontCreature().isDead() && thisFormation.getFrontCreature() == owner){
+            //transfer stats to unit behind
+            if (thisFormation.size() > 1){
+                Creature c = thisFormation.getCreature(1);
+            
+                c.setCurrentAtt(c.getCurrentAtt() + attGain);
+                c.setMaxHP(c.getMaxHP() + HPGain);
+                c.setCurrentHP(c.getCurrentHP() + HPGain);
+            }
+        }
+        
     }
 
     @Override

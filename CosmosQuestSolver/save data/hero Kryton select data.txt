@@ -148,6 +148,10 @@ Dullahan,false,0
 Billy,false,0
 Sanqueen,false,0
 Cliodhna,false,0
+Casper,false,0
+Adrian,false,0
+Bride,false,0
+Adam,false,0
 Christmas Elf,false,0
 Reindeer,false,0
 Santa Claus,false,0

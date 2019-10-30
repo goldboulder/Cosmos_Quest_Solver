@@ -78,7 +78,7 @@ public class Berserk extends Skill{
     public int viability() {
         //int highest = owner.getBaseHP() > owner.getBaseAtt() ? owner.getBaseHP() : owner.getBaseAtt();
         double frontMultiplier = frontOnly ? 1 : 1.2;
-        return (int)(frontMultiplier * owner.getBaseHP() * owner.getBaseAtt() * Math.pow((multiplier-1)/turns + 1,1.5));
+        return (int)(frontMultiplier * owner.getBaseHP() * owner.getBaseAtt() * Math.pow((multiplier-1)/turns + 1,1.3));
         
     }
 

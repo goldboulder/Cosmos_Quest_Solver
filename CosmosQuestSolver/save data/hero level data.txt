@@ -148,6 +148,10 @@ Dullahan,1,0
 Billy,1,0
 Sanqueen,1,0
 Cliodhna,1,0
+Casper,1,0
+Adrian,1,0
+Bride,1,0
+Adam,1,0
 Christmas Elf,1,0
 Reindeer,1,0
 Santa Claus,1,0

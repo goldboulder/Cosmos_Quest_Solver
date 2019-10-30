@@ -164,7 +164,7 @@ Bortles,165,Chest,Common,Air,24,40,Fortify 3,10,13,14,Fortify 6,Nothing
 Murphy,166,Chest,Rare,Earth,28,40,Thorns 60,24,18,28,Thorns 90,Nothing
 Nerissa,167,Chest,Legendary,Water,82,24,Absorb 0.55,22,45,52,Absorb 0.5,Nothing
 Mother,168,Special,Legendary,Water,55,112,HealFirst 25,200,120,140,HealFirst 30,Nothing
-Ascended Nerissa,169,Ascend,Ascended,Water,164,48,ScaleableAbsorbPercent 0.006667,70,112,100,ScaleableAbsorbPercent 0.0073334,Nothing
+Ascended Nerissa,169,Ascend,Ascended,Water,164,48,ScaleableAbsorbPercent 0.0066666666,70,112,100,ScaleableAbsorbPercent 0.00733333333,Nothing
 Agatha,170,Season,Legendary,Air,59,51,AttackPercentAura 0.1,76,92,74,AttackPercentAura 0.15,Nothing
 Ophelia,171,Season,Legendary,Earth,60,52,AttackPercentAura 0.15,78,99,75,AttackPercentAura 0.2,Nothing
 Helga,172,Season,Legendary,Water,61,53,AttackPercentAura 0.2,84,101,82,AttackPercentAura 0.25,Nothing
@@ -187,5 +187,9 @@ Myrmillo,189,Season,Legendary,Earth,65,57,BloodLust 175 175,94,141,99,BloodLust 
 Retia,190,Season,Ascended,Water,126,144,BloodLust 350 350,246,318,338,BloodLust 450 450,Nothing
 Newt,191,Chest,Common,Water,4,48,Berserk 2.0 5 false,14,1,4,Berserk 2.5 5 false,Nothing
 Electra,192,Chest,Rare,Air,6,58,Berserk 3.0 6 false,30,4,8,Berserk 4.0 6 false,Nothing
-Boson,193,Chest,Legendary,Fire,3,72,Berserk 3.0 8 false,181,19,21,Berserk 4.0 8 false,Nothing
-Higgs,194,Ascend,Ascended,Fire,7,214,Berserk 4.0 9 false,301,14,30,Berserk 5.0 9 false,Nothing
+Boson,193,Chest,Legendary,Fire,6,66,Berserk 3.0 8 false,82,20,21,Berserk 4.0 8 false,Nothing
+Higgs,194,Ascend,Ascended,Fire,10,210,Berserk 4.0 9 false,225,24,30,Berserk 5.0 9 false,Nothing
+Casper,195,Event,Common,Air,28,30,IncreasingAOE 2 2,14,14,20,IncreasingAOE 3 2,Nothing
+Adrian,196,Event,Rare,Fire,20,64,IncreasingAOE 5 2,32,14,28,IncreasingAOE 7 2,Nothing
+Bride,197,Event,Legendary,Water,66,66,ScaleableStatAuraLifeSteal 1 9.0,258,178,104,ScaleableStatAuraLifeSteal 1 7.615,Nothing
+Adam,198,Event,Ascended,Earth,100,200,HealthyAOE 0.04,321,93,134,HealthyAOE 0.05,Nothing

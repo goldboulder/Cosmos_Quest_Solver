@@ -624,8 +624,10 @@ public class CreatureFactory {
             case "Fortify": return new Fortify(null,Integer.parseInt(tokens[1]));
             case "Heal": return new Heal(null,Integer.parseInt(tokens[1]));
             case "HealFirst": return new HealFirst(null,Integer.parseInt(tokens[1]));
+            case "HealthyAOE": return new HealthyAOE(null,Double.parseDouble(tokens[1]));
             case "HealthyAttack": return new HealthyAttack(null,Double.parseDouble(tokens[1]));
             case "HPBoost": return new HPBoost(null,Double.parseDouble(tokens[1]));
+            case "IncreasingAOE": return new IncreasingAOE(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
             case "Inferno": return new Inferno(null,Double.parseDouble(tokens[1]));
             case "Intercept": return new Intercept(null,Double.parseDouble(tokens[1]));
             case "LifeSteal": return new LifeSteal(null,Integer.parseInt(tokens[1]));
@@ -659,10 +661,12 @@ public class CreatureFactory {
             case "ScaleableSacrifice": return new ScaleableSacrifice(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableStartingDamage": return new ScaleableStartingDamage(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableStatAura": return new ScaleableStatAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Elements.parseElement(tokens[3]),Double.parseDouble(tokens[4]));
+            case "ScaleableStatAuraLifeSteal": return new ScaleableStatAuraLifeSteal(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableUnitBuff": return new ScaleableUnitBuff(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]));
             case "SelfArmor": return new SelfArmor(null,Integer.parseInt(tokens[1]));
             case "StartingDamage": return new StartingDamage(null,Integer.parseInt(tokens[1]));
             case "StatAura": return new StatAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Elements.parseElement(tokens[3]));
+            case "StatAuraLifeSteal": return new StatAuraLifeSteal(null,Integer.parseInt(tokens[1]));
             case "StatLevelBoost": return new StatLevelBoost(null,Double.parseDouble(tokens[1]));
             case "Simmer": return new Simmer(null,Double.parseDouble(tokens[1]));
             case "TargetedReflect": return new TargetedReflect(null,Double.parseDouble(tokens[1]));

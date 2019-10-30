@@ -38,7 +38,7 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
     private JTextField promoteLevelTextField;
     
     public enum Priority{NORMAL,ALWAYS,TOP,BOTTOM};
-    private Priority priority;
+    private Priority priority = Priority.NORMAL;
     public static final Color forceColor = new Color(128,0,145);
     
     public static final int CHANGE_PANEL_SIZE = 22;
@@ -83,6 +83,8 @@ public class HeroCustomizationPanel extends JPanel implements ActionListener, Do
         includeCheckBox.setActionCommand("include");
         prioritizeButton.addActionListener(this);
         prioritizeButton.setActionCommand("prioritize");
+        prioritizeButton.setBackground(Color.LIGHT_GRAY);//for new heroes
+        prioritizeButton.setToolTipText("Normal search order");
         levelTextField.getDocument().addDocumentListener(this);
         promoteLevelTextField.getDocument().addDocumentListener(this);
         levelTextField.setColumns(1);

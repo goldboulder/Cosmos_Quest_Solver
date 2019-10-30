@@ -23,6 +23,7 @@ Pyromancer
 Bewat
 Werewolf
 Billy
+Casper
 Christmas Elf
 Fir
 Sparks
@@ -59,6 +60,7 @@ Zaytus
 Lady Odelith
 Jack'o Knight
 Sanqueen
+Adrian
 Reindeer
 Sexy Santa
 5_12_6
@@ -128,6 +130,7 @@ Scinda
 Myrmillo
 Dullahan
 Cliodhna
+Bride
 Santa Claus
 Kedari
 Flynn
@@ -183,6 +186,7 @@ Raider Rose
 Aurora
 Minerva
 Retia
+Adam
 Thumper
 Bubbles
 Guy

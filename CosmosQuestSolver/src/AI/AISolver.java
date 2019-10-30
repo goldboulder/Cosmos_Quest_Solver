@@ -119,6 +119,7 @@ public abstract class AISolver extends Thread{
         LinkedList<Creature> normalHeroes = new LinkedList<>();
         LinkedList<Creature> bottomHeroes = new LinkedList<>();//alwaysHeroes are taken care of elsewhere
         for (Hero hero : heroes){
+            
             switch(frame.getHeroPriority(hero.getName())){
                 case TOP: topHeroes.add(hero); break;
                 case NORMAL: normalHeroes.add(hero); break;

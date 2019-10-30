@@ -38,7 +38,7 @@ public class WorldBossOptimizer extends AISolver{
         
         triedCombinations = new HashSet<>();
     }
-
+    //reference: https://pastebin.com/u/pebl
     
     //get parameters for the problem and performs search algorithm.
     //will not start a new search if one is already going

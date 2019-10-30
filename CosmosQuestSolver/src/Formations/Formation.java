@@ -237,7 +237,7 @@ public class Formation implements Iterable<Creature>{
         for (int i = 0; i < members.size(); i ++){
             if (members.get(i) instanceof Monster){
                 members.remove(i);
-                    monstersRemoved = true;
+                monstersRemoved = true;
                 i --;
             }
         }
@@ -470,6 +470,7 @@ public class Formation implements Iterable<Creature>{
     //cool solution: <Enemy> Guy:1k, Defile:1k, Geum:1k, Aural:1k, e33 <Solution> Rose:99.4, Guy:36, Hawking:99.4, Neil:99.5, aTR0N1X:99.4, Aurora:99.4
     //<Enemy> Hoso:1k, Veil:1k, Nebra:1k, Nerissa:1k, Liu Cheng:1k <Solution> aAthos:99.5, Rose:99.4, Guy:57, Lee:99.4, Aurora:99.4, Fir:99.5
     //<Enemy> Zeth:1k, a38, f39, a38, f39 <Solution> Hawking:99.4, Guy:80, Dorth:99.4, Lee:99.4, Fir:99.5, Aurora:99.4
+    //first solution with monster: <Enemy> aDagda:1k, Rei:1k, Hoso:1k, Tetra:1k, Auri:1k <Solution> Minerva:11, Lee:99.4, e35, aTakeda:99.4, Rose:99.4, Fir:99.5 (Followers: 2,201,440,000)
 
     public boolean isBossFormation() {
         return members.size() == 1 && members.getFirst() instanceof WorldBoss;
