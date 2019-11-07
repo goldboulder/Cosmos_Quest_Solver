@@ -2,4 +2,3 @@ M,A,1
 M,W,2
 M,E,1
 M,F,1
-H,Hunter,1000,0

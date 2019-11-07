@@ -28,7 +28,7 @@ public class BloodLust extends Skill{
         }
         //game bug quick patch
         if (owner.isDead() && enemyFormation.getFrontCreature().isDead() && thisFormation.getFrontCreature() == owner){
-            //transfer stats to unit behind
+            //transfer stats to unit behind ** this buff is ignored by fairy's skills
             if (thisFormation.size() > 1){
                 Creature c = thisFormation.getCreature(1);
             

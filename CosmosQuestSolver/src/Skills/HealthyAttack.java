@@ -9,7 +9,7 @@ import cosmosquestsolver.OtherThings;
 
 //deals a given percent to the opponent's front unit
 //per turn. Damage is done before healing.
-//Used by Choco Knight and Ascended Choco Knight.
+//Used by Choco Knight and Dark Choco Knight.
 public class HealthyAttack extends Skill{
     
     private double percent;
