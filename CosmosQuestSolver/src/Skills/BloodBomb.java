@@ -18,7 +18,7 @@ public class BloodBomb extends Skill{
     }
     
     @Override
-    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
+    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {//aoe from another unit counts as a kill too
         //super.attack(thisFormation,enemyFormation);
         if (enemyFormation.getFrontCreature().isDead() && thisFormation.getFrontCreature() == owner){
             //enemyFormation.takeAOEDamage(damage);//bubbles does not work with this skill

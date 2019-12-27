@@ -655,9 +655,14 @@ public class CreatureFactory {
             case "ScaleableArmorAura": return new ScaleableArmorAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableAttackBoostAura": return new ScaleableAttackBoostAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableBloodBomb": return new ScaleableBloodBomb(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
+            case "ScaleableFlatField": return new ScaleableFlatField(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableHeal": return new ScaleableHeal(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
+            case "ScaleableHiddenCharger": return new ScaleableHiddenCharger(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]),Double.parseDouble(tokens[4]));
+            case "ScaleableGrowingAttAura": return new ScaleableGrowingAttAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableLifeSteal": return new ScaleableLifeSteal(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
+            case "ScaleableOneTimeAbsorb": return new ScaleableOneTimeAbsorb(null,Double.parseDouble(tokens[1]));
             case "ScaleablePercentAtt": return new ScaleablePercentAtt(null,Double.parseDouble(tokens[1]));
+            case "ScaleablePredator": return new ScaleablePredator(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableSacrifice": return new ScaleableSacrifice(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableStartingDamage": return new ScaleableStartingDamage(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableStatAura": return new ScaleableStatAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Elements.parseElement(tokens[3]),Double.parseDouble(tokens[4]));

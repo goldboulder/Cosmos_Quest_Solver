@@ -7,7 +7,7 @@ Rokka,4,Quest,Common,Earth,8,30,ArmorAura 2 Earth,40,12,5,ArmorAura 4 Earth,Noth
 Pyromancer,5,Quest,Common,Fire,12,24,ArmorAura 2 Fire,16,8,8,ArmorAura 4 Fire,Nothing
 Bewat,6,Quest,Common,Water,6,50,ArmorAura 2 Water,31,10,16,ArmorAura 4 Water,Nothing
 Hunter,7,Chest,Common,Air,14,22,AttackBoostAura 2 Air,14,12,11,AttackBoostAura 4 Air,Nothing
-Shaman,8,Chest,Rare,Earth,20,40,AttackBoostAura 3 Earth,36,16,25,AttackBoostAura 6 Earth,Nothing
+Shaman,8,Chest,Rare,Earth,20,40,ArmorAura 3 Earth,36,16,25,ArmorAura 6 Earth,Nothing
 Alpha,9,Chest,Legendary,Fire,22,82,AOE 2,115,37,75,AOE 7,Nothing
 Carl,10,Chest,Common,Water,12,28,AttackBoostAura 2 Water,18,5,12,AttackBoostAura 4 Water,Nothing
 Nimue,11,Chest,Rare,Air,22,38,ArmorAura 3 Air,49,19,12,ArmorAura 6 Air,Nothing
@@ -182,14 +182,19 @@ Choco Knight,183,Chest,Legendary,Earth,50,50,HealthyAttack 0.4,72,47,82,HealthyA
 Dark Choco Knight,184,Ascend,Ascended,Earth,124,124,HealthyAttack 0.55,98,64,104,HealthyAttack 0.65,Nothing
 Lili,185,Shop,Ascended,Fire,211,92,PositionAttToHealth 0.1 1.0,174,535,171,PositionAttToHealth 0.1 1.1,Nothing
 Thrace,187,Season,Legendary,Fire,61,53,BloodLust 125 125,82,131,104,BloodLust 150 150,Nothing
-Scinda,188,Season,Legendary,Air,63,55,BloodLust 150 150,78,125,116,BloodLust 175 175,Nothing
-Myrmillo,189,Season,Legendary,Earth,65,57,BloodLust 175 175,94,141,99,BloodLust 200 200,Nothing
+Scinda,188,Season,Legendary,Air,63,55,BloodLust 150 150,78,125,116,BloodLust 180 180,Nothing
+Myrmillo,189,Season,Legendary,Earth,65,57,BloodLust 175 175,94,141,99,BloodLust 210 210,Nothing
 Retia,190,Season,Ascended,Water,126,144,BloodLust 350 350,246,318,338,BloodLust 450 450,Nothing
 Newt,191,Chest,Common,Water,4,48,Berserk 2.0 5 false,14,1,4,Berserk 2.5 5 false,Nothing
 Electra,192,Chest,Rare,Air,6,58,Berserk 3.0 6 false,30,4,8,Berserk 4.0 6 false,Nothing
-Boson,193,Chest,Legendary,Fire,6,66,Berserk 3.0 8 false,82,20,21,Berserk 4.0 8 false,Nothing
-Higgs,194,Ascend,Ascended,Fire,10,210,Berserk 4.0 9 false,225,24,30,Berserk 5.0 9 false,Nothing
+Boson,193,Chest,Legendary,Fire,6,66,Berserk 3.0 7 false,82,20,21,Berserk 4.0 7 false,Nothing
+Higgs,194,Ascend,Ascended,Fire,10,210,Berserk 4.0 8 false,225,24,30,Berserk 5.0 8 false,Nothing
 Casper,195,Event,Common,Air,28,30,IncreasingAOE 2 2,14,14,20,IncreasingAOE 3 2,Nothing
 Adrian,196,Event,Rare,Fire,20,64,IncreasingAOE 5 2,32,14,28,IncreasingAOE 7 2,Nothing
-Bride,197,Event,Legendary,Water,66,66,ScaleableStatAuraLifeSteal 1 9.0,258,178,104,ScaleableStatAuraLifeSteal 1 7.615,Nothing
+Emily,197,Event,Legendary,Water,66,66,ScaleableStatAuraLifeSteal 1 9.0,258,178,104,ScaleableStatAuraLifeSteal 1 7.615,Nothing
 Adam,198,Event,Ascended,Earth,100,200,HealthyAOE 0.04,321,93,134,HealthyAOE 0.05,Nothing
+Yisus,199,Event,Rare,Earth,48,32,ScaleableFlatField 3 9.0,38,18,34,ScaleableFlatField 4 9.0,Nothing
+Galla,200,Event,Common,Fire,40,32,ScaleablePredator 1 1.0,30,22,22,ScaleablePredator 1 0.66667,Nothing
+Yeti the Postman,201,Event,Rare,Water,58,58,ScaleableGrowingAttAura 11 4 9.0,40,40,40,ScaleableGrowingAttAura 11 5 9.0,Nothing
+Hans,202,Event,Legendary,Earth,74,74,ScaleableHiddenCharger 3 3 2 9.0,200,200,180,ScaleableHiddenCharger 5 5 2 9.0,Nothing
+Mecha Mary,203,Event,Ascended,Air,250,5,ScaleableOneTimeAbsorb 0.00888889,12,1080,30,ScaleableOneTimeAbsorb 0.01,Nothing

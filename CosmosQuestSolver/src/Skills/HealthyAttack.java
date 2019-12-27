@@ -39,7 +39,7 @@ public class HealthyAttack extends Skill{
 
     @Override
     public String getDescription() {
-        return "After attacking, deals damage equal to " + OtherThings.nicePercentString(percent) + " of health before";
+        return "Deals damage equal to " + OtherThings.nicePercentString(percent) + " of current health (" + Math.round(owner.getCurrentHP() * percent) + ")";
     }
 
     @Override

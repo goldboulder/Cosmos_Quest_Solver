@@ -186,7 +186,8 @@ public class Formation implements Iterable<Creature>{
         }
         
         while(!goodList.isEmpty() && blankSpaces.size() < MAX_MEMBERS - members.size()){
-            blankSpaces.add(nothingList.poll());
+            
+            blankSpaces.add(goodList.poll());
         }
         
     }
@@ -276,7 +277,8 @@ public class Formation implements Iterable<Creature>{
                 if (c != null){
                     members.add(c);
                 }
-                else if (hasRunes){
+                else{
+                //else if (hasRunes){
                     blankSpaces.add(i);
                 }
             }

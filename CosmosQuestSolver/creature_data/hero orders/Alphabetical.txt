@@ -53,7 +53,6 @@ Blossom
 Boor
 Bortles
 Boson
-Bride
 Brynhildr
 Bubbles
 Buccaneer Beatrice
@@ -79,6 +78,7 @@ Dybbuk
 Edana
 Electra
 Ember
+Emily
 Erebus
 Faefyr
 Fir
@@ -87,6 +87,7 @@ Flynn
 Forest Druid
 Frosty
 GaiaByte
+Galla
 Ganah
 Geron
 Geror
@@ -97,6 +98,7 @@ Gurth
 Guy
 Hallinskidi
 Hama
+Hans
 Hattori
 Helga
 Hidoka
@@ -126,6 +128,7 @@ Mahatma
 Marauder Magnus
 Master Lee
 Maunder
+Mecha Mary
 Minerva
 Mother
 Mr Cotton
@@ -190,5 +193,7 @@ The Wanderer
 Werewolf
 Willow
 Xarth
+Yeti the Postman
+Yisus
 Zaytus
 Zeth

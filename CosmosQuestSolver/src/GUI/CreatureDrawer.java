@@ -246,7 +246,8 @@ public class CreatureDrawer {
                 name.equals("Ascended Dybbuk") ||
                 name.equals("Ascended Nerissa") ||
                 name.equals("Ascended Wanderer") ||
-                name.equals("45c3nd3d R31")){
+                name.equals("45c3nd3d R31") ||
+                name.equals("Retia")){
             return true;
         }
         else{

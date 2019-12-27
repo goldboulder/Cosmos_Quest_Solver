@@ -150,7 +150,7 @@ Sanqueen,1,0
 Cliodhna,1,0
 Casper,1,0
 Adrian,1,0
-Bride,1,0
+Emily,1,0
 Adam,1,0
 Christmas Elf,1,0
 Reindeer,1,0
@@ -160,6 +160,11 @@ Fir,1,0
 5_12_6,1,0
 Kedari,1,0
 Frosty,1,0
+Galla,1,0
+Yeti the Postman,1,0
+Hans,1,0
+Mecha Mary,1,0
+Yisus,1,0
 Sparks,1,0
 Leaf,1,0
 Flynn,1,0

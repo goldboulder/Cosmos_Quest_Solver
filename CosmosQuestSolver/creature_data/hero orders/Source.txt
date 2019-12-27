@@ -150,7 +150,7 @@ Sanqueen
 Cliodhna
 Casper
 Adrian
-Bride
+Emily
 Adam
 Christmas Elf
 Reindeer
@@ -160,6 +160,11 @@ Fir
 5_12_6
 Kedari
 Frosty
+Galla
+Yeti the Postman
+Hans
+Mecha Mary
+Yisus
 Sparks
 Leaf
 Flynn

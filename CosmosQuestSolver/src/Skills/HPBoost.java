@@ -35,7 +35,7 @@ public class HPBoost extends Skill implements RuneSkill{
     
     @Override
     public String getDescription() {
-        return "Initial HP times " + OtherThings.twoDecimalFormat(multiplier);
+        return "Initial HP x " + OtherThings.twoDecimalFormat(multiplier);
     }
     
     @Override

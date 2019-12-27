@@ -34,7 +34,7 @@ public class Recover extends Skill{
 
     @Override
     public String getDescription() {
-        return "Heals " + amount + " after being attacked";
+        return "Heals " + amount + " HP after being attacked";
     }
 
     @Override

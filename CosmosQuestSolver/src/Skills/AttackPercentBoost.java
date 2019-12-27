@@ -33,7 +33,7 @@ public class AttackPercentBoost extends Skill implements RuneSkill{
     
     @Override
     public String getDescription() {
-        return "Initial attack times " + OtherThings.intOrNiceDecimalFormat(multiplier);
+        return "Initial attack x " + OtherThings.intOrNiceDecimalFormat(multiplier);
     }
     
     @Override

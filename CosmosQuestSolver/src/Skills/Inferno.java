@@ -43,7 +43,7 @@ public class Inferno extends Skill{
 
     @Override
     public String getDescription() {
-        return "Deals " + OtherThings.nicePercentString(percent) + " damage to all units except self after every attack (" + (int)Math.round(owner.getCurrentAtt()*percent) + ")";
+        return "Deals " + OtherThings.nicePercentString(percent) + " damage to all units including own team but not self after every attack (" + (int)Math.round(owner.getCurrentAtt()*percent) + ")";
     }
 
     @Override

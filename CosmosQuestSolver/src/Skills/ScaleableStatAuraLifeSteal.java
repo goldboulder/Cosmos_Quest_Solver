@@ -9,7 +9,7 @@ import Formations.Formation;
 import Formations.Elements.Element;
 
 //Combines ScaleableStatArua and ScaleableLifeSteal
-//used by Bride
+//used by Emily
 public class ScaleableStatAuraLifeSteal extends StatAuraLifeSteal{
         
     private double levelMilestone;
@@ -60,7 +60,7 @@ public class ScaleableStatAuraLifeSteal extends StatAuraLifeSteal{
     @Override
     public String getDescription() {
         String plural = levelMilestone == 1 ? "level" : "levels";
-        return "+ " + amount + " attack, armor, AOE and healing to all creatures per " + levelMilestone +" " + plural + " (" + roundedScaleMilestone(owner,amount,levelMilestone) + ")";
+        return "+ " + amount + " attack, armor, AOE, and healing to all creatures per " + levelMilestone +" " + plural + " (" + roundedScaleMilestone(owner,amount,levelMilestone) + ")";
     }
     
     @Override

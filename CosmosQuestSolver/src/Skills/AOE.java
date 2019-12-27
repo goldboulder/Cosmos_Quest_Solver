@@ -30,7 +30,7 @@ public class AOE extends Skill{
 
     @Override
     public String getDescription() {
-        return "After every turn, deals " + damage + " aoe damage";
+        return damage + " aoe per turn";
     }
 
     @Override

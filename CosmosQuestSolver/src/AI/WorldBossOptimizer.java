@@ -5,6 +5,7 @@ package AI;
 
 import Formations.Elements;
 import Formations.Creature;
+import Formations.CreatureFactory;
 import Formations.Elements.Element;
 import Formations.Formation;
 import Formations.Hero;
@@ -60,6 +61,7 @@ public class WorldBossOptimizer extends AISolver{
     //asks the frame for the parameters of the problem
     private void obtainProblem(){
         followers = frame.getFollowers();
+        followers = Math.min(followers, CreatureFactory.getStrongestMonster().getFollowers() * Formation.MAX_MEMBERS);
         maxCreatures = frame.getMaxCreatures();
         heroes = frame.getHeroes();//is this field needed?
         prioritizedHeroes = frame.getHeroes(Priority.ALWAYS);

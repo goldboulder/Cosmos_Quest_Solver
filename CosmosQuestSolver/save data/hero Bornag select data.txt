@@ -150,7 +150,7 @@ Sanqueen,false,0
 Cliodhna,false,0
 Casper,false,0
 Adrian,false,0
-Bride,false,0
+Emily,false,0
 Adam,false,0
 Christmas Elf,false,0
 Reindeer,false,0
@@ -160,6 +160,11 @@ Fir,false,0
 5_12_6,false,0
 Kedari,false,0
 Frosty,false,0
+Galla,false,0
+Yeti the Postman,false,0
+Hans,false,0
+Mecha Mary,false,0
+Yisus,false,0
 Sparks,false,0
 Leaf,false,0
 Flynn,false,0

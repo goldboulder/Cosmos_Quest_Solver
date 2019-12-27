@@ -7,10 +7,10 @@ import Formations.Creature;
 import Formations.Formation;
 import cosmosquestsolver.OtherThings;
 
-//deals a given percent as AOE
+//deals a given percent of current health as AOE
 //per turn. Damage is done before healing.
 //Used by Adam
-public class HealthyAOE extends Skill{
+public class HealthyAOE extends Skill{//check for total damage accuracy*
     
     private double percent;
     private int HPBefore;
@@ -37,7 +37,7 @@ public class HealthyAOE extends Skill{
 
     @Override
     public String getDescription() {
-        return "After attacking, deals AOE equal to " + OtherThings.nicePercentString(percent) + " of health before";
+        return "Deals AOE equal to " + OtherThings.nicePercentString(percent) + " of current health (" + Math.round(owner.getCurrentHP() * percent) + ")";
     }
 
     @Override

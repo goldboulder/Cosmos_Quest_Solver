@@ -362,8 +362,11 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
 
     @Override//make a lessCreatures solver like the world boss subclass?***
     public AISolver makeSolver() {//if has leprecaun, return subclass****
-        if (assetPanel.heroEnabled("Leprechaun")){//hard coded value. currently the only hero that needs this is lep.
+        if (assetPanel.heroEnabled("Leprechaun")){//hard coded value. .
             return new WeirdHeroQuestSolver(this,"Leprechaun");//difference in demo sollution and shown solution***
+        }
+        if (assetPanel.heroEnabled("Yisus")){//hard coded value. .
+            return new WeirdHeroQuestSolver(this,"Yisus");//difference in demo sollution and shown solution***
         }
         return new QuestSolver(this);
     }
