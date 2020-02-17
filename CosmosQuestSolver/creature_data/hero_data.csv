@@ -1,200 +1,200 @@
 Name,ID,Source,Rarity,Element,Base attack,Baase health,Skill,P1 HP,P2 Att,P4 Stats,P5 Skill,P6 Skill
-Lady of Twilight,0,Special,Common,Air,20,45,StatAura 3 3 All,28,25,15,StatAura 6 6 All,Nothing
-Tiny,1,Special,Rare,Earth,30,70,ScaleableLifeSteal 1 24.0,40,28,17,ScaleableLifeSteal 1 12.0,Nothing
-Nebra,2,Special,Legendary,Fire,40,110,AttackBoostAura 20 All,140,100,83,AttackBoostAura 40 All,Nothing
-Valor,3,Quest,Common,Air,10,20,ArmorAura 2 Air,12,7,19,ArmorAura 4 Air,Nothing
-Rokka,4,Quest,Common,Earth,8,30,ArmorAura 2 Earth,40,12,5,ArmorAura 4 Earth,Nothing
-Pyromancer,5,Quest,Common,Fire,12,24,ArmorAura 2 Fire,16,8,8,ArmorAura 4 Fire,Nothing
-Bewat,6,Quest,Common,Water,6,50,ArmorAura 2 Water,31,10,16,ArmorAura 4 Water,Nothing
-Hunter,7,Chest,Common,Air,14,22,AttackBoostAura 2 Air,14,12,11,AttackBoostAura 4 Air,Nothing
-Shaman,8,Chest,Rare,Earth,20,40,ArmorAura 3 Earth,36,16,25,ArmorAura 6 Earth,Nothing
-Alpha,9,Chest,Legendary,Fire,22,82,AOE 2,115,37,75,AOE 7,Nothing
-Carl,10,Chest,Common,Water,12,28,AttackBoostAura 2 Water,18,5,12,AttackBoostAura 4 Water,Nothing
-Nimue,11,Chest,Rare,Air,22,38,ArmorAura 3 Air,49,19,12,ArmorAura 6 Air,Nothing
-Athos,12,Chest,Legendary,Earth,26,70,ArmorAura 4 All,70,32,96,ArmorAura 10 All,Nothing
-Jet,13,Chest,Common,Fire,16,24,AttackBoostAura 2 Fire,11,9,12,AttackBoostAura 4 Fire,Nothing
-Geron,14,Chest,Rare,Water,24,36,ArmorAura 3 Water,27,11,28,ArmorAura 6 Water,Nothing
-Rei,15,Chest,Legendary,Air,40,46,AttackBoostAura 5 All,79,67,89,AttackBoostAura 15 All,Nothing
-Ailen,16,Chest,Common,Earth,22,19,AttackBoostAura 2 Earth,21,17,12,AttackBoostAura 4 Earth,Nothing
-Faefyr,17,Chest,Rare,Fire,18,50,ArmorAura 3 Fire,53,17,19,ArmorAura 6 Fire,Nothing
-Auri,18,Chest,Legendary,Water,32,60,Heal 4,70,74,23,Heal 8,Nothing
-Nicte,19,Quest,Rare,Air,32,22,AttackBoostAura 4 Air,21,43,24,AttackBoostAura 8 Air,Nothing
-James,20,Special,Legendary,Earth,12,50,Ricochet 0.75 5,103,111,41,Ricochet 0.85 5,Nothing
-K41RY,21,Chest,Common,Air,16,28,AttackBoostAura 3 Air,19,14,19,AttackBoostAura 6 Air,Nothing
-T4URUS,22,Chest,Rare,Earth,20,46,AttackBoostAura 2 All,28,20,30,AttackBoostAura 4 All,Nothing
-TR0N1X,23,Chest,Legendary,Fire,20,100,AOE 3,107,44,35,AOE 9,Nothing
-Aquortis,24,Chest,Common,Water,8,58,AttackBoostAura 3 Water,28,18,18,AttackBoostAura 6 Water,Nothing
-Aeris,25,Chest,Rare,Air,32,30,Heal 2,20,36,28,Heal 4,Nothing
-Geum,26,Chest,Legendary,Earth,2,75,Berserk 2.0 1 true,213,8,22,Berserk 2.2 1 true,Nothing
-Forest Druid,27,Quest,Rare,Earth,16,46,AttackBoostAura 4 Earth,38,16,19,AttackBoostAura 8 Earth,Nothing
-Ignitor,28,Quest,Rare,Fire,24,32,AttackBoostAura 4 Fire,24,22,23,AttackBoostAura 8 Fire,Nothing
-Undine,29,Quest,Rare,Water,14,58,AttackBoostAura 4 Water,25,7,15,AttackBoostAura 8 Water,Nothing
-Rudean,30,Chest,Common,Fire,12,38,AttackBoostAura 3 Fire,19,14,10,AttackBoostAura 6 Fire,Nothing
-Aural,31,Chest,Rare,Water,50,18,Berserk 1.2 1 true,33,31,28,Berserk 1.32 1 true,Nothing
-Geror,32,Chest,Legendary,Air,46,46,MonsterBuff 1.2,95,125,36,MonsterBuff 1.32,Nothing
-Veildur,33,Season,Legendary,Earth,44,66,StatAura 3 3 All,98,42,51,StatAura 6 6 All,Nothing
-Brynhildr,34,Season,Legendary,Air,48,72,StatAura 4 4 All,84,56,59,StatAura 8 8 All,Nothing
-Groth,35,Season,Legendary,Fire,52,78,StatAura 5 5 All,114,70,62,StatAura 10 10 All,Nothing
-Ourea,36,Chest,Common,Earth,16,30,AttackBoostAura 3 Earth,17,8,8,AttackBoostAura 6 Earth,Nothing
-Erebus,37,Chest,Rare,Fire,20,48,StatAura 2 2 Fire,55,18,20,StatAura 4 4 Fire,Nothing
-Pontus,38,Chest,Legendary,Water,36,62,Purity 2.0,121,43,79,Purity 2.2,Nothing
-Chroma,39,Quest,Rare,Air,20,52,ArmorAura 4 Air,23,15,15,ArmorAura 8 Air,Nothing
-Petry,40,Quest,Rare,Earth,44,26,ArmorAura 4 Earth,18,16,28,ArmorAura 8 Earth,Nothing
-Zaytus,41,Quest,Rare,Fire,22,58,ArmorAura 4 Fire,57,12,16,ArmorAura 8 Fire,Nothing
-Spyke,42,Shop,Legendary,Air,45,75,Train 10,112,43,73,Train 20,Nothing
-Aoyuki,43,Shop,Legendary,Water,55,70,Rainbow 100 4,75,121,66,Rainbow 200 4,Nothing
-GaiaByte,44,Shop,Legendary,Earth,150,75,Wither 2.0,151,84,52,Wither 1.33,Nothing
-Oymos,45,Chest,Common,Air,14,36,AttackBoostAura 4 Air,24,15,21,AttackBoostAura 8 Air,Nothing
-Xarth,46,Chest,Rare,Earth,32,32,StatAura 2 2 Earth,23,25,19,StatAura 4 4 Earth,Nothing
-Atzar,47,Chest,Legendary,Fire,32,76,Purity 2.0,85,28,48,Purity 2.2,Nothing
-Zeth,48,Season,Legendary,Water,42,70,WrathPercentAtt 0.1,127,76,24,WrathPercentAtt 0.2,Nothing
-Koth,49,Season,Legendary,Earth,46,76,WrathPercentAtt 0.15,99,39,70,WrathPercentAtt 0.25,Nothing
-Gurth,50,Season,Legendary,Air,50,82,WrathPercentAtt 0.2,108,43,68,WrathPercentAtt 0.3,Nothing
-Werewolf,51,Event,Common,Earth,25,35,ScaleableArmorAura 1 All 9.0,23,28,19,ScaleableArmorAura 1 All 7.615,Nothing
-Jack'o Knight,52,Event,Rare,Air,35,55,ScaleableAttackBoostAura 1 All 9.0,50,13,38,ScaleableAttackBoostAura 1 All 7.615,Nothing
-Dullahan,53,Event,Legendary,Fire,45,75,ScaleableStatAura 1 1 All 9.0,114,45,65,ScaleableStatAura 1 1 All 6.6,Nothing
-Lady Odelith,54,Quest,Rare,Water,36,36,ArmorAura 4 Water,19,17,29,ArmorAura 8 Water,Nothing
-Shygu,55,Quest,Legendary,Air,54,34,ScaleableArmorAura 1 Air 9.0,62,68,71,ScaleableArmorAura 1 Air 7.615,Nothing
-Thert,56,Quest,Legendary,Earth,28,72,ScaleableArmorAura 1 Earth 9.0,61,44,69,ScaleableArmorAura 1 Earth 7.615,Nothing
-Lord Kirk,57,Quest,Legendary,Fire,64,32,ScaleableArmorAura 1 Fire 9.0,77,99,83,ScaleableArmorAura 1 Fire 7.615,Nothing
-Neptunius,58,Quest,Legendary,Water,70,30,ScaleableArmorAura 1 Water 9.0,92,73,83,ScaleableArmorAura 1 Water 7.615,Nothing
-Sigrun,59,Season,Legendary,Fire,12,65,Ricochet 0.5 5,132,29,61,Ricochet 0.65 5,Nothing
-Koldis,60,Season,Legendary,Water,14,70,Ricochet 0.5 5,173,32,46,Ricochet 0.65 5,Nothing
-Alvitr,61,Season,Legendary,Earth,16,75,Ricochet 0.5 5,152,50,56,Ricochet 0.65 5,Nothing
-Hama,62,Chest,Common,Water,18,30,AttackBoostAura 4 Water,21,10,7,AttackBoostAura 8 Water,Nothing
-Hallinskidi,63,Chest,Rare,Air,34,34,StatAura 2 2 Air,17,54,20,StatAura 4 4 Air,Nothing
-Rigr,64,Chest,Legendary,Earth,42,60,Purity 2.0,68,21,93,Purity 2.2,Nothing
-Ascended Alpha,65,Ascend,Ascended,Fire,46,174,ScaleableAOE 1 3.3,251,98,92,ScaleableAOE 1 3.0,Nothing
-Ascended Athos,66,Ascend,Ascended,Earth,60,162,ScaleableArmorAura 1 All 3.3,281,57,76,ScaleableArmorAura 1 All 3.0,Nothing
-Ascended Rei,67,Ascend,Ascended,Air,104,120,ScaleableAttackBoostAura 1 All 3.3,167,86,176,ScaleableAttackBoostAura 1 All 2.25,Nothing
-Ascended Auri,68,Ascend,Ascended,Water,78,148,ScaleableHeal 1 6.58,151,221,59,ScaleableHeal 1 5.98,Nothing
-Ascended TR0N1X,69,Ascend,Ascended,Fire,38,190,Ricochet 0.75 5,383,56,25,Ricochet 0.8 5,Nothing
-Ascended Geum,70,Ascend,Ascended,Earth,8,222,Berserk 2.0 1 true,348,35,16,Berserk 2.2 1 true,Nothing
-Ascended Geror,71,Ascend,Ascended,Air,116,116,MonsterBuff 1.3,173,22,153,MonsterBuff 1.43,Nothing
-Christmas Elf,73,Event,Common,Water,24,38,ScaleableHeal 1 9.0,28,34,22,ScaleableHeal 1 7.615,Nothing
-Reindeer,74,Event,Rare,Air,36,54,ScaleableAOE 1 9.0,53,18,33,ScaleableAOE 1 7.615,Nothing
-Santa Claus,75,Event,Legendary,Fire,48,72,ScaleableLifeSteal 1 9.0,107,96,78,ScaleableLifeSteal 1 6.6,Nothing
-Sexy Santa,76,Event,Rare,Earth,44,44,Ricochet 0.66 5,27,41,40,Ricochet 0.71 5,Nothing
-Toth,77,Chest,Common,Fire,24,24,AttackBoostAura 4 Fire,18,32,16,AttackBoostAura 8 Fire,Nothing
-Ganah,78,Chest,Rare,Water,30,40,StatAura 2 2 Water,29,26,43,StatAura 4 4 Water,Nothing
-Dagda,79,Chest,Legendary,Air,46,58,Purity 2.0,79,78,123,Purity 2.2,Nothing
-Bubbles,80,Special,Ascended,Water,110,300,ScaleableAntiAOE 0.005,291,120,58,ScaleableAntiAOE 0.0055,Nothing
-Ascended Pontus,81,Ascend,Ascended,Water,86,150,Purity 3.0,124,211,190,Purity 3.3,Nothing
-Ascended Atzar,82,Ascend,Ascended,Fire,81,162,Purity 3.0,333,76,86,Purity 3.3,Nothing
-Arshen,83,Season,Legendary,Air,36,74,Ricochet 1.0 1,83,44,28,Ricochet 1.05 1,Nothing
-Rua,84,Season,Legendary,Fire,40,78,Ricochet 1.0 1,88,44,37,Ricochet 1.05 1,Nothing
-Dorth,85,Season,Legendary,Water,44,82,Ricochet 1.0 1,90,38,40,Ricochet 1.05 1,Nothing
-Ascended Rigr,86,Ascend,Ascended,Earth,99,141,Purity 3.0,138,121,163,Purity 3.3,Nothing
-Hosokawa,88,Quest,Legendary,Air,50,42,ScaleableAttackBoostAura 1 Air 9.0,108,115,74,ScaleableAttackBoostAura 1 Air 7.615,Nothing
-Takeda,89,Quest,Legendary,Earth,66,32,ScaleableAttackBoostAura 1 Earth 9.0,83,82,45,ScaleableAttackBoostAura 1 Earth 7.615,Nothing
-Hirate,90,Quest,Legendary,Fire,56,38,ScaleableAttackBoostAura 1 Fire 9.0,53,133,44,ScaleableAttackBoostAura 1 Fire 7.615,Nothing
-Hattori,91,Quest,Legendary,Water,48,44,ScaleableAttackBoostAura 1 Water 9.0,65,74,64,ScaleableAttackBoostAura 1 Water 7.615,Nothing
-Ascended Dagda,92,Ascend,Ascended,Air,107,135,Purity 3.0,208,78,322,Purity 3.3,Nothing
-Bylar,93,Chest,Common,Earth,20,30,AttackBoostAura 4 Earth,18,6,15,AttackBoostAura 8 Earth,Nothing
-Boor,94,Chest,Rare,Fire,36,36,Train 3,19,49,20,Train 6,Nothing
-Bavah,95,Chest,Legendary,Water,52,52,StatAura 4 4 All,84,92,43,StatAura 9 9 All,Nothing
-Leprechaun,96,Special,Legendary,Earth,25,75,EvenField 0,59,13,13,EvenField 1,Nothing
-Sparks,97,Event,Common,Fire,30,30,StatLevelBoost 2.0,29,29,15,StatLevelBoost 2.2,Nothing
-Leaf,98,Event,Rare,Earth,42,48,StatLevelBoost 2.0,35,57,26,StatLevelBoost 2.2,Nothing
-Flynn,99,Event,Legendary,Air,48,70,StatLevelBoost 2.0,46,93,69,StatLevelBoost 2.2,Nothing
-Ascended Bavah,100,Ascend,Ascended,Water,122,122,ScaleableStatAura 1 1 All 6.58,217,152,145,ScaleableStatAura 1 1 All 5.98,Nothing
-Dr Hawking,101,Special,Legendary,Air,60,66,ScaleableStartingDamage 1 1.0,94,136,70,ScaleableStartingDamage 1 0.767,Nothing
-Master Lee,102,Season,Ascended,Air,90,150,Reflect 0.5,314,290,225,Reflect 0.55,Nothing
-Kumu san,103,Season,Legendary,Fire,38,70,Reflect 0.2,134,132,135,Reflect 0.22,Nothing
-Liu Cheng,104,Season,Legendary,Water,42,78,Reflect 0.25,149,111,80,Reflect 0.275,Nothing
-Hidoka,105,Season,Legendary,Earth,44,86,Reflect 0.3,144,172,61,Reflect 0.33,Nothing
-Dicemaster,107,Auction,Common,Water,26,25,RandomStatBoost 20,19,36,12,RandomStatBoost 40,Nothing
-Luxurius Maximus,108,Auction,Rare,Fire,60,28,RandomTarget False,44,47,29,RandomTarget True,Nothing
-Pokerface,109,Auction,Legendary,Earth,70,70,CriticalHit 3.0,119,211,111,CriticalHit 3.3,Nothing
-Taint,110,Chest,Common,Air,25,25,Ricochet 0.5 5,13,4,21,Ricochet 0.55 5,Nothing
-Putrid,111,Chest,Rare,Earth,50,48,Train -3,51,93,50,Train -2,Nothing
-Defile,112,Chest,Legendary,Fire,48,52,BloodBomb 50,60,138,72,BloodBomb 100,Nothing
-Neil,113,Special,Legendary,Water,15,150,Intercept 0.3,244,20,23,Intercept 0.35,Nothing
-Mahatma,114,Quest,Legendary,Air,26,78,ElementDamageBoost Water 0.75,56,19,85,ElementDamageBoost Water 1.25,Nothing
-Jade,115,Quest,Legendary,Earth,30,76,ElementDamageBoost Air 0.75,45,37,91,ElementDamageBoost Air 1.25,Nothing
-Edana,116,Quest,Legendary,Fire,36,72,ElementDamageBoost Earth 0.75,91,46,66,ElementDamageBoost Earth 1.25,Nothing
-Dybbuk,117,Quest,Legendary,Water,30,80,ElementDamageBoost Fire 0.75,65,43,63,ElementDamageBoost Fire 1.25,Nothing
-Ascended Shygu,118,Quest,Ascended,Air,135,85,ScaleableArmorAura 1 Air 5.5,148,113,217,ScaleableStatAura 0 1 Air 5.0,Nothing
-Ascended Thert,119,Quest,Ascended,Earth,70,180,ScaleableArmorAura 1 Earth 5.5,346,67,76,ScaleableStatAura 0 1 Earth 5.0,Nothing
-Ascended Lord Kirk,120,Quest,Ascended,Fire,160,80,ScaleableArmorAura 1 Fire 5.5,215,255,87,ScaleableStatAura 0 1 Fire 5.0,Nothing
-Ascended Neptunius,121,Quest,Ascended,Water,175,75,ScaleableArmorAura 1 Water 5.5,335,201,241,ScaleableStatAura 0 1 Water 5.0,Nothing
-Ascended Hosokawa,122,Quest,Ascended,Air,124,106,ScaleableAttackBoostAura 1 Air 5.5,229,423,207,ScaleableAttackBoostAura 1 Air 5.0,Nothing
-Ascended Takeda,123,Quest,Ascended,Earth,164,82,ScaleableAttackBoostAura 1 Earth 5.5,252,425,66,ScaleableAttackBoostAura 1 Earth 5.0,Nothing
-Ascended Hirate,124,Quest,Ascended,Fire,144,96,ScaleableAttackBoostAura 1 Fire 5.5,199,193,119,ScaleableAttackBoostAura 1 Fire 5.0,Nothing
-Ascended Hattori,125,Quest,Ascended,Water,126,114,ScaleableAttackBoostAura 1 Water 5.5,218,167,138,ScaleableAttackBoostAura 1 Water 5.0,Nothing
-Billy,127,Event,Common,Earth,40,30,Wrath 100,43,30,24,Wrath 125,Nothing
-Sanqueen,128,Event,Rare,Water,22,88,Vampyrism 0.8,71,8,16,Vampyrism 0.88,Nothing
-Cliodhna,129,Event,Legendary,Air,60,150,Revenge 1.0,193,240,78,Revenge 1.1,Nothing
-Guy,130,Special,Ascended,Fire,64,340,TargetedReflect 1.0,160,121,115,TargetedReflect 1.1,Nothing
-Ascended Defile,131,Ascend,Ascended,Fire,114,126,ScaleableBloodBomb 7 3.0,126,122,114,ScaleableBloodBomb 3 1.0,Nothing
-Raider Rose,132,Season,Ascended,Earth,62,186,Execute 0.6,353,32,476,Execute 0.65,Nothing
-Buccaneer Beatrice,133,Season,Legendary,Water,30,96,Execute 0.3,66,32,66,Execute 0.35,Nothing
-Corsair Charles,134,Season,Legendary,Air,32,100,Execute 0.35,87,21,64,Execute 0.4,Nothing
-Marauder Magnus,135,Season,Legendary,Fire,34,105,Execute 0.4,175,67,71,Execute 0.45,Nothing
-Frosty,136,Event,Rare,Water,52,46,ScaleableAbsorbPercent 0.0033334,51,69,16,ScaleableAbsorbPercent 0.003667,Nothing
-Fir,137,Event,Common,Earth,18,50,ScaleableAOEReflect 0.001334,33,5,11,ScaleableAOEReflect 0.0014667,Nothing
-5_12_6,138,Event,Rare,Air,34,78,ScaleablePercentAtt 0.0033334,42,37,39,ScaleablePercentAtt 0.0036667,Nothing
-Kedari,139,Event,Legendary,Fire,18,170,ScaleableSacrifice 0.3334 0.2223 0.3334,133,19,25,ScaleableSacrifice 0.3637 0.2445 0.3637,Nothing
-Raze,140,Chest,Common,Water,26,18,Ricochet 0.7 1,8,9,14,Ricochet 0.75 1,Nothing
-Ruin,141,Chest,Rare,Air,48,44,WrathPercentAtt 0.1,23,61,23,WrathPercentAtt 0.15,Nothing
-Seethe,142,Chest,Legendary,Earth,54,48,UnitBuff 15 15,57,178,53,UnitBuff 30 30,Nothing
-Ascended Seethe,143,Ascend,Ascended,Earth,131,117,ScaleableUnitBuff 0.45 0.45,90,117,124,ScaleableUnitBuff 0.56 0.56,Nothing
-Blossom,144,Season,Legendary,Earth,54,54,PartingGift 0.1,99,99,144,PartingGift 0.11,Nothing
-Flint,145,Season,Legendary,Fire,56,56,PartingGift 0.11,100,100,150,PartingGift 0.12,Nothing
-Orin,146,Season,Legendary,Air,58,58,PartingGift 0.12,101,101,156,PartingGift 0.13,Nothing
-Aurora,147,Season,Ascended,Water,130,130,PartingGift 0.15,221,221,344,PartingGift 0.16,Nothing
-Cupid,148,Special,Legendary,Air,20,220,Ricochet 3.0 1,150,50,110,Ricochet 4.0 1,Nothing
-Transient,149,Chest,Common,Void,22,22,ElementDamageBoost All 0.5,11,11,20,ElementDamageBoost All 0.6,Nothing
-Maunder,150,Chest,Rare,Void,34,34,ElementDamageBoost All 0.5,22,22,32,ElementDamageBoost All 0.6,Nothing
-The Wanderer,151,Chest,Legendary,Void,50,50,ElementDamageBoost All 0.5,80,80,120,ElementDamageBoost All 0.6,Nothing
-B-Day,152,Event,Legendary,Air,40,100,Simmer 0.1,61,51,49,Simmer 0.15,Nothing
-Cloud,153,Auction,Common,Air,22,44,Inferno 0.95,36,32,11,Inferno 1.0,Nothing
-Ember,154,Auction,Rare,Fire,32,64,Inferno 0.95,34,14,19,Inferno 1.0,Nothing
-Riptide,155,Auction,Legendary,Water,42,84,Inferno 0.95,89,34,22,Inferno 1.0,Nothing
-Spike,156,Auction,Ascended,Earth,90,180,Inferno 0.95,234,103,136,Inferno 1.0,Nothing
-Ascended Mahatma,157,Quest,Ascended,Air,60,180,ElementDamageBoost Water 1.7,241,50,195,ElementDamageBoost Water 2.0,Nothing
-Ascended Jade,158,Quest,Ascended,Earth,68,172,ElementDamageBoost Air 1.7,288,41,144,ElementDamageBoost Air 2.0,Nothing
-Ascended Edana,159,Quest,Ascended,Fire,80,160,ElementDamageBoost Earth 1.7,191,180,99,ElementDamageBoost Earth 2.0,Nothing
-Ascended Dybbuk,160,Quest,Ascended,Water,66,176,ElementDamageBoost Fire 1.7,272,55,169,ElementDamageBoost Fire 2.0,Nothing
-Willow,161,Event,Common,Air,38,30,RecoverPercent 0.2,22,19,24,RecoverPercent 0.4,Nothing
-Gizmo,162,Event,Rare,Fire,40,70,ExtraAttackBoost 3.0,43,26,52,ExtraAttackBoost 4.0,Nothing
-Daisy,163,Event,Legendary,Water,50,84,EasterStatLevelBoost 2.5,50,84,70,EasterStatLevelBoost 3.0,Nothing
-Thumper,164,Event,Ascended,Earth,200,120,AntiAOESelf 0.6,230,320,360,AntiAOESelf 0.7,Nothing
-Bortles,165,Chest,Common,Air,24,40,Fortify 3,10,13,14,Fortify 6,Nothing
-Murphy,166,Chest,Rare,Earth,28,40,Thorns 60,24,18,28,Thorns 90,Nothing
-Nerissa,167,Chest,Legendary,Water,82,24,Absorb 0.55,22,45,52,Absorb 0.5,Nothing
-Mother,168,Special,Legendary,Water,55,112,HealFirst 25,200,120,140,HealFirst 30,Nothing
-Ascended Nerissa,169,Ascend,Ascended,Water,164,48,ScaleableAbsorbPercent 0.0066666666,70,112,100,ScaleableAbsorbPercent 0.00733333333,Nothing
-Agatha,170,Season,Legendary,Air,59,51,AttackPercentAura 0.1,76,92,74,AttackPercentAura 0.15,Nothing
-Ophelia,171,Season,Legendary,Earth,60,52,AttackPercentAura 0.15,78,99,75,AttackPercentAura 0.2,Nothing
-Helga,172,Season,Legendary,Water,61,53,AttackPercentAura 0.2,84,101,82,AttackPercentAura 0.25,Nothing
-Minerva,173,Season,Ascended,Fire,124,108,AttackPercentAura 0.25,204,241,256,AttackPercentAura 0.3,Nothing
-Ascended Wanderer,174,Ascend,Ascended,Void,126,126,ElementDamageBoost All 0.75,110,110,110,ElementDamageBoost All 0.85,Nothing
-Tetra,175,Special,Legendary,Fire,50,76,WildCard 1.0,154,68,68,WildCard 1.2,Nothing
-4th05,176,Chest,Common,Earth,28,16,SelfArmor 8,8,16,14,SelfArmor 27,Nothing
-4tz4r,177,Chest,Rare,Fire,28,42,FinishingBlow 64,28,10,36,FinishingBlow 125,Nothing
-R31,178,Chest,Legendary,Air,8,80,RangedAttack 64,112,28,26,RangedAttack 125,Nothing
-45c3nd3d R31,179,Ascend,Ascended,Air,21,210,RangedAttack 125,192,34,78,RangedAttack 216,Nothing
-Smith,180,Special,Legendary,Earth,45,75,Ricochet 0.9 3,84,47,68,Ricochet 1.0 3,Nothing
-Mr Cotton,181,Chest,Common,Fire,14,32,ThornsAll 10,28,7,12,ThornsAll 15,Nothing
-Sharkjellyn,182,Chest,Rare,Water,20,54,Recover 30,44,13,15,Recover 45,Nothing
-Choco Knight,183,Chest,Legendary,Earth,50,50,HealthyAttack 0.4,72,47,82,HealthyAttack 0.5,Nothing
-Dark Choco Knight,184,Ascend,Ascended,Earth,124,124,HealthyAttack 0.55,98,64,104,HealthyAttack 0.65,Nothing
-Lili,185,Shop,Ascended,Fire,211,92,PositionAttToHealth 0.1 1.0,174,535,171,PositionAttToHealth 0.1 1.1,Nothing
-Thrace,187,Season,Legendary,Fire,61,53,BloodLust 125 125,82,131,104,BloodLust 150 150,Nothing
-Scinda,188,Season,Legendary,Air,63,55,BloodLust 150 150,78,125,116,BloodLust 180 180,Nothing
-Myrmillo,189,Season,Legendary,Earth,65,57,BloodLust 175 175,94,141,99,BloodLust 210 210,Nothing
-Retia,190,Season,Ascended,Water,126,144,BloodLust 350 350,246,318,338,BloodLust 450 450,Nothing
-Newt,191,Chest,Common,Water,4,48,Berserk 2.0 5 false,14,1,4,Berserk 2.5 5 false,Nothing
-Electra,192,Chest,Rare,Air,6,58,Berserk 3.0 6 false,30,4,8,Berserk 4.0 6 false,Nothing
-Boson,193,Chest,Legendary,Fire,6,66,Berserk 3.0 7 false,82,20,21,Berserk 4.0 7 false,Nothing
-Higgs,194,Ascend,Ascended,Fire,10,210,Berserk 4.0 8 false,225,24,30,Berserk 5.0 8 false,Nothing
-Casper,195,Event,Common,Air,28,30,IncreasingAOE 2 2,14,14,20,IncreasingAOE 3 2,Nothing
-Adrian,196,Event,Rare,Fire,20,64,IncreasingAOE 5 2,32,14,28,IncreasingAOE 7 2,Nothing
-Emily,197,Event,Legendary,Water,66,66,ScaleableStatAuraLifeSteal 1 9.0,258,178,104,ScaleableStatAuraLifeSteal 1 7.615,Nothing
-Adam,198,Event,Ascended,Earth,100,200,HealthyAOE 0.04,321,93,134,HealthyAOE 0.05,Nothing
-Yisus,199,Event,Rare,Earth,48,32,ScaleableFlatField 3 9.0,38,18,34,ScaleableFlatField 4 9.0,Nothing
-Galla,200,Event,Common,Fire,40,32,ScaleablePredator 1 1.0,30,22,22,ScaleablePredator 1 0.66667,Nothing
-Yeti the Postman,201,Event,Rare,Water,58,58,ScaleableGrowingAttAura 11 4 9.0,40,40,40,ScaleableGrowingAttAura 11 5 9.0,Nothing
-Hans,202,Event,Legendary,Earth,74,74,ScaleableHiddenCharger 3 3 2 9.0,200,200,180,ScaleableHiddenCharger 5 5 2 9.0,Nothing
-Mecha Mary,203,Event,Ascended,Air,250,5,ScaleableOneTimeAbsorb 0.00888889,12,1080,30,ScaleableOneTimeAbsorb 0.01,Nothing
+Lady of Twilight,0,Special,Common,Air,20,45,StatAura 3 3 All,28,25,15,StatAura 6 6 All,ExtraHeal 1.1
+Tiny,1,Special,Rare,Earth,30,70,ScaleableLifeSteal 1 24.0,40,28,17,ScaleableLifeSteal 1 12.0,HPBoost 1.1
+Nebra,2,Special,Legendary,Fire,40,110,AttackBoostAura 20 All,140,100,83,AttackBoostAura 40 All,ExtraAttackBoost 1.23
+Valor,3,Quest,Common,Air,10,20,ArmorAura 2 Air,12,7,19,ArmorAura 4 Air,ExtraArmorBoost 1.05
+Rokka,4,Quest,Common,Earth,8,30,ArmorAura 2 Earth,40,12,5,ArmorAura 4 Earth,ExtraArmorBoost 1.05
+Pyromancer,5,Quest,Common,Fire,12,24,ArmorAura 2 Fire,16,8,8,ArmorAura 4 Fire,ExtraArmorBoost 1.05
+Bewat,6,Quest,Common,Water,6,50,ArmorAura 2 Water,31,10,16,ArmorAura 4 Water,ExtraArmorBoost 1.05
+Hunter,7,Chest,Common,Air,14,22,AttackBoostAura 2 Air,14,12,11,AttackBoostAura 4 Air,ExtraAttackBoost 1.05
+Shaman,8,Chest,Rare,Earth,20,40,ArmorAura 3 Earth,36,16,25,ArmorAura 6 Earth,ExtraArmorBoost 1.11
+Alpha,9,Chest,Legendary,Fire,22,82,AOE 2,115,37,75,AOE 7,AntiAOESelf 0.15
+Carl,10,Chest,Common,Water,12,28,AttackBoostAura 2 Water,18,5,12,AttackBoostAura 4 Water,ExtraAttackBoost 1.05
+Nimue,11,Chest,Rare,Air,22,38,ArmorAura 3 Air,49,19,12,ArmorAura 6 Air,ExtraArmorBoost 1.11
+Athos,12,Chest,Legendary,Earth,26,70,ArmorAura 4 All,70,32,96,ArmorAura 10 All,ExtraArmorBoost 1.21
+Jet,13,Chest,Common,Fire,16,24,AttackBoostAura 2 Fire,11,9,12,AttackBoostAura 4 Fire,ExtraAttackBoost 1.05
+Geron,14,Chest,Rare,Water,24,36,ArmorAura 3 Water,27,11,28,ArmorAura 6 Water,ExtraArmorBoost 1.11
+Rei,15,Chest,Legendary,Air,40,46,AttackBoostAura 5 All,79,67,89,AttackBoostAura 15 All,ExtraAttackBoost 1.21
+Ailen,16,Chest,Common,Earth,22,19,AttackBoostAura 2 Earth,21,17,12,AttackBoostAura 4 Earth,ExtraAttackBoost 1.05
+Faefyr,17,Chest,Rare,Fire,18,50,ArmorAura 3 Fire,53,17,19,ArmorAura 6 Fire,ExtraArmorBoost 1.11
+Auri,18,Chest,Legendary,Water,32,60,Heal 4,70,74,23,Heal 8,HPBoost 1.15
+Nicte,19,Quest,Rare,Air,32,22,AttackBoostAura 4 Air,21,43,24,AttackBoostAura 8 Air,ExtraAttackBoost 1.1
+James,20,Special,Legendary,Earth,12,50,Ricochet 0.75 5,103,111,41,Ricochet 0.85 5,ExtraHeal 1.15
+K41RY,21,Chest,Common,Air,16,28,AttackBoostAura 3 Air,19,14,19,AttackBoostAura 6 Air,ExtraAttackBoost 1.05
+T4URUS,22,Chest,Rare,Earth,20,46,AttackBoostAura 2 All,28,20,30,AttackBoostAura 4 All,ExtraAttackBoost 1.11
+TR0N1X,23,Chest,Legendary,Fire,20,100,AOE 3,107,44,35,AOE 9,AntiAOESelf 0.15
+Aquortis,24,Chest,Common,Water,8,58,AttackBoostAura 3 Water,28,18,18,AttackBoostAura 6 Water,ExtraAttackBoost 1.05
+Aeris,25,Chest,Rare,Air,32,30,Heal 2,20,36,28,Heal 4,HPBoost 1.1
+Geum,26,Chest,Legendary,Earth,2,75,Berserk 2.0 1 true,213,8,22,Berserk 2.2 1 true,Revive 0.01
+Forest Druid,27,Quest,Rare,Earth,16,46,AttackBoostAura 4 Earth,38,16,19,AttackBoostAura 8 Earth,ExtraAttackBoost 1.1
+Ignitor,28,Quest,Rare,Fire,24,32,AttackBoostAura 4 Fire,24,22,23,AttackBoostAura 8 Fire,ExtraAttackBoost 1.1
+Undine,29,Quest,Rare,Water,14,58,AttackBoostAura 4 Water,25,7,15,AttackBoostAura 8 Water,ExtraAttackBoost 1.1
+Rudean,30,Chest,Common,Fire,12,38,AttackBoostAura 3 Fire,19,14,10,AttackBoostAura 6 Fire,ExtraAttackBoost 1.05
+Aural,31,Chest,Rare,Water,50,18,Berserk 1.2 1 true,33,31,28,Berserk 1.32 1 true,Affinity 0.1
+Geror,32,Chest,Legendary,Air,46,46,MonsterBuff 1.2,95,125,36,MonsterBuff 1.32,Revive 0.2
+Veildur,33,Season,Legendary,Earth,44,66,StatAura 3 3 All,98,42,51,StatAura 6 6 All,ExtraHeal 1.17
+Brynhildr,34,Season,Legendary,Air,48,72,StatAura 4 4 All,84,56,59,StatAura 8 8 All,ExtraHeal 1.17
+Groth,35,Season,Legendary,Fire,52,78,StatAura 5 5 All,114,70,62,StatAura 10 10 All,ExtraHeal 1.18
+Ourea,36,Chest,Common,Earth,16,30,AttackBoostAura 3 Earth,17,8,8,AttackBoostAura 6 Earth,ExtraAttackBoost 1.05
+Erebus,37,Chest,Rare,Fire,20,48,StatAura 2 2 Fire,55,18,20,StatAura 4 4 Fire,ExtraHeal 1.1
+Pontus,38,Chest,Legendary,Water,36,62,Purity 2.0,121,43,79,Purity 2.2,AttackPercentBoost 1.14
+Chroma,39,Quest,Rare,Air,20,52,ArmorAura 4 Air,23,15,15,ArmorAura 8 Air,ExtraArmorBoost 1.11
+Petry,40,Quest,Rare,Earth,44,26,ArmorAura 4 Earth,18,16,28,ArmorAura 8 Earth,ExtraArmorBoost 1.11
+Zaytus,41,Quest,Rare,Fire,22,58,ArmorAura 4 Fire,57,12,16,ArmorAura 8 Fire,ExtraArmorBoost 1.11
+Spyke,42,Shop,Legendary,Air,45,75,Train 10,112,43,73,Train 20,ExtraAttackBoost 1.23
+Aoyuki,43,Shop,Legendary,Water,55,70,Rainbow 100 4,75,121,66,Rainbow 200 4,Revive 0.2
+GaiaByte,44,Shop,Legendary,Earth,150,75,Wither 2.0,151,84,52,Wither 1.33,ExtraHeal 1.18
+Oymos,45,Chest,Common,Air,14,36,AttackBoostAura 4 Air,24,15,21,AttackBoostAura 8 Air,ExtraAttackBoost 1.05
+Xarth,46,Chest,Rare,Earth,32,32,StatAura 2 2 Earth,23,25,19,StatAura 4 4 Earth,ExtraHeal 1.1
+Atzar,47,Chest,Legendary,Fire,32,76,Purity 2.0,85,28,48,Purity 2.2,AttackPercentBoost 1.13
+Zeth,48,Season,Legendary,Water,42,70,WrathPercentAtt 0.1,127,76,24,WrathPercentAtt 0.2,Affinity 0.15
+Koth,49,Season,Legendary,Earth,46,76,WrathPercentAtt 0.15,99,39,70,WrathPercentAtt 0.25,Affinity 0.15
+Gurth,50,Season,Legendary,Air,50,82,WrathPercentAtt 0.2,108,43,68,WrathPercentAtt 0.3,Affinity 0.15
+Werewolf,51,Event,Common,Earth,25,35,ScaleableArmorAura 1 All 9.0,23,28,19,ScaleableArmorAura 1 All 7.615,ExtraArmorBoost 1.05
+Jack'o Knight,52,Event,Rare,Air,35,55,ScaleableAttackBoostAura 1 All 9.0,50,13,38,ScaleableAttackBoostAura 1 All 7.615,AttackPercentBoost 1.08
+Dullahan,53,Event,Legendary,Fire,45,75,ScaleableStatAura 1 1 All 9.0,114,45,65,ScaleableStatAura 1 1 All 6.6,Affinity 0.15
+Lady Odelith,54,Quest,Rare,Water,36,36,ArmorAura 4 Water,19,17,29,ArmorAura 8 Water,ExtraArmorBoost 1.11
+Shygu,55,Quest,Legendary,Air,54,34,ScaleableArmorAura 1 Air 9.0,62,68,71,ScaleableArmorAura 1 Air 7.615,ExtraArmorBoost 1.21
+Thert,56,Quest,Legendary,Earth,28,72,ScaleableArmorAura 1 Earth 9.0,61,44,69,ScaleableArmorAura 1 Earth 7.615,ExtraArmorBoost 1.22
+Lord Kirk,57,Quest,Legendary,Fire,64,32,ScaleableArmorAura 1 Fire 9.0,77,99,83,ScaleableArmorAura 1 Fire 7.615,ExtraArmorBoost 1.22
+Neptunius,58,Quest,Legendary,Water,70,30,ScaleableArmorAura 1 Water 9.0,92,73,83,ScaleableArmorAura 1 Water 7.615,ExtraArmorBoost 1.22
+Sigrun,59,Season,Legendary,Fire,12,65,Ricochet 0.5 5,132,29,61,Ricochet 0.65 5,ExtraHeal 1.17
+Koldis,60,Season,Legendary,Water,14,70,Ricochet 0.5 5,173,32,46,Ricochet 0.65 5,ExtraHeal 1.17
+Alvitr,61,Season,Legendary,Earth,16,75,Ricochet 0.5 5,152,50,56,Ricochet 0.65 5,ExtraHeal 1.18
+Hama,62,Chest,Common,Water,18,30,AttackBoostAura 4 Water,21,10,7,AttackBoostAura 8 Water,ExtraAttackBoost 1.05
+Hallinskidi,63,Chest,Rare,Air,34,34,StatAura 2 2 Air,17,54,20,StatAura 4 4 Air,ExtraHeal 1.1
+Rigr,64,Chest,Legendary,Earth,42,60,Purity 2.0,68,21,93,Purity 2.2,AttackPercentBoost 1.14
+Ascended Alpha,65,Ascend,Ascended,Fire,46,174,ScaleableAOE 1 3.3,251,98,92,ScaleableAOE 1 3.0,ExtraAttackBoost 1.36
+Ascended Athos,66,Ascend,Ascended,Earth,60,162,ScaleableArmorAura 1 All 3.3,281,57,76,ScaleableArmorAura 1 All 3.0,ExtraArmorBoost 1.37
+Ascended Rei,67,Ascend,Ascended,Air,104,120,ScaleableAttackBoostAura 1 All 3.3,167,86,176,ScaleableAttackBoostAura 1 All 2.25,AttackPercentBoost 1.25
+Ascended Auri,68,Ascend,Ascended,Water,78,148,ScaleableHeal 1 6.58,151,221,59,ScaleableHeal 1 5.98,HPBoost 1.2
+Ascended TR0N1X,69,Ascend,Ascended,Fire,38,190,Ricochet 0.75 5,383,56,25,Ricochet 0.8 5,ExtraHeal 1.34
+Ascended Geum,70,Ascend,Ascended,Earth,8,222,Berserk 2.0 1 true,348,35,16,Berserk 2.2 1 true,Revive 0.01
+Ascended Geror,71,Ascend,Ascended,Air,116,116,MonsterBuff 1.3,173,22,153,MonsterBuff 1.43,Revive 0.1
+Christmas Elf,73,Event,Common,Water,24,38,ScaleableHeal 1 9.0,28,34,22,ScaleableHeal 1 7.615,HPBoost 1.05
+Reindeer,74,Event,Rare,Air,36,54,ScaleableAOE 1 9.0,53,18,33,ScaleableAOE 1 7.615,ExtraAttackBoost 1.11
+Santa Claus,75,Event,Legendary,Fire,48,72,ScaleableLifeSteal 1 9.0,107,96,78,ScaleableLifeSteal 1 6.6,HPBoost 1.15
+Sexy Santa,76,Event,Rare,Earth,44,44,Ricochet 0.66 5,27,41,40,Ricochet 0.71 5,ExtraHeal 1.1
+Toth,77,Chest,Common,Fire,24,24,AttackBoostAura 4 Fire,18,32,16,AttackBoostAura 8 Fire,ExtraAttackBoost 1.05
+Ganah,78,Chest,Rare,Water,30,40,StatAura 2 2 Water,29,26,43,StatAura 4 4 Water,ExtraHeal 1.1
+Dagda,79,Chest,Legendary,Air,46,58,Purity 2.0,79,78,123,Purity 2.2,AttackPercentBoost 1.15
+Bubbles,80,Special,Ascended,Water,110,300,ScaleableAntiAOE 0.005,291,120,58,ScaleableAntiAOE 0.0055,AntiAOESelf 0.2
+Ascended Pontus,81,Ascend,Ascended,Water,86,150,Purity 3.0,124,211,190,Purity 3.3,AttackPercentBoost 1.24
+Ascended Atzar,82,Ascend,Ascended,Fire,81,162,Purity 3.0,333,76,86,Purity 3.3,AttackPercentBoost 1.23
+Arshen,83,Season,Legendary,Air,36,74,Ricochet 1.0 1,83,44,28,Ricochet 1.05 1,ExtraHeal 1.17
+Rua,84,Season,Legendary,Fire,40,78,Ricochet 1.0 1,88,44,37,Ricochet 1.05 1,ExtraHeal 1.18
+Dorth,85,Season,Legendary,Water,44,82,Ricochet 1.0 1,90,38,40,Ricochet 1.05 1,ExtraHeal 1.18
+Ascended Rigr,86,Ascend,Ascended,Earth,99,141,Purity 3.0,138,121,163,Purity 3.3,AttackPercentBoost 1.25
+Hosokawa,88,Quest,Legendary,Air,50,42,ScaleableAttackBoostAura 1 Air 9.0,108,115,74,ScaleableAttackBoostAura 1 Air 7.615,AttackPercentBoost 1.15
+Takeda,89,Quest,Legendary,Earth,66,32,ScaleableAttackBoostAura 1 Earth 9.0,83,82,45,ScaleableAttackBoostAura 1 Earth 7.615,AttackPercentBoost 1.17
+Hirate,90,Quest,Legendary,Fire,56,38,ScaleableAttackBoostAura 1 Fire 9.0,53,133,44,ScaleableAttackBoostAura 1 Fire 7.615,AttackPercentBoost 1.16
+Hattori,91,Quest,Legendary,Water,48,44,ScaleableAttackBoostAura 1 Water 9.0,65,74,64,ScaleableAttackBoostAura 1 Water 7.615,AttackPercentBoost 1.15
+Ascended Dagda,92,Ascend,Ascended,Air,107,135,Purity 3.0,208,78,322,Purity 3.3,AttackPercentBoost 1.26
+Bylar,93,Chest,Common,Earth,20,30,AttackBoostAura 4 Earth,18,6,15,AttackBoostAura 8 Earth,ExtraAttackBoost 1.05
+Boor,94,Chest,Rare,Fire,36,36,Train 3,19,49,20,Train 6,ExtraAttackBoost 1.11
+Bavah,95,Chest,Legendary,Water,52,52,StatAura 4 4 All,84,92,43,StatAura 9 9 All,ExtraHeal 1.15
+Leprechaun,96,Special,Legendary,Earth,25,75,EvenField 0,59,13,13,EvenField 1,AntiAOESelf 0.15
+Sparks,97,Event,Common,Fire,30,30,StatLevelBoost 2.0,29,29,15,StatLevelBoost 2.2,Affinity 0.05
+Leaf,98,Event,Rare,Earth,42,48,StatLevelBoost 2.0,35,57,26,StatLevelBoost 2.2,Affinity 0.1
+Flynn,99,Event,Legendary,Air,48,70,StatLevelBoost 2.0,46,93,69,StatLevelBoost 2.2,Affinity 0.15
+Ascended Bavah,100,Ascend,Ascended,Water,122,122,ScaleableStatAura 1 1 All 6.58,217,152,145,ScaleableStatAura 1 1 All 5.98,Affinity 0.2
+Dr Hawking,101,Special,Legendary,Air,60,66,ScaleableStartingDamage 1 1.0,94,136,70,ScaleableStartingDamage 1 0.767,AntiAOESelf 0.15
+Master Lee,102,Season,Ascended,Air,90,150,Reflect 0.5,314,290,225,Reflect 0.55,Revive 0.1
+Kumu san,103,Season,Legendary,Fire,38,70,Reflect 0.2,134,132,135,Reflect 0.22,Revive 0.2
+Liu Cheng,104,Season,Legendary,Water,42,78,Reflect 0.25,149,111,80,Reflect 0.275,Revive 0.2
+Hidoka,105,Season,Legendary,Earth,44,86,Reflect 0.3,144,172,61,Reflect 0.33,Revive 0.2
+Dicemaster,107,Auction,Common,Water,26,25,RandomStatBoost 20,19,36,12,RandomStatBoost 40,ExtraHeal 1.1
+Luxurius Maximus,108,Auction,Rare,Fire,60,28,RandomTarget False,44,47,29,RandomTarget True,AttackPercentBoost 1.09
+Pokerface,109,Auction,Legendary,Earth,70,70,CriticalHit 3.0,119,211,111,CriticalHit 3.3,ExtraAttackBoost 1.24
+Taint,110,Chest,Common,Air,25,25,Ricochet 0.5 5,13,4,21,Ricochet 0.55 5,ExtraHeal 1.1
+Putrid,111,Chest,Rare,Earth,50,48,Train -3,51,93,50,Train -2,ExtraAttackBoost 1.12
+Defile,112,Chest,Legendary,Fire,48,52,BloodBomb 50,60,138,72,BloodBomb 100,ExtraArmorBoost 1.22
+Neil,113,Special,Legendary,Water,15,150,Intercept 0.3,244,20,23,Intercept 0.35,HPBoost 1.15
+Mahatma,114,Quest,Legendary,Air,26,78,ElementDamageBoost Water 0.75,56,19,85,ElementDamageBoost Water 1.25,AttackPercentBoost 1.13
+Jade,115,Quest,Legendary,Earth,30,76,ElementDamageBoost Air 0.75,45,37,91,ElementDamageBoost Air 1.25,AttackPercentBoost 1.13
+Edana,116,Quest,Legendary,Fire,36,72,ElementDamageBoost Earth 0.75,91,46,66,ElementDamageBoost Earth 1.25,AttackPercentBoost 1.14
+Dybbuk,117,Quest,Legendary,Water,30,80,ElementDamageBoost Fire 0.75,65,43,63,ElementDamageBoost Fire 1.25,AttackPercentBoost 1.13
+Ascended Shygu,118,Quest,Ascended,Air,135,85,ScaleableArmorAura 1 Air 5.5,148,113,217,ScaleableStatAura 0 1 Air 5.0,ExtraArmorBoost 1.39
+Ascended Thert,119,Quest,Ascended,Earth,70,180,ScaleableArmorAura 1 Earth 5.5,346,67,76,ScaleableStatAura 0 1 Earth 5.0,ExtraArmorBoost 1.39
+Ascended Lord Kirk,120,Quest,Ascended,Fire,160,80,ScaleableArmorAura 1 Fire 5.5,215,255,87,ScaleableStatAura 0 1 Fire 5.0,ExtraArmorBoost 1.4
+Ascended Neptunius,121,Quest,Ascended,Water,175,75,ScaleableArmorAura 1 Water 5.5,335,201,241,ScaleableStatAura 0 1 Water 5.0,ExtraArmorBoost 1.4
+Ascended Hosokawa,122,Quest,Ascended,Air,124,106,ScaleableAttackBoostAura 1 Air 5.5,229,423,207,ScaleableAttackBoostAura 1 Air 5.0,AttackPercentBoost 1.27
+Ascended Takeda,123,Quest,Ascended,Earth,164,82,ScaleableAttackBoostAura 1 Earth 5.5,252,425,66,ScaleableAttackBoostAura 1 Earth 5.0,AttackPercentBoost 1.31
+Ascended Hirate,124,Quest,Ascended,Fire,144,96,ScaleableAttackBoostAura 1 Fire 5.5,199,193,119,ScaleableAttackBoostAura 1 Fire 5.0,AttackPercentBoost 1.29
+Ascended Hattori,125,Quest,Ascended,Water,126,114,ScaleableAttackBoostAura 1 Water 5.5,218,167,138,ScaleableAttackBoostAura 1 Water 5.0,AttackPercentBoost 1.28
+Billy,127,Event,Common,Earth,40,30,Wrath 100,43,30,24,Wrath 125,AttackPercentBoost 1.05
+Sanqueen,128,Event,Rare,Water,22,88,Vampyrism 0.8,71,8,16,Vampyrism 0.88,HPBoost 1.1
+Cliodhna,129,Event,Legendary,Air,60,150,Revenge 1.0,193,240,78,Revenge 1.1,ExtraHeal 1.25
+Guy,130,Special,Ascended,Fire,64,340,TargetedReflect 1.0,160,121,115,TargetedReflect 1.1,ExtraAttackBoost 1.46
+Ascended Defile,131,Ascend,Ascended,Fire,114,126,ScaleableBloodBomb 7 3.0,126,122,114,ScaleableBloodBomb 3 1.0,ExtraAttackBoost 1.41
+Raider Rose,132,Season,Ascended,Earth,62,186,Execute 0.6,353,32,476,Execute 0.65,ExtraArmorBoost 1.39
+Buccaneer Beatrice,133,Season,Legendary,Water,30,96,Execute 0.3,66,32,66,Execute 0.35,ExtraArmorBoost 1.22
+Corsair Charles,134,Season,Legendary,Air,32,100,Execute 0.35,87,21,64,Execute 0.4,ExtraArmorBoost 1.22
+Marauder Magnus,135,Season,Legendary,Fire,34,105,Execute 0.4,175,67,71,Execute 0.45,ExtraArmorBoost 1.23
+Frosty,136,Event,Rare,Water,52,46,ScaleableAbsorbPercent 0.0033334,51,69,16,ScaleableAbsorbPercent 0.003667,ExtraArmorBoost 1.12
+Fir,137,Event,Common,Earth,18,50,ScaleableAOEReflect 0.001334,33,5,11,ScaleableAOEReflect 0.0014667,ExtraArmorBoost 1.05
+5_12_6,138,Event,Rare,Air,34,78,ScaleablePercentAtt 0.0033334,42,37,39,ScaleablePercentAtt 0.0036667,AntiAOESelf 0.1
+Kedari,139,Event,Legendary,Fire,18,170,ScaleableSacrifice 0.3334 0.2223 0.3334,133,19,25,ScaleableSacrifice 0.3637 0.2445 0.3637,HPBoost 1.15
+Raze,140,Chest,Common,Water,26,18,Ricochet 0.7 1,8,9,14,Ricochet 0.75 1,ExtraHeal 1.1
+Ruin,141,Chest,Rare,Air,48,44,WrathPercentAtt 0.1,23,61,23,WrathPercentAtt 0.15,Affinity 0.1
+Seethe,142,Chest,Legendary,Earth,54,48,UnitBuff 15 15,57,178,53,UnitBuff 30 30,Affinity 0.15
+Ascended Seethe,143,Ascend,Ascended,Earth,131,117,ScaleableUnitBuff 0.45 0.45,90,117,124,ScaleableUnitBuff 0.56 0.56,Affinity 0.2
+Blossom,144,Season,Legendary,Earth,54,54,PartingGift 0.1,99,99,144,PartingGift 0.11,Revive 0.2
+Flint,145,Season,Legendary,Fire,56,56,PartingGift 0.11,100,100,150,PartingGift 0.12,Revive 0.2
+Orin,146,Season,Legendary,Air,58,58,PartingGift 0.12,101,101,156,PartingGift 0.13,Revive 0.2
+Aurora,147,Season,Ascended,Water,130,130,PartingGift 0.15,221,221,344,PartingGift 0.16,Revive 0.1
+Cupid,148,Special,Legendary,Air,20,220,Ricochet 3.0 1,150,50,110,Ricochet 4.0 1,ExtraHeal 1.32
+Transient,149,Chest,Common,Void,22,22,ElementDamageBoost All 0.5,11,11,20,ElementDamageBoost All 0.6,Revive 0.4
+Maunder,150,Chest,Rare,Void,34,34,ElementDamageBoost All 0.5,22,22,32,ElementDamageBoost All 0.6,Revive 0.3
+The Wanderer,151,Chest,Legendary,Void,50,50,ElementDamageBoost All 0.5,80,80,120,ElementDamageBoost All 0.6,Revive 0.2
+B-Day,152,Event,Legendary,Air,40,100,Simmer 0.1,61,51,49,Simmer 0.15,ExtraHeal 1.2
+Cloud,153,Auction,Common,Air,22,44,Inferno 0.95,36,32,11,Inferno 1.0,AntiAOESelf 0.05
+Ember,154,Auction,Rare,Fire,32,64,Inferno 0.95,34,14,19,Inferno 1.0,AntiAOESelf 0.1
+Riptide,155,Auction,Legendary,Water,42,84,Inferno 0.95,89,34,22,Inferno 1.0,AntiAOESelf 0.15
+Spike,156,Auction,Ascended,Earth,90,180,Inferno 0.95,234,103,136,Inferno 1.0,AntiAOESelf 0.2
+Ascended Mahatma,157,Quest,Ascended,Air,60,180,ElementDamageBoost Water 1.7,241,50,195,ElementDamageBoost Water 2.0,AttackPercentBoost 1.21
+Ascended Jade,158,Quest,Ascended,Earth,68,172,ElementDamageBoost Air 1.7,288,41,144,ElementDamageBoost Air 2.0,AttackPercentBoost 1.22
+Ascended Edana,159,Quest,Ascended,Fire,80,160,ElementDamageBoost Earth 1.7,191,180,99,ElementDamageBoost Earth 2.0,AttackPercentBoost 1.23
+Ascended Dybbuk,160,Quest,Ascended,Water,66,176,ElementDamageBoost Fire 1.7,272,55,169,ElementDamageBoost Fire 2.0,AttackPercentBoost 1.22
+Willow,161,Event,Common,Air,38,30,RecoverPercent 0.2,22,19,24,RecoverPercent 0.4,ExtraArmorBoost 1.05
+Gizmo,162,Event,Rare,Fire,40,70,ExtraAttackBoost 3.0,43,26,52,ExtraAttackBoost 4.0,AttackPercentBoost 1.09
+Daisy,163,Event,Legendary,Water,50,84,EasterStatLevelBoost 2.5,50,84,70,EasterStatLevelBoost 3.0,ExtraAttackBoost 1.23
+Thumper,164,Event,Ascended,Earth,200,120,AntiAOESelf 0.6,230,320,360,AntiAOESelf 0.7,Affinity 0.2
+Bortles,165,Chest,Common,Air,24,40,Fortify 3,10,13,14,Fortify 6,HPBoost 1.05
+Murphy,166,Chest,Rare,Earth,28,40,Thorns 60,24,18,28,Thorns 90,ExtraHeal 1.1
+Nerissa,167,Chest,Legendary,Water,82,24,Absorb 0.55,22,45,52,Absorb 0.5,ExtraArmorBoost 1.21
+Mother,168,Special,Legendary,Water,55,112,HealFirst 25,200,120,140,HealFirst 30,HPBoost 1.15
+Ascended Nerissa,169,Ascend,Ascended,Water,164,48,ScaleableAbsorbPercent 0.0066666666,70,112,100,ScaleableAbsorbPercent 0.00733333333,ExtraArmorBoost 1.36
+Agatha,170,Season,Legendary,Air,59,51,AttackPercentAura 0.1,76,92,74,AttackPercentAura 0.15,Affinity 0.15
+Ophelia,171,Season,Legendary,Earth,60,52,AttackPercentAura 0.15,78,99,75,AttackPercentAura 0.2,Affinity 0.15
+Helga,172,Season,Legendary,Water,61,53,AttackPercentAura 0.2,84,101,82,AttackPercentAura 0.25,Affinity 0.15
+Minerva,173,Season,Ascended,Fire,124,108,AttackPercentAura 0.25,204,241,256,AttackPercentAura 0.3,Affinity 0.2
+Ascended Wanderer,174,Ascend,Ascended,Void,126,126,ElementDamageBoost All 0.75,110,110,110,ElementDamageBoost All 0.85,Revive 0.1
+Tetra,175,Special,Legendary,Fire,50,76,WildCard 1.0,154,68,68,WildCard 1.2,Revive 0.2
+4th05,176,Chest,Common,Earth,28,16,SelfArmor 8,8,16,14,SelfArmor 27,AntiAOESelf 0.05
+4tz4r,177,Chest,Rare,Fire,28,42,FinishingBlow 64,28,10,36,FinishingBlow 125,Revive 0.3
+R31,178,Chest,Legendary,Air,8,80,RangedAttack 64,112,28,26,RangedAttack 125,AttackPercentBoost 1.11
+45c3nd3d R31,179,Ascend,Ascended,Air,21,210,RangedAttack 125,192,34,78,RangedAttack 216,AttackPercentBoost 1.17
+Smith,180,Special,Legendary,Earth,45,75,Ricochet 0.9 3,84,47,68,Ricochet 1.0 3,ExtraHeal 1.18
+Mr Cotton,181,Chest,Common,Fire,14,32,ThornsAll 10,28,7,12,ThornsAll 15,ExtraAttackBoost 1.05
+Sharkjellyn,182,Chest,Rare,Water,20,54,Recover 30,44,13,15,Recover 45,ExtraAttackBoost 1.11
+Choco Knight,183,Chest,Legendary,Earth,50,50,HealthyAttack 0.4,72,47,82,HealthyAttack 0.5,ExtraHeal 1.15
+Dark Choco Knight,184,Ascend,Ascended,Earth,124,124,HealthyAttack 0.55,98,64,104,HealthyAttack 0.65,ExtraHeal 1.27
+Lili,185,Shop,Ascended,Fire,211,92,PositionAttToHealth 0.1 1.0,174,535,171,PositionAttToHealth 0.1 1.1,AntiAOESelf 0.2
+Thrace,187,Season,Legendary,Fire,61,53,BloodLust 125 125,82,131,104,BloodLust 150 150,HPBoost 1.15
+Scinda,188,Season,Legendary,Air,63,55,BloodLust 150 150,78,125,116,BloodLust 180 180,HPBoost 1.15
+Myrmillo,189,Season,Legendary,Earth,65,57,BloodLust 175 175,94,141,99,BloodLust 210 210,HPBoost 1.15
+Retia,190,Season,Ascended,Water,126,144,BloodLust 350 350,246,318,338,BloodLust 450 450,HPBoost 1.2
+Newt,191,Chest,Common,Water,4,48,Berserk 2.0 5 false,14,1,4,Berserk 2.5 5 false,ExtraAttackBoost 1.05
+Electra,192,Chest,Rare,Air,6,58,Berserk 3.0 6 false,30,4,8,Berserk 4.0 6 false,ExtraAttackBoost 1.1
+Boson,193,Chest,Legendary,Fire,6,66,Berserk 3.0 7 false,82,20,21,Berserk 4.0 7 false,ExtraAttackBoost 1.2
+Higgs,194,Ascend,Ascended,Fire,10,210,Berserk 4.0 8 false,225,24,30,Berserk 5.0 8 false,ExtraAttackBoost 1.3
+Casper,195,Event,Common,Air,28,30,IncreasingAOE 2 2,14,14,20,IncreasingAOE 3 2,AntiAOESelf 0.05
+Adrian,196,Event,Rare,Fire,20,64,IncreasingAOE 5 2,32,14,28,IncreasingAOE 7 2,AntiAOESelf 0.1
+Emily,197,Event,Legendary,Water,66,66,ScaleableStatAuraLifeSteal 1 9.0,258,178,104,ScaleableStatAuraLifeSteal 1 7.615,Affinity 0.15
+Adam,198,Event,Ascended,Earth,100,200,HealthyAOE 0.04,321,93,134,HealthyAOE 0.05,ExtraArmorBoost 1.45
+Yisus,199,Event,Rare,Earth,48,32,ScaleableFlatField 3 9.0,38,18,34,ScaleableFlatField 4 9.0,AttackPercentBoost 1.1
+Galla,200,Event,Common,Fire,40,32,ScaleablePredator 1 1.0,30,22,22,ScaleablePredator 1 0.66667,Affinity 0.05
+Yeti the Postman,201,Event,Rare,Water,58,58,ScaleableGrowingAttAura 11 4 9.0,40,40,40,ScaleableGrowingAttAura 11 5 9.0,HPBoost 1.1
+Hans,202,Event,Legendary,Earth,74,74,ScaleableHiddenCharger 3 3 2 9.0,200,200,180,ScaleableHiddenCharger 5 5 2 9.0,ExtraAttackBoost 1.24
+Mecha Mary,203,Event,Ascended,Air,250,5,ScaleableOneTimeAbsorb 0.00888889,12,1080,30,ScaleableOneTimeAbsorb 0.01,ExtraArmorBoost 1.3

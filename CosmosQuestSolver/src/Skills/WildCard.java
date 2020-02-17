@@ -6,6 +6,7 @@ package Skills;
 import Formations.Creature;
 import Formations.Elements;
 import Formations.Formation;
+import cosmosquestsolver.OtherThings;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -162,7 +163,7 @@ public class WildCard extends Skill{
     
     @Override
     public String getDescription() {
-        return "After attacking, attacks front units, splitting damage amongst them randomly";
+        return "After attacking, attacks front units, splitting " + OtherThings.nicePercentString(percent) + " damage amongst them randomly";
     }
     
     @Override

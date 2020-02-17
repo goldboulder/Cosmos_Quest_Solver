@@ -37,7 +37,7 @@ public class HealthyAOE extends Skill{//check for total damage accuracy*
 
     @Override
     public String getDescription() {
-        return "Deals AOE equal to " + OtherThings.nicePercentString(percent) + " of current health (" + Math.round(owner.getCurrentHP() * percent) + ")";
+        return "Deals AOE equal to " + OtherThings.nicePercentString(percent) + " of current health every turn (" + Math.round(owner.getCurrentHP() * percent) + ")";
     }
 
     @Override

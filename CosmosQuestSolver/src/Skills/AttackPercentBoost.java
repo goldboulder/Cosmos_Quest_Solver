@@ -20,8 +20,8 @@ public class AttackPercentBoost extends Skill implements RuneSkill{
     }
     
     @Override
-    public void prepareForFight(Formation thisFormation, Formation enemyFormation){
-        owner.setCurrentAtt((int)(owner.getCurrentAtt() * (multiplier)));
+    public double extraDamage(Formation thisFormation, Formation enemyFormation) {
+            return (owner.attWithBoosts()) * (multiplier - 1);
     }
 
     
@@ -33,7 +33,7 @@ public class AttackPercentBoost extends Skill implements RuneSkill{
     
     @Override
     public String getDescription() {
-        return "Initial attack x " + OtherThings.intOrNiceDecimalFormat(multiplier);
+        return "Increases damage dealt by  " + OtherThings.nicePercentString(multiplier);
     }
     
     @Override

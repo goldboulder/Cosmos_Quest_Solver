@@ -9,12 +9,14 @@ import Formations.Formation;
 
 //deal a set amount damage at start of fight to enemy with least HP that scales with level.
 //used by Galla
-public class ScaleablePredator extends StartingDamage{
+public class ScaleablePredator extends Skill{
     
+    private int amount;
     private double levelMilestone;
     
     public ScaleablePredator(Creature owner, int amount, double levelMilestone){
-        super(owner,amount);
+        super(owner);
+        this.amount = amount;
         this.levelMilestone = levelMilestone;
     }
     
@@ -25,7 +27,9 @@ public class ScaleablePredator extends StartingDamage{
     
     @Override
     public void startOfFightAction2(Formation thisFormation, Formation enemyFormation) {
-        enemyFormation.getCreature(leastHPPosition(enemyFormation)).changeHP(-roundedScaleMilestone(owner,amount,1),enemyFormation);
+        if (!enemyFormation.isEmpty()){
+            enemyFormation.getCreature(leastHPPosition(enemyFormation)).changeHP(-roundedScaleMilestone(owner,amount,1),enemyFormation);
+        }
     }
     
     private int leastHPPosition(Formation enemyFormation){//empty line?

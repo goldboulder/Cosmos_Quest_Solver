@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/HeroListPanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/RangedAttack.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableOneTimeAbsorb.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/Reflect.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/Fortify.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/HeroesCustomizationPanel.java</file>
@@ -24,6 +25,7 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/RuneSkill.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/IncreasingAOE.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableAOEReflect.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableFlatField.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/PositionAttToHealth.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/StartingDamage.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/HealthyAOE.java</file>
@@ -36,6 +38,7 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/ImageFactory.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/FinishingBlow.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/CreaturePictureSelectionPanel.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableGrowingAttAura.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/LifeSteal.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/RunePanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/CreatureDrawer.java</file>
@@ -44,6 +47,7 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/SpecialQuestSolver.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleablePercentAtt.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/Monster.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleablePredator.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableBloodBomb.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/WorldBossOptimizer.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableAntiAOE.java</file>
@@ -76,6 +80,7 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/FilterPanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableHeal.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/NoHeroesLessSpacesWBOptimizer.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableHiddenCharger.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/StatAura.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/WorldBoss.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableAbsorbPercent.java</file>

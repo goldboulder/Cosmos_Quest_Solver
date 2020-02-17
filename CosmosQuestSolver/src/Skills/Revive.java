@@ -29,7 +29,7 @@ public class Revive extends Skill implements RuneSkill{
     
     @Override//post roundAction instead? before or after other things? after heal? same time as heal, as if its dead, heal won't work anyway heal berore/after?
     public void postRoundAction2(Formation thisFormation, Formation enemyFormation) {//melf bugs it if onAttack. have revive be a field in creature instead, handle in formation.remove dead
-            if (owner.isDead() && !activated){
+            if (owner.isDead() && !activated && thisFormation.size() == 1){//will this be fixed soon?
                 owner.setCurrentHP((int)(owner.getMaxHP() * percent));
                 //actionOnDeath here?
                 activated = true;
