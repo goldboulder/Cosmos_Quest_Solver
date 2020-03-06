@@ -660,7 +660,7 @@ public class CreatureFactory {
             case "ScaleableHiddenCharger": return new ScaleableHiddenCharger(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]),Double.parseDouble(tokens[4]));
             case "ScaleableGrowingAttAura": return new ScaleableGrowingAttAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableLifeSteal": return new ScaleableLifeSteal(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
-            case "ScaleableOneTimeAbsorb": return new ScaleableOneTimeAbsorb(null,Double.parseDouble(tokens[1]));
+            case "ScaleableOneTimeAbsorb": return new ScaleableOneTimeAbsorb(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleablePercentAtt": return new ScaleablePercentAtt(null,Double.parseDouble(tokens[1]));
             case "ScaleablePredator": return new ScaleablePredator(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableSacrifice": return new ScaleableSacrifice(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]));

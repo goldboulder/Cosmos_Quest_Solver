@@ -351,7 +351,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     
     public double determineDamageDealt(Creature target, Formation thisFormation, Formation enemyFormation){//modify for runes?
         double damage = attWithBoosts() + getMainSkill().extraDamage(enemyFormation,thisFormation);
-        
+        damage *= runeSkill.moreDamage(thisFormation, enemyFormation);
         damage = Elements.damageFromElement(this,damage,target.element);//percent damage reduction here?
         damage = target.hitAfterDefend(this,enemyFormation,thisFormation,damage);
         

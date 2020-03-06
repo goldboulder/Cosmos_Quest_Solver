@@ -14,22 +14,24 @@ public class ScaleableOneTimeAbsorb extends Skill{
     
     private double percentLessDamage;
     private boolean activated = false;
+    private double milestone;
     
-    public ScaleableOneTimeAbsorb(Creature owner, double percent) {
+    public ScaleableOneTimeAbsorb(Creature owner, double percent, double milestone) {
         super(owner);
         this.percentLessDamage = percent;
+        this.milestone = milestone;
     }
     
     
     
     @Override
     public Skill getCopyForNewOwner(Creature newOwner) {
-        return new ScaleableOneTimeAbsorb(newOwner,percentLessDamage);
+        return new ScaleableOneTimeAbsorb(newOwner,percentLessDamage,milestone);
     }
     
     @Override
     public void prepareForFight(Formation thisFormation, Formation enemyFormation){
-        owner.addArmorPercentBoost(1-roundedScaleMilestoneDouble(owner,percentLessDamage,1));
+        owner.addArmorPercentBoost(1-roundedScaleMilestoneDouble(owner,percentLessDamage,milestone));
     }
     
     @Override
@@ -47,7 +49,10 @@ public class ScaleableOneTimeAbsorb extends Skill{
     
     @Override
     public String getDescription() {
-        return "Absorbs " + OtherThings.nicePercentString(percentLessDamage) + " of direct damage on first turn every level (" + OtherThings.nicePercentString(roundedScaleMilestoneDouble(owner,percentLessDamage,1)) + ")";
+        if (milestone == 1){
+            return "Absorbs " + OtherThings.nicePercentString(percentLessDamage) + " of direct damage on first turn every level (" + OtherThings.nicePercentString(roundedScaleMilestoneDouble(owner,percentLessDamage,milestone)) + ")";
+        }
+        return "Absorbs " + OtherThings.nicePercentString(percentLessDamage) + " of direct damage on first turn every " + OtherThings.intOrNiceDecimalFormat(milestone) + " levels (" + OtherThings.nicePercentString(roundedScaleMilestoneDouble(owner,percentLessDamage,milestone)) + ")";
     }
     
     @Override
@@ -57,7 +62,7 @@ public class ScaleableOneTimeAbsorb extends Skill{
     
     @Override
     public int viability() {//divide by 0?
-        return (int)(owner.getBaseAtt() * owner.getBaseHP() / (1-roundedScaleMilestoneDouble(owner,percentLessDamage,1)));
+        return (int)(owner.getBaseAtt() * owner.getBaseHP() / (1-roundedScaleMilestoneDouble(owner,percentLessDamage,milestone)));
     }
 
     @Override

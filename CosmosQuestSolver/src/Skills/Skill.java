@@ -41,6 +41,9 @@ public abstract class Skill {
     public double extraDamage(Formation thisFormation, Formation enemyFormation){
         return 0;
     }
+    public double moreDamage(Formation thisFormation, Formation enemyFormation){//works for p6 only
+        return 1;
+    }
     public double getElementDamageBoost(Element element) {
         return 0;
     }

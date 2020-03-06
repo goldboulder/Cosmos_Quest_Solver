@@ -20,8 +20,8 @@ public class AttackPercentBoost extends Skill implements RuneSkill{
     }
     
     @Override
-    public double extraDamage(Formation thisFormation, Formation enemyFormation) {
-            return (owner.attWithBoosts()) * (multiplier - 1);
+    public double moreDamage(Formation thisFormation, Formation enemyFormation){//works for p6 only
+        return multiplier;
     }
 
     
@@ -33,7 +33,7 @@ public class AttackPercentBoost extends Skill implements RuneSkill{
     
     @Override
     public String getDescription() {
-        return "Increases damage dealt by  " + OtherThings.nicePercentString(multiplier);
+        return "Multiplies damage dealt by  " + OtherThings.nicePercentString(multiplier-1);
     }
     
     @Override
@@ -43,7 +43,7 @@ public class AttackPercentBoost extends Skill implements RuneSkill{
     
     @Override
     public int viability() {
-        return (int)(owner.getBaseHP() * owner.getBaseAtt() * (1+multiplier));
+        return (int)(owner.getBaseHP() * owner.getBaseAtt() * multiplier);
     }
 
     @Override

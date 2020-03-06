@@ -190,7 +190,7 @@ public class WorldBossASPerHitPanel extends JPanel implements ActionListener, Do
         }
         
         double multiplier = 0;
-        totalHits = 2000;
+        totalHits = 1600;
         
         if (WBHTML.contains("SUPER: ")){
             startBossIndex += 7;
@@ -230,7 +230,7 @@ public class WorldBossASPerHitPanel extends JPanel implements ActionListener, Do
         }
         if (isSuper){
             multiplier *= 2;
-            totalHits = 1500;
+            totalHits = 1200;
         }
         
         //calculate prize pool

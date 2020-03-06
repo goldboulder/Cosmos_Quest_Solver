@@ -20,13 +20,13 @@ public class Purity extends Skill{
     }
     
     @Override
-    public double extraDamage(Formation thisFormation, Formation enemyFormation) {
+    public double moreDamage(Formation thisFormation, Formation enemyFormation) {
         if (enemyFormation.getFrontCreature().getElement() == owner.getElement()){
-            
-            return (owner.attWithBoosts()) * (multiplier - 1);
+            return multiplier;
+            //return (owner.attWithBoosts()) * (multiplier - 1);
         }
         else{
-            return 0;
+            return 1;
         }
     }
 

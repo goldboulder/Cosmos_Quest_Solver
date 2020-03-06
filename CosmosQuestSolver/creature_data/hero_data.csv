@@ -197,4 +197,5 @@ Yisus,199,Event,Rare,Earth,48,32,ScaleableFlatField 3 9.0,38,18,34,ScaleableFlat
 Galla,200,Event,Common,Fire,40,32,ScaleablePredator 1 1.0,30,22,22,ScaleablePredator 1 0.66667,Affinity 0.05
 Yeti the Postman,201,Event,Rare,Water,58,58,ScaleableGrowingAttAura 11 4 9.0,40,40,40,ScaleableGrowingAttAura 11 5 9.0,HPBoost 1.1
 Hans,202,Event,Legendary,Earth,74,74,ScaleableHiddenCharger 3 3 2 9.0,200,200,180,ScaleableHiddenCharger 5 5 2 9.0,ExtraAttackBoost 1.24
-Mecha Mary,203,Event,Ascended,Air,250,5,ScaleableOneTimeAbsorb 0.00888889,12,1080,30,ScaleableOneTimeAbsorb 0.01,ExtraArmorBoost 1.3
+Mecha Mary,203,Event,Ascended,Air,250,5,ScaleableOneTimeAbsorb 0.08 9.0,12,1080,30,ScaleableOneTimeAbsorb 0.09 9.0,ExtraArmorBoost 1.3
+Annie,204,Event,Legendary,Water,58,58,ScaleableOneTimeAbsorb 0.04 9.0,68,68,112,ScaleableOneTimeAbsorb 0.05 9.0,ExtraArmorBoost 1.2

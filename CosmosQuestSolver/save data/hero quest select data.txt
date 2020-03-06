@@ -173,6 +173,7 @@ Gizmo,false,0
 Daisy,false,0
 Thumper,false,0
 B-Day,false,0
+Annie,false,0
 Lady of Twilight,false,0
 Tiny,false,0
 Nebra,false,0

@@ -286,9 +286,9 @@ public class Hero extends Creature{
     @Override
     public double determineDamageDealt(Creature target, Formation thisFormation, Formation enemyFormation){//runes?
         double damage = attWithBoosts() + getMainSkill().extraDamage(enemyFormation,thisFormation);
-        
+        damage *= getMainSkill().moreDamage(enemyFormation,thisFormation);
         if (promoteLevel >= 6){
-            damage += promote6Skill.extraDamage(enemyFormation,thisFormation);
+            damage *= promote6Skill.moreDamage(enemyFormation,thisFormation);
         }
         
         damage = Elements.damageFromElement(this,damage,target.element);

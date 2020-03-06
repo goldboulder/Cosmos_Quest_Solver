@@ -173,6 +173,7 @@ Gizmo,1,0
 Daisy,1,0
 Thumper,1,0
 B-Day,1,0
+Annie,1,0
 Lady of Twilight,1,0
 Tiny,1,0
 Nebra,1,0
