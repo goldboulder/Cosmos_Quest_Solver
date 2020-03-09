@@ -199,3 +199,4 @@ Yeti the Postman,201,Event,Rare,Water,58,58,ScaleableGrowingAttAura 11 4 9.0,40,
 Hans,202,Event,Legendary,Earth,74,74,ScaleableHiddenCharger 3 3 2 9.0,200,200,180,ScaleableHiddenCharger 5 5 2 9.0,ExtraAttackBoost 1.24
 Mecha Mary,203,Event,Ascended,Air,250,5,ScaleableOneTimeAbsorb 0.08 9.0,12,1080,30,ScaleableOneTimeAbsorb 0.09 9.0,ExtraArmorBoost 1.3
 Annie,204,Event,Legendary,Water,58,58,ScaleableOneTimeAbsorb 0.04 9.0,68,68,112,ScaleableOneTimeAbsorb 0.05 9.0,ExtraArmorBoost 1.2
+Kilkenny the Fairy,205,Special,Legendary,Fire,75,25,EvenField 0,13,59,13,EvenField 1,AntiAOESelf 0.15

@@ -181,6 +181,7 @@ Bubbles,false,0
 James,false,0
 Smith,false,0
 Leprechaun,false,0
+Kilkenny the Fairy,false,0
 Dr Hawking,false,0
 Neil,false,0
 Guy,false,0

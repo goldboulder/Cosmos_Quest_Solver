@@ -368,6 +368,9 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
         if (assetPanel.heroEnabled("Yisus")){//hard coded value. .
             return new WeirdHeroQuestSolver(this,"Yisus");//difference in demo sollution and shown solution***
         }
+        if (assetPanel.heroEnabled("Kilkenny the Fairy")){//lep and kilkenny in pool?** choose the more powerful one?
+            return new WeirdHeroQuestSolver(this,"Kilkenny the Fairy");
+        }
         return new QuestSolver(this);
     }
 

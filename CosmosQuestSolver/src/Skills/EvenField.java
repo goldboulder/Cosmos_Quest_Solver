@@ -11,7 +11,7 @@ import cosmosquestsolver.OtherThings;
 //percent. This percent is determined by how many creatures each formation has.
 //if the hero is alone against a formation of 6, the ability reduces each
 //enemy's hp to 1/6th its original value. has no effect if the user's formation
-//has more creatures than the enemy's formation. Used by Leprechaun
+//has more creatures than the enemy's formation. Used by Leprechaun and Kilkenny.
 public class EvenField extends Skill{//enemies cannot heal back to full health?
     
     private int numExtra; //adds invisible units to the enemy formation for the attack
@@ -29,8 +29,16 @@ public class EvenField extends Skill{//enemies cannot heal back to full health?
     }
     
     @Override
+    public void prepareForFight(Formation thisFormation, Formation enemyFormation) {
+        thisFormation.recieveLepSkillNum(numExtra);
+    }
+    
+    @Override
     public void startOfFightAction(Formation thisFormation, Formation enemyFormation) {
         if (enemyFormation.isBossFormation()){
+            return;
+        }
+        if (thisFormation.getLepTriggered() || numExtra < thisFormation.getMaxLepSkill()){//lep and Kilkenny's abilities do not stack. Only highest will trigger
             return;
         }
         double percentDamage = 1-((double) thisFormation.size() / (enemyFormation.size()+numExtra));
@@ -43,6 +51,7 @@ public class EvenField extends Skill{//enemies cannot heal back to full health?
             damageDelt = Math.round(damageDelt-0.0000001);
             
             creature.takeAOEDamage(damageDelt,enemyFormation);
+            thisFormation.setLepTriggered(true);
             //creature.setMaxHP(creature.getCurrentHP());//units cannot heal past the new HP cap-- this doesn't appear to be true anymore
         }
     }

@@ -33,6 +33,8 @@ public class Formation implements Iterable<Creature>{
     protected LinkedList<Creature> members;//arrayList instead?
     protected long totalDamageTaken = 0;// for tiebreakers in pvp
     protected double AOEResistance = 0;//1 is invincible
+    private boolean lepTriggered = false;
+    private int maxLepSkill;
     private long seed = -1;//used for random skills. newSeed should be positive. if newSeed is needed, generate it
     private LinkedList<Integer> blankSpaces;
 
@@ -486,6 +488,24 @@ public class Formation implements Iterable<Creature>{
         return seed;
     }
     */
+    
+    public boolean getLepTriggered(){
+        return lepTriggered;
+    }
+    
+    public void setLepTriggered(boolean t){
+        lepTriggered = t;
+    }
+    
+    public int getMaxLepSkill(){
+        return maxLepSkill;
+    }
+    
+    public void recieveLepSkillNum(int num){
+        if (num > maxLepSkill){
+            maxLepSkill = num;
+        }
+    }
     
     public long getSeed(){//recalculates every time
         if (seed != -1){

@@ -181,6 +181,7 @@ Bubbles,1,0
 James,1,0
 Smith,1,0
 Leprechaun,1,0
+Kilkenny the Fairy,1,0
 Dr Hawking,1,0
 Neil,1,0
 Guy,1,0

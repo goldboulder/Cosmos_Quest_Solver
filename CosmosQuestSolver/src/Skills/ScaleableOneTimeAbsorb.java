@@ -9,7 +9,7 @@ import cosmosquestsolver.OtherThings;
 import Formations.Hero;
 
 //takes x% less damage from attacks.
-//used by Mecha Mary
+//used by Mecha Mary and Annie
 public class ScaleableOneTimeAbsorb extends Skill{
     
     private double percentLessDamage;
