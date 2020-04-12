@@ -200,3 +200,7 @@ Hans,202,Event,Legendary,Earth,74,74,ScaleableHiddenCharger 3 3 2 9.0,200,200,18
 Mecha Mary,203,Event,Ascended,Air,250,5,ScaleableOneTimeAbsorb 0.08 9.0,12,1080,30,ScaleableOneTimeAbsorb 0.09 9.0,ExtraArmorBoost 1.3
 Annie,204,Event,Legendary,Water,58,58,ScaleableOneTimeAbsorb 0.04 9.0,68,68,112,ScaleableOneTimeAbsorb 0.05 9.0,ExtraArmorBoost 1.2
 Kilkenny the Fairy,205,Special,Legendary,Fire,75,25,EvenField 0,13,59,13,EvenField 1,AntiAOESelf 0.15
+Mysterious Egg,206,Event,Common,Fire,12,60,Payback 0.5,20,8,20,Payback 0.75,ExtraHeal 1.25
+Baby Pyros,207,Event,Rare,Water,14,80,Payback 0.75,30,12,30,Payback 1.0,ExtraHeal 1.22
+Young Pyros,208,Event,Legendary,Earth,16,110,Payback 1.0,40,20,40,Payback 1.25,ExtraHeal 1.2
+King Pyros,209,Event,Ascended,Air,20,180,Payback 1.5,120,20,70,Payback 1.75,ExtraHeal 1.25

@@ -29,6 +29,7 @@ Fir
 Galla
 Sparks
 Willow
+Mysterious Egg
 Lady of Twilight
 Dicemaster
 Cloud
@@ -70,6 +71,7 @@ Yeti the Postman
 Yisus
 Leaf
 Gizmo
+Baby Pyros
 Tiny
 Luxurius Maximus
 Ember
@@ -139,6 +141,7 @@ Kedari
 Hans
 Flynn
 Daisy
+Young Pyros
 B-Day
 Annie
 Nebra
@@ -195,6 +198,7 @@ Retia
 Adam
 Mecha Mary
 Thumper
+King Pyros
 Bubbles
 Guy
 Spike

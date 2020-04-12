@@ -9,7 +9,7 @@ import Formations.Formation;
 import Formations.Monster;
 import cosmosquestsolver.OtherThings;
 
-//+ x armor per unit behind.
+//+ x armor to self.
 // used by 4th05
 public class SelfArmor extends Skill{
     

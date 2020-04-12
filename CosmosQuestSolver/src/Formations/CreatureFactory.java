@@ -636,6 +636,7 @@ public class CreatureFactory {
             case "Nothing": return new Nothing(null);
             case "NoUnits": return new NoUnits(null);
             case "PartingGift": return new PartingGift(null,Double.parseDouble(tokens[1]));
+            case "Payback": return new Payback(null,Double.parseDouble(tokens[1]));
             case "PositionAttToHealth": return new PositionAttToHealth(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]));
             case "Purity": return new Purity(null,Double.parseDouble(tokens[1]));
             case "Rainbow": return new Rainbow(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));

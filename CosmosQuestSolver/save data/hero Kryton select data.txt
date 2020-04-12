@@ -172,6 +172,10 @@ Willow,false,0
 Gizmo,false,0
 Daisy,false,0
 Thumper,false,0
+Mysterious Egg,false,0
+Baby Pyros,false,0
+Young Pyros,false,0
+King Pyros,false,0
 B-Day,false,0
 Annie,false,0
 Lady of Twilight,false,0

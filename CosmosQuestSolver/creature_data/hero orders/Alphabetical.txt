@@ -47,6 +47,7 @@ Aural
 Auri
 Aurora
 B-Day
+Baby Pyros
 Bavah
 Bewat
 Billy
@@ -115,6 +116,7 @@ Jet
 K41RY
 Kedari
 Kilkenny the Fairy
+King Pyros
 Koldis
 Koth
 Kumu san
@@ -136,6 +138,7 @@ Mother
 Mr Cotton
 Murphy
 Myrmillo
+Mysterious Egg
 Nebra
 Neil
 Neptunius
@@ -197,5 +200,6 @@ Willow
 Xarth
 Yeti the Postman
 Yisus
+Young Pyros
 Zaytus
 Zeth

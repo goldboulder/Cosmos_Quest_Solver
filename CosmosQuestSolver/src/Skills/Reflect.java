@@ -43,7 +43,7 @@ public class Reflect extends Skill{
             Creature target = enemyFormation.getFrontCreature();
             //System.out.println("damage reflected" + damageTakenThisRound*multiplier);
             if (target.isDead()){//if creature died from normal attack, reflect damage is saved for the next enemy
-                target = findNextTarget(enemyFormation);
+                target = Formation.findFirstTarget(enemyFormation);
                 if (enemyFormation.size() > 0 && target != null){
                     target.changeHP(-damageTakenThisRound*multiplier,enemyFormation);//new front creature
                 }
@@ -55,14 +55,6 @@ public class Reflect extends Skill{
         }
     }
     
-    private Creature findNextTarget(Formation enemyFormation){
-        for (Creature c : enemyFormation){
-            if (!c.isDead()){
-                return c;
-            }
-        }
-        return null;
-    }
     
     @Override
     public Skill getCopyForNewOwner(Creature newOwner) {

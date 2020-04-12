@@ -28,7 +28,7 @@ public class Thorns extends Skill{
                 //target.postRoundAction(enemyFormation, thisFormation);
                 //target.postRoundAction2(enemyFormation, thisFormation);
                 //enemyFormation.handleCreatureDeaths(thisFormation);
-                target = findNextTarget(enemyFormation);
+                target = Formation.findFirstTarget(enemyFormation);
                 if (enemyFormation.size() > 0 && target != null){
                     target.changeHP(-damage,enemyFormation);//new front creature
                 }
@@ -40,14 +40,6 @@ public class Thorns extends Skill{
         }
     }
     
-    private Creature findNextTarget(Formation enemyFormation){
-        for (Creature c : enemyFormation){
-            if (!c.isDead()){
-                return c;
-            }
-        }
-        return null;
-    }
     
     @Override
     public Skill getCopyForNewOwner(Creature newOwner) {

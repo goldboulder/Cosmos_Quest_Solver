@@ -674,6 +674,15 @@ public class Formation implements Iterable<Creature>{
         return false;
     }
     
+    public static Creature findFirstTarget(Formation enemyFormation){
+        for (Creature c : enemyFormation){
+            if (!c.isDead()){
+                return c;
+            }
+        }
+        return null;
+    }
+    
     //returns a list of all monsters in the formation
     public LinkedList<Monster> getMonsters(){
         LinkedList<Monster> list = new LinkedList<>();
