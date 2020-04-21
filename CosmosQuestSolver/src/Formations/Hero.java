@@ -158,7 +158,7 @@ public class Hero extends Creature{
     
     //possible levels in the game currently
     public static boolean validHeroLevel(int level) {
-        return ((level > 0 && level <= MAX_NORMAL_LEVEL) || level == 1000);
+        return ((level > 0 && level <= MAX_NORMAL_LEVEL) || (level % 1000 == 0 && level != 0));
     }
     
     public static boolean validPromoteLevel(int promoteLevel){
@@ -460,8 +460,8 @@ public class Hero extends Creature{
     public String getFormationText(){
         StringBuilder sb = new StringBuilder(getNickName() + ":");
         
-        if (level == 1000){
-            sb.append("1k");
+        if (level % 1000 == 0 && level != 0){
+            sb.append((level/1000) + "k");
         }
         else{
             sb.append(level);

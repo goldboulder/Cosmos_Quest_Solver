@@ -242,6 +242,32 @@ public class SandBoxFrame extends JFrame implements EnemySelectFrame, MouseListe
         rightSelectionPanel.redrawHero(text);
     }
 
+    @Override
+    public void updateLaneText(Hero h) {
+        if (leftSelectionPanel == null || rightSelectionPanel == null){
+            return;
+        }
+        if (h.isFacingRight()){
+            leftSelectionPanel.updateLineText(h);
+        }
+        else{
+            rightSelectionPanel.updateLineText(h);
+        }
+    }
+
+    @Override
+    public void updateCustomizationText(Hero h) {
+        if (leftSelectionPanel == null || rightSelectionPanel == null){
+            return;
+        }
+        if (h.isFacingRight()){
+            leftSelectionPanel.updateCustomizationText(h);
+        }
+        else{
+            rightSelectionPanel.updateCustomizationText(h);
+        }
+    }
+
     
     
 }

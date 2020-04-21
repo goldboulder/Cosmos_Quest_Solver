@@ -142,6 +142,10 @@ Thrace,false,0
 Scinda,false,0
 Myrmillo,false,0
 Retia,false,0
+Rob,false,0
+Kirk Lee,false,0
+Lars,false,0
+Hetfield,false,0
 Werewolf,false,0
 Jack'o Knight,false,0
 Dullahan,false,0

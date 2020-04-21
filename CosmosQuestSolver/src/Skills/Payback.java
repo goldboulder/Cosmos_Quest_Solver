@@ -35,6 +35,9 @@ public class Payback extends Skill{
         Creature target = Formation.findFirstTarget(enemyFormation);
         if (target != null){
             target.changeHP(-damageTaken*multiplier,enemyFormation);
+            if (target.getMainSkill() instanceof Payback){
+                target.getMainSkill().recordDamageTaken((long)(Math.ceil(damageTaken*multiplier)),thisFormation,enemyFormation);
+            }
         }
     }
     

@@ -66,7 +66,7 @@ public class ScaleablePredator extends Skill{
     
     @Override
     public int viability() {
-        return owner.getBaseHP() * (owner.getBaseAtt() + roundedScaleMilestone(owner,amount,levelMilestone)/3);
+        return owner.getBaseHP() * (owner.getBaseAtt() + roundedScaleMilestone(owner,amount,levelMilestone)/2);
     }
     
     @Override

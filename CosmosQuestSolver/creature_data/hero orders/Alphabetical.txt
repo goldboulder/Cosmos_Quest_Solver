@@ -103,6 +103,7 @@ Hama
 Hans
 Hattori
 Helga
+Hetfield
 Hidoka
 Higgs
 Hirate
@@ -117,11 +118,13 @@ K41RY
 Kedari
 Kilkenny the Fairy
 King Pyros
+Kirk Lee
 Koldis
 Koth
 Kumu san
 Lady Odelith
 Lady of Twilight
+Lars
 Leaf
 Leprechaun
 Lili
@@ -163,6 +166,7 @@ Reindeer
 Retia
 Rigr
 Riptide
+Rob
 Rokka
 Rua
 Rudean

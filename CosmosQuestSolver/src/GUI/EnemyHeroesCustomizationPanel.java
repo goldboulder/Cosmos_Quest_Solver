@@ -223,6 +223,10 @@ public class EnemyHeroesCustomizationPanel extends JPanel implements HeroListPan
     public void selectShown() {
         System.out.println("EnemyHeroCustomizationPanel: selectShown not implemented");
     }
+
+    public void updateCustomizationText(Hero h) {
+        map.get(h.getName()).updateCustomizationText(h);
+    }
     
     
     

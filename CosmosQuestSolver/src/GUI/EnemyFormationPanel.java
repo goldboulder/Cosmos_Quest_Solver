@@ -150,6 +150,18 @@ public class EnemyFormationPanel extends JPanel implements CreaturePanelGroup{
         return runes;
     }
 
+    void updateLineText(Hero h) {
+        for (int i = 0; i < panels.length; i++){
+            if (h == null || panels[i].getCreature() == null){
+                continue;
+            }
+            if (panels[i].getCreature().getName().equals(h.getName())){
+                panels[i].setCreature(h);
+                panels[i].autoSetText(h);
+            }
+        }
+    }
+
     
     
 }

@@ -4,6 +4,7 @@
 package GUI;
 
 import Formations.Creature;
+import Formations.Hero;
 
 
 public interface EnemySelectFrame extends ParameterListener{
@@ -14,5 +15,7 @@ public interface EnemySelectFrame extends ParameterListener{
     
     void filterHeroes(String text);
     void redrawHero(String text);
+    void updateLaneText(Hero h);
+    public void updateCustomizationText(Hero h);
     
 }

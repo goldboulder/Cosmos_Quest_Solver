@@ -198,6 +198,14 @@ public class EnemyFormationMakerPanel extends JPanel implements ActionListener, 
         return enemyFormationPanel.getRunes();
     }
 
+    public void updateLineText(Hero h) {
+        enemyFormationPanel.updateLineText(h);
+    }
+
+    public void updateCustomizationText(Hero h) {
+        enemyHeroesCustomizationPanel.updateCustomizationText(h);
+    }
+
     
 
     

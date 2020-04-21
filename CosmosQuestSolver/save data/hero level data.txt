@@ -142,6 +142,10 @@ Thrace,1,0
 Scinda,1,0
 Myrmillo,1,0
 Retia,1,0
+Rob,1,0
+Kirk Lee,1,0
+Lars,1,0
+Hetfield,1,0
 Werewolf,1,0
 Jack'o Knight,1,0
 Dullahan,1,0

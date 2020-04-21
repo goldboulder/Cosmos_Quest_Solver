@@ -532,5 +532,18 @@ public class QuestSolverFrame extends JFrame implements ISolverFrame, EnemySelec
         return enemyFormationMakerPanel.getRunes();
     }
 
+    @Override
+    public void updateLaneText(Hero h) {
+        if (enemyFormationMakerPanel == null){
+            return;
+        }
+        enemyFormationMakerPanel.updateLineText(h);
+    }
+    
+    @Override
+    public void updateCustomizationText(Hero h) {
+        enemyFormationMakerPanel.updateCustomizationText(h);
+    }
+
     
 }

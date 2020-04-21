@@ -264,6 +264,9 @@ public class EnemyFormationSinglePanel extends JPanel implements RuneHolder, Mou
             Creature c = CreatureFactory.parseCreature(text);
             c.setFacingRight(facingRight);
             setCreature(c);
+            if (c instanceof Hero){
+                frame.updateCustomizationText((Hero)c);
+            }
             textField.setForeground(Color.BLACK);
             //System.out.println(c);
         }

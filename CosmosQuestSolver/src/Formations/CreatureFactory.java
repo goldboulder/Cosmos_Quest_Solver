@@ -6,6 +6,7 @@ package Formations;
 import Skills.*;
 import Formations.Elements.Element;
 import Formations.Hero.Rarity;
+import GUI.AssetPanel;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -159,13 +160,11 @@ public class CreatureFactory {
     }
     
     private static int parseLevel(String str){
-        if (str.equalsIgnoreCase("1k")){
-            return 1000;
-        }
         try{
-            return Integer.parseInt(str);
+            return (int)AssetPanel.parseNumAbbr(str);
+            
         }
-        catch(NumberFormatException e){
+        catch(Exception e){
             return 1;
         }
     }
@@ -676,6 +675,7 @@ public class CreatureFactory {
             case "StatLevelBoost": return new StatLevelBoost(null,Double.parseDouble(tokens[1]));
             case "Simmer": return new Simmer(null,Double.parseDouble(tokens[1]));
             case "TargetedReflect": return new TargetedReflect(null,Double.parseDouble(tokens[1]));
+            case "TempAttackPercentAura": return new TempAttackPercentAura(null,Double.parseDouble(tokens[1]),Integer.parseInt(tokens[2]));
             case "Thorns": return new Thorns(null,Integer.parseInt(tokens[1]));
             case "ThornsAll": return new ThornsAll(null,Integer.parseInt(tokens[1]));
             case "Train": return new Train(null,Integer.parseInt(tokens[1]));

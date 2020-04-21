@@ -392,7 +392,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     }
     
     public void takeHeal(double amount, Formation thisFormation) {
-        changeHP(amount * healEffectiveness, thisFormation);
+        changeHP(Math.round(amount * healEffectiveness), thisFormation);
     }
     
     public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation) {//modify for runes?

@@ -89,26 +89,31 @@ public class EnemyHeroCustomizationPanel extends JPanel implements DocumentListe
 
     @Override
     public void insertUpdate(DocumentEvent e) {
-        levelHero();
-        promoteHero();
+        textUpdate();
     }
 
     @Override
     public void removeUpdate(DocumentEvent e) {
-        levelHero();
-        promoteHero();
+        textUpdate();
     }
 
     @Override
     public void changedUpdate(DocumentEvent e) {
+        textUpdate();
+    }
+    
+    private void textUpdate(){
         levelHero();
         promoteHero();
+        if (updateFlag){
+            frame.updateLaneText(hero);
+        }
     }
     
     public void levelHero(){//repeat code***
         
         //level 1000 exception
-        if (levelTextField.getText().equals("1k") || levelTextField.getText().equals("1K")){
+        /*if (levelTextField.getText().equals("1k") || levelTextField.getText().equals("1K")){
             hero.levelUp(1000);
 
             enemyFormationMakerPanel.repaint();
@@ -117,10 +122,10 @@ public class EnemyHeroCustomizationPanel extends JPanel implements DocumentListe
                 frame.parametersChanged();
             }
             return;
-        }
+        }*/
         
         try{
-            int level = Integer.parseInt(levelTextField.getText());
+            int level = (int)AssetPanel.parseNumAbbr(levelTextField.getText());
             
             hero.levelUp(level);
             
@@ -201,6 +206,14 @@ public class EnemyHeroCustomizationPanel extends JPanel implements DocumentListe
         setLevel(hero.getLevel());//why is this changing the promote level?
         //System.out.println("sss " + hero.getPromoteLevel());
         setPromoteLevel(pLevel);
+    }
+
+    boolean updateFlag = true;
+    public void updateCustomizationText(Hero h) {
+        updateFlag = false;
+        levelTextField.setText(Integer.toString(h.getLevel()));
+        promoteLevelTextField.setText(Integer.toString(h.getPromoteLevel()));
+        updateFlag = true;
     }
 
     

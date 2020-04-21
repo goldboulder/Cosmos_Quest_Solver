@@ -261,7 +261,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
     
     private void followersTextFieldChanged(){
         try{
-            long followersEntered = parseFollowers(followersTextField.getText());
+            long followersEntered = parseNumAbbr(followersTextField.getText());
             followersTextField.setForeground(Color.BLACK);
             this.followers = followersEntered;
             /*long tempFollowers = //Long.parseLong(followersTextField.getText());
@@ -288,7 +288,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
     }
     
     //parses the entry into a number, with comma and k,m,b functionality
-    private long parseFollowers(String str) throws Exception{
+    public static long parseNumAbbr(String str) throws Exception{
         //remove commas
         str = str.replaceAll(",","");
         
@@ -312,7 +312,7 @@ public class AssetPanel extends JPanel implements ActionListener, DocumentListen
         return (long) ans;
     }
     
-    private long letterToNum(char c) throws Exception{
+    public static long letterToNum(char c) throws Exception{
         switch (c){
             case 'k': case 'K': return 1000;
             case 'm': case 'M': return 1000000;

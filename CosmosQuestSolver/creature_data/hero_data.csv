@@ -204,3 +204,7 @@ Mysterious Egg,206,Event,Common,Fire,12,60,Payback 0.5,20,8,20,Payback 0.75,Extr
 Baby Pyros,207,Event,Rare,Water,14,80,Payback 0.75,30,12,30,Payback 1.0,ExtraHeal 1.22
 Young Pyros,208,Event,Legendary,Earth,16,110,Payback 1.0,40,20,40,Payback 1.25,ExtraHeal 1.2
 King Pyros,209,Event,Ascended,Air,20,180,Payback 1.5,120,20,70,Payback 1.75,ExtraHeal 1.25
+Rob,210,Season,Legendary,Earth,56,56,TempAttackPercentAura 0.35 3,80,74,124,TempAttackPercentAura 0.4 3,ExtraArmorBoost 1.2
+Kirk Lee,211,Season,Legendary,Water,60,60,TempAttackPercentAura 0.35 3,84,72,130,TempAttackPercentAura 0.4 3,ExtraArmorBoost 1.2
+Lars,212,Season,Legendary,Fire,64,64,TempAttackPercentAura 0.35 3,88,70,138,TempAttackPercentAura 0.4 3,ExtraArmorBoost 1.2
+Hetfield,213,Season,Ascended,Air,134,134,TempAttackPercentAura 0.5 3,240,210,360,TempAttackPercentAura 0.55 3,ExtraArmorBoost 1.3
