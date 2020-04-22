@@ -126,7 +126,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     }
     
     public double hitAfterDefend(Creature attacker, Formation thisFormation, Formation enemyFormation, double damage){
-        double newDamage = damage * getArmorPercent() - getArmor();//armor last?
+        double newDamage = damage * getArmorPercent() - getArmor();
         newDamage = getMainSkill().hitAfterDefend(attacker,thisFormation,enemyFormation,newDamage);
         newDamage = getRuneSkill().hitAfterDefend(attacker, thisFormation, enemyFormation, newDamage);
         return newDamage;
@@ -198,7 +198,6 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     
     public void addAttPercentBoost(double a){//add or multiply?** example input would be 1.15
         attPercentBoost += a;
-        //System.out.println(a + ", attPercentBoost now " + attPercentBoost);
     }
     
     

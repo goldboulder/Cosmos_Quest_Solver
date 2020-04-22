@@ -62,7 +62,7 @@ public class AttackPercentAura extends Skill{
 
     @Override
     public int positionBias() {
-        return -2;
+        return -3;
     }
     
     @Override

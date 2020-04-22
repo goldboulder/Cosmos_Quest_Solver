@@ -9,16 +9,18 @@ import cosmosquestsolver.OtherThings;
 
 //gives all allies and self + x% attack for y turns.
 //used by season 10 heroes
-public class TempAttackPercentAura extends AttackPercentAura{
+public class TempAttackPercentAura extends Skill{
     
+    private double boost;
     private int turns;
     private int turnsLeft;
     private boolean done = false;
     
     public TempAttackPercentAura(Creature owner, double boost, int turns){
-        super(owner,boost);
-        this.turns = turns;
+        super(owner);
+        this.boost = boost;
         this.turnsLeft = turns;
+        this.turns = turns;
     }
     
     @Override
@@ -31,6 +33,7 @@ public class TempAttackPercentAura extends AttackPercentAura{
         if (!done){
             for (Creature creature : thisFormation){
                 creature.addAttPercentBoost(-boost);
+                creature.getMainSkill().ricochetNerf(-boost);
             }
             done = true;
         }
@@ -41,6 +44,8 @@ public class TempAttackPercentAura extends AttackPercentAura{
         if (turns != 0){
         for (Creature creature : thisFormation){
                 creature.addAttPercentBoost(boost);
+                //System.out.println("added boost");
+                creature.getMainSkill().ricochetNerf(boost);
             }
         }
     }
@@ -51,6 +56,7 @@ public class TempAttackPercentAura extends AttackPercentAura{
         if (turnsLeft == 0 && !done){
             for (Creature creature : thisFormation){
                 creature.addAttPercentBoost(-boost);
+                creature.getMainSkill().ricochetNerf(-boost);
             }
             done = true;
         }
@@ -69,6 +75,11 @@ public class TempAttackPercentAura extends AttackPercentAura{
     @Override
     public int viability() {
         return (int)(owner.getBaseAtt() * (1.5*boost*Math.min(Formation.MAX_MEMBERS,turns)+1) * owner.getBaseHP());
+    }
+    
+    @Override
+    public int positionBias() {
+        return -2;
     }
     
     @Override

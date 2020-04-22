@@ -101,6 +101,8 @@ public class Ricochet extends Skill{
     
     private double multiplier;
     private int numBounces;
+    
+    private double tempBoost = 0;//attack boost from tempAttackPercentAura does not buff rico damage
 
     public Ricochet(Creature owner, double multiplier, int numBounces) {
         super(owner);
@@ -121,7 +123,11 @@ public class Ricochet extends Skill{
             
             if (bouncesLeft > 0){
                 double nextCreatureMultiplier = Elements.elementDamageMultiplier(owner,creature.getElement());
+                
+                owner.addAttPercentBoost(-tempBoost);
                 double rictDamage = owner.determineDamageDealt(creature, thisFormation, enemyFormation) + creature.getArmor();//does percent armor count here?*******
+                owner.addAttPercentBoost(tempBoost);
+                
                 rictDamage *= Math.pow(multiplier*(1-enemyFormation.getAOEResistance()), i);
                 
                 //patch to compensate for rico damage now not being individual to each units' element
@@ -173,6 +179,11 @@ public class Ricochet extends Skill{
     @Override
     public int positionBias() {
         return 2;
+    }
+    
+    @Override
+    public void ricochetNerf(double boost){
+        tempBoost += boost;
     }
     
     
