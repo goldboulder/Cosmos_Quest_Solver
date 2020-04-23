@@ -188,33 +188,36 @@ public class EnemyFormationSinglePanel extends JPanel implements RuneHolder, Mou
             int level = h.getLevel();
             int promo = h.getPromoteLevel();
             
-            if (tierDifference > 0){
-                if (level < Hero.MAX_NORMAL_LEVEL && level >= 1){
-                    h.levelUp(level + tierDifference);
-                    setCreature(h);
-                    autoSetText(h);
-                    frame.redrawHero(h.getName());
+            if (tierDifference > 0){//increase strength
+                if (level % 1000 == 0 && level != 0){
+                    h.levelUp(level + 1000);
+                }
+                else if (level < Hero.MAX_NORMAL_LEVEL && level >= 1){
+                    h.levelUp(Math.min(level + tierDifference,Hero.MAX_NORMAL_LEVEL));
                 }
                 else if (promo < Hero.MAX_PROMOTE_LEVEL){
                     h.promote(promo + tierDifference);
-                    setCreature(h);
-                    autoSetText(h);
-                    frame.redrawHero(h.getName());
                 }
+                setCreature(h);
+                autoSetText(h);
+                frame.redrawHero(h.getName());
             }
-            else if (tierDifference < 0){
+            else if (tierDifference < 0){//decrease strength
                 if (promo > 0){
                     h.promote(promo +tierDifference);
-                    setCreature(h);
-                    autoSetText(h);
-                    frame.redrawHero(h.getName());
+                }
+                else if (level == 1000){
+                    h.levelUp(Hero.MAX_NORMAL_LEVEL);
+                }
+                else if (level % 1000 == 0 && level != 0){
+                    h.levelUp(level - 1000);
                 }
                 else if (level > 1 && level <= Hero.MAX_NORMAL_LEVEL){
                     h.levelUp(level + tierDifference);
-                    setCreature(h);
-                    autoSetText(h);
-                    frame.redrawHero(h.getName());
                 }
+                setCreature(h);
+                autoSetText(h);
+                frame.redrawHero(h.getName());
             }
         }
     }

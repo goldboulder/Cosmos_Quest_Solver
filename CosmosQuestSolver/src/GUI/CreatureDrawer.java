@@ -333,7 +333,12 @@ public class CreatureDrawer {
         }
         g.setFont(LEVEL_FONT);
         if (h.getLevel() % 1000 == 0 && h.getLevel() != 0){
-            g.drawString((h.getLevel()/1000) + "k", LEVEL_STRING_X, STATS_STRING_Y - 3);
+            if (h.getLevel() >= 10000){
+               g.drawString((h.getLevel()/1000) + "k", LEVEL_STRING_X - 2, STATS_STRING_Y - 3); 
+            }
+            else{
+                g.drawString((h.getLevel()/1000) + "k", LEVEL_STRING_X, STATS_STRING_Y - 3);
+            }
         }
         else if (h.getLevel() < 10){
             g.drawString(Integer.toString(h.getLevel()), LEVEL_STRING_X + 2, STATS_STRING_Y - 3);

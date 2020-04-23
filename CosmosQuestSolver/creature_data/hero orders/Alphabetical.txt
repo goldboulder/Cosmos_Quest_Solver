@@ -59,6 +59,7 @@ Brynhildr
 Bubbles
 Buccaneer Beatrice
 Bylar
+Caeli
 Carl
 Casper
 Choco Knight
@@ -109,6 +110,7 @@ Higgs
 Hirate
 Hosokawa
 Hunter
+Ignis
 Ignitor
 Jack'o Knight
 Jade
@@ -154,6 +156,7 @@ Orin
 Ourea
 Oymos
 Petry
+Pluvia
 Pokerface
 Pontus
 Putrid
@@ -180,6 +183,7 @@ Shaman
 Sharkjellyn
 Shygu
 Sigrun
+Silex
 Smith
 Sparks
 Spike

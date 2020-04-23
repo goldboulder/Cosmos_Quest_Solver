@@ -646,6 +646,7 @@ public class CreatureFactory {
             case "RecoverPercent": return new RecoverPercent(null,Double.parseDouble(tokens[1]));
             case "Reflect": return new Reflect(null,Double.parseDouble(tokens[1]));
             case "Revenge": return new Revenge(null,Double.parseDouble(tokens[1]));
+            case "ReverseRicochet": return new ReverseRicochet(null,Double.parseDouble(tokens[1]),Integer.parseInt(tokens[2]));
             case "Revive": return new Revive(null,Double.parseDouble(tokens[1]));
             case "Ricochet": return new Ricochet(null,Double.parseDouble(tokens[1]),Integer.parseInt(tokens[2]));
             case "ScaleableAOEReflect": return new ScaleableAOEReflect(null,Double.parseDouble(tokens[1]));

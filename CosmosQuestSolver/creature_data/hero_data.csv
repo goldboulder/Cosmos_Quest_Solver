@@ -100,9 +100,9 @@ Flynn,99,Event,Legendary,Air,48,70,StatLevelBoost 2.0,46,93,69,StatLevelBoost 2.
 Ascended Bavah,100,Ascend,Ascended,Water,122,122,ScaleableStatAura 1 1 All 6.58,217,152,145,ScaleableStatAura 1 1 All 5.98,Affinity 0.2
 Dr Hawking,101,Special,Legendary,Air,60,66,ScaleableStartingDamage 1 1.0,94,136,70,ScaleableStartingDamage 1 0.767,AntiAOESelf 0.15
 Master Lee,102,Season,Ascended,Air,90,150,Reflect 0.5,314,290,225,Reflect 0.55,Revive 0.1
-Kumu san,103,Season,Legendary,Fire,38,70,Reflect 0.2,134,132,135,Reflect 0.22,Revive 0.2
-Liu Cheng,104,Season,Legendary,Water,42,78,Reflect 0.25,149,111,80,Reflect 0.275,Revive 0.2
-Hidoka,105,Season,Legendary,Earth,44,86,Reflect 0.3,144,172,61,Reflect 0.33,Revive 0.2
+Kumu san,103,Season,Legendary,Fire,38,70,Reflect 0.2,134,132,135,Reflect 0.25,Revive 0.2
+Liu Cheng,104,Season,Legendary,Water,42,78,Reflect 0.25,149,111,80,Reflect 0.3,Revive 0.2
+Hidoka,105,Season,Legendary,Earth,44,86,Reflect 0.3,144,172,61,Reflect 0.35,Revive 0.2
 Dicemaster,107,Auction,Common,Water,26,25,RandomStatBoost 20,19,36,12,RandomStatBoost 40,ExtraHeal 1.1
 Luxurius Maximus,108,Auction,Rare,Fire,60,28,RandomTarget False,44,47,29,RandomTarget True,AttackPercentBoost 1.09
 Pokerface,109,Auction,Legendary,Earth,70,70,CriticalHit 3.0,119,211,111,CriticalHit 3.3,ExtraAttackBoost 1.24
@@ -208,3 +208,7 @@ Rob,210,Season,Legendary,Earth,56,56,TempAttackPercentAura 0.35 3,80,74,124,Temp
 Kirk Lee,211,Season,Legendary,Water,60,60,TempAttackPercentAura 0.35 3,84,72,130,TempAttackPercentAura 0.4 3,ExtraArmorBoost 1.2
 Lars,212,Season,Legendary,Fire,64,64,TempAttackPercentAura 0.35 3,88,70,138,TempAttackPercentAura 0.4 3,ExtraArmorBoost 1.2
 Hetfield,213,Season,Ascended,Air,134,134,TempAttackPercentAura 0.5 3,240,210,360,TempAttackPercentAura 0.55 3,ExtraArmorBoost 1.3
+Pluvia,214,Event,Common,Water,40,28,ReverseRicochet 0.9 2,8,14,18,ReverseRicochet 1.0 2,Affinity 0.15
+Silex,215,Event,Rare,Earth,56,34,ReverseRicochet 0.9 2,12,38,30,ReverseRicochet 1.0 2,Affinity 0.15
+Caeli,216,Event,Legendary,Air,140,60,ReverseRicochet 0.9 2,98,204,80,ReverseRicochet 1.0 2,Affinity 0.15
+Ignis,217,Event,Ascended,Fire,200,100,ReverseRicochet 0.9 2,104,312,120,ReverseRicochet 1.0 2,Affinity 0.15

@@ -145,6 +145,9 @@ Hans
 Flynn
 Daisy
 Young Pyros
+Pluvia
+Silex
+Caeli
 B-Day
 Annie
 Nebra
@@ -203,6 +206,7 @@ Adam
 Mecha Mary
 Thumper
 King Pyros
+Ignis
 Bubbles
 Guy
 Spike

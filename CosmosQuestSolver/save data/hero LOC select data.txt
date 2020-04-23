@@ -180,6 +180,10 @@ Mysterious Egg,false,0
 Baby Pyros,false,0
 Young Pyros,false,0
 King Pyros,false,0
+Pluvia,false,0
+Silex,false,0
+Caeli,false,0
+Ignis,false,0
 B-Day,false,0
 Annie,false,0
 Lady of Twilight,false,0

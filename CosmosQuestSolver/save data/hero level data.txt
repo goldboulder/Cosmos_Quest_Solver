@@ -180,6 +180,10 @@ Mysterious Egg,1,0
 Baby Pyros,1,0
 Young Pyros,1,0
 King Pyros,1,0
+Pluvia,1,0
+Silex,1,0
+Caeli,1,0
+Ignis,1,0
 B-Day,1,0
 Annie,1,0
 Lady of Twilight,1,0

@@ -99,10 +99,10 @@ public class Ricochet extends Skill{
 
 public class Ricochet extends Skill{
     
-    private double multiplier;
-    private int numBounces;
+    protected double multiplier;
+    protected int numBounces;
     
-    private double tempBoost = 0;//attack boost from tempAttackPercentAura does not buff rico damage
+    protected double tempBoost = 0;//attack boost from tempAttackPercentAura does not buff rico damage
 
     public Ricochet(Creature owner, double multiplier, int numBounces) {
         super(owner);
@@ -111,6 +111,19 @@ public class Ricochet extends Skill{
     }
     
 
+    /*
+    @Override
+    public void postAttackAction(Formation thisFormation, Formation enemyFormation) {
+        
+        int bouncesLeft = numBounces;
+        double hitElementMultiplier = Elements.elementDamageMultiplier(owner,enemyFormation.getFrontCreature().getElement());
+        
+        for (int i = 1; i < enemyFormation.size(); i ++){//front creature was already attacked
+            bounce(thisFormation,enemyFormation,i,bouncesLeft,hitElementMultiplier);
+            bouncesLeft--;
+        }
+    }
+    */
     
     @Override
     public void postAttackAction(Formation thisFormation, Formation enemyFormation) {
@@ -142,7 +155,27 @@ public class Ricochet extends Skill{
             }
         }
     }
-    
+    /*
+    protected void bounce(Formation thisFormation,Formation enemyFormation, int index, int bouncesLeft, double hitElementMultiplier){
+        Creature creature = enemyFormation.getCreature(index);
+            
+        if (bouncesLeft > 0){
+            double nextCreatureMultiplier = Elements.elementDamageMultiplier(owner,creature.getElement());
+            
+            owner.addAttPercentBoost(-tempBoost);
+            double rictDamage = owner.determineDamageDealt(creature, thisFormation, enemyFormation) + creature.getArmor();//does percent armor count here?*******
+            owner.addAttPercentBoost(tempBoost);
+            
+            rictDamage *= Math.pow(multiplier*(1-enemyFormation.getAOEResistance()), index);
+            
+            //patch to compensate for rico damage now not being individual to each units' element
+            rictDamage *= (hitElementMultiplier / nextCreatureMultiplier);
+            
+            rictDamage = Math.round(rictDamage-creature.getArmor());
+            creature.takeHit(owner,enemyFormation,thisFormation,rictDamage);
+        }
+    }
+    */
     @Override
     public Skill getCopyForNewOwner(Creature newOwner) {
         return new Ricochet(newOwner,multiplier,numBounces);
