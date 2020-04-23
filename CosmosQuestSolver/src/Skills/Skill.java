@@ -113,9 +113,9 @@ public abstract class Skill {
         
     }
     
-    public void ricochetNerf(double percentBoost){
+    //public void ricochetNerf(double percentBoost){
         //tempAttackPercentBoost does not boost ricochet damage
-    }
+    //}
     
     public static int roundedScaleMilestone(Creature owner, double amount, double milestone){
         int level = owner.getLevel() > Hero.MAX_NORMAL_LEVEL ? Hero.MAX_NORMAL_LEVEL : owner.getLevel();

@@ -31,7 +31,7 @@ public class Payback extends Skill{
     }
     
     @Override
-    public void deathAction(Formation thisFormation, Formation enemyFormation) {
+    public void deathAction(Formation thisFormation, Formation enemyFormation) {//does reflect damage count too? if it doesn't die?***
         Creature target = Formation.findFirstTarget(enemyFormation);
         if (target != null){
             target.changeHP(-damageTaken*multiplier,enemyFormation);

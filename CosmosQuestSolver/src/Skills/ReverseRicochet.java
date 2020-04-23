@@ -29,9 +29,9 @@ public class ReverseRicochet extends Ricochet{
             if (bouncesLeft > 0){
                 double nextCreatureMultiplier = Elements.elementDamageMultiplier(owner,creature.getElement());
                 
-                owner.addAttPercentBoost(-tempBoost);
+                //owner.addAttPercentBoost(-tempBoost);
                 double rictDamage = owner.determineDamageDealt(creature, thisFormation, enemyFormation) + creature.getArmor();//does percent armor count here?*******
-                owner.addAttPercentBoost(tempBoost);
+                //owner.addAttPercentBoost(tempBoost);
                 
                 rictDamage *= Math.pow(multiplier, enemyFormation.size() - i);
                 rictDamage *= Math.pow((1-enemyFormation.getAOEResistance()), i);

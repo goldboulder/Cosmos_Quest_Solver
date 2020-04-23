@@ -33,7 +33,7 @@ public class TempAttackPercentAura extends Skill{
         if (!done){
             for (Creature creature : thisFormation){
                 creature.addAttPercentBoost(-boost);
-                creature.getMainSkill().ricochetNerf(-boost);
+                //creature.getMainSkill().ricochetNerf(-boost);
             }
             done = true;
         }
@@ -45,7 +45,7 @@ public class TempAttackPercentAura extends Skill{
         for (Creature creature : thisFormation){
                 creature.addAttPercentBoost(boost);
                 //System.out.println("added boost");
-                creature.getMainSkill().ricochetNerf(boost);
+                //creature.getMainSkill().ricochetNerf(boost);
             }
         }
     }
@@ -56,7 +56,7 @@ public class TempAttackPercentAura extends Skill{
         if (turnsLeft == 0 && !done){
             for (Creature creature : thisFormation){
                 creature.addAttPercentBoost(-boost);
-                creature.getMainSkill().ricochetNerf(-boost);
+                //creature.getMainSkill().ricochetNerf(-boost);
             }
             done = true;
         }
