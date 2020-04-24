@@ -281,13 +281,15 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         
         if (damage < 0){
             num = (int)Math.round(damage-0.0001);
-            thisFormation.addDamageTaken(-(long)Math.round(damage-0.0001));
+            long damageTaken = -(long)Math.round(damage-0.0001);
+            thisFormation.addDamageTaken(damageTaken);
+            getMainSkill().recordAnyDamageTaken(damageTaken,thisFormation,null);//include enemy formation later?
         }
         else{
             num = (int) Math.ceil(damage);
         }
         
-        if (num < 0 || currentHP != 0){//once dead, cannot be revived. does damage still count torawds total?
+        if (num < 0 || currentHP != 0){//once dead, cannot be revived by healing. does damage still count torawds total?
             currentHP += num;
         }
         
@@ -395,7 +397,7 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     }
     
     public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation) {//modify for runes?
-        getMainSkill().recordDamageTaken(damage,thisFormation,enemyFormation);
+        getMainSkill().recordDirectDamageTaken(damage,thisFormation,enemyFormation);
     }
     
     public void recordDamageDealt(long damage, Formation thisFormation, Formation enemyFormation){//modify for runes?

@@ -41,7 +41,7 @@ public class ScaleablePercentAtt extends Skill{
         
         //double extraHit = victem.getMaxHP() * roundedScaleMilestoneDouble(owner,percent,1);
         victem.takeHit(owner,enemyFormation,thisFormation,victem.getMaxHP() * roundedScaleMilestoneDouble(owner,percent,1));
-        //victem.recordDamageTaken(victem.getMainSkill().getDamageTaken() + extraHit,thisFormation,enemyFormation);
+        //victem.recordDirectDamageTaken(victem.getMainSkill().getDamageTaken() + extraHit,thisFormation,enemyFormation);
         
     }
     

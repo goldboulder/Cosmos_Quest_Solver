@@ -11,8 +11,7 @@ import Formations.Elements.Element;
 //Increases the attack and armor of all creatures
 //of a specified element (everyone if element is null) (including the owner)
 //while creature is alive. Increases lineraly as level increaces. Used by
-//Halloween heroes, quest heroes 13-20 and 25-32, Ascended Athos, Ascended Rei, and
-//Ascended Bavah
+//Halloween heroes, quest heroes 13-20 and 25-32, and Ascended Athos
 public class ScaleableArmorAura extends ArmorAura{
         
     private double levelMilestone;

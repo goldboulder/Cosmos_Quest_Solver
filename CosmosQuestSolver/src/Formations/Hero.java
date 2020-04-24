@@ -347,7 +347,7 @@ public class Hero extends Creature{
     public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation) {//runes?
         super.recordDamageTaken(damage, thisFormation, enemyFormation);
         if (promoteLevel >= 6){
-            promote6Skill.recordDamageTaken(damage,thisFormation,enemyFormation);
+            promote6Skill.recordDirectDamageTaken(damage,thisFormation,enemyFormation);
         }
     }
     

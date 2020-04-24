@@ -44,7 +44,7 @@ public class Revenge extends Skill{//how does it work with Niel? Pokerface crit 
     
 /*
     @Override
-    public void recordDamageTaken(long damage){//is this skill asymetric? (which side you're on matters)
+    public void recordDirectDamageTaken(long damage){//is this skill asymetric? (which side you're on matters)
         damageTakenThisRound = damage;
         armorThisRound = owner.getArmor();
     }

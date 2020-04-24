@@ -21,7 +21,7 @@ public class Payback extends Skill{
     
 
     @Override
-    public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
+    public void recordAnyDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
         damageTaken += damage;
     }
     
@@ -36,7 +36,7 @@ public class Payback extends Skill{
         if (target != null){
             target.changeHP(-damageTaken*multiplier,enemyFormation);
             if (target.getMainSkill() instanceof Payback){
-                target.getMainSkill().recordDamageTaken((long)(Math.ceil(damageTaken*multiplier)),thisFormation,enemyFormation);
+                target.getMainSkill().recordDirectDamageTaken((long)(Math.ceil(damageTaken*multiplier)),thisFormation,enemyFormation);
             }
         }
     }

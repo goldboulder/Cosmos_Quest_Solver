@@ -94,7 +94,10 @@ public abstract class Skill {
     }
     
     //if needed, set, not add, damage taken as a local variable
-    public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
+    public void recordDirectDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
+        
+    }
+    public void recordAnyDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
         
     }
     public void postRoundAction0(Formation thisFormation, Formation enemyFormation) {//for fairies

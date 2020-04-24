@@ -25,7 +25,7 @@ public class RecoverPercent extends Skill{
     }
     
     @Override
-    public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
+    public void recordDirectDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
         if (owner == thisFormation.getFrontCreature()){
             damageTakenThisRound += damage;
         }

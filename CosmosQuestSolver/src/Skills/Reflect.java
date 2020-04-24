@@ -26,7 +26,7 @@ public class Reflect extends Skill{
     
 
     @Override
-    public void recordDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
+    public void recordDirectDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
         //System.out.println(thisFormation.getFrontCreature());
         //System.out.println(damage);
         if (owner == thisFormation.getFrontCreature()){
