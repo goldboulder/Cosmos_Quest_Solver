@@ -426,6 +426,10 @@ public class Hero extends Creature{
         return 0;
     }
     
+    public boolean hasRevive() {
+        return getRuneSkill().hasRevive() || promote6Skill.hasRevive();
+    }
+    
     @Override
     public void draw(Graphics g) {
         CreatureDrawer.drawCreature(this, g);

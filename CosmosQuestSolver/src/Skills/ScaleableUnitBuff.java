@@ -5,6 +5,7 @@ package Skills;
 
 import Formations.Creature;
 import Formations.Formation;
+import Formations.Hero;
 
 //increases attack and strength by specified amounts for each unit behind depending on level
 //owner. Used by Ascended Seethe
@@ -30,7 +31,7 @@ public class ScaleableUnitBuff extends Skill{
     public void prepareForFight(Formation thisFormation, Formation enemyFormation){
         int unitsBehind = unitsBehind(thisFormation);
         owner.setCurrentAtt(owner.getBaseAtt() + Math.round(attPerLevel*owner.getLevel()) * unitsBehind);
-        owner.setCurrentHP(owner.getBaseHP() + (int)Math.round(HPPerLevel*owner.getLevel()) * unitsBehind);
+        owner.setCurrentHP(owner.getBaseHP() + (int)Math.round(HPPerLevel*Math.min(owner.getLevel(),Hero.MAX_NORMAL_LEVEL)) * unitsBehind);
         owner.setMaxHP(owner.getCurrentHP());
     }
     

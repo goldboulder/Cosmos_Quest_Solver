@@ -30,6 +30,8 @@ Galla
 Sparks
 Willow
 Mysterious Egg
+Pluvia
+Yuri
 Lady of Twilight
 Dicemaster
 Cloud
@@ -72,6 +74,8 @@ Yisus
 Leaf
 Gizmo
 Baby Pyros
+Silex
+Alan
 Tiny
 Luxurius Maximus
 Ember
@@ -145,9 +149,8 @@ Hans
 Flynn
 Daisy
 Young Pyros
-Pluvia
-Silex
 Caeli
+Valentina
 B-Day
 Annie
 Nebra
@@ -207,6 +210,7 @@ Mecha Mary
 Thumper
 King Pyros
 Ignis
+John
 Bubbles
 Guy
 Spike

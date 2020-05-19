@@ -184,6 +184,10 @@ Pluvia,false,0
 Silex,false,0
 Caeli,false,0
 Ignis,false,0
+Yuri,false,0
+Alan,false,0
+Valentina,false,0
+John,false,0
 B-Day,false,0
 Annie,false,0
 Lady of Twilight,false,0

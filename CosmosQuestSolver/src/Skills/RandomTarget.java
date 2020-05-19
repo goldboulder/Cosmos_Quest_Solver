@@ -42,7 +42,7 @@ public class RandomTarget extends Skill{
     @Override
     public void postRoundAction(Formation thisFormation, Formation enemyFormation){
         turn ++;
-        owner.setCurrentAtt(tempAttack);
+        //owner.setCurrentAtt(tempAttack);
     }
     
     //Bubbles dampening lux damage?

@@ -657,6 +657,7 @@ public class CreatureFactory {
             case "ScaleableAttackBoostAura": return new ScaleableAttackBoostAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableBloodBomb": return new ScaleableBloodBomb(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableFlatField": return new ScaleableFlatField(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
+            case "ScaleableFrontWrath": return new ScaleableFrontWrath(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
             case "ScaleableHeal": return new ScaleableHeal(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableHiddenCharger": return new ScaleableHiddenCharger(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]),Double.parseDouble(tokens[4]));
             case "ScaleableGrowingAttAura": return new ScaleableGrowingAttAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));

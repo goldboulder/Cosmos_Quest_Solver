@@ -35,7 +35,7 @@ public class PartingGift extends Skill{
 
     @Override
     public void postRoundAction0(Formation thisFormation, Formation enemyFormation) {//triggers before reflect
-        if (owner.isDead() && !activated){
+        if (owner.isDead() && !activated && !owner.hasRevive()){
             grantBoost(thisFormation);
         }
     }

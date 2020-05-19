@@ -480,6 +480,10 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         return baseHP;
     }
 
+    public boolean hasRevive() {
+        return getRuneSkill().hasRevive();
+    }
+
     
 
     

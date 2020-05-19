@@ -35,9 +35,9 @@ public class Payback extends Skill{
         Creature target = Formation.findFirstTarget(enemyFormation);
         if (target != null){
             target.changeHP(-damageTaken*multiplier,enemyFormation);
-            if (target.getMainSkill() instanceof Payback){
-                target.getMainSkill().recordDirectDamageTaken((long)(Math.ceil(damageTaken*multiplier)),thisFormation,enemyFormation);
-            }
+            //if (target.getMainSkill() instanceof Payback){
+                //target.getMainSkill().recordDirectDamageTaken((long)(Math.ceil(damageTaken*multiplier)),thisFormation,enemyFormation);
+            //}
         }
     }
     
@@ -53,7 +53,7 @@ public class Payback extends Skill{
     
     @Override
     public int viability() {
-        return (int)(owner.getBaseHP() * owner.getBaseAtt() * (1+1.75*multiplier));
+        return (int)(owner.getBaseHP() * owner.getBaseAtt() * (1+3*multiplier));
     }
 
     @Override

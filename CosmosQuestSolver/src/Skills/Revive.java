@@ -77,4 +77,9 @@ public class Revive extends Skill implements RuneSkill{
         return "Angel";
     }
     
+    @Override
+    public boolean hasRevive() {
+        return !activated;
+    }
+    
 }

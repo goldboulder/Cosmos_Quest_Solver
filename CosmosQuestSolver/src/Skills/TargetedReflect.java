@@ -64,7 +64,7 @@ public class TargetedReflect extends Skill{
     @Override
     public String getDescription() {
         String percent = Integer.toString((int)(multiplier * 100));
-        return "Returns " + percent + "% of damage recieved to enemy with most HP";
+        return "Returns " + percent + "% of direct damage recieved to enemy with most HP";
     }
     
     @Override

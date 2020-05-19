@@ -184,6 +184,10 @@ Pluvia,1,0
 Silex,1,0
 Caeli,1,0
 Ignis,1,0
+Yuri,1,0
+Alan,1,0
+Valentina,1,0
+John,1,0
 B-Day,1,0
 Annie,1,0
 Lady of Twilight,1,0

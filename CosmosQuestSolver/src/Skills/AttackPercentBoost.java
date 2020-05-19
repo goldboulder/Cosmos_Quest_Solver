@@ -33,7 +33,7 @@ public class AttackPercentBoost extends Skill implements RuneSkill{
     
     @Override
     public String getDescription() {
-        return "Multiplies damage dealt by  " + OtherThings.nicePercentString(multiplier-1);
+        return "Multiplies damage dealt by " + OtherThings.nicePercentString(multiplier-1);
     }
     
     @Override

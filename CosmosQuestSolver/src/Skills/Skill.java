@@ -165,6 +165,9 @@ public abstract class Skill {
     public boolean WBTryLessCreatures(){
         return false;
     }
+    public boolean hasRevive() {
+        return false;
+    }
 
     
 
