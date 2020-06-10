@@ -21,7 +21,7 @@ public class Thorns extends Skill{
     
 
     @Override
-    public void postRoundAction(Formation thisFormation, Formation enemyFormation) {
+    public void postRoundAction3(Formation thisFormation, Formation enemyFormation) {
         if (thisFormation.getFrontCreature() == owner){//can only reflect direct damage while in front
             Creature target = enemyFormation.getFrontCreature();
             if (target.isDead()){//if creature died from normal attack, reflect damage is saved for the next enemy

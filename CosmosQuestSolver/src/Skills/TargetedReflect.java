@@ -36,7 +36,7 @@ public class TargetedReflect extends Skill{
     @Override
     public void postRoundAction3(Formation thisFormation, Formation enemyFormation) {
         if (thisFormation.getFrontCreature() == owner){//can only reflect direct damage while in front
-            enemyFormation.getCreature(mostHPPosition(enemyFormation)).changeHP(-damageTakenThisRound*multiplier,enemyFormation);
+            enemyFormation.getCreature(mostHPPosition(enemyFormation)).takeReflectDamage(-damageTakenThisRound*multiplier,enemyFormation,thisFormation);
         }
     }
     

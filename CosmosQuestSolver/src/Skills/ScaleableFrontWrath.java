@@ -39,10 +39,10 @@ public class ScaleableFrontWrath extends Skill{
     @Override
     public String getDescription() {
         if (targets == 1){
-            return "Deals " + damagePerLevel + " damage to front unit on death (" + Integer.toString(damagePerLevel * owner.getLevel()) + ")";
+            return "Deals " + damagePerLevel + " damage per level to front unit on death (" + Integer.toString(damagePerLevel * owner.getLevel()) + ")";
         }
         else{
-            return "Deals " + damagePerLevel + " damage to front " + targets + " units on death (" + Integer.toString(damagePerLevel * owner.getLevel()) + ")";
+            return "Deals " + damagePerLevel + " damage per level to front " + targets + " units on death (" + roundedScaleMilestone(owner,damagePerLevel,1) + ")";
         }
     }
     
@@ -53,7 +53,7 @@ public class ScaleableFrontWrath extends Skill{
     
     @Override
     public int viability() {
-        return (owner.getBaseHP() * owner.getBaseAtt()) + (int)(owner.getBaseAtt() * damagePerLevel * owner.getLevel() * targets);
+        return (owner.getBaseHP() * owner.getBaseAtt()) + roundedScaleMilestone(owner,damagePerLevel,1) * targets;
     }
 
     @Override

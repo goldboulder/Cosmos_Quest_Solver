@@ -188,6 +188,14 @@ Yuri,false,0
 Alan,false,0
 Valentina,false,0
 John,false,0
+Sully,false,0
+Merida,false,0
+Will,false,0
+Sagittaria,false,0
+Emmisary Jalrok,false,0
+Raelan the Guardian,false,0
+Gatekeeper Sylnir,false,0
+Lord Arathon,false,0
 B-Day,false,0
 Annie,false,0
 Lady of Twilight,false,0

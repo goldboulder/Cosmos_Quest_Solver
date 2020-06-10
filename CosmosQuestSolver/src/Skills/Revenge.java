@@ -11,8 +11,8 @@ import Formations.Formation;
 //used by Cliodhna
 public class Revenge extends Skill{//how does it work with Niel? Pokerface crit extra damage not counted?
     
-    private double percent;
-    private boolean attackedThisTurn = false;
+    protected double percent;
+    protected boolean attackedThisTurn = false;
     //private long damageTakenThisRound;
     //private int armorThisRound;
 

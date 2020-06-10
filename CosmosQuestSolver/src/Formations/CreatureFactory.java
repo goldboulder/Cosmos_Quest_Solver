@@ -653,6 +653,7 @@ public class CreatureFactory {
             case "ScaleableAbsorbPercent": return new ScaleableAbsorbPercent(null,Double.parseDouble(tokens[1]));
             case "ScaleableAOE": return new ScaleableAOE(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableAntiAOE": return new ScaleableAntiAOE(null,Double.parseDouble(tokens[1]));
+            case "ScaleableAntiReflect": return new ScaleableAntiReflect(null,Double.parseDouble(tokens[1]));
             case "ScaleableArmorAura": return new ScaleableArmorAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableAttackBoostAura": return new ScaleableAttackBoostAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableBloodBomb": return new ScaleableBloodBomb(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
@@ -665,6 +666,7 @@ public class CreatureFactory {
             case "ScaleableOneTimeAbsorb": return new ScaleableOneTimeAbsorb(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleablePercentAtt": return new ScaleablePercentAtt(null,Double.parseDouble(tokens[1]));
             case "ScaleablePredator": return new ScaleablePredator(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
+            case "ScaleableRevenge": return new ScaleableRevenge(null,Double.parseDouble(tokens[1]));
             case "ScaleableSacrifice": return new ScaleableSacrifice(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableStartingDamage": return new ScaleableStartingDamage(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableStatAura": return new ScaleableStatAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Elements.parseElement(tokens[3]),Double.parseDouble(tokens[4]));

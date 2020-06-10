@@ -83,6 +83,7 @@ Edana
 Electra
 Ember
 Emily
+Emmisary Jalrok
 Erebus
 Faefyr
 Fir
@@ -93,6 +94,7 @@ Frosty
 GaiaByte
 Galla
 Ganah
+Gatekeeper Sylnir
 Geron
 Geror
 Geum
@@ -133,6 +135,7 @@ Leaf
 Leprechaun
 Lili
 Liu Cheng
+Lord Arathon
 Lord Kirk
 Luxurius Maximus
 Mahatma
@@ -140,6 +143,7 @@ Marauder Magnus
 Master Lee
 Maunder
 Mecha Mary
+Merida
 Minerva
 Mother
 Mr Cotton
@@ -164,6 +168,7 @@ Pontus
 Putrid
 Pyromancer
 R31
+Raelan the Guardian
 Raider Rose
 Raze
 Rei
@@ -176,6 +181,7 @@ Rokka
 Rua
 Rudean
 Ruin
+Sagittaria
 Sanqueen
 Santa Claus
 Scinda
@@ -190,6 +196,7 @@ Smith
 Sparks
 Spike
 Spyke
+Sully
 T4URUS
 Taint
 Takeda
@@ -207,6 +214,7 @@ Valor
 Veildur
 The Wanderer
 Werewolf
+Will
 Willow
 Xarth
 Yeti the Postman

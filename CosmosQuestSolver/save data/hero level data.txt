@@ -188,6 +188,14 @@ Yuri,1,0
 Alan,1,0
 Valentina,1,0
 John,1,0
+Sully,1,0
+Merida,1,0
+Will,1,0
+Sagittaria,1,0
+Emmisary Jalrok,1,0
+Raelan the Guardian,1,0
+Gatekeeper Sylnir,1,0
+Lord Arathon,1,0
 B-Day,1,0
 Annie,1,0
 Lady of Twilight,1,0

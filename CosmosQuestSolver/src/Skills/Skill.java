@@ -61,6 +61,10 @@ public abstract class Skill {
         return damage;
     }
     
+    public void takeReflectDamage(double damage, Formation thisFormation, Formation enemyFormation) {
+        owner.changeHP(-damage,thisFormation);
+    }
+    
     //public void takeHit(Creature attacker,  Formation thisFormation, Formation enemyFormation, double hit) {//only used by revive and melf. put this back into creature?********
         //if (hit < 0){
             //hit = 0;
@@ -168,6 +172,8 @@ public abstract class Skill {
     public boolean hasRevive() {
         return false;
     }
+
+    
 
     
 

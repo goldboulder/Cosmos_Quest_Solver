@@ -50,7 +50,7 @@ public class Reflect extends Skill{
                 
             }
             else{
-                target.changeHP(-damageTakenThisRound*multiplier,enemyFormation);//elemental damage boost and defence not considered.
+                target.takeReflectDamage(damageTakenThisRound*multiplier,enemyFormation,thisFormation);//elemental damage boost and defence not considered.
             }
         }
     }

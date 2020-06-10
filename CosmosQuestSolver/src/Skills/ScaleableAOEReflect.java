@@ -34,7 +34,7 @@ public class ScaleableAOEReflect extends Skill{
     @Override
     public void postRoundAction3(Formation thisFormation, Formation enemyFormation) {
         if (thisFormation.getFrontCreature() == owner){//can only reflect direct damage while in front
-            enemyFormation.takeRawDamage(damageTakenThisRound * roundedScaleMilestoneDouble(owner,multiplier,1));
+            enemyFormation.takeReflectDamage(damageTakenThisRound * roundedScaleMilestoneDouble(owner,multiplier,1), thisFormation);
         }
     }
     

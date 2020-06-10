@@ -392,6 +392,10 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
         changeHP(-hit,thisFormation);
     }
     
+    public void takeReflectDamage(double damage, Formation thisFormation, Formation enemyFormation) {
+        getMainSkill().takeReflectDamage(damage,thisFormation, enemyFormation);
+    }
+    
     public void takeHeal(double amount, Formation thisFormation) {
         changeHP(Math.round(amount * healEffectiveness), thisFormation);
     }
@@ -483,6 +487,8 @@ public abstract class Creature implements Comparable<Creature>{//refresh instead
     public boolean hasRevive() {
         return getRuneSkill().hasRevive();
     }
+
+    
 
     
 

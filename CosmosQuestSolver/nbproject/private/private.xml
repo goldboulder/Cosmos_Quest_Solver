@@ -36,6 +36,7 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/Revenge.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/NoHeroes.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/Intercept.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableFrontWrath.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/ImageFactory.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/FinishingBlow.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/CreaturePictureSelectionPanel.java</file>
@@ -46,8 +47,8 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/Affinity.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/SpecialQuestSolver.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleablePercentAtt.java</file>
-            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/Monster.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleablePredator.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/Monster.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableBloodBomb.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/AI/WorldBossOptimizer.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ScaleableAntiAOE.java</file>
@@ -116,9 +117,9 @@
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/SettingsFrame.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/Wither.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Formations/Creature.java</file>
+            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/NoUnits.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/CalculationPanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/WorldBossOptimizerFrame.java</file>
-            <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/NoUnits.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/GUI/MonsterSelectionPanel.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/ReverseRicochet.java</file>
             <file>file:/C:/Users/Nathan/Documents/GitHub/Cosmos_Quest_Solver/CosmosQuestSolver/src/Skills/Train.java</file>

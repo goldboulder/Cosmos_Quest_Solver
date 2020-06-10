@@ -838,6 +838,12 @@ public class Formation implements Iterable<Creature>{
         }
     }
     
+    public void takeReflectDamage(double damage, Formation enemyFormation){
+        for (Creature creature : members){
+            creature.takeReflectDamage(damage,this,enemyFormation);
+        }
+    }
+    
     public void AOEHeal(double amount, Formation enemyFormation){//anti AOE rounding?
         double newAmount = amount * (1 - enemyFormation.getAOEResistance());
         for (Creature creature : members){
