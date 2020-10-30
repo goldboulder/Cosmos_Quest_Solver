@@ -10,7 +10,7 @@ import cosmosquestsolver.OtherThings;
 import Formations.Hero;
 
 //
-//used by 5-12-6
+//used by 5-12-6 and Esmeralda
 public class ScaleablePercentAtt extends Skill{
     
     private double percent;
@@ -47,7 +47,7 @@ public class ScaleablePercentAtt extends Skill{
     
     @Override
     public String getDescription() {
-        return "Deals extra damage equalt to " + OtherThings.nicePercentString(percent) + " of of enemy HP every level (" + OtherThings.nicePercentString(roundedScaleMilestoneDouble(owner,percent,1)) + ")";
+        return "Deals extra damage equal to " + OtherThings.nicePercentString(percent) + " of of enemy HP every level (" + OtherThings.nicePercentString(roundedScaleMilestoneDouble(owner,percent,1)) + ")";
     }
     
     @Override

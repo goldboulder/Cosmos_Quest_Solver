@@ -146,6 +146,10 @@ Rob,false,0
 Kirk Lee,false,0
 Lars,false,0
 Hetfield,false,0
+Stench,false,0
+Rumble,false,0
+Vermin,false,0
+Reaper,false,0
 Werewolf,false,0
 Jack'o Knight,false,0
 Dullahan,false,0
@@ -156,6 +160,10 @@ Casper,false,0
 Adrian,false,0
 Emily,false,0
 Adam,false,0
+Esmeralda,false,0
+Marionette,false,0
+Antoinette,false,0
+Lady Maligryn,false,0
 Christmas Elf,false,0
 Reindeer,false,0
 Santa Claus,false,0

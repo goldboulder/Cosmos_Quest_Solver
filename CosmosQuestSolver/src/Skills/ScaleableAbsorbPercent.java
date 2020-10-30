@@ -34,7 +34,9 @@ public class ScaleableAbsorbPercent extends Skill{
     @Override
     public double hitAfterDefend(Creature attacker, Formation thisFormation, Formation enemyFormation, double damage){
         return Math.round(damage);
+        
     }
+    
     
     @Override
     public String getDescription() {

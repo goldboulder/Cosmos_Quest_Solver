@@ -605,12 +605,14 @@ public class CreatureFactory {
             case "ArmorAura": return new ArmorAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]));
             case "AttackPercentBoost": return new AttackPercentBoost(null,Double.parseDouble(tokens[1]));
             case "AttackBoostAura": return new AttackBoostAura(null,Integer.parseInt(tokens[1]),Elements.parseElement(tokens[2]));
+            case "AttackDrain": return new AttackDrain(null,Double.parseDouble(tokens[1]));
             case "AttackPercentAura": return new AttackPercentAura(null,Double.parseDouble(tokens[1]));
             case "Berserk": return new Berserk(null,Double.parseDouble(tokens[1]),Integer.parseInt(tokens[2]),Boolean.parseBoolean(tokens[3]));
             case "BloodBomb": return new BloodBomb(null,Integer.parseInt(tokens[1]));
             case "BloodLust": return new BloodLust(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
             case "CriticalHit": return new CriticalHit(null,Double.parseDouble(tokens[1]));
             case "DamageDodge": return new DamageDodge(null,Integer.parseInt(tokens[1]));
+            case "DamageRecycle": return new DamageRecycle(null,Double.parseDouble(tokens[1]));
             case "EasterStatLevelBoost": return new EasterStatLevelBoost(null,Double.parseDouble(tokens[1]));
             case "ElementBoostPlusAbsorb": return new ElementBoostPlusAbsorb(null,Elements.parseElement(tokens[1]),Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]));
             case "ElementDamageBoost": return new ElementDamageBoost(null,Elements.parseElement(tokens[1]),Double.parseDouble(tokens[2]));
@@ -625,6 +627,7 @@ public class CreatureFactory {
             case "HealFirst": return new HealFirst(null,Integer.parseInt(tokens[1]));
             case "HealthyAOE": return new HealthyAOE(null,Double.parseDouble(tokens[1]));
             case "HealthyAttack": return new HealthyAttack(null,Double.parseDouble(tokens[1]));
+            case "HorsemenBrotherhood": return new HorsemenBrotherhood(null,Integer.parseInt(tokens[1]));
             case "HPBoost": return new HPBoost(null,Double.parseDouble(tokens[1]));
             case "IncreasingAOE": return new IncreasingAOE(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
             case "Inferno": return new Inferno(null,Double.parseDouble(tokens[1]));
@@ -661,7 +664,7 @@ public class CreatureFactory {
             case "ScaleableFrontWrath": return new ScaleableFrontWrath(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]));
             case "ScaleableHeal": return new ScaleableHeal(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableHiddenCharger": return new ScaleableHiddenCharger(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]),Double.parseDouble(tokens[4]));
-            case "ScaleableGrowingAttAura": return new ScaleableGrowingAttAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
+            case "ScaleableGrowingAttAura": return new ScaleableGrowingAttAura(null,Double.parseDouble(tokens[1]),Integer.parseInt(tokens[2]),Double.parseDouble(tokens[3]));
             case "ScaleableLifeSteal": return new ScaleableLifeSteal(null,Integer.parseInt(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleableOneTimeAbsorb": return new ScaleableOneTimeAbsorb(null,Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]));
             case "ScaleablePercentAtt": return new ScaleablePercentAtt(null,Double.parseDouble(tokens[1]));
@@ -677,6 +680,7 @@ public class CreatureFactory {
             case "StatAura": return new StatAura(null,Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Elements.parseElement(tokens[3]));
             case "StatAuraLifeSteal": return new StatAuraLifeSteal(null,Integer.parseInt(tokens[1]));
             case "StatLevelBoost": return new StatLevelBoost(null,Double.parseDouble(tokens[1]));
+            case "StatSteal": return new StatSteal(null,Double.parseDouble(tokens[1]));
             case "Simmer": return new Simmer(null,Double.parseDouble(tokens[1]));
             case "TargetedReflect": return new TargetedReflect(null,Double.parseDouble(tokens[1]));
             case "TempAttackPercentAura": return new TempAttackPercentAura(null,Double.parseDouble(tokens[1]),Integer.parseInt(tokens[2]));

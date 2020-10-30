@@ -11,6 +11,7 @@ Alan
 Alpha
 Alvitr
 Annie
+Antoinette
 Aoyuki
 Aquortis
 Arshen
@@ -85,6 +86,7 @@ Ember
 Emily
 Emmisary Jalrok
 Erebus
+Esmeralda
 Faefyr
 Fir
 Flint
@@ -128,6 +130,7 @@ Kirk Lee
 Koldis
 Koth
 Kumu san
+Lady Maligryn
 Lady Odelith
 Lady of Twilight
 Lars
@@ -140,6 +143,7 @@ Lord Kirk
 Luxurius Maximus
 Mahatma
 Marauder Magnus
+Marionette
 Master Lee
 Maunder
 Mecha Mary
@@ -171,6 +175,7 @@ R31
 Raelan the Guardian
 Raider Rose
 Raze
+Reaper
 Rei
 Reindeer
 Retia
@@ -181,6 +186,7 @@ Rokka
 Rua
 Rudean
 Ruin
+Rumble
 Sagittaria
 Sanqueen
 Santa Claus
@@ -196,6 +202,7 @@ Smith
 Sparks
 Spike
 Spyke
+Stench
 Sully
 T4URUS
 Taint
@@ -212,6 +219,7 @@ Undine
 Valentina
 Valor
 Veildur
+Vermin
 The Wanderer
 Werewolf
 Will

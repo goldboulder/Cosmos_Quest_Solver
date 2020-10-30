@@ -35,17 +35,14 @@ public class PositionAttToHealth extends Skill{//*activates before leprechaun*
         
         Creature[] formation = Formation.listBlankSpacesToArray(thisFormation.getMembers(), thisFormation.getBlankSpaces());
         
-        int position = 0;
-        for (int i = 0; i < Formation.MAX_MEMBERS; i++){
-            if (formation[i] == owner){
-                position = i+1;
-                break;
-            }
+        int position = thisFormation.positionOfCreatureWithBlankSpace(owner);
+        if (position < 0){
+            return;
         }
         
         //System.out.println("position: " + position);
                 
-        int transfer = (int)(Math.round(owner.getBaseAtt() * percentPerPosition * position));
+        int transfer = (int)(Math.round(owner.getBaseAtt() * percentPerPosition * (position+1)));
         //System.out.println("transfer: " + transfer);
         owner.setMaxHP(owner.getBaseHP()+(int)(transfer*transferRate));//rounding?
         owner.setCurrentHP(owner.getMaxHP());

@@ -279,7 +279,7 @@ public class WorldBossASPerHitPanel extends JPanel implements ActionListener, Do
         
         //results
         
-        maxHits = isSuper ? 2 : 9;
+        maxHits = isSuper ? 5 : 9;
         String[][] results = new String[maxHits+1][6];
         results[0][0] = "Hits";
         results[0][1] = "Damage";

@@ -146,6 +146,10 @@ Rob,1,0
 Kirk Lee,1,0
 Lars,1,0
 Hetfield,1,0
+Stench,1,0
+Rumble,1,0
+Vermin,1,0
+Reaper,1,0
 Werewolf,1,0
 Jack'o Knight,1,0
 Dullahan,1,0
@@ -156,6 +160,10 @@ Casper,1,0
 Adrian,1,0
 Emily,1,0
 Adam,1,0
+Esmeralda,1,0
+Marionette,1,0
+Antoinette,1,0
+Lady Maligryn,1,0
 Christmas Elf,1,0
 Reindeer,1,0
 Santa Claus,1,0

@@ -45,7 +45,8 @@ public class Reflect extends Skill{
             if (target.isDead()){//if creature died from normal attack, reflect damage is saved for the next enemy
                 target = Formation.findFirstTarget(enemyFormation);
                 if (enemyFormation.size() > 0 && target != null){
-                    target.changeHP(-damageTakenThisRound*multiplier,enemyFormation);//new front creature
+                    target.takeReflectDamage(damageTakenThisRound*multiplier,enemyFormation,thisFormation);//new front creature
+                    //System.out.println("Damage Reflected: " + damageTakenThisRound*multiplier);
                 }
                 
             }
@@ -76,7 +77,7 @@ public class Reflect extends Skill{
     
     @Override
     public int viability() {
-        return (int)(owner.getBaseHP() * owner.getBaseAtt() * (1+1.75*multiplier));
+        return (int)(owner.getBaseHP() * owner.getBaseAtt() * (1+7*multiplier));
     }
 
     @Override

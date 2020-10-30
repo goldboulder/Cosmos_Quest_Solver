@@ -59,7 +59,7 @@ public class Purity extends Skill{
     
     @Override
     public int viability() {//normal viability, using average damage increace if fighting a creature of a random element
-        return owner.getBaseHP() * owner.getBaseAtt() * (int)(1 + (multiplier-1)/Elements.numElements());
+        return (int) (owner.getBaseHP() * owner.getBaseAtt() * 1 + (multiplier-1)/Elements.numElements());
     }
 
     @Override

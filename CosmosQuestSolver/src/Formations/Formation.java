@@ -38,6 +38,32 @@ public class Formation implements Iterable<Creature>{
     private long seed = -1;//used for random skills. newSeed should be positive. if newSeed is needed, generate it
     private LinkedList<Integer> blankSpaces;
 
+    public int positionOfCreatureWithBlankSpace(Creature owner) {
+        //have this be a method in Formation*
+        Creature[] formation = listBlankSpacesToArray(getMembers(),getBlankSpaces());
+        
+        for (int i = 0; i < Formation.MAX_MEMBERS; i++){
+            if (formation[i] == owner){
+                return i;
+            }
+            
+        }
+        return -1;
+    }
+    
+    public int positionOfCreature(Creature owner) {
+        //have this be a method in Formation*
+        
+        int position = 0;
+        for (Creature c : members){
+            if (c == owner){
+                return position;
+            }
+            position ++;
+        }
+        return -1;
+    }
+
     
 
     

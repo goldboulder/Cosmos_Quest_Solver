@@ -32,7 +32,7 @@ public class ScaleableAntiReflect extends Skill{
     
     @Override
     public String getDescription() {
-        return "Takes " + amountPerLevel + "% less damage per level from reflects (" + OtherThings.nicePercentString(Skill.roundedScaleMilestoneDouble(owner, amountPerLevel, 1)) + ")";
+        return "Takes " + amountPerLevel * 100 + "% less damage per level from reflects (" + OtherThings.nicePercentString(Skill.roundedScaleMilestoneDouble(owner, amountPerLevel, 1)) + ")";
         
     }
     

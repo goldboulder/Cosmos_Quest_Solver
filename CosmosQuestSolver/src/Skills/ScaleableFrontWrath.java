@@ -31,7 +31,7 @@ public class ScaleableFrontWrath extends Skill{
     @Override
     public void deathAction(Formation thisFormation, Formation enemyFormation) {
         for (int i = 0; i < targets && i < enemyFormation.size(); i++){
-            enemyFormation.getCreature(i).changeHP(-damagePerLevel * owner.getLevel(),enemyFormation);;
+            enemyFormation.getCreature(i).changeHP(-roundedScaleMilestone(owner,damagePerLevel,1),enemyFormation);;
         }
         
     }
@@ -39,7 +39,7 @@ public class ScaleableFrontWrath extends Skill{
     @Override
     public String getDescription() {
         if (targets == 1){
-            return "Deals " + damagePerLevel + " damage per level to front unit on death (" + Integer.toString(damagePerLevel * owner.getLevel()) + ")";
+            return "Deals " + damagePerLevel + " damage per level to front unit on death (" + roundedScaleMilestone(owner,damagePerLevel,1) + ")";
         }
         else{
             return "Deals " + damagePerLevel + " damage per level to front " + targets + " units on death (" + roundedScaleMilestone(owner,damagePerLevel,1) + ")";

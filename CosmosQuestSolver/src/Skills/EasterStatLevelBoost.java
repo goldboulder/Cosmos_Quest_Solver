@@ -54,7 +54,7 @@ public class EasterStatLevelBoost extends StatLevelBoost{
         int[] newStats = getNewStats();
         int max = newStats[0] * newStats[1];
         int min = owner.getBaseHP() * owner.getBaseAtt();
-        return (int)(min + (max-min)*multiplier * 0.2);
+        return (int)(min + (max-min)*multiplier * 0.14);
     }
     
 }

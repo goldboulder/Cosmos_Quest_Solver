@@ -7,18 +7,19 @@ import Formations.Creature;
 import Formations.Elements;
 import Formations.Formation;
 import Formations.Elements.Element;
+import cosmosquestsolver.OtherThings;
 
 //Increases the attack of all creatures.
 // every turn while creature is alive. Increases lineraly as level increaces.
 //used by Yeti the Postman
 public class ScaleableGrowingAttAura extends Skill{
     
-    private int attBoost;
+    private double attBoost;
     private int turns;
     private double levelMilestone;
     private int currentTurn = 0;
     
-    public ScaleableGrowingAttAura(Creature owner, int attBoost, int turns, double levelMilestone) {//if elsment is null, apply to all creatures
+    public ScaleableGrowingAttAura(Creature owner, double attBoost, int turns, double levelMilestone) {//if elsment is null, apply to all creatures
         super(owner);
         this.attBoost = attBoost;
         this.turns = turns;
@@ -50,7 +51,7 @@ public class ScaleableGrowingAttAura extends Skill{
         currentTurn ++;
         if (currentTurn % turns == 0){
             for (Creature c : thisFormation){
-                c.setCurrentAtt(c.getCurrentAtt() + roundedScaleMilestone(owner,attBoost,levelMilestone));
+                c.setCurrentAtt(c.getCurrentAtt() + Math.round(attBoost*owner.getLevel()/levelMilestone));
                 //creature.addAttConstantBoost(roundedScaleMilestone(owner,attBoost,levelMilestone));//round up?***
             }
         }
@@ -91,12 +92,12 @@ public class ScaleableGrowingAttAura extends Skill{
                 milestoneStr = Double.toString(levelMilestone) + " levels";
             }
         }
-        
+        int actualBoost = (int)Math.round(attBoost*owner.getLevel()/levelMilestone);
         if (turns == 1){
-            return "+" + attBoost + " attack to all creatures every " + milestoneStr + " per turn " + roundedScaleMilestoneStr(owner,attBoost,levelMilestone);
+            return "+" + OtherThings.intOrNiceDecimalFormat(attBoost) + " attack to all creatures every " + milestoneStr + " per turn (" + actualBoost + ")";
         }
         else{
-            return "+" + attBoost + " attack to all creatures every " + milestoneStr + " per " + turns + " turns " + roundedScaleMilestoneStr(owner,attBoost,levelMilestone);
+            return "+" + OtherThings.intOrNiceDecimalFormat(attBoost) + " attack to all creatures every " + milestoneStr + " per " + turns + " turns (" + actualBoost + ")";
         }
         
     }

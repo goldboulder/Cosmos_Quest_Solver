@@ -24,6 +24,7 @@ Bewat
 Werewolf
 Billy
 Casper
+Esmeralda
 Christmas Elf
 Fir
 Galla
@@ -67,6 +68,7 @@ Lady Odelith
 Jack'o Knight
 Sanqueen
 Adrian
+Marionette
 Reindeer
 Sexy Santa
 5_12_6
@@ -144,9 +146,13 @@ Myrmillo
 Rob
 Kirk Lee
 Lars
+Stench
+Rumble
+Vermin
 Dullahan
 Cliodhna
 Emily
+Antoinette
 Santa Claus
 Kedari
 Hans
@@ -211,7 +217,9 @@ Aurora
 Minerva
 Retia
 Hetfield
+Reaper
 Adam
+Lady Maligryn
 Mecha Mary
 Thumper
 King Pyros

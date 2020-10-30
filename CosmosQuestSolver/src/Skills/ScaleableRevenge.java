@@ -12,6 +12,7 @@ import cosmosquestsolver.OtherThings;
 public class ScaleableRevenge extends Skill{
     
     private double percentPerLevel;
+    private int damageStorage;//attack only increases at end of turn
     
     public ScaleableRevenge(Creature owner, double percentPerLevel) {
         super(owner);
@@ -26,7 +27,23 @@ public class ScaleableRevenge extends Skill{
     
     @Override
     public void recordAnyDamageTaken(long damage, Formation thisFormation, Formation enemyFormation){
-        owner.setCurrentAtt((int)(owner.getCurrentAtt() + damage * roundedScaleMilestoneDouble(owner,this.percentPerLevel,1) + 0.5));
+        damageStorage += (int)(damage * roundedScaleMilestoneDouble(owner,this.percentPerLevel,1) + 0.5);
+        
+    }
+    
+    @Override
+    public void startOfFightAction2(Formation thisFormation, Formation enemyFormation){//lep damage
+        owner.setCurrentAtt((int)(owner.getCurrentAtt() + damageStorage));
+    }
+    
+    @Override
+    public void preRoundAction(Formation thisFormation, Formation enemyFormation) {
+        damageStorage = 0;
+    }
+    
+    @Override
+    public void postRoundAction3(Formation thisFormation, Formation enemyFormation) {
+        owner.setCurrentAtt((int)(owner.getCurrentAtt() + damageStorage));
     }
     
     @Override
