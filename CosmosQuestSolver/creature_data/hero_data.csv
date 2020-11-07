@@ -229,6 +229,6 @@ Rumble,231,Season,Legendary,Fire,65,59,StatSteal 0.2,60,86,58,StatSteal 0.25,Hor
 Vermin,232,Season,Legendary,Earth,66,60,StatSteal 0.25,62,88,60,StatSteal 0.3,HorsemenBrotherhood 100
 Reaper,233,Season,Ascended,Void,120,110,StatSteal 0.35,234,258,180,StatSteal 0.4,HorsemenBrotherhood 100
 Esmeralda,234,Event,Common,Air,27,41,ScaleablePercentAtt 0.00277778,68,38,16,ScaleablePercentAtt 0.0033334,ExtraAttackBoost 1.25
-Marionette,235,Event,Rare,Water,30,72,Ricochet 0.9 3,58,22,32,Ricochet 0.9 3,ExtraAttackBoost 1.27
+Marionette,235,Event,Rare,Water,30,72,Ricochet 0.9 3,58,22,32,Ricochet 1.0 3,ExtraAttackBoost 1.27
 Antoinette,236,Event,Legendary,Fire,128,38,AttackDrain 0.1,42,188,64,AttackDrain 0.15,ExtraAttackBoost 1.29
-Lady Maligryn,237,Event,Ascended,Earth,98,164,DamageRecycle 1.5,228,136,128,DamageRecycle 1.5,ExtraAttackBoost 1.35
+Lady Maligryn,237,Event,Ascended,Earth,98,164,DamageRecycle 1.5,228,136,128,DamageRecycle 2.0,ExtraAttackBoost 1.35

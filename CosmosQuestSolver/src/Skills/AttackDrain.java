@@ -23,10 +23,11 @@ public class AttackDrain extends Skill {
     
     @Override
     public void deathAction(Formation thisFormation, Formation enemyFormation){
-        if (enemyFormation.getFrontCreature() instanceof WorldBoss) return;
+        if (enemyFormation.isEmpty()) return;
+        //if (enemyFormation.getFrontCreature() instanceof WorldBoss) return;
         
         for (Creature c : enemyFormation.getMembers()){
-            c.setCurrentAtt(c.getCurrentAtt() - (int)(c.getBaseAtt() * percent));
+            c.setCurrentAtt(c.getCurrentAtt() - (int)Math.round(c.getBaseAtt() * percent));
         }
     }
     
@@ -38,7 +39,7 @@ public class AttackDrain extends Skill {
 
     @Override
     public String getDescription() {
-        return "Lowers all enemy's attack by " + OtherThings.nicePercentString(percent) + " at start";
+        return "Lowers all enemy's attack by " + OtherThings.nicePercentString(percent) + " on death";
     }
 
     @Override
