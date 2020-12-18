@@ -7,8 +7,8 @@ import Formations.Creature;
 import Formations.Formation;
 import cosmosquestsolver.OtherThings;
 
-//at the beggining of the battle, increases attack and health by x if another
-//horseman is in the formation. Used by Halloween 4 heroes
+//at the beggining of the battle, increases attack and health by x for each other
+//horseman in the formation. Used by Halloween 4 heroes
 public class HorsemenBrotherhood extends Skill{
     
     int boost;
@@ -26,28 +26,30 @@ public class HorsemenBrotherhood extends Skill{
     
     @Override
     public void prepareForFight(Formation thisFormation, Formation enemyFormation) {//adjusts stats
-        if (hasOtherHorsemen(thisFormation)){
-            owner.setMaxHP(owner.getMaxHP() + boost);
-            owner.setCurrentHP(owner.getCurrentHP() + boost);
-            owner.setCurrentAtt(owner.getCurrentAtt() + boost);
+        int numOther = numOtherHorsemen(thisFormation);
+        if (numOther > 0){
+            owner.setMaxHP(owner.getMaxHP() + boost*numOther);
+            owner.setCurrentHP(owner.getCurrentHP() + boost*numOther);
+            owner.setCurrentAtt(owner.getCurrentAtt() + boost*numOther);
         }
     }
     
-    private boolean hasOtherHorsemen(Formation formation){
+    private int numOtherHorsemen(Formation formation){
+        int amount = 0;
         String name = owner.getName();
         for (Creature c : formation){
-            if (c.getName().equals("Stench") && !name.equals("Stench")) return true;
-            if (c.getName().equals("Rumble") && !name.equals("Rumble")) return true;
-            if (c.getName().equals("Vermin") && !name.equals("Vermin")) return true;
-            if (c.getName().equals("Reaper") && !name.equals("Reaper")) return true;
+            if (c.getName().equals("Stench") && !name.equals("Stench")) amount ++;
+            if (c.getName().equals("Rumble") && !name.equals("Rumble")) amount ++;
+            if (c.getName().equals("Vermin") && !name.equals("Vermin")) amount ++;
+            if (c.getName().equals("Reaper") && !name.equals("Reaper")) amount ++;
         }
-        return false;
+        return amount;
     }
     
     @Override
     public String getDescription() {
         
-        return "Increases stats by " + boost + " if with another horseman";
+        return "Increases stats by " + boost + " for each other horseman in formation";
         
     }
     

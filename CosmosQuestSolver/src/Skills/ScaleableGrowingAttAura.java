@@ -7,6 +7,7 @@ import Formations.Creature;
 import Formations.Elements;
 import Formations.Formation;
 import Formations.Elements.Element;
+import Formations.Hero;
 import cosmosquestsolver.OtherThings;
 
 //Increases the attack of all creatures.
@@ -50,8 +51,9 @@ public class ScaleableGrowingAttAura extends Skill{
         
         currentTurn ++;
         if (currentTurn % turns == 0){
+            int trueLevel = owner.getLevel() > Hero.MAX_NORMAL_LEVEL ? Hero.MAX_NORMAL_LEVEL : owner.getLevel();//levelScaleMilestone?**
             for (Creature c : thisFormation){
-                c.setCurrentAtt(c.getCurrentAtt() + Math.round(attBoost*owner.getLevel()/levelMilestone));
+                c.setCurrentAtt(c.getCurrentAtt() + Math.round(attBoost*trueLevel/levelMilestone));
                 //creature.addAttConstantBoost(roundedScaleMilestone(owner,attBoost,levelMilestone));//round up?***
             }
         }
